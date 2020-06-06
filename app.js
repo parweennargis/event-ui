@@ -6,7 +6,8 @@ var express = require('express');
 var createError = require('http-errors');
 var cookieParser = require('cookie-parser');
 var exphbs  = require('express-handlebars');
-const adminRoutes = require('./routes/admin')
+const adminRoutes = require('./routes/admin');
+const config = require('./config');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -90,6 +91,9 @@ const helpers = {
       return options.fn(this);
     }
     return options.inverse(this);
+  },
+  apiUrl: function() {
+    return config.apiUrl
   }
 };
 

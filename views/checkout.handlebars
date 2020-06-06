@@ -1,0 +1,257 @@
+<section id="checkout-section" class="pt-3 pb-5 clearfix mobile-space">
+    <div class="container">
+
+        <div class="mb-15">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row mb-3">
+                        <div class="col-md-9 mt-4">
+
+                        </div>
+                        <div class="col-md-3 print-events text-right">
+                            <a href=""><i class="fa fa-print" aria-hidden="true"></i> Print</a> &nbsp; &nbsp;
+                            <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i> Share</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Order Summary</h4>
+                    <div class="plan-heading payment mb-3">
+                        {{#each cart}}
+                            {{!-- {{log this}} --}}
+                            <div class="col-md-12 mb-3">
+                            <h4> MEGA JOB FAIR EVENT - <strong>FALL 2020- BRAMPTON, ON
+                                    September 12th, 2020</strong></h4>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row mt-4 mb-3 pl-4 pr-4 sub-head">
+                                <div class="col-md-4">
+                                    <strong> Package Type</strong>
+                                </div>
+                                <div class="col-md-3">
+                                    <strong>Price</strong>
+                                </div>
+                                <div class="col-md-2">
+                                    <strong>HST</strong>
+                                </div>
+                                <div class="col-md-3">
+                                    <strong>Subtotal</strong>
+                                </div>
+                            </div>
+
+                            <div class=" cart-itembox mb-4">
+                                <div class="row">
+                                    {{#each plans}}
+                                        <div class="col-md-4 pb-3">
+                                            {{ pricing.name }}
+                                        </div>
+                                        <div class="col-md-3 pb-3">
+                                            ${{ price }}
+                                        </div>
+                                        <div class="col-md-2 pb-3">
+                                            ${{ tax }}
+                                        </div>
+                                        <div class="col-md-3 pb-3">
+                                            ${{ total_price }}
+                                        </div>
+                                    {{/each}}
+                                    {{!-- <div class="col-md-4 pb-3">
+                                        Premium
+                                    </div>
+                                    <div class="col-md-3 pb-3">
+                                        $1800
+                                    </div>
+                                    <div class="col-md-2 pb-3">
+                                        $200
+                                    </div>
+                                    <div class="col-md-3 pb-3">
+                                        $2000
+                                    </div> --}}
+                                </div>
+                            </div>
+
+                        </div>
+                        {{/each}}
+                        
+
+
+                        {{!-- <div class="col-md-12 ">
+                            <h4> MEGA JOB FAIR EVENT - <strong>FALL 2020- BRAMPTON, ON
+                                    September 12th, 2020</strong></h4>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row mt-4 mb-3 pl-4 pr-4">
+                                <div class="col-md-4">
+                                    <strong> Package Type</strong>
+                                </div>
+                                <div class="col-md-3">
+                                    <strong>Price</strong>
+                                </div>
+                                <div class="col-md-2">
+                                    <strong>Tax</strong>
+                                </div>
+                                <div class="col-md-3">
+                                    <strong>Subtotal</strong>
+                                </div>
+                            </div>
+
+                            <div class=" cart-itembox">
+                                <div class="row">
+
+
+                                    <div class="col-md-4 pb-3">
+                                        Gold
+                                    </div>
+                                    <div class="col-md-3 pb-3">
+                                        $1800
+                                    </div>
+                                    <div class="col-md-2 pb-3">
+                                        $200
+                                    </div>
+                                    <div class="col-md-3 pb-3">
+                                        $2000
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div> --}}
+
+                        <div class="col-md-6 mt-4">
+                            <strong>Amount Due</strong>
+                        </div>
+                        <div class="col-md-6 mt-4 text-right">
+                            <span class="amountdue mr-4">${{math totalPrice '+' totalTax}}</span>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                {{!-- Right section --}}
+                <div class="col-md-6">
+                    <h4> Invoice Information</h4>
+                    {{log profile}}
+                    <div class="plan-heading p-2  invoice mb-3 p-4">
+                        Company Name: {{ profile.company_name }}<br/>
+                        Attn: {{profile.first_name}} {{profile.last_name}}<br />
+                        Address: {{profile.address}}<br />
+                        Hawkesbury, {{profile.postal_code}}<br />
+                        Email: {{profile.email}}<br/>
+                        Phone: {{profile.phone_no}}
+                    </div>
+
+                    <h4> Billing Information</h4>
+                    <div class="plan-heading  invoice mb-3">
+                        <div class="p-2">
+                            <input type="checkbox" id="payment" checked> Is billing information same as Invoice Information.
+                            {{!-- <span  id="payment">click here.</span> --}}
+                        </div>
+                        <div class="row mt-3">
+                            <form id="payment-form" class="row mt-3">
+                                <div class="col-md-12 form-box" >  
+                                    <div class="form-group col-md-6 col-sm-12 " >
+                                        <label class="string optional active" for="user-pw">First
+                                            Name<span>*</span> </label>
+                                        <input class="form-control" id="name" placeholder="" type="text" name="first_name"
+                                            value="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-12">
+                                        <label class="string optional active" for="user-pw">Last
+                                            Name<span>*</span> </label>
+                                        <input class="form-control" id="name" placeholder="" type="text" name="last_name"
+                                            value="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-12">
+                                        <label class="string optional active" for="user-pw">Email<span>*</span>
+                                        </label>
+                                        <input type="email" class="form-control" placeholder="" value="" name="email" />
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-12">
+                                        <label class="string optional active" for="user-pw">Phone<span>*</span>
+                                        </label>
+                                        <input type="text" minlength="10" maxlength="10" name="phone_no"
+                                            class="form-control" placeholder="" value="" />
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-12">
+                                        <label class="string optional active" for="user-pw">Designation
+                                        </label>
+                                        <input type="text" class="form-control" placeholder="" value="" name="designation" />
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-12">
+                                        <label class="string optional active" for="user-pw">
+                                            Address<span>*</span> </label>
+                                        <input type="text" class="form-control" placeholder="" value="" name="address" />
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-12">
+                                        <label class="string optional active" for="user-pw">City<span>*</span> </label>
+                                        <input type="text" class="form-control" placeholder="" value=""  name="city"/>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-12">
+                                        <label class="string optional active" for="user-pw">Province<span>*</span> </label>
+                                        <input type="text" class="form-control" placeholder="" value="" name="province" />
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-12">
+                                        <label class="string optional active" for="user-pw">
+                                            Postal Code<span>*</span> </label>
+                                        <input type="text" class="form-control" placeholder="" value=""  name="postal_code"/>
+                                    </div>
+                                
+                                    <div class="form-group col-md-6 col-sm-12">
+                                        <label class="string optional active" for="user-pw">
+                                            Country<span>*</span> </label>
+                                        <input type="text" class="form-control" placeholder="" value="" name="country"/>
+                                    </div>
+
+
+                                    {{!-- <div class="form-group col-md-6 col-sm-12">
+                                        <label class="string optional active" for="user-pw">Business
+                                            Website<span>*</span> </label>
+                                        <input id="address" type="text" class="form-control" placeholder="" name="address"
+                                            value="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-12">
+                                        <label class="string optional active" for="user-pw">Business
+                                            Name<span>*</span> </label>
+                                        <input id="postal_code" type="text" class="form-control" placeholder=""
+                                            name="postal_code" value="" />
+                                    </div> --}}
+
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    {{!-- Payment Method --}}
+                    <h4> Payment Method</h4>
+                    <div class="plan-heading  payment-method mb-3">
+                        {{!-- <a href="#"> <img src="../../assets/images/visa.png" alt=""></a> --}}
+                        {{!-- <a href="#"> <img src="../../assets/images/mastercard.png" alt=""></a> --}}
+                        <a href="#"> <img src="../../assets/images/paypal.png" alt=""></a>
+                        <a href="#"> <img src="../../assets/images/bank-transfer.png" alt=""></a>
+                        <a href="#"> <img src="../../assets/images/cheque.png" alt=""></a>
+                    </div>
+                    {{!-- Payment Method end --}}
+
+                    <div class="form-group col-md-12 col-sm-12">
+
+                        <div class="agree_text text-right  mt-3">Clicking on pay now button you agree to our
+                            <a class="special" href="/terms" target="_blank" role="link">Terms &amp; Conditons</a>
+                            </div>
+
+                        <div class=" row mt-4">
+                            <div class="col-md-6 text-left totolamt"></div>
+                            <div class="col-md-6 text-right"> <button type="button" class="btn btn-danger pl-5 pr-5 pay-now">Pay Now</button></div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

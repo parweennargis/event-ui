@@ -1,0 +1,94 @@
+<section id="checkout-section" class="pt-3 pb-5 clearfix mobile-space">
+    <div class="container">
+
+        <div class="mb-15">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row mb-3">
+                        <div class="col-md-9">
+                            <h4>My Cart</h4>
+                        </div>
+                        <div class="col-md-3 print-events text-right">
+                            <a href=""><i class="fa fa-print" aria-hidden="true"></i> Print</a> &nbsp; &nbsp;
+                            <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i> Share</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    {{!-- {{log data}} --}}
+                    {{#each data }}
+                        <div class="plan-heading mb-3 {{event._id}}" data-count="">
+                            <div class="col-md-12">
+                                <h2 class="pb-2"><strong> MEGA JOB FAIR EVENT -</strong></h2>
+                                <h3>FALL 2020- BRAMPTON, ON</h3>
+                                <h4><strong>September 12th, 2020</strong></h4>
+                            </div>
+                            {{#each plans}}
+                                <div class="col-md-12 {{cartId}}">
+                                    <div class="cart-item">
+                                        <div class="row">
+                                            <div class="price col-md-9">
+                                                <h3>{{ pricing.name }}</h3>
+                                                <a href="/event/{{../event._id}}" class="bluecolor">More Details</a>
+                                            </div>
+                                            <div class=" col-md-3 text-right remove-box">
+                                                <a href="#" class="remove" data-id="{{cartId}}" data-event-id="{{../event._id}}"><img src="../assets/images/remove.png" /> Remove</a>
+                                            </div>
+                                        </div>
+                                        <div class="package-details">
+                                            <h4>Package Price: <strong>$ {{price}}</strong></h4>
+                                            <h4>HST: <strong>$ {{tax}}</strong></h4>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/each}}
+                </div>
+                <div class="col-md-3">
+                    <div class="gift-box">
+                        <img src="../assets/images/gift.png" alt="">
+                       After booking of 4 Booth you are qualify for 20% discount
+                    </div>
+
+                    <div class="sub-total mt-4" id="subtotal">
+                        <div class="row">
+                            <div class="col-md-5">
+                                Sub Total: 
+                            </div>
+                            <div class="col-md-7 text-right">
+                                ${{totalPrice}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                Taxes: 
+                            </div>
+                            <div class="col-md-7 text-right">
+                                ${{totalTax}}
+                            </div>
+                        </div>
+                        <div class="row total">
+                            <div class="col-md-5">
+                                Total Price:
+                            </div>
+                            <div class="col-md-7 text-right">
+                               <strong> ${{math totalTax '+' totalPrice }}</strong>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-7">
+                                <a href="#" class="bluecolor continueshopping mt-3">Continue Shopping</a>
+                            </div>
+                            <div class="col-md-5 text-right">
+                                <a href="/checkout" class="button-red pl-3 pr-3 mt-2">Checkout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

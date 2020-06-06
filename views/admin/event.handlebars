@@ -1,0 +1,57 @@
+<!-- partial -->
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title"> Basic Tables </h3>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Tables</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div style="float: right;">
+              <a href="/admin/add-event">Create Event</a>
+            </div>
+            </p>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th><b>Sl. No</b></th>
+                  <th><b>Name</b></th>
+                  <th><b>Date</b></th>
+                  <th><b>Venue</b></th>
+                  <th><b>Status</b></th>
+                  <th><b>Action</b></th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each events}}
+                <tr>
+                  <td>{{@index}}</td>
+                  <td>{{title}}</td>
+                  <td>{{start_date}} - {{end_date}}</td>
+                  <td>{{venue.name}}</td>
+                  <td>{{is_active}}</td>
+
+                  <td>
+                    <a href="/admin/events/{{_id}}">
+                      <div class="preview"> <i class="icon-trash"></i> </div>
+                    </a>
+                    <a href="/admin/events/{{_id}}">
+                      <div class="preview"> <i class="icon-pencil"></i> </div>
+                    </a>
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

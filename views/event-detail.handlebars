@@ -1,0 +1,242 @@
+  <!-- event-details-section - start
+		================================================== -->
+    <section id="event-details-section" class="event-details-section sec-ptb-100 clearfix">
+        <div class="container">
+            <div class="row">
+                {{log data}}
+                <!-- col - event-details - start -->
+                <div class="col-lg-8 col-md-12 col-sm-12">
+
+                    <!-- event-details - start -->
+                    <div class="event-details mb-15">
+
+                        <div class="event-title mb-30">
+                            <!-- <span class="tag-item">
+									<i class="fas fa-bookmark"></i>
+									Featured Event
+								</span> -->
+                            <h2 class="event-title">{{data.event.title}} - {{data.event.startMonth}} {{data.event.startYear}} -
+                                {{data.event.venue.city}}, {{data.event.venue.state}}
+                            </h2>
+                        </div>
+
+                        <div id="event-details-carousel" class="event-details-carousel owl-carousel owl-theme">
+                            <div class="item">
+                                <img src="https://www.thetruckingnetworkevents.ca/uploads/images/TTN-small-inpage_sept_730x400%20NEW.jpg" alt="Image_not_found">
+                            </div>
+                        </div>
+
+                        <div class="event-info-list ul-li clearfix mb-30">
+                            <ul class="ht-100">
+                                <li class="ht-100">
+                                    <span class="icon">
+											<i class="far fa-calendar"></i>
+										</span>
+                                    <div class="event-content">
+                                        <small class="event-title">Event Date</small>
+                                        <h3 class="event-date">{{data.event.startDay}} {{data.event.startMonth}} {{data.event.startYear}}</h3>
+                                    </div>
+                                </li>
+                                <li class="ht-100">
+                                    <span class="icon">
+											<i class="far fa-clock"></i>
+										</span>
+                                    <div class="event-content">
+                                        <small class="event-title">Event Time</small>
+                                        <h3 class="event-date">{{data.event.start_time}} ~ {{data.event.end_time}}</h3>
+                                    </div>
+                                </li>
+                                <li class="ht-100">
+                                    <span class="icon">
+											<i class="fas fa-map-marker-alt"></i>
+										</span>
+                                    <div class="event-content">
+                                        <small class="event-title">Event Location</small>
+                                        <h3 class="event-date">
+                                            {{data.event.venue.name}}
+                                        </h3>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-events">{{{data.event.description}}}</div>
+                        <hr>
+
+                        <div id="event-details-promotion-carousel" class="event-details-carousel owl-carousel owl-theme">
+                            <!-- <div class="item">
+									<img src="https://www.thetruckingnetworkevents.ca/uploads/images/TTN-small-inpage_sept_730x400%20NEW.jpg" alt="Image_not_found">
+								</div> -->
+                            <div class="spacial-event-wrapper text-center" style="background-image: url(/assets/images/ad-img2.jpg);min-height: 186px;">
+                                <div class="overlay-black">
+                                    <!-- <p class="sub-title white-color mb-30">26 DECEMBER 2020</p>
+                                    <h2 class="title-large white-color mb-30">
+                                        AMSTERDAM
+                                        <strong class="yellow-color">PHP CONFERENCE</strong>
+                                    </h2> -->
+                                    <a href="#!" class="button-red" style="margin-top: 120px;">Book Ticket</a>
+                                </div>
+                            </div>
+                            <div class="spacial-event-wrapper text-center" style="background-color: #333;">
+                                <div class="overlay-black">
+                                    <p class="sub-title white-color mb-15 pt-3">27 DECEMBER 2020</p>
+                                    <h2 class="title-large white-color mb-30">
+                                        AMSTERDAM
+                                        <strong class="yellow-color">JAVA CONFERENCE</strong>
+                                    </h2>
+                                    <a href="#!" class="custom-btn mb-15">booking ticket</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- event-details - end -->
+
+                </div>
+                <!-- col - event-details - end -->
+
+                <!-- sidebar-section - start -->
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="sidebar-section">
+                <div class="row">
+                    <div class="col-md-7">
+                        <!-- Add to Calendar - start -->
+                        <div title="Add to Calendar" class="addeventatc">
+                            Add to Calendar
+                            <span class="start">09/12/2020 09:30 AM</span>
+                            <span class="end">09/12/2020 04:30 PM</span>
+                            <span class="timezone">America/Toronto</span>
+                            <span class="title">MEGA JOB FAIR EVENT - FALL 2020- BRAMPTON, ON</span>
+                            <span class="description">MEGA JOB FAIR EVENT - FALL 2020- BRAMPTON, ON</span>
+                            <span class="location">PEARSON CONVENTION CENTER</span>
+                            <span class="organizer">Organizer</span>
+                            <span class="organizer_email">nav@thetruckingnetwork.ca</span>
+                            <span class="all_day_event">false</span>
+                            <span class="date_format">MM/DD/YYYY</span>
+                        </div>
+</div>
+                        <div class="col-md-5 share-events">
+                            <a href="">
+                            <i class="fa fa-share-alt" aria-hidden="true"></i> Share this event
+                            </a>
+                        </div>
+                        </div>
+                        <!-- Add to Calendar - end -->
+
+                        <!-- map-wrapper - start -->
+                        <div class="map-wrapper mb-30">
+                            <div id="google-map">
+                                {{!-- <div id="googleMaps" class="google-map-container"></div> --}}
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2907.406095331951!2d-79.70187028456664!3d43.221944688227794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882ca24dc1fe1ed7%3A0x9412d4cad006fd40!2sThe%20Grand%20Olympia%20Hospitality%20and%20Convention%20Centre!5e0!3m2!1sen!2sin!4v1589971539544!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+
+                        </div>
+                        <!-- map-wrapper - end -->
+
+                        <!-- location-wrapper - start -->
+                        <div class="location-wrapper mb-30">
+                            <div class="title-wrapper">
+                                <span class="icon">
+										<i class="fas fa-map-marker-alt"></i>
+									</span>
+                                <div class="title-content">
+                                    <small>Event Location</small>
+                                    <h3>{{data.event.venue.name}}</h3>
+                                </div>
+                            </div>
+                            <div class="location-info-list ul-li-block clearfix">
+                                <ul>
+                                    <li><i class="fas fa-arrow-circle-right"></i> {{data.event.venue.streetAddress}}</li>
+                                    <li><i class="fas fa-arrow-circle-right"></i> Brampton, ON L6T 4L7, CA
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="button">
+                                <a href="https://www.thetruckingnetworkevents.ca/uploads/files/floorplan2%20Sept%2012%202020.pdf" class="button-red disp-flow-root width-215" target="_blank">Floor Plan</a>
+                                <!-- <a href="https://www.thetruckingnetworkevents.ca/uploads/files/floorplan2%20Sept%2012%202020.pdf" class="button-red disp-flow-root" target="_blank">Book Now</a> -->
+                            </div>
+                            {{#if data.isUser }}
+                                {{#equalsTo data.user.role_type 'EXHIBITOR'}}
+                                    <div class="button">
+                                        <a href="/event/{{data.event._id}}/plans" class="button-red disp-flow-root width-215">Secure Your Booth Space</a>
+                                    </div>
+                                {{/equalsTo}}
+                                {{#equalsTo data.user.role_type 'JOBSEEKER'}}
+                                    <div class="button">
+                                        <a href="#" class="button-red disp-flow-root width-215" id="interested-attend" data-event="{{data.event.._id}}">I Am Interested To Attend</a>
+                                    </div>
+                                {{/equalsTo}}
+                            {{else}}
+                                <div class="button">
+                                    <a href="/event/{{data.event._id}}/plans" class="button-red disp-flow-root width-215">Secure Your Booth Space</a>
+                                </div>
+                                <div class="button">
+                                    <a href="#" class="button-red disp-flow-root width-215" id="interested-attend" data-event="{{data.event._id}}">I Am Interested To Attend</a>
+                                </div>
+                            {{/if}}
+                            <div class="title-wrapper absolute">
+                                <span class="icon">
+										<i class="fas fa-link"></i>
+									</span>
+                                <div class="organized">
+                                    <small>Organized By</small>
+                                    <a href="#" class="logo mt-3">
+                                        <img src="/assets/images/ttn-logo.png" alt="The Trucking Network" style="max-width: 150px;">
+                                    </a>
+
+                                </div>
+                            </div>
+                            <div class="contact-links ul-li-block clearfix">
+                                <p class="black-color mb-15">
+                                    Contact us: <strong style="float:right">{{data.event.organizer.contact_no}}</strong>
+                                </p>
+                                <p class="black-color mb-15">
+                                    Toll Free: <strong style="float:right">{{data.event.organizer.toll_free_no}}</strong>
+                                </p>
+                                <p class="black-color mb-15">
+                                    Email: <a href="mailto:{{data.event.organizer.email}}" target="_blank" style="float: right">
+											{{data.event.organizer.email}}
+										</a>
+                                </p>
+                                <ul>
+                                    <li>
+                                        <a href="https://www.facebook.com/thetruckingnetwork/" target="_blank">
+                                            <span class="icon">
+													<i class="fab fa-facebook-f"></i>
+												</span> thetruckingnetwork
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/ttndailytweets" target="_blank">
+                                            <span class="icon">
+													<i class="fab fa-twitter"></i>
+												</span> ttndailytweets
+                                        </a>
+                                    </li>
+                                    {{!-- <li>
+                                        <a href="#!" target="_blank">
+                                            <span class="icon">
+													<i class="fab fa-instagram"></i>
+												</span> instagram/truckingevent
+                                        </a>
+                                    </li> --}}
+                                    <li>
+                                        <a href="https://www.linkedin.com/company/the-trucking-network/" target="_blank">
+                                            <span class="icon">
+													<i class="fab fa-linkedin"></i>
+												</span> the-trucking-network
+                                        </a>
+                                    </li>
+                                </ul>
+                                <a href="/#" class="button-red disp-flow-root width-215">ENQUIRY</a>
+                            </div>
+                        </div>
+                        <!-- location-wrapper - end -->
+                    </div>
+                </div>
+                <!-- sidebar-section - end -->
+
+            </div>
+        </div>
+    </section>
+    <!-- event-details-section - end
+		================================================== -->

@@ -1,0 +1,46 @@
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title"> Create New Offline Category </h3>
+    </div>
+    <div class="row">
+      <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <form class="forms-sample" id="createOfflineCategoryForm">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Category Name</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="name" id="name" class="form-control" placeholder="Category Name" value="{{offlineCategory.name}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Active</label>
+                <div class="col-sm-10">
+                  <div class="form-check form-check-primary">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input is_active" name="is_active"> Yes </label>
+                  </div>
+                  <div class="form-check form-check-danger">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="is_active"> No </label>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-primary mr-2" id="offline-update-category" data-event="{{offlineCategory._id}}">Update</button>
+              <button class="btn btn-light">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- content-wrapper ends -->

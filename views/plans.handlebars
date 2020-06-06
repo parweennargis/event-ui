@@ -1,0 +1,418 @@
+<section id="plan-section" class="pt-3 pb-5 clearfix mobile-space">
+    <div class="container">
+
+        <div class="mb-15">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alertbox">
+                        The Trucking Network is pleased to announce the
+                        Mega Job Fair Event in June 2020. <a href="#">Click here</a>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="plan-heading">
+                        <div class="col-md-9">
+                            {{!-- <h2 class="pb-2">MEGA JOB FAIR EVENT -</h2> --}}
+                            <h2 class="pb-2">{{data.title}} - {{data.startMonth}} {{data.startYear}} -
+                                {{data.venue.city}}, {{data.venue.state}}</h2>
+                            {{!-- <h3>FALL 2020- BRAMPTON, ON</h3> --}}
+                        </div>
+                        <div class="col-md-3 print-events text-right">
+                            <a href=""><i class="fa fa-print" aria-hidden="true"></i> Print</a> &nbsp; &nbsp;
+                            <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i> Share</a>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="event-info-list ul-li mb-15">
+                                <ul class="ht-100">
+                                    <li class="ht-100">
+                                        <span class="icon">
+                                            <i class="far fa-calendar"></i>
+                                        </span>
+                                        <div class="event-content">
+                                            <small class="event-title">Date</small>
+                                            <h3 class="event-date">{{data.startDay}} {{data.startMonth}}
+                                                {{data.startYear}}</h3>
+                                        </div>
+                                    </li>
+                                    <li class="ht-100">
+                                        <span class="icon">
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        <div class="event-content">
+                                            <small class="event-title">Time</small>
+                                            <h3 class="event-date">{{data.start_time}} ~ {{data.end_time}}</h3>
+                                        </div>
+                                    </li>
+                                    <li class="ht-100">
+                                        <span class="icon">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        <div class="event-content">
+                                            <small class="event-title">Location</small>
+                                            <h3 class="event-date">
+                                                {{data.venue.name}}
+                                            </h3>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-right">
+                            <a href="https://www.thetruckingnetworkevents.ca/uploads/files/floorplan2%20Sept%2012%202020.pdf"
+                                class="button-red pl-3 pr-3 mt-4" target="_blank">Download Floor Plan</a>
+                        </div>
+
+                    </div>
+                    <div class="container mt-5">
+                        <section class="customer-logos slider">
+                            {{#each data.pricing}}
+                                <div class="slide">
+                                    <div class="col-sm-12">
+                                        <div class="col-item">
+                                            <div class="info">
+                                                <div class="row">
+                                                    <div class="price col-md-12">
+                                                        <h3>{{this.name}}</h3>
+                                                        <h5 class="price-text-color">
+                                                            <span>$</span> {{this.amount}}</h5>
+                                                        <h6 class="mt-4 mb-4">Standard Booth</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="separator clear-left">
+                                                    <ul>
+                                                        {{!-- {{this.description}} --}}
+                                                        <li>- 10x10' Booth space inside the Hall</li>
+                                                            <li>- 1 Month Listing on TTN Job Portal*</li>
+                                                            <li>- Prime Coverage on Poster Adv</li>
+                                                            <li>- PPT Display during event</li>
+                                                            <li>- Social Media Promotion</li>
+                                                            <li>- Newspaper Adv</li>
+                                                            <li>- Radio Ads</li>
+                                                    </ul>
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                            <div class="numbers-row">
+                                                                <div class="dec inputbutton">-</div> 
+                                                                <input type="text" value="1" id="quantity-{{@index}}">
+                                                                <div class="inc inputbutton">+</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-7 text-right">
+                                                            <button class="button-red pl-4 pr-4 add-to-cart" data-id={{@index}} data-price={{this._id}} data-event={{@root.data._id}}>Add To Cart</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                            {{#ifCond data.pricing.length '===' 0}}
+                           
+<div class="col-sm-12">
+                                        <div class="col-item">
+                                            <div class="info">
+                                                <div class="row">
+                                                    <div class="w-100">
+                                 <img src="/assets/images/calendar-heart.gif" alt="" class="mt-3 mb-3 " style="max-width: 50px; margin:0 auto;"><br/>
+                                 <h4 style="text-align: center; margin:auto;">No Pricing Plan Found</h4>
+                            </div>
+                                                </div>
+                                               
+                                                <div class="clearfix">
+                                                </div>
+                                            </div>
+                                        </div>
+                            {{/ifCond}}
+                            {{!-- <div class="slide">
+                                <div class="col-sm-12">
+                                    <div class="col-item">
+                                        <div class="info">
+                                            <div class="row">
+                                                <div class="price col-md-12">
+                                                    <h3>Standard</h3>
+                                                    <h5 class="price-text-color">
+                                                        <span>$</span> 1550</h5>
+                                                    <h6 class="mt-4 mb-4">Standard Booth</h6>
+                                                </div>
+                                            </div>
+                                            <div class="separator clear-left">
+                                                <ul>
+                                                    <li>- 10x10' Booth space inside the Hall</li>
+                                                    <li>- 1 Month Listing on TTN Job Portal*</li>
+                                                    <li>- Prime Coverage on Poster Adv</li>
+                                                    <li>- PPT Display during event</li>
+                                                    <li>- Social Media Promotion</li>
+                                                    <li>- Newspaper Adv</li>
+                                                    <li>- Radio Ads</li>
+                                                </ul>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="numbers-row">
+                                                        <div class="dec inputbutton">-</div> <input type="text"
+                                                            value="1">
+                                                        <div class="inc inputbutton">+</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7 text-right">
+                                                    <a href="#" class="button-red pl-4 pr-4">Buy this plan</a>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> --}}
+                            {{!-- <div class="slide">
+                                <div class="col-sm-12">
+                                    <div class="col-item">
+                                        <div class="info">
+                                            <div class="row">
+                                                <div class="price col-md-12">
+                                                    <h3>Premium</h3>
+                                                    <h5 class="price-text-color">
+                                                        <span>$</span> 1780</h5>
+                                                    <h6 class="mt-4 mb-4">Premium Booth</h6>
+                                                </div>
+                                            </div>
+                                            <div class="separator clear-left">
+                                                <ul>
+                                                    <li>- Standard booth Premium Location</li>
+                                                    <li>- 10x10' Booth space inside the Hall</li>
+                                                    <li>- 1 Month Listing on TTN Job Portal*</li>
+                                                    <li>- Prime Coverage on Poster Adv</li>
+                                                    <li>- PPT Display during event</li>
+                                                    <li>- Social Media Promotion</li>
+                                                    <li>- Newspaper Adv</li>
+                                                    <li>- Radio Ads</li>
+                                                </ul>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="numbers-row">
+                                                        <div class="dec inputbutton">-</div> <input type="text"
+                                                            value="1">
+                                                        <div class="inc inputbutton">+</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7 text-right">
+                                                    <a href="#" class="button-red pl-4 pr-4">Buy this plan</a>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="col-sm-12">
+                                    <div class="col-item">
+                                        <div class="info">
+                                            <div class="row">
+                                                <div class="price col-md-12">
+                                                    <h3>Silver</h3>
+                                                    <h5 class="price-text-color">
+                                                        <span>$</span> 3999</h5>
+                                                    <h6 class="mt-4 mb-4">Hall Premium Location</h6>
+                                                </div>
+                                            </div>
+                                            <div class="separator clear-left">
+                                                <ul>
+                                                    <li>- SILVER Sponsorship</li>
+                                                    <li>- Standard booth Premium Location</li>
+                                                    <li>- 10x10' Booth space inside the Hall</li>
+                                                    <li>- 1 Month Listing on TTN Job Portal*</li>
+                                                    <li>- Prime Coverage on Poster Adv</li>
+                                                    <li>- PPT Display during event</li>
+                                                    <li>- Social Media Promotion</li>
+                                                    <li>- Newspaper Adv</li>
+                                                    <li>- Radio Ads</li>
+                                                </ul>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="numbers-row">
+                                                        <div class="dec inputbutton">-</div> <input type="text"
+                                                            value="1">
+                                                        <div class="inc inputbutton">+</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7 text-right">
+                                                    <a href="#" class="button-red pl-4 pr-4">Buy this plan</a>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="col-sm-12">
+                                    <div class="col-item">
+                                        <div class="info">
+                                            <div class="row">
+                                                <div class="price col-md-12">
+                                                    <h3>Silver</h3>
+                                                    <h5 class="price-text-color">
+                                                        <span>$</span> 3999</h5>
+                                                    <h6 class="mt-4 mb-4">Hall Premium Location</h6>
+                                                </div>
+                                            </div>
+                                            <div class="separator clear-left">
+                                                <ul>
+                                                    <li>- SILVER Sponsorship</li>
+                                                    <li>- Standard booth Premium Location</li>
+                                                    <li>- 10x10' Booth space inside the Hall</li>
+                                                    <li>- 1 Month Listing on TTN Job Portal*</li>
+                                                    <li>- Prime Coverage on Poster Adv</li>
+                                                    <li>- PPT Display during event</li>
+                                                    <li>- Social Media Promotion</li>
+                                                    <li>- Newspaper Adv</li>
+                                                    <li>- Radio Ads</li>
+                                                </ul>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="numbers-row">
+                                                        <div class="dec inputbutton">-</div> <input type="text"
+                                                            value="1">
+                                                        <div class="inc inputbutton">+</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7 text-right">
+                                                    <a href="#" class="button-red pl-4 pr-4">Buy this plan</a>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> --}}
+
+
+                        </section>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+        {{!-- horizontal ads section --}}
+        <div class="col-md-12 text-center">
+            <img src="/assets/images/horizontal-ads.jpg" alt="" class="mt-3 img-fluid">
+        </div>
+        {{!-- horizontal ads section ednd --}}
+
+        {{!-- other user also bought this --}}
+        <div class="container mt-5">
+            <h3 style="text-transform: none;">Other user also bought this items</h3>
+            <section class="otheruser slider">
+                <div class="slide">
+                    <div class="col-sm-12">
+                        <div class="row border-gray">
+                            <div class="other-item ">
+                                <div class="sub-heading">Entry left hand side</div>
+                                <h3>Corner Stall</h3>
+                                <h5 class="price-text-color">$500</h5>
+
+                                <a href="#" class="button-red pl-2 pr-2">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="col-sm-12">
+                        <div class="row border-gray">
+                            <div class="other-item ">
+                                <div class="sub-heading">On Entry Gate</div>
+                                <h3>Truck Stand</h3>
+                                <h5 class="price-text-color">$700</h5>
+
+                                <a href="#" class="button-red pl-2 pr-2">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="col-sm-12">
+                        <div class="row border-gray">
+                            <div class="other-item ">
+                                <div class="sub-heading">in Hall 2</div>
+                                <h3>Big Poster</h3>
+                                <h5 class="price-text-color">$700</h5>
+
+                                <a href="#" class="button-red pl-2 pr-2">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="col-sm-12">
+                        <div class="row border-gray">
+                            <div class="other-item ">
+                                <div class="sub-heading">Entry left hand side</div>
+                                <h3>Corner Stall</h3>
+                                <h5 class="price-text-color">$500</h5>
+
+                                <a href="#" class="button-red pl-2 pr-2">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="col-sm-12">
+                        <div class="row border-gray">
+                            <div class="other-item ">
+                                <div class="sub-heading">On Entry Gate</div>
+                                <h3>Truck Stand</h3>
+                                <h5 class="price-text-color">$700</h5>
+
+                                <a href="#" class="button-red pl-2 pr-2">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="col-sm-12">
+                        <div class="row border-gray">
+                            <div class="other-item ">
+                                <div class="sub-heading">in Hall 2</div>
+                                <h3>Big Poster</h3>
+                                <h5 class="price-text-color">$700</h5>
+
+                                <a href="#" class="button-red pl-2 pr-2">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </section>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,226 @@
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title"> Create New Event </h3>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Forms</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Form elements</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <form class="forms-sample" id="updateEventForm">
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Event Title</label>
+                <div class="col-sm-10">
+                  <input type="text" name="title" class="form-control" placeholder="Event Title" value="{{title}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Start Date</label>
+                <div class="col-sm-10">
+                  <input type="date" name="start_date" class="form-control" placeholder="Start Date" value="{{start_date}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">End Date</label>
+                <div class="col-sm-10">
+                  <input type="date" name="end_date" class="form-control" placeholder="End Date" value="{{end_date}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Start Time</label>
+                <div class="col-sm-10">
+                  <input type="time" name="start_time" class="form-control" placeholder="Start Time" value="{{start_time}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">End Time</label>
+                <div class="col-sm-10">
+                  <input type="time" name="end_time" class="form-control" placeholder="End Time" value="{{end_time}}">
+                </div>
+              </div>
+              {{!-- // TODO for banner --}}
+
+
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Event Pricing</label>
+                <div class="col-sm-10">
+                  <div class="form-group">
+                    <select class="js-example-basic-multiple" name="pricing" multiple="multiple" style="width:100%">
+                      {{#each pricings}}
+                      <option value="{{_id}}">{{name}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Event category</label>
+                <div class="col-sm-10">
+                  <div class="form-group">
+                    <select class="js-example-basic-multiple" name="event_category[]" multiple="multiple"
+                      style="width:100%">
+                      {{#each eventCategories}}
+                      <option value="{{_id}}">{{name}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Tax</label>
+                <div class="col-sm-10">
+                  <div class="form-group">
+                    <select class="form-control form-control-sm" id="exampleFormControlSelect3">
+                      <option>HST</option>
+                      <option>GST</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">File upload</label>
+                <input type="file" name="files" id="files" multiple />
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Banner</label>
+                <input type="file" name="banner" class="file-upload-default">
+                <div class="input-group col-sm-10">
+                  <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Banner">
+                  <span class="input-group-append">
+                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Short Description</label>
+                <div class="col-sm-10">
+                  <input type="text" name="short_description" class="form-control" placeholder="Short Description" value="{{short_description}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" rows="4" name="description">{{description}}</textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Organizer Email</label>
+                <div class="col-sm-10">
+                  <input type="text" name="organizer[email]" class="form-control" placeholder="Organizer Email" value="{{organizer.email}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Contact Number</label>
+                <div class="col-sm-10">
+                  <input type="text" name="organizer[contact_no]" class="form-control" placeholder="Contact Number" value="{{organizer.contact_no}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Toll Free Number</label>
+                <div class="col-sm-10">
+                  <input type="text" name="organizer[toll_free_no]" class="form-control" placeholder="Toll Free Number" value="{{organizer.toll_free_no}}">
+                </div>
+              </div>
+
+              {{!-- TODO// need to upload the pdf file for floor plan --}}
+              {{!-- <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Floor Plan</label>
+                <div class="col-sm-10">
+                  <input type="text" name="floor_plan" class="form-control" placeholder="Floor Plan">
+                </div>
+              </div> --}}
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Map Link</label>
+                <div class="col-sm-10">
+                  <input type="text" name="link[map]" class="form-control" placeholder="Map Link" value="{{link.map}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Facebook Link</label>
+                <div class="col-sm-10">
+                  <input type="text" name="link[facebook]" class="form-control" placeholder="Facebook Link" value="{{link.facebook}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Twitter Link</label>
+                <div class="col-sm-10">
+                  <input type="text" name="link[twitter]" class="form-control" placeholder="Twitter Link" value="{{link.twitter}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Youtube Link</label>
+                <div class="col-sm-10">
+                  <input type="text" name="link[youtube]" class="form-control" placeholder="Youtube Link" value="{{link.youtube}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Linkedln Link</label>
+                <div class="col-sm-10">
+                  <input type="text" name="link[linkedln]" class="form-control" placeholder="Linkedln Link" value="{{link.linkedln}}">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Venue Place</label>
+                <div class="col-sm-10">
+                  <input type="text" name="venue[name]" class="form-control" placeholder="Venue Place" value="{{venue.name}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Venue Street Address</label>
+                <div class="col-sm-10">
+                  <input type="text" name="venue[streetAddress]" class="form-control" placeholder="Venue Street Address" value="{{venue.streetAddress}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Venue City</label>
+                <div class="col-sm-10">
+                  <input type="text" name="venue[city]" class="form-control" placeholder="Venue City" value="{{venue.city}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Venue State</label>
+                <div class="col-sm-10">
+                  <input type="text" name="venue[state]" class="form-control" placeholder="Venue State" value="{{venue.state}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Venue Country</label>
+                <div class="col-sm-10">
+                  <input type="text" name="venue[country]" class="form-control" placeholder="Venue Country" value="{{venue.country}}">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Is Opening Soon</label>
+                <div class="col-sm-10">
+                  <div class="form-check form-check-primary">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="is_opening_soon" checked> Yes </label>
+                  </div>
+                  <div class="form-check form-check-danger">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="is_opening_soon"> No </label>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-primary mr-2" id="update-event">Update</button>
+              <button class="btn btn-light">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- content-wrapper ends -->

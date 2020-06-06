@@ -1,0 +1,266 @@
+<!-- Register - start
+		================================================== -->
+<section id="profile-section" class="event-section pt-3 pb-5 clearfix mobile-space">
+    <div class="container">
+
+        <div class="mb-15 ">
+            <div class="row">
+
+                <div class="container register profile ">
+                    <div class="row mt-3">
+                        <div class="col-md-3">
+                            <div class="profile-nav">
+                            <h5 class="mb-4">Edit Profile</h5>
+                            {{#equalsTo data.role_type 'JOBSEEKER'}}
+                                <a href="#">- Personal Information</a>
+                            {{/equalsTo }}
+                            {{#equalsTo data.role_type 'EXHIBITOR'}}
+                                <a href="#">- Business Information</a>
+                            {{/equalsTo }}
+                            </div>
+                        </div>
+                        <div class="col-md-8 ml-auto register-right ">
+                            {{#equalsTo data.role_type 'JOBSEEKER'}}                                                
+                                <h3 class="mb-4">Personal Information</h3>
+                            {{/equalsTo}}
+                            {{#equalsTo data.role_type 'EXHIBITOR'}}                                                
+                                <h3 class="mb-4">Business Information</h3>
+                            {{/equalsTo}}
+
+                            <div class="tab-content" id="myTabContent">
+                                <form id="profile-update">
+                                    {{!-- Job Seeker Form --}}
+                                    {{#equalsTo data.role_type 'JOBSEEKER'}}
+                                        <div class="row">
+                                            <div class="col-md-12 form-box">
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">First
+                                                        Name </label>
+                                                    <input class="form-control" value="{{data.first_name}}" type="text" id="first_name_job" name="first_name">
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Last
+                                                        Name </label>
+                                                    <input class="form-control" value="{{data.last_name}}" type="text" id="last_name_job" name="last_name">
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Email
+                                                    </label>
+                                                    <input type="email" class="form-control" id="email_job" value="{{data.email}}" name="email"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Phone
+                                                    </label>
+                                                    <input class="form-control" type="text" minlength="10" id="phone_no_job" maxlength="10" value="{{data.phone_no}}" name="phone_no"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Current
+                                                        Occupation </label>
+                                                    <select class="form-control" id="occupation_job" value={{data.occupation}} name="occupation">
+                                                        <option value="DRIVER" {{#equalsTo data.occupation 'DRIVER'}}selected{{/equalsTo}}>Company Driver</option>
+                                                        <option value="OPERATOR" {{#equalsTo data.occupation 'OPERATOR'}}selected{{/equalsTo}}>Owner-operator</option>
+                                                        <option value="MECHANIC" {{#equalsTo data.occupation 'MECHANIC'}}selected{{/equalsTo}}>Mechanic</option>
+                                                        <option value="LOGISTIC" {{#equalsTo data.occupation 'LOGISTIC'}}selected{{/equalsTo}}>Logistics & Non driving</option>
+                                                        <option value="OTHERS" {{#equalsTo data.occupation 'OTHERS'}}selected{{/equalsTo}}>Others</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">
+                                                        Experience </label>
+                                                    <input type="number" class="form-control" id="total_experience_job" min="1" max="20" value="{{data.total_experience}}" name="total_experience"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Position Looking
+                                                        For </label>
+                                                    <select class="form-control" id="occupation_looking_for_job" value={{data.occupation_looking_for}} name="occupation_looking_for">
+                                                        <option value="DRIVER" {{#equalsTo data.occupation_looking_for 'DRIVER'}}selected{{/equalsTo}}>Company Driver</option>
+                                                        <option value="OPERATOR" {{#equalsTo data.occupation_looking_for 'OPERATOR'}}selected{{/equalsTo}}>Owner-operator</option>
+                                                        <option value="MECHANIC" {{#equalsTo data.occupation_looking_for 'MECHANIC'}}selected{{/equalsTo}}>Mechanic</option>
+                                                        <option value="LOGISTIC" {{#equalsTo data.occupation_looking_for 'LOGISTIC'}}selected{{/equalsTo}}>Logistics & Non driving</option>
+                                                        <option value="OTHERS" {{#equalsTo data.occupation_looking_for 'OTHERS'}}selected{{/equalsTo}}>Others</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Address </label>
+                                                    <input type="text" class="form-control" id="address_job" value="{{data.address}}" name="address"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">City</label>
+                                                    <input type="text" class="form-control" id="city_job" value="{{data.city}}" name="city"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Province</label>
+                                                    <input type="text" class="form-control" id="Proviance_job" value="{{data.province}}" name="province"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Postal Code </label>
+                                                    <input type="text" class="form-control" id="postal_code_job" value="{{data.postal_code}}" name="postal_code"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12 upload-btn-wrapper">
+                                                    <label class="string optional active">Upload Resume</label>
+                                                    <input type="file" class="form-control" id="resume" data-name="resume"/>
+                                                    {{#if data.resume}}
+                                                        <a href="{{data.resume}}">Download</a>
+                                                    {{/if}}
+                                                    <button class="upload-resume">Upload</button>
+                                                </div>
+                                                <div class="form-group col-md-12 col-sm-12 text-left mt-1 mb-1">
+                                                    <div class="agree_text text-color-red" id="profile_message"></div>
+                                                </div>
+                                                <div class="form-group col-md-12 col-sm-12 text-center mt-3 pb-3">
+                                                    <button type="submit" class="btn btn-danger pl-5 pr-5"
+                                                        id="profile-job-seeker">Update</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{/equalsTo}}
+                                    {{!-- Exhibitor Form --}}
+                                    {{#equalsTo data.role_type 'EXHIBITOR'}}
+                                        <div class="row">
+                                            <div class="col-md-12 form-box">
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">First
+                                                        Name </label>
+                                                    <input class="form-control" value="{{data.first_name}}" type="text" id="first_name_job" name="first_name">
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Last
+                                                        Name </label>
+                                                    <input class="form-control" value="{{data.last_name}}" type="text" id="last_name_job" name="last_name">
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Email
+                                                    </label>
+                                                    <input type="email" class="form-control" id="email_job" value="{{data.email}}" name="email"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Phone
+                                                    </label>
+                                                    <input class="form-control" type="text" minlength="10" id="phone_no_job" maxlength="10" value="{{data.phone_no}}" name="phone_no"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active"> Current Position </label>
+                                                    <input type="text" class="form-control" id="current_position_job" value="{{data.current_position}}" name="current_position"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active"> Business Name </label>
+                                                    <input type="text" class="form-control" id="company_name_job" value="{{data.company_name}}" name="company_name"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active"> Business Website </label>
+                                                    <input type="text" class="form-control" id="company_website_job" value="{{data.company_website}}" name="company_website"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Type of Business </label>
+                                                    <select class="form-control" id="business_type_job" value="{{data.business_type}}" name="business_type">
+                                                        <option value="CAR_CARRIER" {{#equalsTo data.business_type 'CAR_CARRIER'}}selected{{/equalsTo}}>Car Carrier</option>
+                                                        <option value="CONTAINER_CHASSIS" {{#equalsTo data.business_type 'CONTAINER_CHASSIS'}}selected{{/equalsTo}}>Container Chassis</option>
+                                                        <option value="DUMP" {{#equalsTo data.business_type 'DUMP'}}selected{{/equalsTo}}>Dump</option>
+                                                        <option value="FLOAT" {{#equalsTo data.business_type 'FLOAT'}}selected{{/equalsTo}}>Float</option>
+                                                        <option value="HEAVY_SPECIALIZED" {{#equalsTo data.business_type 'HEAVY_SPECIALIZED'}}selected{{/equalsTo}}>Heavy Specialized</option>
+                                                        <option value="LIVESTOCK" {{#equalsTo data.business_type 'LIVESTOCK'}}selected{{/equalsTo}}>Livestock</option>
+                                                        <option value="REEFER" {{#equalsTo data.business_type 'REEFER'}}selected{{/equalsTo}}>Reefer</option>
+                                                        <option value="TANK" {{#equalsTo data.business_type 'TANK'}}selected{{/equalsTo}}>Tank</option>
+                                                        <option value="VAN" {{#equalsTo data.business_type 'VAN'}}selected{{/equalsTo}}>Van</option>
+                                                        <option value="BULK_DRY" {{#equalsTo data.business_type 'BULK_DRY'}}selected{{/equalsTo}}>Bulk Dry</option>
+                                                        <option value="BULK_LIQUID" {{#equalsTo data.business_type 'BULK_LIQUID'}}selected{{/equalsTo}}>Bulk Liquid</option>
+                                                        <option value="CONTAINER" {{#equalsTo data.business_type 'CONTAINER'}}selected{{/equalsTo}}>Container</option>
+                                                        <option value="CONTRACT" {{#equalsTo data.business_type 'CONTRACT'}}selected{{/equalsTo}}>Contract</option>
+                                                        <option value="COURIER_EXPEDITE" {{#equalsTo data.business_type 'COURIER_EXPEDITE'}}selected{{/equalsTo}}>Courier Expedite</option>
+                                                        <option value="FLAT_DECK" {{#equalsTo data.business_type 'FLAT_DECK'}}selected{{/equalsTo}}>Flat Deck</option>
+                                                        <option value="HOUSEHOLD_GOODS" {{#equalsTo data.business_type 'HOUSEHOLD_GOODS'}}selected{{/equalsTo}}>Household Goods</option>
+                                                        <option value="LESS_THAN_TRUCKLOAD" {{#equalsTo data.business_type 'LESS_THAN_TRUCKLOAD'}}selected{{/equalsTo}}>Less Than Truckload</option>
+                                                        <option value="TRUCKLOAD" {{#equalsTo data.business_type 'TRUCKLOAD'}}selected{{/equalsTo}}>Truckload</option>
+                                                        <option value="WASTE" {{#equalsTo data.business_type 'WASTE'}}selected{{/equalsTo}}>Waste</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Address </label>
+                                                    <input type="text" class="form-control" id="address_job" value="{{data.address}}" name="address"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">City</label>
+                                                    <input type="text" class="form-control" id="city_job" value="{{data.city}}" name="city"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Province</label>
+                                                    <input type="text" class="form-control" id="Proviance_job" value="{{data.province}}" name="province"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12">
+                                                    <label class="string optional active">Postal Code </label>
+                                                    <input type="text" class="form-control" id="postal_code_job" value="{{data.postal_code}}" name="postal_code"/>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-12 upload-btn-wrapper">
+                                                    <label class="string optional active">Upload Logo</label>
+                                                    <input type="file" class="form-control" id="resume" data-name="logo"/>
+                                                    {{#if data.logo}}
+                                                        <a href="{{data.logo}}">Download</a>
+                                                    {{/if}}
+                                                    <button class="upload-resume">Upload</button>
+                                                </div>
+                                                <div class="form-group col-md-12 col-sm-12">
+                                                    <label class="string optional active">Business Description </label>
+                                                    <textarea type="text" class="form-control" id="business_description_job" name="business_description">{{data.business_description}}</textarea>
+                                                </div>
+                                                <div class="form-group col-md-12 col-sm-12 text-left mt-1 mb-1">
+                                                    <div class="agree_text text-color-red" id="profile_message"></div>
+                                                </div>
+                                                <div class="form-group col-md-12 col-sm-12 text-center mt-3 pb-3">
+                                                    <button type="submit" class="btn btn-danger pl-5 pr-5"
+                                                        id="profile-job-seeker">Update</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{/equalsTo}}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // print form
+    document.getElementById('printButton').addEventListener("click", print)
+    function print() {
+        printJS({
+            printable: 'home',
+            type: 'html'
+        })
+    }
+
+    // send msg on whatsapp
+    document.getElementById('sendButtons').addEventListener("click", getLinkWhastapp)
+    function getLinkWhastapp(number, message) {
+        number = '9643234208'
+        message = 'Mess'
+
+        return console.log('https://api.whatsapp.com/send?phone=' + number + '&text=%20' + message)
+    }
+
+    // print HTML as pdf
+    document.getElementById('elementToPrint').addEventListener("click", convertHTMLtoPDF);
+    function convertHTMLtoPDF() {
+        const element = document.getElementById('home');
+        html2pdf(element, {
+            margin: 1,
+            filename: 'register.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { dpi: 192, letterRendering: true },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        });
+    }
+
+</script>
+<style>
+    .border-red {
+        border-color: #dc3445;
+    }
+
+    .text-color-red {
+        color: red;
+    }
+</style>

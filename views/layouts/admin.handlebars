@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>The Trucking Network | Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/admin/vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="/admin/vendors/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="/admin/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/admin/vendors/select2/select2.min.css">
+  <link rel="stylesheet" href="/admin/vendors/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="/admin/vendors/chartist/chartist.min.css">
+  <link rel="stylesheet" href="/admin/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="/admin//css/style.css">
+  <link rel="stylesheet" href="/admin//css/custom.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="/admin//images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="navbar-brand-wrapper d-flex align-items-center">
+        <a class="navbar-brand brand-logo" href="/admin">
+          <img src="https://www.thetruckingnetworkevents.ca/img/ttn-white.png" alt="logo" class="logo-dark"
+            style="height: 45px;" />
+        </a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img
+            src="https://www.thetruckingnetworkevents.ca/img/ttn-white.png" alt="logo" /></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
+        <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome The Trucking Network Event!</h5>
+        <ul class="navbar-nav navbar-nav-right ml-auto">
+
+          <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
+            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <img class="img-xs rounded-circle ml-2" src="/admin/images/faces/face8.jpg" alt="Profile image"> <span
+                class="font-weight-normal"> Henry Klein </span></a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                <img class="img-md rounded-circle" src="/admin/images/faces/face8.jpg" alt="Profile image">
+                {{!-- <p class="mb-1 mt-3">Allen Moreno</p> --}}
+                {{!-- <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p> --}}
+              </div>
+              <a class="dropdown-item"><i class="dropdown-item-icon icon-power text-primary logout"></i>Sign Out</a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+
+          <li class="nav-item nav-category">
+            <span class="nav-link">Dashboard</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">
+              <span class="menu-title">Dashboard</span>
+              <i class="icon-screen-desktop menu-icon"></i>
+            </a>
+          </li>
+
+          <li class="nav-item nav-category"><span class="nav-link">Online Event</span></li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/event">
+              <span class="menu-title">Upcoming Events</span>
+              <i class="icon-globe menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/pricing-plan">
+              <span class="menu-title">Pricing Plans</span>
+              <i class="icon-globe menu-icon"></i>
+            </a>
+          </li>
+
+          <li class="nav-item nav-category"><span class="nav-link">Offline Event</span></li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/offline-all-events">
+              <span class="menu-title">All Offline Event</span>
+              <i class="icon-event menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/offline-all-categories">
+              <span class="menu-title">All Offline Categories</span>
+              <i class="icon-globe menu-icon"></i>
+            </a>
+          </li>
+
+          <li class="nav-item nav-category"><span class="nav-link">Previos Event</span></li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/event">
+              <span class="menu-title">Events</span>
+              <i class="icon-globe menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/pricing-plan">
+              <span class="menu-title">Photos & Videos</span>
+              <i class="icon-globe menu-icon"></i>
+            </a>
+          </li>
+
+          <li class="nav-item nav-category"><span class="nav-link">User</span></li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/users">
+              <span class="menu-title">Users</span>
+              <i class="icon-user menu-icon"></i>
+            </a>
+          </li>
+
+          <li class="nav-item nav-category"><span class="nav-link">Sponser</span></li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/users">
+              <span class="menu-title">Our Partners</span>
+              <i class="icon-user menu-icon"></i>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+
+
+
+      {{{ body }}}
+
+      <!-- partial:../../partials/_footer.html -->
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a href="#"
+              target="_blank">The Trucking Network</a> All rights reserved.</span>
+          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> <i
+              class="icon-heart text-danger"></i></span>
+        </div>
+      </footer>
+      <!-- partial -->
+    </div>
+
+  </div>
+  <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="/admin/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/admin/vendors/select2/select2.min.js"></script>
+  <script src="/admin/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/admin/js/off-canvas.js"></script>
+  <script src="/admin/js/misc.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="/admin/js/typeahead.js"></script>
+  <script src="/admin/js/select2.js"></script>
+  <!-- End custom js for this page -->
+  <script src="//cdn.ckeditor.com/4.5.10/standard/ckeditor.js"></script>
+  <script src="https://www.thetruckingnetworkevents.ca/packages/ckeditor/ckeditor.js"></script>
+  <script src="https://www.thetruckingnetworkevents.ca/packages/ckeditor/adapters/jquery.js"></script>
+
+  <script>
+    var API_URL = 'http://localhost:5000';
+  </script>
+
+  {{!-- Custom JS --}}
+  <script src="/admin/js/custom.js"></script>
+  <script src="/admin/js/custom/pricing.js"></script>
+  <script src="/admin/js/custom/offlineEvent.js"></script>
+  <script src="/admin/js/custom/offlineCategory.js"></script>
+
+</body>
+
+</html>

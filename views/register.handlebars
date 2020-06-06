@@ -1,0 +1,288 @@
+<!-- Register - start
+		================================================== -->
+<section id="register-section" class="pt-3 pb-5 clearfix mobile-space">
+    <div class="container">
+
+        <div class="mb-15">
+            <div class="row">
+
+                <div class="container register">
+                    <div class="row">
+                        <div class="col-md-8 register-right m-auto">
+                            <div class="row">
+                        
+                            <div class="col-md-12 text-right print-events shareall" >
+                                <a href="#" id="printButton"><i class="fa fa-print" aria-hidden="true"></i> Print</a>
+                                 <div class="dropdown dropdown-menu-right">
+                                    <a href="#" class="" data-toggle="dropdown"> <i class="fas fa-share-alt Share" aria-hidden="true"></i> Share</a>
+                                    <div class="dropdown-menu">
+                                    <a href="https://wa.me/?text=I'm%20interested%20in%20your%20car%20for%20sale"
+                                     id="sendButtons"><i class="fab fa-whatsapp" aria-hidden="true"></i> Whatsapp</a>
+
+                                    <a href="mailto:test@example.com?subject=Testing out mailto!&body=This is only a test!"><i class="far fa-envelope" aria-hidden="true"></i> Email</a>
+
+                                    <a href="#" id="elementToPrint"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <h2 class="pt-1">Tell us about you</h2>
+                            <p>Please tell a bit about you so that<br />
+                                we can personalize you onboarding experience.</p>
+                            <h3 class="register-heading">Sign up as:</h3>
+
+                            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link  active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                        aria-controls="home" aria-selected="true"> <i class="jobseeker-btn"></i> Job
+                                        Seeker</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                        aria-controls="profile" aria-selected="false"><i class="exhibitor-btn"></i>
+                                        Exhibitor</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                {{!-- Job Seeker Form --}}
+                                <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <div class="row ">
+                                        <div class="col-md-12 form-box">
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">First
+                                                    Name<span>*</span> </label>
+                                                <input class="form-control" type="text" id="first_name_job">
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Last
+                                                    Name<span>*</span> </label>
+                                                <input class="form-control" type="text" id="last_name_job">
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Email<span>*</span>
+                                                </label>
+                                                <input type="email" class="form-control" id="email_job" />
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Phone<span>*</span>
+                                                </label>
+                                                <input class="form-control" type="text" minlength="10" id="phone_no_job"
+                                                    maxlength="10" />
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Password<span>*</span> </label>
+                                                <input type="password" class="form-control" id="password_job" />
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Confirm
+                                                    Password<span>*</span> </label>
+                                                <input type="password" class="form-control" id="confirm_password_job" />
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Address<span>*</span> </label>
+                                                <input type="text" class="form-control" id="address_job" />
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Postal
+                                                    Code<span>*</span> </label>
+                                                <input type="text" class="form-control" id="postal_code_job" />
+                                            </div>
+
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Current
+                                                    Occupation<span>*</span> </label>
+                                                <select class="form-control" id="occupation_job">
+                                                    <option value="DRIVER">Company Driver</option>
+                                                    <option value="OPERATOR">Owner-operator</option>
+                                                    <option value="MECHANIC">Mechanic</option>
+                                                    <option value="LOGISTIC">Logistics & Non driving</option>
+                                                    <option value="OTHERS">Others</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">
+                                                    Experience<span>*</span> </label>
+                                                <input type="number" class="form-control" id="total_experience_job"
+                                                    min="1" max="20" />
+                                            </div>
+
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Position Looking
+                                                    For<span>*</span> </label>
+                                                <select class="form-control" id="occupation_looking_for_job">
+                                                    <option value="DRIVER">Company Driver</option>
+                                                    <option value="OPERATOR">Owner-operator</option>
+                                                    <option value="MECHANIC">Mechanic</option>
+                                                    <option value="LOGISTIC">Logistics & Non driving</option>
+                                                    <option value="OTHERS">Others</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">How You Heard About
+                                                    Us<span>*</span> </label>
+                                                <select class="form-control" id="heard_about_job">
+                                                    <option value="FACEBOOK">Facebook</option>
+                                                    <option value="FACEBOOK">Twitter</option>
+                                                    <option value="FACEBOOK">LinkedIn</option>
+                                                    <option value="FACEBOOK">Instagram</option>
+                                                    <option value="FACEBOOK">Google</option>
+                                                    <option value="FACEBOOK">Magazine</option>
+                                                    <option value="FACEBOOK">Website</option>
+                                                    <option value="FACEBOOK">Banner</option>
+                                                    <option value="FACEBOOK">KIJIJI</option>
+                                                    <option value="FACEBOOK">Others</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-md-12 col-sm-12 text-left mt-1 mb-1">
+                                                <div class="agree_text text-color-red" id="message_job"></div>
+                                            </div>
+                                            <div class="form-group col-md-12 col-sm-12 text-center mt-3">
+                                                <button type="submit" class="btn btn-danger pl-5 pr-5"
+                                                    id="register-job-seeker">Register</button>
+
+                                                <div class="agree_text mt-3">By creating an account you agree to our
+                                                    <a class="special" href="/terms" target="_blank" role="link">Terms
+                                                        &amp; Privacy</a></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                {{!-- Exhibitor Form --}}
+                                <div class="tab-pane fade show" id="profile" role="tabpanel"
+                                    aria-labelledby="profile-tab">
+                                    <div class="row">
+                                        <div class="col-md-12 form-box">
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">First
+                                                    Name<span>*</span> </label>
+                                                <input class="form-control" type="text" id="first_name_exhibitor">
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Last
+                                                    Name<span>*</span> </label>
+                                                <input class="form-control" id="last_name_exhibitor" type="text">
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Email<span>*</span>
+                                                </label>
+                                                <input type="email" class="form-control" id="email_exhibitor" />
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Phone<span>*</span>
+                                                </label>
+                                                <input type="text" minlength="10" maxlength="10" id="phone_no_exhibitor"
+                                                    class="form-control" />
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Password<span>*</span> </label>
+                                                <input type="password" class="form-control" id="password_exhibitor" />
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Confirm
+                                                    Password<span>*</span> </label>
+                                                <input type="password" class="form-control"
+                                                    id="confirm_password_exhibitor" />
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Address<span>*</span> </label>
+                                                <input type="text" class="form-control" id="address_exhibitor" />
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Postal
+                                                    Code<span>*</span> </label>
+                                                <input type="text" class="form-control" id="postal_code_exhibitor" />
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Business
+                                                    Name<span>*</span> </label>
+                                                <input id="company_name_exhibitor" type="text" class="form-control" />
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Business
+                                                    Website<span>*</span> </label>
+                                                <input id="company_website_exhibitor" type="text" class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">Your Title<span>*</span> </label>
+                                                <input id="current_position_exhibitor" type="text" class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-12">
+                                                <label class="string optional active">How You Heard About
+                                                    Us<span>*</span> </label>
+                                                <select class="form-control" id="heard_about_exhibitor">
+                                                    <option value="FACEBOOK">Facebook</option>
+                                                    <option value="FACEBOOK">Twitter</option>
+                                                    <option value="FACEBOOK">LinkedIn</option>
+                                                    <option value="FACEBOOK">Instagram</option>
+                                                    <option value="FACEBOOK">Google</option>
+                                                    <option value="FACEBOOK">Magazine</option>
+                                                    <option value="FACEBOOK">Website</option>
+                                                    <option value="FACEBOOK">Banner</option>
+                                                    <option value="FACEBOOK">KIJIJI</option>
+                                                    <option value="FACEBOOK">Others</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-12 col-sm-12 text-left mt-1 mb-1">
+                                                <div class="agree_text text-color-red" id="message_exhibitor"></div>
+                                            </div>
+                                            <div class="form-group col-md-12 col-sm-12 text-center">
+                                                <button type="button" class="btn btn-danger pl-5 pr-5"
+                                                    id="register-exhibitor">Register</button>
+
+                                                <div class="agree_text mt-3">By creating an account you agree to our
+                                                    <a class="special" href="/terms" target="_blank" role="link">Terms
+                                                        &amp; Privacy</a></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // print form
+    document.getElementById('printButton').addEventListener("click", print)
+    function print() {
+        printJS({
+            printable: 'home',
+            type: 'html'
+        })
+    }
+
+    // send msg on whatsapp
+    document.getElementById('sendButtons').addEventListener("click", getLinkWhastapp)
+    function getLinkWhastapp(number, message) {
+        number = '9643234208'
+        message = 'Mess'
+
+        return console.log('https://api.whatsapp.com/send?phone=' + number + '&text=%20' + message)
+    }
+
+    // print HTML as pdf
+    document.getElementById('elementToPrint').addEventListener("click", convertHTMLtoPDF);
+    function convertHTMLtoPDF() {
+        const element = document.getElementById('home');
+        html2pdf(element, {
+            margin: 1,
+            filename: 'register.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { dpi: 192, letterRendering: true },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        });
+    }
+
+</script>

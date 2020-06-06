@@ -1,0 +1,335 @@
+<!-- slide-section - start
+		================================================== -->
+    <section id="main-carousel2" class="main-carousel2 clearfix">
+        {{#each data.eventList.items }}
+            {{#unless ad}}
+                <div class="item" style="background-image: url(assets/images/slider/slider-bg1.jpg);">
+                    <div class="overlay-black">
+                        <div class="container">
+                            <div class="col-lg-10 divider">
+
+                                <!-- slider-content - start -->
+                                <div class="slider-content">
+                                    <div class="row">
+                                        <div class="col-md-7 text-center slider-left-content">
+                                            <strong class="slider-head"><span>Mega</span> Job Fair</strong>
+                                            <h2>Jobs for Trucking Professionals</h2>
+                                        </div>
+                                        <div class="col-md-5 text-center ">
+                                            <span class=" date ">{{startMonth}} {{startDay}}, {{startYear}}</span>
+                                            <span class="time ">@ {{start_time}} - {{end_time}}</span>
+                                            <h3>
+                                                <strong> {{venue.name}}</strong>
+                                            </h3>
+                                            {{!-- <h3 class="mb-3">Free Entry and Free Parking</h3> --}}
+                                            <a href="/event/{{_id}}" class="button-red">More Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- slider-content - end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/unless}}
+        {{/each}}
+    </section>
+    <!-- slide-section - end
+		================================================== -->
+
+    <!-- absolute-eventmake-section - start
+		================================================== -->
+    <div id="absolute-eventmake-section" class="absolute-eventmake-section clearfix">
+         <div class="container">
+            <div class="row">
+        <div class="eventmaking-wrapper">
+            <ul class="nav eventmake-tabs">
+                <li>
+                    <a class="active" href="/register">
+                     Register Now
+                    </a>
+                </li>
+
+            </ul>
+
+            {{!-- <div class="tab-content">
+                <div id="register-now" class="collapse">
+                    <form action="#">
+                        <ul>
+
+                            <li>
+                                <input type="text" placeholder="Full Name">
+                            </li>
+                            <li>
+                                <input type="email" placeholder="Email">
+                            </li>
+                            <li>
+                                <input type="text" placeholder="Phone Number">
+                            </li>
+                            <li>
+                                <select class="date-select">
+										<option selected="">Role Type</option>
+										<option>Exhibitor</option>
+										<option>Job Seeker</option>
+									</select>
+                            </li>
+
+                            <button type="submit" class="button-red register-bt">Register</button>
+
+
+                        </ul>
+                    </form>
+                </div>
+
+            </div> --}}
+</div>
+</div>
+        </div>
+    </div>
+    <!-- absolute-eventmake-section - end
+		================================================== -->
+
+
+
+    <!-- why attend - start ================================================== -->
+
+    <section class="why-attend pt-5 pb-5 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="section-title text-center">
+                        <h2>Why <strong> Attend</strong> </h2>
+                    </div>
+                    <div class="attend-content">
+                        <p>
+                            We’ve all been living with a fact that networking events are important for our business, career, growth and many other aspects, but many of us still don't attend such type of events. As a trucking company or professional there will be a number of opportunities
+                            to attend events being offered to you. We believe that networking is a crucial stepping-stone for both companies & professionals, and can only be of beneficial in lots of different ways.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="box-attend text-center" data-toggle="modal" data-target="#relationships">
+                        <img src="assets/images/build-relation.png" alt="">
+                        <h3>Build Relationships</h3>
+                        {{!-- <div class="content-over">
+                            The best part about networking events is that like-minded individuals are all together in an informal environment.
+                        </div> --}}
+                    </div>
+
+                    <div class="modal" id="relationships">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                         <button type="button" class="close text-right" data-dismiss="modal">&times;</button>
+                         
+                            <!-- Modal body -->
+                            <div class="modal-body text-center">
+                           <img src="assets/images/build-relation.png" alt="">
+                            <h3 class="mt-2 mb-2">Build Relationships</h3>
+                            The best part about networking events is that like-minded individuals are all together in an informal environment.
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="box-attend text-center" data-toggle="modal" data-target="#keep-uptodate">
+                        <img src="assets/images/keep-update.png" alt="">
+                        <h3>To Keep up-to-Date</h3>
+                        {{!-- <div class="content-over">
+                            When in a room with a number of people from your industry, you are bound to get talking about what has been happening as of lately.
+                        </div> --}}
+                    </div>
+                          <div class="modal" id="keep-uptodate">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                         <button type="button" class="close text-right" data-dismiss="modal">&times;</button>
+                         
+                            <!-- Modal body -->
+                            <div class="modal-body text-center">
+                           <img src="assets/images/keep-update.png" alt="">
+                            <h3 class="mt-2 mb-2">To Keep up-to-Date</h3>
+                            When in a room with a number of people from your industry, you are bound to get talking about what has been happening as of lately.
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="box-attend text-center" data-toggle="modal" data-target="#new-ideas">
+                        <img src="assets/images/new-idea.png" alt="">
+                        <h3>To Benefit From New Ideas</h3>
+                        {{!-- <div class="content-over">
+                            Generally speaking, hearing the ideas of those who have been very successful is a wonderful opportunity to learn.
+                        </div> --}}
+                    </div>
+
+                       <div class="modal" id="new-ideas">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                         <button type="button" class="close text-right" data-dismiss="modal">&times;</button>
+                         
+                            <!-- Modal body -->
+                            <div class="modal-body text-center">
+                           <img src="assets/images/new-idea.png" alt="">
+                            <h3 class="mt-2 mb-2">To Benefit From New Ideas</h3>
+                             Generally speaking, hearing the ideas of those who have been very successful is a wonderful opportunity to learn.
+                            </div>  
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- why attend - end ================================================== -->
+
+
+
+    <!-- event-section - start
+		================================================== -->
+    <section id="event-section" class="event-section pt-3 pb-5 clearfix">
+        <div class="container">
+
+            <div class="mb-15">
+                <div class="row">
+
+                    <!-- section-title - start -->
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="section-title text-left">
+                            <h2 class="big-title">Upcoming <strong> Events</strong> </h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="section-title text-right">
+                            <a class="post-events">Post Your Events >></a>
+                        </div>
+                    </div>
+                    <!-- section-title - end -->
+
+                    <!-- event-tab-menu - start -->
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="event-tab-menu clearfix">
+                            <ul class="nav">
+                                {{#each data.eventCategories}}
+                                    <li>
+                                        <a data-toggle="tab" href="#" class="{{#ifCond @index '===' 0}}active show {{/ifCond}}" data-event={{_id}}>
+                                            {{name}}
+                                        </a>
+                                    </li>
+                                {{/each}}
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- event-tab-menu - end -->
+
+                </div>
+            </div>
+
+            <!-- tab-content - start -->
+            <div class="tab-content">
+                <!-- conference-event - start -->
+                <div id="ttn-event" class="tab-pane  fade in active show">
+                    <div class="row">
+                        {{#each data.eventList.items }}
+                        {{#if ad}}
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="event-item2 clearfix text-center no-shadow">
+                                    <img src="assets/images/ad-img.jpg" alt="Image_not_found">
+                                </div>
+                            </div>
+                        {{else}}
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="event-item2 clearfix">
+                                    <!-- event-image - start -->
+                                    <div class="event-image">
+                                        <div class="post-date">
+                                            <span class="date">{{startDay}}</span>
+                                            <small class="month">{{startMonth}}</small>
+                                        </div>
+                                        {{!-- <a href="#" class="post-share">
+                                           
+                                        </a> --}}
+
+                                <div class="dropdown shareall">
+                                    <a href="#" class="post-share" data-toggle="dropdown"> <img src="assets/images/share.png" alt="Share"></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="https://wa.me/?text=I'm%20interested%20in%20your%20car%20for%20sale"
+                                     id="sendButtons"><i class="fab fa-whatsapp" aria-hidden="true"></i> Whatsapp</a>
+
+                                    <a href="mailto:test@example.com?subject=Testing out mailto!&body=This is only a test!"><i class="far fa-envelope" aria-hidden="true"></i> Email</a>
+
+                                    <a href="#" id="elementToPrint"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
+                                    </div>
+                                </div>
+
+                                        <img src="assets/images/upcoming-img.jpg" alt="Image_not_found">
+                                    </div>
+                                    <!-- event-image - end -->
+                                    <!-- event-content - start -->
+                                    <div class="event-content">
+                                        <div class="event-title mb-15">
+                                            <h3 class="title">
+                                                {{title}} - </br>
+                                                {{startMonth}} {{startYear}} - {{venue.city}},{{venue.state}}
+                                            </h3>
+                                            <span class="ticket-price greycolor">{{short_description}}</span>
+                                        </div>
+                                        <div class="event-post-meta ul-li-block mb-15">
+                                            <ul>
+                                                <li>
+                                                    <span class="icon">
+                                                            <i class="far fa-clock"></i>
+                                                        </span> {{start_time}} to {{end_time}}
+                                                </li>
+                                                <li>
+                                                    <span class="icon">
+                                                            <i class="fas fa-map-marker-alt"></i>
+                                                        </span> {{venue.name}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="text-center">
+                                            <a href="event/{{_id}}" class="button-red">
+                                            Event Details
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- event-content - end -->
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{/each}}
+                        {{#ifCond data.eventList.items.length '===' 0}}
+                            <p>No Event(s) Found</p>
+                        {{/ifCond}}
+                    </div>
+                </div>
+                <!-- conference-event - end -->
+                <div class="col-lg-12 col-md-12 col-sm-12 event-pagination">
+                    {{#ifCond data.eventList.noOfPages '>' 1}}
+                        <div class="pagination ul-li clearfix">
+                            <ul>
+                                <li class="page-item prev-item">
+                                    <a class="page-link" href="#" data-page="1">Prev</a>
+                                </li>
+                                {{#times data.eventList.noOfPages}}
+                                    <li class="page-item curr-item {{#ifCond this '===' 1}}active{{/ifCond}}" data-page={{this}}><a class="page-link" href="#">{{this}}</a></li>
+                                {{/times}}
+                                <li class="page-item next-item">
+                                    <a class="page-link" href="#" data-page="{{data.eventList.noOfPages}}">Next</a>
+                                </li>
+                            </ul>
+                        </div>
+                    {{/ifCond}}
+                </div>
+            </div>
+            <!-- tab-content - end -->
+
+        </div>
+    </section>
+    <!-- event-section - end
+		================================================== -->

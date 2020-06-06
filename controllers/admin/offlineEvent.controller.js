@@ -11,8 +11,9 @@ module.exports = {
     offlineAllEvents: async (req, res) => {
         try {
             const { headers: { cookie } } = req;
-            if (!cookie) {
-                throw new Error('Token');
+            // check user is logged in or not
+            if (cookie === undefined) {
+                return res.redirect('/admin/login');
             }
             const cookies = cookie.split('=');
             if (!cookies.length || cookies[0] !== 'token') {
@@ -36,6 +37,10 @@ module.exports = {
     offlineAddEvent: async (req, res) => {
         try {
             const { headers: { cookie } } = req;
+            // check user is logged in or not
+            if (cookie === undefined) {
+                return res.redirect('/admin/login');
+            }
             const cookies = cookie.split('=');
             const headers = {
                 'Content-Type': 'application/json',
@@ -51,6 +56,10 @@ module.exports = {
     offlineEditEvent: async (req, res) => {
         try {
             const { headers: { cookie }, params: { eventId } } = req;
+            // check user is logged in or not
+            if (cookie === undefined) {
+                return res.redirect('/admin/login');
+            }
             const cookies = cookie.split('=');
             const headers = {
                 'Content-Type': 'application/json',
@@ -87,6 +96,7 @@ module.exports = {
                 eventData.data.endDay = `${endDate.getFullYear()}-${month}-${day}`;
             }
             return res.render('admin/offline/edit-event', { title: 'Express Admin Event', layout: 'admin', eventCategories: eventCategories.data, eventData: eventData.data  });
+            return res.render('admin/offline/edit-event', { title: 'Express Admin Event', layout: 'admin', eventCategories: eventCategories.data, eventData: eventData.data });
         } catch (error) {
             console.log(error);
             return res.status(400).json({ data: error });
@@ -95,6 +105,10 @@ module.exports = {
     offlineAllCategories: async (req, res) => {
         try {
             const { headers: { cookie } } = req;
+            // check user is logged in or not
+            if (cookie === undefined) {
+                return res.redirect('/admin/login');
+            }
             const cookies = cookie.split('=');
             const headers = {
                 'Content-Type': 'application/json',
@@ -111,6 +125,11 @@ module.exports = {
     },
     offlineAddCategory: async (req, res) => {
         try {
+            const { headers: { cookie } } = req;
+            // check user is logged in or not
+            if (cookie === undefined) {
+                return res.redirect('/admin/login');
+            }
             return res.render('admin/offline/add-category', { title: 'Express Admin Event', layout: 'admin' });
         } catch (error) {
             console.log(error);
@@ -120,6 +139,10 @@ module.exports = {
     offlineEditCategory: async (req, res) => {
         try {
             const { headers: { cookie }, params: { categoryTd } } = req;
+            // check user is logged in or not
+            if (cookie === undefined) {
+                return res.redirect('/admin/login');
+            }
             const cookies = cookie.split('=');
             const headers = {
                 'Content-Type': 'application/json',
@@ -129,7 +152,7 @@ module.exports = {
                 hitApi.hitApi({ path: `/offline-categories/${categoryTd}`, method: 'GET', headers })
             ]);
             console.log('offlineCategory: ', offlineCategory);
-            return res.render('admin/offline/edit-category', { title: 'Express Admin Event', layout: 'admin', offlineCategory: offlineCategory.data  });
+            return res.render('admin/offline/edit-category', { title: 'Express Admin Event', layout: 'admin', offlineCategory: offlineCategory.data });
         } catch (error) {
             console.log(error);
             return res.status(400).json({ data: error });

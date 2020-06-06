@@ -4,6 +4,10 @@ module.exports = {
     pricingPlanList: async (req, res) => {
         try {
             const { headers: { cookie } } = req;
+            // check user is logged in or not
+            if (cookie === undefined) {
+                return res.redirect('/admin/login');
+            }
             const cookies = cookie.split('=');
             const headers = {
                 'Content-Type': 'application/json',
@@ -19,6 +23,12 @@ module.exports = {
 
     },
     addPricingPlan: async (req, res) => {
+        const { headers: { cookie } } = req;
+        // check user is logged in or not
+        if (cookie === undefined) {
+            return res.redirect('/admin/login');
+        }
+
         return res.render('admin/pricing/add-pricing', { title: 'Express Admin Pricing Plan', layout: 'admin' });
     }
 };

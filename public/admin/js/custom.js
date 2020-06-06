@@ -108,7 +108,7 @@
                     console.log(response);
                     if (response.data) {
                         localStorage.setItem('token', 'Bearer ' + response.data.token);
-                        location.href = "/admin"
+                        location.href = "admin/dashboard"
                     }
                 },
                 error: function (xhr, status, error) {
@@ -118,7 +118,7 @@
             })
         });
 
-        $('.logout').on('click', function (e) {
+        $('#admin-logout').on('click', function (e) {
             e.preventDefault();
             $.ajax({
                 method: 'GET',
@@ -129,7 +129,7 @@
                 },
                 error: function (xhr, status, error) {
                     localStorage.clear();
-                    location.href = '/admin/login';
+                    location.href = '/';
                 }
             });
         });

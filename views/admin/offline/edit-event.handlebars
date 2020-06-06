@@ -40,7 +40,7 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Start Date</label>
                     <div class="col-sm-10">
-                      <input type="date" name="start_date" id="start_date" class="form-control" placeholder="Start Date" value="{{eventData.start_date}}">
+                      <input type="date" name="start_date" id="start_date" class="form-control" placeholder="Start Date" value="{{eventData.startDay}}">
                     </div>
                   </div>
                 </div>
@@ -48,7 +48,7 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">End Date</label>
                     <div class="col-sm-10">
-                      <input type="date" name="end_date" id="end_date" class="form-control" placeholder="End Date" value="{{eventData.end_date}}">
+                      <input type="date" name="end_date" id="end_date" class="form-control" placeholder="End Date" value="{{eventData.endDay}}">
                     </div>
                   </div>
                 </div>
@@ -75,19 +75,12 @@
               </div>
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Description</label>
                     <div class="col-sm-10">
                       <textarea class="form-control desc" name="description" id="description">{{eventData.description}}</textarea>
                     </div>
-                  </div>
-                </div>
-                {{!-- TODO --}}
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Banner</label>
-                    <input type="file" name="banner" id="banner">
                   </div>
                 </div>
               </div>
@@ -150,7 +143,6 @@
               </div>
 
               <div class="row">
-
                 <div class="col-md-6">
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Instagram Link</label>
@@ -169,8 +161,15 @@
                 </div>
               </div>
 
-
-              <div class="form-group row">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Banner</label>
+                    <input type="file" name="banner" id="banner">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Active</label>
                 <div class="col-sm-10">
                   <div class="form-check form-check-primary">
@@ -183,6 +182,11 @@
                   </div>
                 </div>
               </div>
+                </div>
+              </div>
+
+
+            
               <button class="btn btn-primary mr-2" id="offline-update-event" data-event="{{eventData._id}}">Update</button>
               <button class="btn btn-light">Cancel</button>
             </form>

@@ -1,10 +1,23 @@
 const hitApi = require('../../utils/external');
 
+const redirectPage = (err, res) => {
+    if (err.message === 'Token') {
+        res.clearCookie('token');
+        return res.redirect('/admin/login');
+    }
+}
+
 module.exports = {
     offlineAllEvents: async (req, res) => {
         try {
             const { headers: { cookie } } = req;
+            if (!cookie) {
+                throw new Error('Token');
+            }
             const cookies = cookie.split('=');
+            if (!cookies.length || cookies[0] !== 'token') {
+                throw new Error('Token');
+            }
             const headers = {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${cookies[1]}`
@@ -16,6 +29,7 @@ module.exports = {
             return res.render('admin/offline/all-event', { title: 'Express Admin Event', layout: 'admin', events: events.data });
         } catch (error) {
             console.log(error);
+            redirectPage(error, res);
             return res.status(400).json({ data: error });
         }
     },
@@ -48,6 +62,30 @@ module.exports = {
             ]);
             console.log('eventCategories: ', eventCategories);
             console.log('eventData: ', eventData);
+            if (eventData && eventData.data && eventData.data.start_date) {
+                const startDate = new Date(eventData.data.start_date);
+                let day = startDate.getDate().toString();
+                if (day.length < 2) {
+                    day = `0${day}`;
+                }
+                let month = (startDate.getMonth() + 1).toString();
+                if (month.length < 2) {
+                    month = `0${month}`;
+                }
+                eventData.data.startDay = `${startDate.getFullYear()}-${month}-${day}`;
+            }
+            if (eventData && eventData.data && eventData.data.end_date) {
+                const endDate = new Date(eventData.data.end_date);
+                let day = endDate.getDate().toString();
+                if (day.length < 2) {
+                    day = `0${day}`;
+                }
+                let month = (endDate.getMonth() + 1).toString();
+                if (month.length < 2) {
+                    month = `0${month}`;
+                }
+                eventData.data.endDay = `${endDate.getFullYear()}-${month}-${day}`;
+            }
             return res.render('admin/offline/edit-event', { title: 'Express Admin Event', layout: 'admin', eventCategories: eventCategories.data, eventData: eventData.data  });
         } catch (error) {
             console.log(error);
@@ -97,4 +135,4 @@ module.exports = {
             return res.status(400).json({ data: error });
         }
     }
-};
+}; 

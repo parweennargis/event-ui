@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="/admin/vendors/daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="/admin/vendors/chartist/chartist.min.css">
   <link rel="stylesheet" href="/admin/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <!-- endinject -->
@@ -179,7 +180,7 @@
   <script src="https://www.thetruckingnetworkevents.ca/packages/ckeditor/adapters/jquery.js"></script>
 
   <script>
-    var API_URL = 'http://localhost:5000';
+    var API_URL = '{{apiUrl}}';
   </script>
 
   {{!-- Custom JS --}}
@@ -187,7 +188,17 @@
   <script src="/admin/js/custom/pricing.js"></script>
   <script src="/admin/js/custom/offlineEvent.js"></script>
   <script src="/admin/js/custom/offlineCategory.js"></script>
-
+  {{!-- <script src='https://cdn.tiny.cloud/1/hzmj5o9jstxgtkou3vcizgki35ylm028byar2edu2hji22xu/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+  </script>
+  <script>
+    tinymce.init({
+      selector: '#description'
+    });
+  </script> --}}
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+  <script>
+    $('#description').summernote();
+  </script>
 </body>
 
 </html>

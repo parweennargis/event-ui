@@ -86,6 +86,7 @@
         const description = $('#description').val();
         let is_active = $('.is_active').val();
         const event_type = 'VIRTUAL';
+        const zoom_link = $('#zoom_link').val();
 
         const link = {
             facebook: $('#link_facebook').val(),
@@ -100,7 +101,7 @@
         }
         is_active = 'on' ? true : false;
 
-        const data = { event_type, is_active, description, end_time, start_time, end_date, start_date, title }
+        const data = { zoom_link, event_type, is_active, description, end_time, start_time, end_date, start_date, title }
         const formData = new FormData();
         Object.keys(data).forEach((key) => {
             formData.append(key, data[key]);

@@ -32,7 +32,7 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex align-items-center">
-        <a class="navbar-brand brand-logo" href="/admin">
+        <a class="navbar-brand brand-logo" href="/admin/dashboard">
           <img src="https://www.thetruckingnetworkevents.ca/img/ttn-white.png" alt="logo" class="logo-dark"
             style="height: 45px;" />
         </a>
@@ -45,15 +45,9 @@
 
           <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <img class="img-xs rounded-circle ml-2" src="/admin/images/faces/face8.jpg" alt="Profile image"> <span
-                class="font-weight-normal"> Henry Klein </span></a>
+              <span class="font-weight-normal"> Admin </span></a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-              <div class="dropdown-header text-center">
-                <img class="img-md rounded-circle" src="/admin/images/faces/face8.jpg" alt="Profile image">
-                {{!-- <p class="mb-1 mt-3">Allen Moreno</p> --}}
-                {{!-- <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p> --}}
-              </div>
-              <a class="dropdown-item"><i class="dropdown-item-icon icon-power text-primary logout"></i>Sign Out</a>
+              <a class="dropdown-item" id="admin-logout"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
             </div>
           </li>
         </ul>
@@ -73,7 +67,7 @@
             <span class="nav-link">Dashboard</span>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin">
+            <a class="nav-link" href="/admin/dashboard">
               <span class="menu-title">Dashboard</span>
               <i class="icon-screen-desktop menu-icon"></i>
             </a>

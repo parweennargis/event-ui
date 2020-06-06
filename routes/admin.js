@@ -7,9 +7,10 @@ const offlineEventController = require('../controllers/admin/offlineEvent.contro
 
 // Login Routes
 router.get('/login', homeController.login);
+router.get('/', homeController.login);
 
 // Dashboard
-router.get('/', homeController.home);
+router.get('/dashboard', homeController.home);
 
 // Event Routes
 router.get('/event', homeController.event);

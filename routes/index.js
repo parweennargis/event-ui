@@ -25,6 +25,8 @@ const indexRoutes = (app, router) => {
     router.put('/profile', homeController.updateProfile);
     router.post('/upload', app.upload.single('file'), homeController.uploadData);
 
+    router.get('/onlineeventsdetails', homeController.onlineeventsdetails);
+
     return router;
 }
 

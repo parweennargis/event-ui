@@ -3529,6 +3529,7 @@ button {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right center;
+    min-height: 250px;
 }
 
 .main-carousel2 .item .overlay-black {

@@ -47,7 +47,7 @@ module.exports = {
                 promises.push(externalUtils.hitApi({ path: `/profile`, headers }));
             }
             const [event, profile] = await Promise.all(promises);
-        
+
             if (event && event.data && event.data.start_date) {
                 const startDate = new Date(event.data.start_date).toDateString().split(' ');
                 event.data.startDay = startDate[2];
@@ -55,7 +55,7 @@ module.exports = {
                 event.data.startYear = startDate[3];
             }
 
-            return res.render('event-detail', { title: 'Event Detail', data: { event: event.data, user: profile && profile.data ? profile.data : null, isUser : profile && profile.data } });
+            return res.render('event-detail', { title: 'Event Detail', data: { event: event.data, user: profile && profile.data ? profile.data : null, isUser: profile && profile.data } });
         } catch (error) {
             console.log(error);
             return res.render('404-error');
@@ -166,7 +166,7 @@ module.exports = {
             };
             const apiResponse = await externalUtils.hitApi({ path: `/profile`, headers });
             console.log('profile response: ', apiResponse);
-            
+
             return res.render('profile', { title: 'Profile', data: apiResponse.data });
         } catch (error) {
             console.log(error);
@@ -268,7 +268,7 @@ module.exports = {
             return res.status(400).json({ data: error });
         }
     },
-    getUserCart: async (req, res)  => {
+    getUserCart: async(req, res) => {
         try {
             const { headers: { cookie } } = req;
             const cookies = cookie.split('=');
@@ -287,7 +287,7 @@ module.exports = {
             return res.status(400).json({ data: error });
         }
     },
-    verify: async (req, res) => {
+    verify: async(req, res) => {
         try {
             const { headers: { cookie } } = req;
             const cookies = cookie.split('=');
@@ -306,7 +306,7 @@ module.exports = {
             return res.status(400).json({ data: error.message || error });
         }
     },
-    deleteItemFromCart: async (req, res) => {
+    deleteItemFromCart: async(req, res) => {
         try {
             const { headers: { cookie }, params: { cartId } } = req;
             const cookies = cookie.split('=');
@@ -325,7 +325,7 @@ module.exports = {
             return res.status(400).json({ data: error.message || error });
         }
     },
-    postRegister: async (req, res) => {
+    postRegister: async(req, res) => {
         try {
             const { body } = req;
             const headers = {
@@ -339,7 +339,7 @@ module.exports = {
             return res.status(400).json({ data: error });
         }
     },
-    updateProfile: async (req, res) => {
+    updateProfile: async(req, res) => {
         try {
             const { headers: { cookie }, body } = req;
             const cookies = cookie.split('=');
@@ -350,7 +350,7 @@ module.exports = {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${cookies[1]}`
             };
-            const apiResponse = await externalUtils.hitApi({ path: `/profile`, method: 'PUT' ,headers, body });
+            const apiResponse = await externalUtils.hitApi({ path: `/profile`, method: 'PUT', headers, body });
             console.log('update profile response: ', apiResponse);
             res.json({ data: true });
         } catch (error) {
@@ -358,7 +358,7 @@ module.exports = {
             return res.status(400).json({ data: error.message || error });
         }
     },
-    uploadData: async (req, res) => {
+    uploadData: async(req, res) => {
         try {
             const { headers: { cookie }, body: { name }, file } = req;
             const cookies = cookie.split('=');
@@ -380,7 +380,7 @@ module.exports = {
                     }
                 }
             };
-            const apiResponse = await externalUtils.hitApi({ path: `/profile/upload`, method: 'POST' ,headers, formData });
+            const apiResponse = await externalUtils.hitApi({ path: `/profile/upload`, method: 'POST', headers, formData });
             console.log('update profile response: ', apiResponse);
             fs.unlink(file.destination + '/' + file.filename, (err) => {
                 if (err) console.log(err);
@@ -391,5 +391,8 @@ module.exports = {
             console.log(error);
             return res.status(400).json({ data: error.message || error });
         }
-    }
+    },
+    onlineeventsdetails: async(req, res) => {
+        return res.render('onlineeventsdetails');
+    },
 };

@@ -189,30 +189,28 @@
 {{!-- virtual event section --}}
     <!-- event-section - start
 		================================================== -->
-    <section id="event-section" class="event-section pt-5 pb-5 clearfix">
+    <section id="virtual-event-section" class="event-section pt-5 pb-5 clearfix">
         <div class="container">
-
             <div class="mb-15 mt-3">
                 <div class="row">
-
                     <!-- section-title - start -->
                     <div class="col-lg-6 col-md-12 col-sm-12">
                         <div class="section-title text-left">
-                            <h2 class="big-title">Online <strong> Events</strong> </h2>
+                            <h2 class="big-title">Virtual <strong> Events</strong> </h2>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12">
                         <div class="section-title text-right">
-                            <a href="#" class="post-events">Post Your Online Events >></a>
+                            <a href="#" class="post-events">Post Your Virtual Events >></a>
                         </div>
                     </div>
                     <!-- section-title - end -->
 
                     <!-- event-tab-menu - start -->
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="event-tab-menu clearfix">
+                        <div class="event-tab-menu virtual clearfix">
                             <ul class="nav">
-                                {{#each data.eventCategories}}
+                                {{#each data.offlineEventCategories}}
                                     <li>
                                         <a data-toggle="tab" href="#" class="{{#ifCond @index '===' 0}}active show {{/ifCond}}" data-event={{_id}}>
                                             {{name}}
@@ -231,9 +229,9 @@
             <!-- tab-content - start -->
             <div class="tab-content">
                 <!-- conference-event - start -->
-                <div id="ttn-event" class="tab-pane  fade in active show">
+                <div id="virtual-event" class="tab-pane  fade in active show">
                     <div class="row">
-                        {{#each data.eventList.items }}
+                        {{#each data.offlineEventList.items }}
                         {{#if ad}}
                             {{!-- <div class="col-lg-3 col-md-6 col-sm-12">
                                 <div class="event-item2 clearfix text-center no-shadow">
@@ -281,7 +279,7 @@
                                     <div class="event-content">
                                         <div class="event-title mb-15">
                                             <h3 class="title">
-                                                <a href="#" data-event="{{_id}}">
+                                                <a href="/virtual-event/{{_id}}" data-event="{{_id}}">
                                                 {{title}}
                                                 </a>
                                             </h3>
@@ -312,24 +310,24 @@
                         </div>
                         {{/if}}
                         {{/each}}
-                        {{#ifCond data.eventList.items.length '===' 0}}
+                        {{#ifCond data.offlineEventList.items.length '===' 0}}
                             <p>No Event(s) Found</p>
                         {{/ifCond}}
                     </div>
                 </div>
                 <!-- conference-event - end -->
                 <div class="col-lg-12 col-md-12 col-sm-12 event-pagination">
-                    {{#ifCond data.eventList.noOfPages '>' 1}}
+                    {{#ifCond data.offlineEventList.noOfPages '>' 1}}
                         <div class="pagination ul-li clearfix">
                             <ul>
-                                <li class="page-item prev-item">
+                                <li class="page-item prev-item virtual">
                                     <a class="page-link" href="#" data-page="1">Prev</a>
                                 </li>
-                                {{#times data.eventList.noOfPages}}
-                                    <li class="page-item curr-item {{#ifCond this '===' 1}}active{{/ifCond}}" data-page={{this}}><a class="page-link" href="#">{{this}}</a></li>
+                                {{#times data.offlineEventList.noOfPages}}
+                                    <li class="page-item curr-item virtual {{#ifCond this '===' 1}}active{{/ifCond}}" data-page={{this}}><a class="page-link" href="#">{{this}}</a></li>
                                 {{/times}}
-                                <li class="page-item next-item">
-                                    <a class="page-link" href="#" data-page="{{data.eventList.noOfPages}}">Next</a>
+                                <li class="page-item next-item virtual">
+                                    <a class="page-link" href="#" data-page="{{data.offlineEventList.noOfPages}}">Next</a>
                                 </li>
                             </ul>
                         </div>

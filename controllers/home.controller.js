@@ -1,4 +1,5 @@
 const externalUtils = require('../utils/external');
+const { splitDate } = require('../utils/helper');
 const fs = require('fs');
 
 module.exports = {
@@ -7,22 +8,19 @@ module.exports = {
             const promises = [];
             promises.push(externalUtils.hitApi({ path: "/events" }));
             promises.push(externalUtils.hitApi({ path: "/event-categories" }));
-            const [eventList, eventCategories] = await Promise.all(promises);
+            promises.push(externalUtils.hitApi({ path: "/offline-events", qs: { 'limit': 1 } }));
+            promises.push(externalUtils.hitApi({ path: "/offline-categories" }));
+            const [eventList, eventCategories, offlineEventList, offlineEventCategories] = await Promise.all(promises);
 
             // Event list api
-            eventList.data.items = eventList.data.items.reduce((prev, curr, index) => {
-                if (index == 3) prev.push({ ad: true });
-                const startDate = new Date(curr.start_date).toDateString().split(' ');
-                curr.startDay = startDate[2];
-                curr.startMonth = startDate[1];
-                curr.startYear = startDate[3];
-                prev.push(curr);
-                return prev;
-            }, []);
+            eventList.data.items = (eventList.data && eventList.data.items) ? splitDate(eventList.data.items) : [];
+            offlineEventList.data.items = (offlineEventList.data && offlineEventList.data.items) ? splitDate(offlineEventList.data.items) : [];
 
             const data = {
                 eventList: eventList.data,
-                eventCategories: eventCategories.data
+                eventCategories: eventCategories.data,
+                offlineEventList: offlineEventList.data,
+                offlineEventCategories: offlineEventCategories.data
             };
 
             console.log(data);
@@ -392,7 +390,56 @@ module.exports = {
             return res.status(400).json({ data: error.message || error });
         }
     },
-    onlineeventsdetails: async(req, res) => {
-        return res.render('onlineeventsdetails');
+    virtualEventDetail: async(req, res) => {
+        try {
+            const { params: { eventId }, headers: { cookie } } = req;
+            const promises = [
+                externalUtils.hitApi({ path: `/events/${eventId}` })
+            ];
+            if (cookie) {
+                const cookies = cookie.split('=');
+                const headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${cookies[1]}`
+                };
+                promises.push(externalUtils.hitApi({ path: `/profile`, headers }));
+            }
+            const [event, profile] = await Promise.all(promises);
+
+            if (event && event.data && event.data.start_date) {
+                const startDate = new Date(event.data.start_date).toDateString().split(' ');
+                event.data.startDay = startDate[2];
+                event.data.startMonth = startDate[1];
+                event.data.startYear = startDate[3];
+            }
+
+            const [eventFollow] = profile.data.event_follows.filter(id => eventId === id);
+            let isEventFollow = false;
+            if (eventFollow) isEventFollow = true;
+
+            return res.render('virtual-event-detail', { title: 'Virtual Event Detail', data: { event: event.data, user: profile && profile.data ? profile.data : null, isUser: profile && profile.data, isEventFollow } });
+        } catch (error) {
+            console.log(error);
+            return res.render('404-error');
+        }
+    },
+    eventAction: async (req, res) => {
+        try {
+            const { headers: { cookie }, body } = req;
+            const cookies = cookie.split('=');
+            if (!cookies.length || cookies[0] !== 'token') {
+                throw new Error('Some Error Occured');
+            }
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${cookies[1]}`
+            };
+            const apiResponse = await externalUtils.hitApi({ path: `/event-action`, method: 'POST', headers, body });
+            console.log('eventAction response: ', apiResponse);
+            res.json({ data: apiResponse.data });
+        } catch (error) {
+            console.log(error);
+            return res.status(400).json({ data: error.message || error });
+        }
     },
 };

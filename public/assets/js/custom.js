@@ -1516,5 +1516,133 @@
             }
             //TODO: hit api to check if profile is complete and its jobseeker
         });
-    })
+    });
+
+    $(document).on('click', '.like-event', function(e) {
+        e.preventDefault();
+        var token = localStorage.getItem('token');
+        if (!token) {
+            $('.register-modal-btn').trigger('click');
+            return;
+        }
+        var eventId = $(this).attr('data-event');
+        var isLike = $(this).attr('data-like');
+        var likeType = isLike  === 'true' ? 'UNLIKE' : 'LIKE';
+        $.ajax({
+            method: 'POST',
+            url: '/event-action',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify({
+                type: likeType,
+                event_id: eventId
+            }),
+            success: function(response) {
+                console.log(response);
+                if (response.data.like) {
+                    $('.like-icon').toggleClass('far fa-heart fas fa-heart');
+                } else {
+                    $('.like-icon').toggleClass('fas fa-heart far fa-heart');
+                }
+                $('.like-event').attr('data-like', response.data.like);
+            },
+            error: function(xhr) {
+                console.log('xhr: ', xhr);
+                $('.like-icon').toggleClass('far fa-heart fas fa-heart');
+            }
+        })
+    });
+
+    $(document).on('click', '.page-item.next-item.virtual', function(e) {
+        e.preventDefault();
+        var currentPage = +($('.page-item.virtual.active').attr('data-page'));
+        var maxPage = +($(this).children().attr('data-page'));
+        var eventCategoryId = $('div.event-tab-menu.virtual').find('.active.show').attr('data-event');
+        if (currentPage <= maxPage) {
+            eventList(currentPage + 1, eventCategoryId, function(err, data) {
+                if (err) {
+                    return;
+                }
+                $('.page-item.virtual.active').removeClass('active').next().addClass('active');
+            });
+        }
+    });
+
+    $(document).on('click', '.page-item.prev-item.virtual', function(e) {
+        e.preventDefault();
+        var currentPage = +($('.page-item.virtual.active').attr('data-page'));
+        var minPage = +($(this).children().attr('data-page'));
+        var eventCategoryId = $('div.event-tab-menu.virtual').find('.active.show').attr('data-event');
+        if (currentPage >= minPage) {
+            eventList(currentPage - 1, eventCategoryId, function(err, data) {
+                if (err) {
+                    return;
+                }
+                $('.page-item.virtual.active').removeClass('active').prev().addClass('active');
+            });
+
+        }
+    });
+
+    $(document).on('click', '.page-item.curr-item.virtual', function(e) {
+        e.preventDefault();
+        var currentPage = +($(this).attr('data-page'));
+        var eventCategoryId = $('div.event-tab-menu.virtual').find('.active.show').attr('data-event');
+        eventList(currentPage, eventCategoryId, function(err, data) {
+            if (err) {
+                return;
+            }
+            $('.page-item.virtual.active').removeClass('active')
+            $(this).addClass('active');
+        });
+
+    });
+
+    function eventList(page, eventCategoryId, cb) {
+        var data;
+        $.ajax({
+            url: '/events',
+            method: 'GET',
+            data: {
+                'page': page,
+                'eventCategoryId': eventCategoryId,
+                'limit': 1
+            },
+            success: function(result) {
+                // console.log(result);
+                var html = '<div class="row">';
+                if (result && result.data) {
+                    var items = result.data.items;
+                    if (items.length) {
+                        result.data.items.forEach((item) => {
+                            if (item.ad) {
+                                // html += '<div class="col-lg-3 col-md-6 col-sm-12"><div class="event-item2 clearfix text-center no-shadow"><img src="assets/images/ad-img.jpg" alt="Image_not_found"></div></div>';
+                            } else {
+                                var banner = '<img src="assets/images/upcoming-img.jpg" alt="Image_not_found">';
+                                if (item.banner) {
+                                    banner = '<img src="' + item.banner + '" alt="Image_not_found">';
+                                }
+                                html += '<div class="col-lg-3 col-md-6 col-sm-12"><div class="event-item2 clearfix"><div class="event-image"><div class="post-date"><span class="date">' + item.startDay + '</span><small class="month">' + item.startMonth + '</small></div>' + banner + '</div><div class="event-content"><div class="event-title mb-15"><h3 class="title"><a href="#" data-event="' + item._id + '">' + item.title + '</a></h3></div><div class="event-post-meta ul-li-block mb-15"><ul><li><span class="icon"><i class="far fa-clock"></i></span>' + item.start_time + ' to ' + item.end_time + '</li></ul></div></div></div></div>';
+                            }
+                        })
+                        html += '</div>';
+                        $('#ttn-event').html(html);
+                        data = result.data;
+                        return cb(null, data);
+                    } else {
+                        html += '<p>No Event(s) Found';
+                        $('#ttn-event').html(html);
+                        data = result.data;
+                        return cb(null, data);
+                    }
+
+                }
+            },
+            error: function(xhr, status, error) {
+                console.log(error);
+                return cb(error);
+            }
+        });
+    }
 })(jQuery);

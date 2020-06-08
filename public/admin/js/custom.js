@@ -108,7 +108,7 @@
                     console.log(response);
                     if (response.data) {
                         localStorage.setItem('token', 'Bearer ' + response.data.token);
-                        location.href = "admin/dashboard"
+                        location.href = "/admin/dashboard"
                     }
                 },
                 error: function (xhr, status, error) {

@@ -20,7 +20,7 @@
                                      id="sendButtons"><i class="fab fa-whatsapp" aria-hidden="true"></i> Whatsapp</a> --}}
 
                                     {{!-- <a href="mailto:?subject=Register Email&body=Register URL="><i class="far fa-envelope" aria-hidden="true"></i> Email</a> --}}
-                                    <a href="mailto:?subject=Register"><i class="far fa-envelope" aria-hidden="true"></i> Email</a>
+                                    <a href="mailto:?subject=Register&body=https://{{data.host}}/register"><i class="far fa-envelope" aria-hidden="true"></i> Email</a>
 
                                     <a href="#" id="elementToPrint"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
                                     </div>
@@ -265,13 +265,14 @@
     }
 
     // send msg on whatsapp
-    document.getElementById('sendButtons').addEventListener("click", getLinkWhastapp)
-    function getLinkWhastapp(number, message) {
-        number = '9643234208'
+     {{!-- function getLinkWhastapp(number, message) {
+        number = ''
         message = 'Mess'
 
         return console.log('https://api.whatsapp.com/send?phone=' + number + '&text=%20' + message)
     }
+    document.getElementById('sendButtons').addEventListener("click", getLinkWhastapp); --}}
+   
 
     // print HTML as pdf
     document.getElementById('elementToPrint').addEventListener("click", convertHTMLtoPDF);

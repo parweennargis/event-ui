@@ -20,7 +20,8 @@ module.exports = {
                 eventList: eventList.data,
                 eventCategories: eventCategories.data,
                 offlineEventList: offlineEventList.data,
-                offlineEventCategories: offlineEventCategories.data
+                offlineEventCategories: offlineEventCategories.data,
+                host: req.host
             };
 
             console.log(data);
@@ -52,8 +53,14 @@ module.exports = {
                 event.data.startMonth = startDate[1];
                 event.data.startYear = startDate[3];
             }
+            const data = { 
+                event: event.data,
+                user: profile && profile.data ? profile.data : null,
+                isUser: profile && profile.data,
+                host: req.host
+            };
 
-            return res.render('event-detail', { title: 'Event Detail', data: { event: event.data, user: profile && profile.data ? profile.data : null, isUser: profile && profile.data } });
+            return res.render('event-detail', { title: 'Event Detail', data });
         } catch (error) {
             console.log(error);
             return res.render('404-error');
@@ -81,7 +88,10 @@ module.exports = {
         }
     },
     register: async(req, res) => {
-        return res.render('register');
+        const data = {
+            host: req.host
+        };
+        return res.render('register', { title: 'Register', data });
     },
     plans: async(req, res) => {
         return res.render('plans');
@@ -416,7 +426,15 @@ module.exports = {
             const [eventFollow] = (profile && profile.data) ? profile.data.event_follows.filter(id => eventId === id) : [];
             if (eventFollow) isEventFollow = true;
 
-            return res.render('virtual-event-detail', { title: 'Virtual Event Detail', data: { event: event.data, user: profile && profile.data ? profile.data : null, isUser: profile && profile.data, isEventFollow } });
+            const data = { 
+                event: event.data,
+                user: profile && profile.data ? profile.data : null,
+                isUser: profile && profile.data,
+                isEventFollow,
+                host: req.host
+            };
+
+            return res.render('virtual-event-detail', { title: 'Virtual Event Detail', data  });
         } catch (error) {
             console.log(error);
             return res.render('404-error');

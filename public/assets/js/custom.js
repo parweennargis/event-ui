@@ -830,6 +830,10 @@
         }
     });
 
+    function shareHtml (id, title) {
+        return '<div class="dropdown shareall"><a href="#" class="post-share" data-toggle="dropdown"> <img src="assets/images/share.png" alt="Share"></a><div class="dropdown-menu dropdown-menu-right"><a href="http://www.facebook.com/sharer.php?u=https://' + window.location.hostname + '/virtual-event/' + id + '" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i> Facebook</a><a href="http://www.twitter.com/share?url=https://' + window.location.hostname + '/virtual-event/' + id + '" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i> Share on Twitter</a><a href="mailto:?subject=' + title + '&body=https://' + window.location.hostname + '/virtual-event/' + id + '"><i class="far fa-envelope" aria-hidden="true"></i> Email</a></div></div>';
+    }
+
     function virtualEventList(page, eventCategoryId, cb) {
         var data;
         $.ajax({
@@ -842,7 +846,7 @@
             },
             success: function(result) {
                 // console.log(result);
-                var html = '<div class="row">';
+                var html = '<section class="virtual slider">';
                 if (result && result.data) {
                     var items = result.data.items;
                     if (items.length) {
@@ -852,14 +856,15 @@
                             } else {
                                 var banner = '<img src="/assets/images/upcoming-img.jpg" alt="Image_not_found">';
                                 if (item.banner) {
-                                    banner = '<img src="' + item.banner + '" alt="Image_not_found">';
+                                    banner = '<a href="/virtual-event/' + item._id + '" data-event="' + item._id + '"><img src="' + item.banner + '" alt="Image_not_found"></a>';
                                 }
-                                html += '<div class="col-lg-3 col-md-6 col-sm-12"><div class="event-item2 clearfix"><div class="event-image"><div class="post-date"><span class="date">' + item.startDay + '</span><small class="month">' + item.startMonth + '</small></div>' + banner + '</div><div class="event-content"><div class="event-title mb-15"><h3 class="title"><a href="/virtual-event/' + item._id + '" data-event="' + item._id + '">' + item.title + '</a></h3></div><div class="event-post-meta ul-li-block mb-15"><ul><li><span class="icon"><i class="far fa-clock"></i></span>' + item.start_time + ' to ' + item.end_time + '</li></ul></div></div></div></div>';
+                                html += '<div class="slide"><div class="row"><div class="col-lg-12 col-md-12 col-sm-12"><div class="event-item3 clearfix"><div class="event-image">' + shareHtml(item._id, item.title) + banner + '</div><div class="event-content"><div class="event-title mb-15"><h3 class="title"><a href="/virtual-event/' + item._id + '" data-event="' + item._id + '">' + item.title + '</a></h3></div><div class="event-post-meta ul-li-block mb-15"><ul><li><a href="/virtual-event/' + item._id + '" data-event="' + item._id + '"><span class="icon"><i class="far fa-clock"></i></span><span class="date">' + item.startDay + ' ' + item.startMonth + '</small> ' + item.start_time +' to' + item.end_time +'</span></li></ul></div></div></div></div></div></div>';
                             }
                         })
                         html += '</div>';
                         $('#virtual-event').html(html);
                         data = result.data;
+                        virtualEventSlider();
                         return cb(null, data);
                     } else {
                         html += '<p>No Event(s) Found';
@@ -874,6 +879,30 @@
                 console.log(error);
                 return cb(error);
             }
+        });
+    }
+
+
+    function virtualEventSlider() {
+        $('.virtual').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 1500,
+            arrows: true,
+            dots: false,
+            pauseOnHover: true,
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1
+                }
+            }, {
+                breakpoint: 520,
+                settings: {
+                    slidesToShow: 1
+                }
+            }]
         });
     }
 
@@ -1066,26 +1095,7 @@
         });
     });
     $(document).ready(function() {
-        $('.virtual').slick({
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            autoplay: false,
-            autoplaySpeed: 1500,
-            arrows: true,
-            dots: false,
-            pauseOnHover: true,
-            responsive: [{
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1
-                }
-            }, {
-                breakpoint: 520,
-                settings: {
-                    slidesToShow: 1
-                }
-            }]
-        });
+        virtualEventSlider();
     });
 
     // Plan page slider end

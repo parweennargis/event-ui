@@ -242,8 +242,7 @@
                     <section class="virtual slider">
                          {{#each data.offlineEventList.items }}
                         <div class="slide">
-                            <div class="row">
-                               
+                            <div class="row">                  
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="event-item3 clearfix">
                                         <!-- event-image - start -->
@@ -282,7 +281,7 @@
                                                 <img src="{{banner}}" alt="Image_not_found">
                                             </a>
                                             {{else}}
-                                            <img src="assets/images/upcoming-img.jpg" alt="Image_not_found">
+                                            <img src="/assets/images/upcoming-img.jpg" alt="Image_not_found">
                                             {{/if}}
 
                                         </div>
@@ -302,8 +301,8 @@
                                                     <li><a href="/virtual-event/{{_id}}" data-event="{{_id}}">
                                                             <span class="icon">
                                                                 <i class="far fa-clock"></i>
-                                                            </span> <span class="date">{{startDay}}
-                                                                {{startMonth}}</small> {{start_time}} to {{end_time}}
+                                                            </span>
+                                                            <span class="date">{{startDay}} {{startMonth}}</small> {{start_time}} to {{end_time}}</span>
                                                         </a>
                                                     </li>
                                                     {{!-- <li>

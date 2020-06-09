@@ -8,7 +8,7 @@ module.exports = {
             const promises = [];
             promises.push(externalUtils.hitApi({ path: "/events" }));
             promises.push(externalUtils.hitApi({ path: "/event-categories" }));
-            promises.push(externalUtils.hitApi({ path: "/offline-events", qs: { 'limit': 4 } }));
+            promises.push(externalUtils.hitApi({ path: "/offline-events", qs: { 'limit': 8 } }));
             promises.push(externalUtils.hitApi({ path: "/offline-categories" }));
             const [eventList, eventCategories, offlineEventList, offlineEventCategories] = await Promise.all(promises);
 

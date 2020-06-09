@@ -1403,7 +1403,7 @@ a.remove {
 }
 
 .sidebar-section {
-    background: #d2d6da;
+    /* background: #d2d6da; */
     min-height: 380px;
     position: relative;
     padding: 20px;

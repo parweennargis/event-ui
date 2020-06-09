@@ -8,7 +8,7 @@ module.exports = {
             const promises = [];
             promises.push(externalUtils.hitApi({ path: "/events" }));
             promises.push(externalUtils.hitApi({ path: "/event-categories" }));
-            promises.push(externalUtils.hitApi({ path: "/offline-events", qs: { 'limit': 1 } }));
+            promises.push(externalUtils.hitApi({ path: "/offline-events", qs: { 'limit': 4 } }));
             promises.push(externalUtils.hitApi({ path: "/offline-categories" }));
             const [eventList, eventCategories, offlineEventList, offlineEventCategories] = await Promise.all(promises);
 
@@ -412,9 +412,8 @@ module.exports = {
                 event.data.startMonth = startDate[1];
                 event.data.startYear = startDate[3];
             }
-
-            const [eventFollow] = profile.data.event_follows.filter(id => eventId === id);
             let isEventFollow = false;
+            const [eventFollow] = (profile && profile.data) ? profile.data.event_follows.filter(id => eventId === id) : [];
             if (eventFollow) isEventFollow = true;
 
             return res.render('virtual-event-detail', { title: 'Virtual Event Detail', data: { event: event.data, user: profile && profile.data ? profile.data : null, isUser: profile && profile.data, isEventFollow } });

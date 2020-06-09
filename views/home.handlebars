@@ -209,11 +209,11 @@
 
                     <!-- event-tab-menu - start -->
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="event-tab-menu virtual clearfix">
+                        <div class="event-tab-menu clearfix">
                             <ul class="nav">
                                 {{#each data.offlineEventCategories}}
                                     <li>
-                                        <a data-toggle="tab" href="#" class="{{#ifCond @index '===' 0}}active show {{/ifCond}}" data-event={{_id}}>
+                                        <a data-toggle="tab" href="#" class="virtual-event {{#ifCond @index '===' 0}}active show {{/ifCond}}" data-event={{_id}}>
                                             {{name}}
                                         </a>
                                     </li>
@@ -330,23 +330,6 @@
                 </div>
                  </div>
                 <!-- conference-event - end -->
-                <div class="col-lg-12 col-md-12 col-sm-12 event-pagination">
-                    {{#ifCond data.offlineEventList.noOfPages '>' 1}}
-                        <div class="pagination ul-li clearfix">
-                            <ul>
-                                <li class="page-item prev-item virtual">
-                                    <a class="page-link" href="#" data-page="1">Prev</a>
-                                </li>
-                                {{#times data.offlineEventList.noOfPages}}
-                                    <li class="page-item curr-item virtual {{#ifCond this '===' 1}}active{{/ifCond}}" data-page={{this}}><a class="page-link" href="#">{{this}}</a></li>
-                                {{/times}}
-                                <li class="page-item next-item virtual">
-                                    <a class="page-link" href="#" data-page="{{data.offlineEventList.noOfPages}}">Next</a>
-                                </li>
-                            </ul>
-                        </div>
-                    {{/ifCond}}
-                </div>
             </div>
             <!-- tab-content - end -->
 
@@ -381,11 +364,11 @@
 
                     <!-- event-tab-menu - start -->
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="event-tab-menu clearfix">
+                        <div class="event-tab-menu clearfix" id="online-event">
                             <ul class="nav">
                                 {{#each data.eventCategories}}
                                     <li>
-                                        <a data-toggle="tab" href="#" class="{{#ifCond @index '===' 0}}active show {{/ifCond}}" data-event={{_id}}>
+                                        <a data-toggle="tab" href="#" class="online-event {{#ifCond @index '===' 0}}active show {{/ifCond}}" data-event={{_id}}>
                                             {{name}}
                                         </a>
                                     </li>

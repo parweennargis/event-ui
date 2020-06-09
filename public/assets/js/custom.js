@@ -764,163 +764,6 @@
     //----------------------------------------------------
     //Custom Implementation
 
-    var partners = [
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_112.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_122.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_87.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_17.jpg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/c_1.PNG",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/c_4.PNG",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_4.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_5.png ",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_9.png ",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_10.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_11.jpg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_13.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_14.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_18.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_19.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_20.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_21.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_22.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_25.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_26.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_30.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_33.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_35.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_36.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_38.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_39.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_40.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_41.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_46.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_47.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_48.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_49.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_52.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_53.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_54.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_55.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_56.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_58.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_60.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_1.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_2.png ",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_3.png ",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_37.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_6.png ",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_7.png ",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_15.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_16.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_24.jpg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_138.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_136.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_135.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_134.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_131.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_128.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_127.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_126.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_125.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_124.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_121.jpg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_120.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_119.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_118.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_116.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_115.jpg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_111.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_110.jpg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_107.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_106.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_105.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_104.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_101.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_100.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_99.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_98.jpg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_97.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_96.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_95.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_94.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_92.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_91.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_90.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_89.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_88.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_85.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_84.jpg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_83.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_82.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_81.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_79.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_78.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_74.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_73.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_72.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_70.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_67.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_65.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_64.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_62.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_44.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_188.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_189.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_12.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_114.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_86.jpeg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_103.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_112.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_122.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_87.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_17.jpg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/c_1.PNG",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/c_4.PNG",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_4.png ",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_5.png ",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_9.png ",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_10.png",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_11.jpg",
-        "https://www.thetruckingnetworkevents.ca/uploads/images/client_13.png",
-    ];
-    var partnerHtml = '';
-    partners.forEach(function(partner) {
-        partnerHtml += "<div class='item' style='height: 10%'><a href='#!'><img  src='" + partner + "'/></a></div>";
-    });
-
-    $('#partner-carousel').html(partnerHtml);
-
-    $('#partner-carousel').owlCarousel({
-        items: 4,
-        margin: 2,
-        nav: false,
-        loop: true,
-        autoplay: true,
-        smartSpeed: 500,
-        autoplayTimeout: 2000,
-        autoplayHoverPause: true,
-        dots: false,
-        autoHeight: true,
-        height: 100,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            360: {
-                items: 1,
-            },
-            768: {
-                items: 2,
-            },
-            991: {
-                items: 3,
-            },
-            1199: {
-                items: 4,
-            }
-        }
-    });
-
     // event-details-promotion-carousel - start
     // --------------------------------------------------
     $('#event-details-promotion-carousel').owlCarousel({
@@ -936,7 +779,7 @@
         e.preventDefault();
         var currentPage = +($('.page-item.active').attr('data-page'));
         var maxPage = +($(this).children().attr('data-page'));
-        var eventCategoryId = $('div.event-tab-menu').find('.active.show').attr('data-event');
+        var eventCategoryId = $('.online-event').find('.active.show').attr('data-event');
         if (currentPage <= maxPage) {
             eventList(currentPage + 1, eventCategoryId, function(err, data) {
                 if (err) {
@@ -951,7 +794,7 @@
         e.preventDefault();
         var currentPage = +($('.page-item.active').attr('data-page'));
         var minPage = +($(this).children().attr('data-page'));
-        var eventCategoryId = $('div.event-tab-menu').find('.active.show').attr('data-event');
+        var eventCategoryId = $('.online-event').find('.active.show').attr('data-event');
         if (currentPage >= minPage) {
             eventList(currentPage - 1, eventCategoryId, function(err, data) {
                 if (err) {
@@ -966,16 +809,73 @@
     $(document).on('click', '.page-item.curr-item', function(e) {
         e.preventDefault();
         var currentPage = +($(this).attr('data-page'));
-        var eventCategoryId = $('div.event-tab-menu').find('.active.show').attr('data-event');
-        eventList(currentPage, eventCategoryId, function(err, data) {
+        var eventCategoryId = $('.online-event').find('.active.show').attr('data-event');
+        eventList(currentPage, eventCategoryId, function (err, data) {
             if (err) {
                 return;
             }
             $('.page-item.active').removeClass('active')
             $(this).addClass('active');
         });
-
     });
+
+    $('.virtual-event').on('click', function(e) {
+        e.preventDefault();
+        var previousTabId = $('.virtual-event').find('.active.show').attr('data-event');
+        var currentTabId = $(this).attr('data-event');
+        if (previousTabId != currentTabId) {
+            virtualEventList(1, currentTabId, function(err, data){
+
+            });
+        }
+    });
+
+    function virtualEventList(page, eventCategoryId, cb) {
+        var data;
+        $.ajax({
+            url: '/events',
+            method: 'GET',
+            data: {
+                'page': page,
+                'eventCategoryId': eventCategoryId,
+                'limit': 8
+            },
+            success: function(result) {
+                // console.log(result);
+                var html = '<div class="row">';
+                if (result && result.data) {
+                    var items = result.data.items;
+                    if (items.length) {
+                        result.data.items.forEach((item) => {
+                            if (item.ad) {
+                                // html += '<div class="col-lg-3 col-md-6 col-sm-12"><div class="event-item2 clearfix text-center no-shadow"><img src="assets/images/ad-img.jpg" alt="Image_not_found"></div></div>';
+                            } else {
+                                var banner = '<img src="/assets/images/upcoming-img.jpg" alt="Image_not_found">';
+                                if (item.banner) {
+                                    banner = '<img src="' + item.banner + '" alt="Image_not_found">';
+                                }
+                                html += '<div class="col-lg-3 col-md-6 col-sm-12"><div class="event-item2 clearfix"><div class="event-image"><div class="post-date"><span class="date">' + item.startDay + '</span><small class="month">' + item.startMonth + '</small></div>' + banner + '</div><div class="event-content"><div class="event-title mb-15"><h3 class="title"><a href="/virtual-event/' + item._id + '" data-event="' + item._id + '">' + item.title + '</a></h3></div><div class="event-post-meta ul-li-block mb-15"><ul><li><span class="icon"><i class="far fa-clock"></i></span>' + item.start_time + ' to ' + item.end_time + '</li></ul></div></div></div></div>';
+                            }
+                        })
+                        html += '</div>';
+                        $('#virtual-event').html(html);
+                        data = result.data;
+                        return cb(null, data);
+                    } else {
+                        html += '<p>No Event(s) Found';
+                        $('#virtual-event').html(html);
+                        data = result.data;
+                        return cb(null, data);
+                    }
+
+                }
+            },
+            error: function(xhr, status, error) {
+                console.log(error);
+                return cb(error);
+            }
+        });
+    }
 
     function eventList(page, eventCategoryId, cb) {
         var data;
@@ -1091,10 +991,10 @@
         })
     });
 
-    $('div.event-tab-menu ul li').on('click', function(e) {
+    $('.online-event').on('click', function (e) {
         e.preventDefault();
-        var previousTabId = $('div.event-tab-menu').find('.active.show').attr('data-event');
-        var currentTabId = $(this).children().attr('data-event');
+        var previousTabId = $('.online-event').find('.active.show').attr('data-event');
+        var currentTabId = $(this).attr('data-event');
         if (previousTabId != currentTabId) {
             eventList(1, currentTabId, function(err, data) {
                 var paginationHtml = refreshPagination(data);
@@ -1575,96 +1475,4 @@
             }
         })
     });
-
-    $(document).on('click', '.page-item.next-item.virtual', function(e) {
-        e.preventDefault();
-        var currentPage = +($('.page-item.virtual.active').attr('data-page'));
-        var maxPage = +($(this).children().attr('data-page'));
-        var eventCategoryId = $('div.event-tab-menu.virtual').find('.active.show').attr('data-event');
-        if (currentPage <= maxPage) {
-            eventList(currentPage + 1, eventCategoryId, function(err, data) {
-                if (err) {
-                    return;
-                }
-                $('.page-item.virtual.active').removeClass('active').next().addClass('active');
-            });
-        }
-    });
-
-    $(document).on('click', '.page-item.prev-item.virtual', function(e) {
-        e.preventDefault();
-        var currentPage = +($('.page-item.virtual.active').attr('data-page'));
-        var minPage = +($(this).children().attr('data-page'));
-        var eventCategoryId = $('div.event-tab-menu.virtual').find('.active.show').attr('data-event');
-        if (currentPage >= minPage) {
-            eventList(currentPage - 1, eventCategoryId, function(err, data) {
-                if (err) {
-                    return;
-                }
-                $('.page-item.virtual.active').removeClass('active').prev().addClass('active');
-            });
-
-        }
-    });
-
-    $(document).on('click', '.page-item.curr-item.virtual', function(e) {
-        e.preventDefault();
-        var currentPage = +($(this).attr('data-page'));
-        var eventCategoryId = $('div.event-tab-menu.virtual').find('.active.show').attr('data-event');
-        eventList(currentPage, eventCategoryId, function(err, data) {
-            if (err) {
-                return;
-            }
-            $('.page-item.virtual.active').removeClass('active')
-            $(this).addClass('active');
-        });
-
-    });
-
-    function eventList(page, eventCategoryId, cb) {
-        var data;
-        $.ajax({
-            url: '/events',
-            method: 'GET',
-            data: {
-                'page': page,
-                'eventCategoryId': eventCategoryId,
-                'limit': 1
-            },
-            success: function(result) {
-                // console.log(result);
-                var html = '<div class="row">';
-                if (result && result.data) {
-                    var items = result.data.items;
-                    if (items.length) {
-                        result.data.items.forEach((item) => {
-                            if (item.ad) {
-                                // html += '<div class="col-lg-3 col-md-6 col-sm-12"><div class="event-item2 clearfix text-center no-shadow"><img src="assets/images/ad-img.jpg" alt="Image_not_found"></div></div>';
-                            } else {
-                                var banner = '<img src="assets/images/upcoming-img.jpg" alt="Image_not_found">';
-                                if (item.banner) {
-                                    banner = '<img src="' + item.banner + '" alt="Image_not_found">';
-                                }
-                                html += '<div class="col-lg-3 col-md-6 col-sm-12"><div class="event-item2 clearfix"><div class="event-image"><div class="post-date"><span class="date">' + item.startDay + '</span><small class="month">' + item.startMonth + '</small></div>' + banner + '</div><div class="event-content"><div class="event-title mb-15"><h3 class="title"><a href="#" data-event="' + item._id + '">' + item.title + '</a></h3></div><div class="event-post-meta ul-li-block mb-15"><ul><li><span class="icon"><i class="far fa-clock"></i></span>' + item.start_time + ' to ' + item.end_time + '</li></ul></div></div></div></div>';
-                            }
-                        })
-                        html += '</div>';
-                        $('#ttn-event').html(html);
-                        data = result.data;
-                        return cb(null, data);
-                    } else {
-                        html += '<p>No Event(s) Found';
-                        $('#ttn-event').html(html);
-                        data = result.data;
-                        return cb(null, data);
-                    }
-
-                }
-            },
-            error: function(xhr, status, error) {
-                console.log(error);
-                return cb(error);
-            }
-        });
-    }
 })(jQuery);

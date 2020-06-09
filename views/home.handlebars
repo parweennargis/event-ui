@@ -224,12 +224,14 @@
                     <!-- event-tab-menu - end -->
 
                 </div>
-            </div>
+           
 
             <!-- tab-content - start -->
             <div class="tab-content">
                 <!-- conference-event - start -->
                 <div id="virtual-event" class="tab-pane  fade in active show">
+                     <section class="virtual slider">
+                         <div class="slide">
                     <div class="row">
                         {{#each data.offlineEventList.items }}
                         {{#if ad}}
@@ -239,14 +241,16 @@
                                 </div>
                             </div> --}}
                         {{else}}
-                            <div class="col-lg-3 col-md-6 col-sm-12">
-                                <div class="event-item2 clearfix">
+                       
+                            
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="event-item3 clearfix">
                                     <!-- event-image - start -->
                                     <div class="event-image">
-                                        <div class="post-date">
+                                        {{!-- <div class="post-date">
                                             <span class="date">{{startDay}}</span>
                                             <small class="month">{{startMonth}}</small>
-                                        </div>
+                                        </div> --}}
                                         {{!-- <a href="#" class="post-share">
                                            
                                         </a> --}}
@@ -269,7 +273,9 @@
                                             </div>
                                         </div>
                                         {{#if banner}}
+                                        <a href="/virtual-event/{{_id}}" data-event="{{_id}}">
                                             <img src="{{banner}}" alt="Image_not_found">
+                                            </a>
                                         {{else}}
                                             <img src="assets/images/upcoming-img.jpg" alt="Image_not_found">
                                         {{/if}}
@@ -288,10 +294,11 @@
                                         </div>
                                         <div class="event-post-meta ul-li-block mb-15">
                                             <ul>
-                                                <li>
+                                                <li><a href="/virtual-event/{{_id}}" data-event="{{_id}}">
                                                     <span class="icon">
                                                             <i class="far fa-clock"></i>
-                                                        </span> {{start_time}}  to {{end_time}}
+                                                        </span> <span class="date">{{startDay}} {{startMonth}}</small> {{start_time}}  to {{end_time}}
+                                                        </a>
                                                 </li>
                                                 {{!-- <li>
                                                     <span class="icon">
@@ -308,6 +315,10 @@
                                     </div>
                                     <!-- event-content - end -->
                             </div>
+                            </div>
+                            </div>
+                            </div>
+                            </section>
                         </div>
                         {{/if}}
                         {{/each}}
@@ -316,6 +327,7 @@
                         {{/ifCond}}
                     </div>
                 </div>
+                 </div>
                 <!-- conference-event - end -->
                 <div class="col-lg-12 col-md-12 col-sm-12 event-pagination">
                     {{#ifCond data.offlineEventList.noOfPages '>' 1}}

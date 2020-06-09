@@ -1,16 +1,16 @@
-(function ($) {
+(function($) {
     "use strict";
     // back to top - start
     // --------------------------------------------------
-    $(window).scroll(function () {
+    $(window).scroll(function() {
         if ($(this).scrollTop() > 200) {
             $('.backtotop:hidden').stop(true, true).fadeIn();
         } else {
             $('.backtotop').stop(true, true).fadeOut();
         }
     });
-    $(function () {
-        $(".scroll").click(function () {
+    $(function() {
+        $(".scroll").click(function() {
             $("html,body").animate({
                 scrollTop: $(".thetop").offset().top
             }, "slow");
@@ -26,12 +26,12 @@
 
     // preloader - start
     // --------------------------------------------------
-    $(window).on('load', function () {
+    $(window).on('load', function() {
         verifyUser(function(isUser) {
             toggleCartLogin(isUser);
         });
         cart();
-        $('#preloader').fadeOut('slow', function () { $(this).remove(); });
+        $('#preloader').fadeOut('slow', function() { $(this).remove(); });
     });
     // preloader - end
     // --------------------------------------------------
@@ -64,11 +64,11 @@
 
     // multy count down - start
     // --------------------------------------------------
-    $('.countdown-list').each(function () {
-        $('[data-countdown]').each(function () {
+    $('.countdown-list').each(function() {
+        $('[data-countdown]').each(function() {
             var $this = $(this),
                 finalDate = $(this).data('countdown');
-            $this.countdown(finalDate, function (event) {
+            $this.countdown(finalDate, function(event) {
                 var $this = $(this).html(event.strftime('' +
                     '<li class="timer-item days"><strong>%D</strong><small>days</small></li>' +
                     '<li class="timer-item hours"><strong>%H</strong><small>hours</small></li>' +
@@ -99,7 +99,7 @@
         zoom: {
             enabled: true,
             duration: 300, // don't foget to change the duration also in CSS
-            opener: function (element) {
+            opener: function(element) {
                 return element.find('img');
             }
         }
@@ -127,16 +127,16 @@
 
     // altranative menu - start
     // --------------------------------------------------
-    $(document).ready(function () {
+    $(document).ready(function() {
         $("#sidebar").mCustomScrollbar({
             theme: "minimal"
         });
 
-        $('#sidebar-dismiss, .overlay').on('click', function () {
+        $('#sidebar-dismiss, .overlay').on('click', function() {
             $('#sidebar').removeClass('active');
         });
 
-        $('#sidebarCollapse').on('click', function () {
+        $('#sidebarCollapse').on('click', function() {
             $('#sidebar').addClass('active');
             $('.collapse.in').toggleClass('in');
             $('a[aria-expanded=true]').attr('aria-expanded', 'false');
@@ -151,7 +151,7 @@
 
     // search box - start
     // --------------------------------------------------
-    $('.toggle-overlay').on('click', function () {
+    $('.toggle-overlay').on('click', function() {
         $('.search-body').toggleClass('search-open');
     });
     // search box - end
@@ -176,25 +176,25 @@
     // popup register & login modal - start
     // --------------------------------------------------
     $('.forgot-section').hide();
-    $(function () {
+    $(function() {
         $('.login-modal-btn , .register-modal-btn').magnificPopup({
             modal: true,
             type: 'inline',
             preloader: false,
             focus: '#username'
         });
-        $(document).on('click', '.popup-modal-dismiss', function (e) {
+        $(document).on('click', '.popup-modal-dismiss', function(e) {
             e.preventDefault();
             $.magnificPopup.close();
         });
 
-        $(document).on('click', '.register-modal-btn', function (e) {
+        $(document).on('click', '.register-modal-btn', function(e) {
             e.preventDefault();
             $('.login-section').show();
             $('.forgot-section').hide();
         });
 
-        $(document).on('click', '.forgot a', function (e) {
+        $(document).on('click', '.forgot a', function(e) {
             e.preventDefault();
             // $.magnificPopup.close();
             $('.login-section').hide();
@@ -223,15 +223,15 @@
         scrollDelta = 10,
         scrollOffset = 150;
 
-    $(window).on('scroll', function () {
+    $(window).on('scroll', function() {
         if (!scrolling) {
             scrolling = true;
             (!window.requestAnimationFrame) ?
-                setTimeout(autoHideHeader, 250) : requestAnimationFrame(autoHideHeader);
+            setTimeout(autoHideHeader, 250): requestAnimationFrame(autoHideHeader);
         }
     });
 
-    $(window).on('resize', function () {
+    $(window).on('resize', function() {
         headerHeight = mainHeader.height();
     });
 
@@ -239,7 +239,7 @@
         var currentTop = $(window).scrollTop();
 
         (belowNavHeroContent.length > 0) ?
-            checkStickyNavigation(currentTop) // secondary navigation below intro
+        checkStickyNavigation(currentTop) // secondary navigation below intro
             : checkSimpleNavigation(currentTop);
 
         previousTop = currentTop;
@@ -301,7 +301,7 @@
     // sticky menu - start
     // --------------------------------------------------
     var headerId = $(".sticky-header-section , .scrolltop-fixed-header-section");
-    $(window).on('scroll', function () {
+    $(window).on('scroll', function() {
         var amountScrolled = $(window).scrollTop();
         if ($(this).scrollTop() > 250) {
             headerId.removeClass("not-stuck");
@@ -331,7 +331,7 @@
         autoplayTimeout: 5000
     });
     var dot = $('#main-carousel1 .owl-dot');
-    dot.each(function () {
+    dot.each(function() {
         var index = $(this).index() + 1;
         if (index < 10) {
             $(this).html('0').append(index);
@@ -595,14 +595,14 @@
     // filter functions
     var filterFns = {
         // show if number is greater than 50
-        numberGreaterThan50: function () {
+        numberGreaterThan50: function() {
             var number = $(this)
                 .find(".number")
                 .text();
             return parseInt(number, 10) > 50;
         },
         // show if name ends with -ium
-        ium: function () {
+        ium: function() {
             var name = $(this)
                 .find(".name")
                 .text();
@@ -610,16 +610,16 @@
         }
     };
     // bind filter button click
-    $(".filters-button-group").on("click", "button", function () {
+    $(".filters-button-group").on("click", "button", function() {
         var filterValue = $(this).attr("data-filter");
         // use filterFn if matches value
         filterValue = filterFns[filterValue] || filterValue;
         $grid.isotope({ filter: filterValue });
     });
     // change is-checked class on buttons
-    $(".button-group").each(function (i, buttonGroup) {
+    $(".button-group").each(function(i, buttonGroup) {
         var $buttonGroup = $(buttonGroup);
-        $buttonGroup.on("click", "button", function () {
+        $buttonGroup.on("click", "button", function() {
             $buttonGroup.find(".is-checked").removeClass("is-checked");
             $(this).addClass("is-checked");
         });
@@ -633,7 +633,7 @@
         }
     });
     // layout Isotope after each image loads
-    $grid.imagesLoaded().progress(function () {
+    $grid.imagesLoaded().progress(function() {
         $grid.isotope('layout');
     });
     // gallery masonry - end
@@ -884,7 +884,7 @@
         "https://www.thetruckingnetworkevents.ca/uploads/images/client_13.png",
     ];
     var partnerHtml = '';
-    partners.forEach(function (partner) {
+    partners.forEach(function(partner) {
         partnerHtml += "<div class='item' style='height: 10%'><a href='#!'><img  src='" + partner + "'/></a></div>";
     });
 
@@ -932,13 +932,13 @@
     // event-details-promotion-carousel - end
     // --------------------------------------------------
 
-    $(document).on('click', '.page-item.next-item', function (e) {
+    $(document).on('click', '.page-item.next-item', function(e) {
         e.preventDefault();
         var currentPage = +($('.page-item.active').attr('data-page'));
         var maxPage = +($(this).children().attr('data-page'));
         var eventCategoryId = $('div.event-tab-menu').find('.active.show').attr('data-event');
         if (currentPage <= maxPage) {
-            eventList(currentPage + 1, eventCategoryId, function (err, data) {
+            eventList(currentPage + 1, eventCategoryId, function(err, data) {
                 if (err) {
                     return;
                 }
@@ -947,13 +947,13 @@
         }
     });
 
-    $(document).on('click', '.page-item.prev-item', function (e) {
+    $(document).on('click', '.page-item.prev-item', function(e) {
         e.preventDefault();
         var currentPage = +($('.page-item.active').attr('data-page'));
         var minPage = +($(this).children().attr('data-page'));
         var eventCategoryId = $('div.event-tab-menu').find('.active.show').attr('data-event');
         if (currentPage >= minPage) {
-            eventList(currentPage - 1, eventCategoryId, function (err, data) {
+            eventList(currentPage - 1, eventCategoryId, function(err, data) {
                 if (err) {
                     return;
                 }
@@ -963,11 +963,11 @@
         }
     });
 
-    $(document).on('click', '.page-item.curr-item', function (e) {
+    $(document).on('click', '.page-item.curr-item', function(e) {
         e.preventDefault();
         var currentPage = +($(this).attr('data-page'));
         var eventCategoryId = $('div.event-tab-menu').find('.active.show').attr('data-event');
-        eventList(currentPage, eventCategoryId, function (err, data) {
+        eventList(currentPage, eventCategoryId, function(err, data) {
             if (err) {
                 return;
             }
@@ -986,7 +986,7 @@
                 'page': page,
                 'eventCategoryId': eventCategoryId
             },
-            success: function (result) {
+            success: function(result) {
                 // console.log(result);
                 var html = '<div class="row">';
                 if (result && result.data) {
@@ -1012,7 +1012,7 @@
 
                 }
             },
-            error: function (xhr, status, error) {
+            error: function(xhr, status, error) {
                 console.log(error);
                 return cb(error);
             }
@@ -1023,7 +1023,7 @@
     // form open
     $('.exhibitor').hide();
     $('.jobseekers').hide();
-    $(document).on('click', '#jobForm', function (e) {
+    $(document).on('click', '#jobForm', function(e) {
         e.preventDefault();
         $('.jobseekers').show();
         $('.exhibitor').hide();
@@ -1031,7 +1031,7 @@
         $("#exhibitor").prop("checked", false);
 
     });
-    $(document).on('click', '#exhibitorForm', function (e) {
+    $(document).on('click', '#exhibitorForm', function(e) {
         e.preventDefault();
         $('.exhibitor').show();
         $('.jobseekers').hide();
@@ -1039,11 +1039,11 @@
         $("#jobseekers").prop("checked", false);
     });
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
     });
 
-    $('#login-now').click(function (e) {
+    $('#login-now').click(function(e) {
         e.preventDefault();
         var email = $('#login-email').val() || '';
         var password = $('#login-password').val() || '';
@@ -1072,7 +1072,7 @@
                 'email': email,
                 'password': password
             }),
-            success: function (response) {
+            success: function(response) {
                 console.log(response);
                 if (response.data) {
                     localStorage.setItem('token', 'Bearer ' + response.data.token);
@@ -1083,7 +1083,7 @@
                     location.href = "/"
                 }
             },
-            error: function (xhr, status, error) {
+            error: function(xhr, status, error) {
                 console.log(xhr.status);
                 console.log(xhr.responseJSON);
                 $('#login-now-message').html(xhr.responseJSON.data.errors);
@@ -1091,12 +1091,12 @@
         })
     });
 
-    $('div.event-tab-menu ul li').on('click', function (e) {
+    $('div.event-tab-menu ul li').on('click', function(e) {
         e.preventDefault();
         var previousTabId = $('div.event-tab-menu').find('.active.show').attr('data-event');
         var currentTabId = $(this).children().attr('data-event');
         if (previousTabId != currentTabId) {
-            eventList(1, currentTabId, function (err, data) {
+            eventList(1, currentTabId, function(err, data) {
                 var paginationHtml = refreshPagination(data);
                 $('.event-pagination').html(paginationHtml);
             });
@@ -1121,7 +1121,7 @@
 
     // Plan page slider
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('.customer-logos').slick({
             slidesToShow: 3,
             slidesToScroll: 1,
@@ -1165,9 +1165,31 @@
             }]
         });
     });
+    $(document).ready(function() {
+        $('.virtual').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 1500,
+            arrows: true,
+            dots: false,
+            pauseOnHover: true,
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1
+                }
+            }, {
+                breakpoint: 520,
+                settings: {
+                    slidesToShow: 1
+                }
+            }]
+        });
+    });
 
     // Plan page slider end
-    $(".inputbutton").on("click", function () {
+    $(".inputbutton").on("click", function() {
 
         var $button = $(this);
         var oldValue = $button.parent().find("input").val();
@@ -1213,7 +1235,7 @@
 
     $('.add-to-cart').on('click', function(e) {
         e.preventDefault();
-        verifyUser(function(isVerify){
+        verifyUser(function(isVerify) {
             if (!isVerify) {
                 $('#login-modal').modal("show");
                 return;
@@ -1237,7 +1259,7 @@
                 data: JSON.stringify({
                     quantity,
                     eventId: event,
-                    pricingId: price        
+                    pricingId: price
                 }),
                 success: function(response) {
                     console.log(response);
@@ -1253,7 +1275,7 @@
 
     function verifyUser(cb) {
         var token = localStorage.getItem('token');
-        if(!token) {
+        if (!token) {
             if (location.href === window.location.origin + window.location.pathname) {
                 $('#absolute-eventmake-section').show();
             }
@@ -1338,7 +1360,7 @@
             $('#forgot-password').addClass('border-red');
             return;
         }
-        
+
         $.ajax({
             method: 'POST',
             url: '/forgot-password',
@@ -1404,7 +1426,7 @@
 
     function cart() {
         var token = localStorage.getItem('token');
-        if(!token) return;
+        if (!token) return;
         $.ajax({
             method: 'GET',
             url: '/cart/count',
@@ -1425,7 +1447,7 @@
     $('.continueshopping').on('click', function(e) {
         e.preventDefault();
         if (history.length) history.back();
-        else location.href = '/'; 
+        else location.href = '/';
     });
 
     $('.remove').on('click', function(e) {
@@ -1452,7 +1474,7 @@
         e.preventDefault();
         var arr = $('#profile-update').serializeArray();
         var data = {};
-        $(arr).each(function (index, obj) {
+        $(arr).each(function(index, obj) {
             data[obj.name] = obj.value;
         });
         $.ajax({
@@ -1482,11 +1504,11 @@
             return;
         }
         formData.append('name', name);
-        $.each(files, function(key, value){
+        $.each(files, function(key, value) {
             formData.append('file', value);
-          });    
-         // process the form
-         $.ajax({
+        });
+        // process the form
+        $.ajax({
             type: 'POST',
             url: '/upload',
             data: formData,
@@ -1494,23 +1516,23 @@
             contentType: false,
             mimeType: "multipart/form-data",
             cache: false,
-            success: function (data) {
+            success: function(data) {
                 console.log(data);
                 // redirect to event listing page
                 // location.href = '/';
             },
-            error: function (error) {
+            error: function(error) {
                 console.log(error);
             }
         })
-        
+
     });
 
     $('#interested-attend').on('click', function(e) {
         e.preventDefault();
         var eventId = $(this).attr('data-event');
         verifyUser(function(isVerify) {
-            if(!isVerify) {
+            if (!isVerify) {
                 $('#login-modal').modal('show');
                 return;
             }
@@ -1527,7 +1549,7 @@
         }
         var eventId = $(this).attr('data-event');
         var isLike = $(this).attr('data-like');
-        var likeType = isLike  === 'true' ? 'UNLIKE' : 'LIKE';
+        var likeType = isLike === 'true' ? 'UNLIKE' : 'LIKE';
         $.ajax({
             method: 'POST',
             url: '/event-action',

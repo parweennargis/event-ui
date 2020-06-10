@@ -15,12 +15,23 @@ module.exports = {
             // Event list api
             eventList.data.items = (eventList.data && eventList.data.items) ? splitDate(eventList.data.items) : [];
             offlineEventList.data.items = (offlineEventList.data && offlineEventList.data.items) ? splitDate(offlineEventList.data.items) : [];
+            const virtualEventCategories = [];
+            const [defaultVirtualEventCat] = (offlineEventCategories.data || []).filter(item => item.default);
+            const virtualEventCat = (offlineEventCategories.data || []).filter(item => !item.default);
+            if (defaultVirtualEventCat) virtualEventCategories.push(defaultVirtualEventCat);
+            if (virtualEventCat && virtualEventCat.length) virtualEventCategories.push(...virtualEventCat);
+
+            const onlineEventCategories = [];
+            const [defaultOnlineEventCat] = (eventCategories.data || []).filter(item => item.default);
+            const onlineEventCat = (eventCategories.data || []).filter(item => !item.default);
+            if (defaultOnlineEventCat) onlineEventCategories.push(defaultOnlineEventCat);
+            if (onlineEventCat && onlineEventCat.length) onlineEventCategories.push(...onlineEventCat);
 
             const data = {
                 eventList: eventList.data,
-                eventCategories: eventCategories.data,
+                eventCategories: onlineEventCategories,
                 offlineEventList: offlineEventList.data,
-                offlineEventCategories: offlineEventCategories.data,
+                offlineEventCategories: virtualEventCategories,
                 host: req.host
             };
 

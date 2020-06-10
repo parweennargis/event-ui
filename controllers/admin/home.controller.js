@@ -33,7 +33,9 @@ module.exports = {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${cookies[1]}`
         };
-        const events = await hitApi.hitApi({ path: '/all-events', method: 'GET', headers });
+        const body = { event_type: 'ONLINE' };
+
+        const events = await hitApi.hitApi({ path: '/all-events', method: 'POST', body, headers });
         console.log(events);
         return res.render('admin/event', { title: 'Express Admin Event', layout: 'admin', events: events.data });
     },

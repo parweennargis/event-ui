@@ -21,9 +21,11 @@
                         </div>
 
                         <div id="event-details-carousel" class="event-details-carousel owl-carousel owl-theme">
-                            <div class="item">
-                                <img src="https://www.thetruckingnetworkevents.ca/uploads/images/TTN-small-inpage_sept_730x400%20NEW.jpg" alt="Image_not_found">
-                            </div>
+                            {{#each data.event.images}}
+                                <div class="item">
+                                    <img src="{{this}}" alt="Image_not_found">
+                                </div>
+                            {{/each}}
                         </div>
 
                         <div class="event-info-list ul-li clearfix mb-30">

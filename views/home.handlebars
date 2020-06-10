@@ -428,8 +428,12 @@
                                                 aria-hidden="true"></i> Download</a>
                                     </div>
                                 </div>
-
-                                <img src="assets/images/upcoming-img.jpg" alt="Image_not_found">
+                                {{#if banner}}
+                                <img src="{{banner}}" alt="Image_not_found">
+                                {{else}}
+                                    <img src="assets/images/upcoming-img.jpg" alt="Image_not_found">
+                                {{/if}}
+                                
                             </div>
                             <!-- event-image - end -->
                             <!-- event-content - start -->

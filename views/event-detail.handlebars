@@ -75,7 +75,7 @@
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="sidebar-section">
                 <div class="row">
-                    <div class="col-md-7">
+                    {{!-- <div class="col-md-6"> --}}
                         {{!-- TODO --}}
                         <!-- Add to Calendar - start -->
                         {{!-- <div title="Add to Calendar" class="addeventatc">
@@ -91,11 +91,23 @@
                             <span class="all_day_event">false</span>
                             <span class="date_format">MM/DD/YYYY</span>
                         </div> --}}
-                    </div>
-                        <div class="col-md-5 share-events">
-                            <a href="">
+                    {{!-- </div> --}}
+                        <div class="col-md-7 share-events shareall">
+                            <a href=""  data-toggle="dropdown">
                             <i class="fa fa-share-alt" aria-hidden="true"></i> Share this event
                             </a>
+
+                              {{!-- <a href="" class="post-share" data-toggle="dropdown">
+                                <img src="/assets/images/share.png" alt="Share">
+                            </a> --}}
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a href="http://www.facebook.com/sharer.php?u=https://{{data.host}}/virtual-event/{{data.event._id}}" target="_blank">
+                                    <i class="fab fa-facebook" aria-hidden="true"></i> Facebook
+                                </a>
+                                <a href="http://www.twitter.com/share?url=https://{{data.host}}/virtual-event/{{data.event._id}}" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
+                                <a href="mailto:?subject={{data.event.title}}&body=https://{{data.host}}/virtual-event/{{data.event._id}}"><i class="far fa-envelope" aria-hidden="true"></i> Email</a>
+                            </div>
+
                         </div>
                         </div>
                         <!-- Add to Calendar - end -->

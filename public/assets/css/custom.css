@@ -292,7 +292,7 @@ ul.social-media-gray {
 
 .ticket-price {
     font-size: 12px;
-    max-height: 54px;
+    max-height: 64px;
     overflow: hidden;
     white-space: pre-line;
     display: -webkit-box;
@@ -512,6 +512,11 @@ ul.social-media-gray {
 .share-events a {
     font-size: 14px;
     color: #2968e7 !important;
+}
+
+.shareall .dropdown-menu {
+    padding: 10px;
+    background: #fff !important;
 }
 
 .print-events {
@@ -1413,6 +1418,35 @@ a.remove {
     justify-content: space-between;
 }
 
+.bg-white {
+    background: #fff;
+    padding-top: 15px;
+}
+
+.bg-white .col-lg-8 {
+    padding-right: 5px;
+}
+
+.bg-white .col-lg-4 {
+    padding-left: 5px;
+}
+
+.bg-gray {
+    background: #d2d6da;
+}
+
+.bg-gray .event-date {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.virtual-detail-banner {
+    max-height: 380px;
+    overflow: hidden;
+}
+
 .event-title {
     font-size: 20px;
     font-weight: bold;
@@ -1444,6 +1478,12 @@ a.remove {
 
 .no-bg {
     background: none;
+}
+
+.bg-white a.button-red {
+    padding: 10px 0;
+    height: 50px;
+    font-size: 22px;
 }
 
 
@@ -1555,8 +1595,17 @@ a.remove {
 }
 
 .like-event {
-    font-size: 30px !important;
-    margin-top: 12px;
+    font-size: 25px !important;
+    margin-top: 9px !important;
+    height: 40px;
+    /* padding: 10px; */
+    width: 40px;
+    text-align: center;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

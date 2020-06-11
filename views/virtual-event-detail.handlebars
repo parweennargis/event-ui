@@ -36,7 +36,7 @@
                         <div class="event-info-list ul-li clearfix mb-30">
                             <div class="event-content">
                                         {{!-- <small class="event-title">Event Date</small> --}}
-                                        <h3 class="event-date">{{data.event.startDay}} {{data.event.startMonth}}<br />
+                                        <h3 class="event-date">{{data.event.startMonth}}  {{data.event.startDay}}<br />
                                             {{data.event.startYear}}</h3>
                                     </div>
                         </div>
@@ -75,7 +75,7 @@
                             {{!-- <div class="price">$40 – $99</div> --}}
                             <div class="purchase">
                                    <div class="button">
-                                        <a href="{{data.event.zoom_link}}" class="button-red disp-flow-root pt-2 pb-2" >Buy Tickets</a>
+                                        <a href="#" class="button-red disp-flow-root pt-2 pb-2 buy-ticket"  data-event="{{data.event.zoom_link}}">Buy Tickets</a>
                                     </div>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
 
                              <div class="title-content">
                                      <h6>Date And Time</h6>
-                                    <p>{{data.event.startDay}} {{data.event.startMonth}}, {{data.event.startYear}}, {{data.event.start_time}} - {{data.event.end_time}}</p>
+                                    <p>{{data.event.startMonth}} {{data.event.startDay}}, {{data.event.startYear}}, {{data.event.start_time}} - {{data.event.end_time}}</p>
                                     
                         <!-- Add to Calendar - start -->
                         {{!-- <div title="Add to Calendar" class="addeventatc">

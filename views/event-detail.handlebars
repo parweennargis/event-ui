@@ -102,9 +102,13 @@
 
                         <!-- map-wrapper - start -->
                         <div class="map-wrapper mb-30">
-                            <div id="google-map">
+                            <div">
                                 {{!-- <div id="googleMaps" class="google-map-container"></div> --}}
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2907.406095331951!2d-79.70187028456664!3d43.221944688227794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882ca24dc1fe1ed7%3A0x9412d4cad006fd40!2sThe%20Grand%20Olympia%20Hospitality%20and%20Convention%20Centre!5e0!3m2!1sen!2sin!4v1589971539544!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                {{#if data.event.link.map}}
+                                    <iframe src="{{data.event.link.map}}" width="330" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                {{else}}
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41286486.523978256!2d-130.10739124610546!3d50.83251317874202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b0d03d337cc6ad9%3A0x9968b72aa2438fa5!2sCanada!5e0!3m2!1sen!2sin!4v1591885029938!5m2!1sen!2sin" width="330" height="300"     frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                {{/if}}
                             </div>
 
                         </div>

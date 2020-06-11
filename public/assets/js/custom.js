@@ -1009,7 +1009,8 @@
                         this.reset();
                     });
                     // $('#register-modal').modal('hide');
-                    location.href = "/"
+                    // location.href = "/"
+                    window.location.reload();
                 }
             },
             error: function(xhr, status, error) {
@@ -1484,5 +1485,15 @@
                 $('.like-icon').toggleClass('far fa-heart fas fa-heart');
             }
         })
+    });
+
+    $(document).on('click', '.buy-ticket', function(e) {
+        var link = $(this).attr('data-event');
+        var token = localStorage.getItem('token');
+        if (!token) {
+            $('.register-modal-btn').trigger('click');
+            return;
+        }
+        location.href = link || '/';
     });
 })(jQuery);

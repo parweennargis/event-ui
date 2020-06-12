@@ -2,13 +2,23 @@ const externalUtils = require('../utils/external');
 const { splitDate } = require('../utils/helper');
 const fs = require('fs');
 
+const redirectPage = (err, req, res) => {
+    if (err.message === 'Token') {
+        res.clearCookie('token');
+        return res.redirect('/');
+    } else if (err === 'Invalid token') {
+        res.clearCookie('token');
+        res.redirect(req.originalUrl)
+    }
+}
+
 module.exports = {
     home: async(req, res) => {
         try {
             const promises = [];
             promises.push(externalUtils.hitApi({ path: "/events" }));
             promises.push(externalUtils.hitApi({ path: "/event-categories" }));
-            promises.push(externalUtils.hitApi({ path: "/offline-events", qs: { 'limit': 8 } }));
+            promises.push(externalUtils.hitApi({ path: "/offline-events", qs: { 'limit': 20 } }));
             promises.push(externalUtils.hitApi({ path: "/offline-categories" }));
             const [eventList, eventCategories, offlineEventList, offlineEventCategories] = await Promise.all(promises);
 
@@ -448,7 +458,8 @@ module.exports = {
             return res.render('virtual-event-detail', { title: 'Virtual Event Detail', data  });
         } catch (error) {
             console.log(error);
-            return res.render('404-error');
+            redirectPage(error, req, res);
+            // return res.render('404-error');
         }
     },
     eventAction: async (req, res) => {

@@ -842,7 +842,7 @@
             data: {
                 'page': page,
                 'eventCategoryId': eventCategoryId,
-                'limit': 8
+                'limit': 20
             },
             success: function(result) {
                 // console.log(result);

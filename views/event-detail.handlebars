@@ -5,7 +5,7 @@
             <div class="row">
                 {{log data}}
                 <!-- col - event-details - start -->
-                <div class="col-lg-8 col-md-12 col-sm-12">
+                <div class="col-lg-8 col-md-12 col-sm-12" id="downloadTab">
 
                     <!-- event-details - start -->
                     <div class="event-details mb-15">
@@ -106,6 +106,7 @@
                                 </a>
                                 <a href="http://www.twitter.com/share?url=https://{{data.host}}/virtual-event/{{data.event._id}}" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
                                 <a href="mailto:?subject={{data.event.title}}&body=https://{{data.host}}/virtual-event/{{data.event._id}}"><i class="far fa-envelope" aria-hidden="true"></i> Email</a>
+                                <a href="#" id="elementToPrint"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
                             </div>
 
                         </div>
@@ -239,3 +240,20 @@
     </section>
     <!-- event-details-section - end
 		================================================== -->
+
+        <script>
+
+    // print HTML as pdf
+    document.getElementById('elementToPrint').addEventListener("click", convertHTMLtoPDF);
+    function convertHTMLtoPDF() {
+        const element = document.getElementById('downloadTab');
+        html2pdf(element, {
+            margin: 1,
+            filename: 'event-detail.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { dpi: 192, letterRendering: true },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        });
+    }
+
+</script>

@@ -47,16 +47,17 @@
 }
 
 .main-carousel2 .item .slider-content .date {
-    font-size: 28px;
+    font-size: 32px;
     font-family: 'Raleway', sans-serif;
 }
 
 .main-carousel2 .item .slider-content .time {
-    font-size: 16px;
+    font-size: 20px;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     color: #fff;
     margin-bottom: 20px;
+    margin-top: 15px;
 }
 
 .button-red {
@@ -610,7 +611,7 @@ ul.social-media-gray {
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(165,165,169, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(165,165,169, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .navbar-toggler {
@@ -1787,6 +1788,12 @@ a.remove {
 @media (max-width:767px) {
     .navbar {
         flex-grow: auto;
+        position: absolute;
+        top: 50px;
+    }
+    .header-bottom .col-lg-9 {
+        position: absolute;
+        top: 0px;
     }
     .mainmenu-wrapper {
         justify-content: normal;
@@ -1800,6 +1807,10 @@ a.remove {
         height: 30px;
         font-size: 16px;
         padding: 0;
+    }
+    .navbar-collapse {
+        background: #fff;
+        padding: 10px;
     }
     .mobile-space {
         margin-top: 110px;
@@ -1948,3 +1959,9 @@ a.remove {
 .text-color-red {
     color: red;
 } */
+
+.icons {
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+}

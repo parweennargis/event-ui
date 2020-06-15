@@ -74,7 +74,7 @@ module.exports = {
                 event.data.startMonth = startDate[1];
                 event.data.startYear = startDate[3];
             }
-            const data = { 
+            const data = {
                 event: event.data,
                 user: profile && profile.data ? profile.data : null,
                 isUser: profile && profile.data,
@@ -444,10 +444,10 @@ module.exports = {
                 event.data.startYear = startDate[3];
             }
             let isEventFollow = false;
-            const [eventFollow] = (profile && profile.data) ? profile.data.event_follows.filter(id => eventId === id) : [];
+            const [eventFollow] = (profile && profile.data) ? profile.data.event_follows.filter(id => eventId === id): [];
             if (eventFollow) isEventFollow = true;
 
-            const data = { 
+            const data = {
                 event: event.data,
                 user: profile && profile.data ? profile.data : null,
                 isUser: profile && profile.data,
@@ -455,14 +455,14 @@ module.exports = {
                 host: req.host
             };
 
-            return res.render('virtual-event-detail', { title: 'Virtual Event Detail', data  });
+            return res.render('virtual-event-detail', { title: 'Virtual Event Detail', data });
         } catch (error) {
             console.log(error);
             redirectPage(error, req, res);
             // return res.render('404-error');
         }
     },
-    eventAction: async (req, res) => {
+    eventAction: async(req, res) => {
         try {
             const { headers: { cookie }, body } = req;
             const cookies = cookie.split('=');
@@ -480,5 +480,8 @@ module.exports = {
             console.log(error);
             return res.status(400).json({ data: error.message || error });
         }
+    },
+    contact: async(req, res) => {
+        return res.render('contact');
     },
 };

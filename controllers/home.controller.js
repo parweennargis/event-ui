@@ -484,4 +484,10 @@ module.exports = {
     contact: async(req, res) => {
         return res.render('contact');
     },
+    aboutus: async(req, res) => {
+        return res.render('aboutus');
+    },
+    faq: async(req, res) => {
+        return res.render('faq');
+    },
 };

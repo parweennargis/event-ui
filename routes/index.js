@@ -28,6 +28,8 @@ const indexRoutes = (app, router) => {
     router.get('/virtual-event/:eventId', homeController.virtualEventDetail);
     router.post('/event-action', homeController.eventAction);
     router.get('/contact', homeController.contact);
+    router.get('/aboutus', homeController.aboutus);
+    router.get('/faq', homeController.faq);
 
     return router;
 }

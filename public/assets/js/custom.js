@@ -810,7 +810,7 @@
         e.preventDefault();
         var currentPage = +($(this).attr('data-page'));
         var eventCategoryId = $('.online-event').find('.active.show').attr('data-event');
-        eventList(currentPage, eventCategoryId, function (err, data) {
+        eventList(currentPage, eventCategoryId, function(err, data) {
             if (err) {
                 return;
             }
@@ -824,13 +824,13 @@
         var previousTabId = $('.virtual-event').find('.active.show').attr('data-event');
         var currentTabId = $(this).attr('data-event');
         if (previousTabId != currentTabId) {
-            virtualEventList(1, currentTabId, function(err, data){
+            virtualEventList(1, currentTabId, function(err, data) {
 
             });
         }
     });
 
-    function shareHtml (id, title) {
+    function shareHtml(id, title) {
         return '<div class="dropdown shareall"><a href="#" class="post-share" data-toggle="dropdown"> <img src="assets/images/share.png" alt="Share"></a><div class="dropdown-menu dropdown-menu-right"><a href="http://www.facebook.com/sharer.php?u=https://' + window.location.hostname + '/virtual-event/' + id + '" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i> Facebook</a><a href="http://www.twitter.com/share?url=https://' + window.location.hostname + '/virtual-event/' + id + '" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i> Share on Twitter</a><a href="mailto:?subject=' + title + '&body=https://' + window.location.hostname + '/virtual-event/' + id + '"><i class="far fa-envelope" aria-hidden="true"></i> Email</a></div></div>';
     }
 
@@ -858,7 +858,7 @@
                                 if (item.banner) {
                                     banner = '<a href="/virtual-event/' + item._id + '" data-event="' + item._id + '" target="_blank"><img src="' + item.banner + '" alt="Image_not_found"></a>';
                                 }
-                                html += '<div class="slide"><div class="row"><div class="col-lg-12 col-md-12 col-sm-12"><div class="event-item3 clearfix"><div class="event-image">' + shareHtml(item._id, item.title) + banner + '</div><div class="event-content"><div class="event-title mb-15"><h3 class="title"><a href="/virtual-event/' + item._id + '" data-event="' + item._id + '" target="_blank">' + item.title + '</a></h3></div><div class="event-post-meta ul-li-block mb-15"><ul><li><a href="/virtual-event/' + item._id + '" data-event="' + item._id + '" target="_blank"><span class="icon"><i class="far fa-clock"></i></span><span class="date">' + item.startDay + ' ' + item.startMonth + '</small> ' + item.start_time +' to ' + item.end_time +'</span></li></ul></div></div></div></div></div></div>';
+                                html += '<div class="slide"><div class="row"><div class="col-lg-12 col-md-12 col-sm-12"><div class="event-item3 clearfix"><div class="event-image">' + shareHtml(item._id, item.title) + banner + '</div><div class="event-content"><div class="event-title mb-15"><h3 class="title"><a href="/virtual-event/' + item._id + '" data-event="' + item._id + '" target="_blank">' + item.title + '</a></h3></div><div class="event-post-meta ul-li-block mb-15"><ul><li><a href="/virtual-event/' + item._id + '" data-event="' + item._id + '" target="_blank"><span class="icon"><i class="far fa-clock"></i></span><span class="date">' + item.startDay + ' ' + item.startMonth + '</small> ' + item.start_time + ' to ' + item.end_time + '</span></li></ul></div></div></div></div></div></div>';
                             }
                         })
                         html += '</div>';
@@ -1021,7 +1021,7 @@
         })
     });
 
-    $('.online-event').on('click', function (e) {
+    $('.online-event').on('click', function(e) {
         e.preventDefault();
         var previousTabId = $('.online-event').find('.active.show').attr('data-event');
         var currentTabId = $(this).attr('data-event');
@@ -1530,4 +1530,19 @@
             }
         });
     });
+    
+    $(document).ready(function() {
+        // Add minus icon for collapse element which is open by default
+        $(".collapse.show").each(function() {
+            $(this).prev(".card-header").find(".fa").addClass("fa-minus").removeClass("fa-plus");
+        });
+
+        // Toggle plus minus icon on show hide of collapse element
+        $(".collapse").on('show.bs.collapse', function() {
+            $(this).prev(".card-header").find(".fa").removeClass("fa-plus").addClass("fa-minus");
+        }).on('hide.bs.collapse', function() {
+            $(this).prev(".card-header").find(".fa").removeClass("fa-minus").addClass("fa-plus");
+        });
+    });
+
 })(jQuery);

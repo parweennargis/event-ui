@@ -30,6 +30,8 @@ const indexRoutes = (app, router) => {
     router.get('/contact', homeController.contact);
     router.post('/contact', homeController.sendContact);
 
+    router.get('/aboutus', homeController.aboutus);
+    router.get('/faq', homeController.faq);
 
     return router;
 }

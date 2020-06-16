@@ -497,5 +497,11 @@ module.exports = {
             console.log(error);
             return res.status(400).json({ data: error.message || error });
         }
-    }
+    },
+    aboutus: async(req, res) => {
+        return res.render('aboutus');
+    },
+    faq: async(req, res) => {
+        return res.render('faq');
+    },
 };

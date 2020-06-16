@@ -1496,4 +1496,38 @@
         }
         location.href = link || '/';
     });
+
+    $(document).on('click', '#contact-us', function(e) {
+        e.preventDefault();
+        var arr = $('#contact-us-form').serializeArray();
+        var data = {};
+        var isError = false;
+        $(arr).each(function(index, obj) {
+            if (!obj.value || obj.value.trim() === '') {
+                $('#contact-us-form').find('input[name=' + obj.name + ']').addClass('border-red')
+                isError = true;
+            } else {
+                $('#contact-us-form').find('input[name=' + obj.name + ']').removeClass('border-red')
+                data[obj.name] = obj.value;
+            }
+        });
+        if(isError) return;
+
+        $.ajax({
+            method: 'POST',
+            url: '/contact',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify(data),
+            success: function(response) {
+                console.log(response);
+                $('#error-message-contact').html('Thanks for contacting us, we wil get back to you shortly.');
+            },
+            error: function(xhr) {
+                console.log(xhr.status);
+                console.log(xhr.responseJSON);
+            }
+        });
+    });
 })(jQuery);

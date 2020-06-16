@@ -484,4 +484,18 @@ module.exports = {
     contact: async(req, res) => {
         return res.render('contact');
     },
+    sendContact: async(req, res) => {
+        try {
+            const { body } = req;        
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            const apiResponse = await externalUtils.hitApi({ path: `/contact`, method: 'POST', headers, body });
+            console.log('contcat us response: ', apiResponse);
+            res.json({ data: true });
+        } catch (error) {
+            console.log(error);
+            return res.status(400).json({ data: error.message || error });
+        }
+    }
 };

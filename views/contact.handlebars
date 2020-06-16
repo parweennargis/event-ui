@@ -1,96 +1,82 @@
 <!-- Register - start		================================================== -->
 
-<section id="Contact" class="pt-3 pb-5 clearfix mobile-space">
+<section id="contact" class="pt-3 pb-5 clearfix mobile-space">
     <div class="container">
-
         <div class="mb-15">
             <div class="row">
-
                 <div class="container register">
                     <div class="row">
                         <div class="col-md-8 register-right m-auto">
                             <h2 class="pt-4">Contact Us</h2>
                             <p>Please tell a bit about you so that<br />
                                 we can personalize you onboarding experience.</p>
-                          
                             <div class="tab-content">
-                                {{!-- Job Seeker Form --}}
-                                <div class="tab-pane fade show active" id="home">
+                                <div class="tab-pane fade show active" id="contact-us-form">
                                     <div class="row ">
                                         <div class="col-md-12 form-box">
                                             <div class="form-group col-md-6 col-sm-12">
                                                 <label class="string optional active">Your
                                                     Name<span>*</span> </label>
-                                                <input class="form-control" type="text" id="first_name_job">
+                                                <input class="form-control" type="text" name="name">
                                             </div>
                                             <div class="form-group col-md-6 col-sm-12">
                                                 <label class="string optional active">Email<span>*</span>
                                                 </label>
-                                                <input type="email" class="form-control" id="email_job" />
+                                                <input type="email" class="form-control" name="email" />
                                             </div>
                                             <div class="form-group col-md-6 col-sm-12">
                                                 <label class="string optional active">Phone<span>*</span>
                                                 </label>
-                                                <input class="form-control" type="text" minlength="10" id="phone_no_job"
-                                                    maxlength="10" />
+                                                <input class="form-control" type="text" minlength="10"  maxlength="20" name="phone_no" />
                                             </div>
                                             <div class="form-group col-md-6 col-sm-12">
                                                 <label class="string optional active">Subject<span>*</span> </label>
-                                                <input type="text" class="form-control" id="subject" />
+                                                <input type="text" class="form-control" name="subject" />
                                             </div>
-                                          
                                             <div class="form-group col-md-12 col-sm-12">
                                                 <label class="string optional active">Message<span>*</span> </label>
-                                                <textarea type="text" class="form-control" id="message"></textarea>
+                                                <textarea type="text" class="form-control" name="message"></textarea>
                                             </div>
-
                                             <div class="form-group col-md-12 col-sm-12 text-left mt-1 mb-1">
-                                                <div class="agree_text text-color-red" id="message_job"></div>
+                                                <div class="agree_text text-color-red" id="error-message-contact"></div>
                                             </div>
                                             <div class="form-group col-md-12 col-sm-12 text-center mt-3">
-                                                <button type="submit" class="btn btn-danger pl-5 pr-5"
-                                                    id="register-job-seeker">Send</button>
-
+                                                <button type="submit" class="btn btn-danger pl-5 pr-5" id="contact-us">Send</button>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
-
-
                             </div>
-                             <div class="col-md-12 pb-5 pt-5">
-                           <div class="row">
-
-                           <div class="col-md-4">
-                               <div class="icons">
-                              <i class="fas fa-map-marker-alt"></i>
-                              </div>
-The Trucking Network Inc.
-2985 Drew Road, Unit 207
-Mississauga, ON L4t 0A7
-Canada
-                           </div>
-                            <div class="col-md-4 text-center">
-                                <div class="icons">
-                                <i class="fas fa-mobile-alt"></i>
+                            <div class="col-md-12 pb-5 pt-5">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="icons">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        The Trucking Network Inc.
+                                        2985 Drew Road, Unit 207
+                                        Mississauga, ON L4t 0A7
+                                        Canada
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="icons">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </div>
+                                        +1 647 818 2121<br />
+                                        +1 905-564-7576<br />
+                                        1-800-508-1214<br />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="icons">
+                                            <i class="fas fa-envelope-open"></i>
+                                        </div>
+                                        <a href="mailto:nav@thetruckingnetwork.ca">
+                                            nav@thetruckingnetwork.ca</a>
+                                    </div>
                                 </div>
-+1 647 818 2121<br/>
-+1 905-564-7576<br/>
-1-800-508-1214<br/>
                             </div>
-                          
-                        <div class="col-md-4">
-                            <div class="icons">
-                           <i class="fas fa-envelope-open"></i>
-</div>
-                            <a href="mailto:nav@thetruckingnetwork.ca">
-                            nav@thetruckingnetwork.ca</a>
                         </div>
-</div>
-                        </div>
-                        </div>
-                       
+
                     </div>
                 </div>
             </div>

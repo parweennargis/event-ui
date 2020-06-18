@@ -91,8 +91,8 @@
                         <div class="register-login-group">
                             <ul>
                                 <li>
-                                    <a href="https://www.facebook.com/thetruckingnetwork/" title="facebook"
-                                        target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.facebook.com/Thetruckingnetwork-807929299555343/?modal=admin_todo_tour"
+                                        title="facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                 </li>
                                 <li>
                                     <a href="https://twitter.com/ttndailytweets" title="twitter" target="_blank"><i
@@ -178,8 +178,7 @@
                                             {{!-- <a href="#" class="nav-item nav-link">Enquiry</a> --}}
                                             <a href="https://www.thetruckingnetwork.ca" target="_blank"
                                                 class="nav-item nav-link">The Trucking Network</a>
-                                            <a href="/contact" target="_blank"
-                                                class="nav-item nav-link">Contact</a>
+                                            <a href="/contact" target="_blank" class="nav-item nav-link">Contact</a>
                                             <a href="/cart" class="nav-item nav-link cart">
                                                 <span class="cart-value">0</span>
                                             </a>
@@ -314,19 +313,17 @@
 
 
 
-
-    {{!-- <section id="newsletter"> --}}
-        {{!-- <div class="container"> --}}
-            {{!-- <div class="row"> --}}
-                {{!-- <div class="subscribe"> --}}
-                    {{!-- <h3>Subscribe Newsletter</h3> --}}
-                    {{!-- <div class="sub col-md-4"> <input type="text"> </div> --}}
-                    {{!-- <div> <a href="#" class="button-red">Subscribe</a> </div> --}}
-                {{!-- </div> --}}
-            {{!-- </div> --}}
-
-        {{!-- </div> --}}
-    {{!-- </section> --}}
+    <section id="newsletter">
+        <div class="container">
+            <div class="row">
+                <div class="subscribe">
+                    <h3>Subscribe Newsletter</h3>
+                    <div class="sub col-md-4"> <input type="text" id="newsletter-email" type="email"> </div>
+                    <div> <button class="button-red" id="subscribe-newsletter">Subscribe</button> </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- default-footer-section - start
 		================================================== -->
@@ -346,8 +343,8 @@
                                 <a href="/" class="logo ">
                                     <img src="/assets/images/ttn-white-footer.png " alt="The Trucking Network ">
                                 </a>
-                                <p class="address mt-3">
-                                    The Trucking Network
+                                <p class="address mt-3 contactus">
+                                    Website: <a href="https://www.thetruckingnetwork.ca/">The Trucking Network</a>
                                     <br>
                                     2985 Drew Road Mississauga,
                                     <br> ON L4T 0A7
@@ -421,14 +418,18 @@
                                 Contact Us
                             </h3> --}}
                             {{!-- The Trucking Network Inc.<br> 2985 Drew Road Mississauga,<br> ON L4T 0A7<br> --}}
-                            <p><a href="mailto:nav@thetruckingnetwork.ca">Sales: nav@thetruckingnetwork.ca</a>
-                                <a href="mailto:info@thetruckingnetwork.ca">General: info@thetruckingnetwork.ca</a>
-                                <br> Call us: +1 905-564-7576, 647-818-2121 <br>1-800-508-1214,
+                            <p>Sales: <a href="mailto:nav@thetruckingnetwork.ca">nav@thetruckingnetwork.ca</a>
+                                <br>
+                                General: <a href="mailto:info@thetruckingnetwork.ca">info@thetruckingnetwork.ca</a>
+                                <br> Call us: <a href="tel:+1 905-564-7576">+1 905-564-7576</a>,
+                                <a href="tel:647-818-2121">647-818-2121</a>
+                                <br>
+                                <a href="tel:1-800-508-1214">1-800-508-1214</a>
                             </p>
                             <ul class="social-media-gray">
                                 <li>
-                                    <a href="https://www.facebook.com/thetruckingnetwork/" title="facebook"
-                                        target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.facebook.com/Thetruckingnetwork-807929299555343/?modal=admin_todo_tour"
+                                        title="facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                 </li>
                                 <li>
                                     <a href="https://twitter.com/ttndailytweets" title="twitter" target="_blank"><i
@@ -439,7 +440,8 @@
                                         target="_blank"><i class="fab fa-linkedin"></i></a>
                                 </li>
                                 <li>
-                                    <a href="https://www.instagram.com/ttndailyinstg/" title="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://www.instagram.com/ttndailyinstg/" title="instagram"
+                                        target="_blank"><i class="fab fa-instagram"></i></a>
                                 </li>
 
                             </ul>
@@ -552,6 +554,11 @@
     <!-- color panal - jqury include -->
     <!-- <script src="assets/js/style-switcher.js "></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
+    <script>
+        var API_URL = '{{apiUrl}}';
+    </script>
+
     <!-- custom jquery include -->
     <script src="/assets/js/custom.js "></script>
     <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>

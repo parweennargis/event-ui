@@ -486,7 +486,7 @@ module.exports = {
     },
     sendContact: async(req, res) => {
         try {
-            const { body } = req;        
+            const { body } = req;
             const headers = {
                 'Content-Type': 'application/json'
             };
@@ -503,5 +503,11 @@ module.exports = {
     },
     faq: async(req, res) => {
         return res.render('faq');
+    },
+    previousEvents: async(req, res) => {
+        return res.render('previous-events');
+    },
+    previousEventsDetails: async(req, res) => {
+        return res.render('previous-events-details');
     },
 };

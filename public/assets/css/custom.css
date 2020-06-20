@@ -600,6 +600,7 @@ ul.social-media-gray {
 
 .navbar-expand-md .navbar-nav .nav-link {
     font-size: 15px;
+    padding: 0 0.8rem;
 }
 
 .navbar-nav .nav-link:last-child {
@@ -1855,6 +1856,52 @@ a.remove {
 #faq .fa {
     float: right;
 }
+
+
+/* previous event page */
+
+.recentevent-block {
+    background: url(../images/previous-event-bg.jpg);
+    background-size: cover;
+    padding: 20px 0 60px 0;
+}
+
+.recentevent-block h3 {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 15px 0 10px;
+    margin-top: 20px;
+    overflow: hidden;
+    white-space: no-wrap;
+    text-overflow: ellipsis;
+}
+
+.recentevent-block .carousel-inner {
+    text-align: center;
+}
+
+.recentevent-block .carousel-inner img {
+    border: 8px solid #4a5c71;
+}
+
+.white-title {
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 25px 0;
+}
+
+.embed-responsive {
+    border: 8px solid #4a5c71;
+}
+
+.grid-item img {
+    width: 350px;
+    height: 250px;
+}
+
+
+/* previous event page end */
 
 @media (max-width:767px) {
     .navbar {

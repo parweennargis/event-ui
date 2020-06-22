@@ -1900,6 +1900,18 @@ a.remove {
     height: 250px;
 }
 
+.recentevent-block .nav a {
+    border: none;
+    padding: 18px 25px;
+    color: #fff;
+    background: #c83538;
+    border-radius: 0;
+}
+
+.recentevent-block .nav.active {
+    background: #ccc;
+}
+
 
 /* previous event page end */
 

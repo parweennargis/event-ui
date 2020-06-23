@@ -15,6 +15,7 @@ router.get('/dashboard', homeController.home);
 // Event Routes
 router.get('/event', homeController.event);
 router.get('/add-event', homeController.addEvent);
+router.get('/events/:eventId', homeController.getEventById);
 
 // Pricing Plan Routes
 router.get('/pricing-plan', pricingController.pricingPlanList);

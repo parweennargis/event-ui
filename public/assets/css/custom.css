@@ -1903,13 +1903,19 @@ a.remove {
 .recentevent-block .nav a {
     border: none;
     padding: 18px 25px;
-    color: #fff;
-    background: #c83538;
+    color: #c83538;
+    background: #fff;
     border-radius: 0;
 }
 
-.recentevent-block .nav.active {
-    background: #ccc;
+.recentevent-block .nav a.active {
+    background: #c83538;
+    color: #fff;
+}
+
+.previous-event-tab-menu {
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -1995,6 +2001,10 @@ a.remove {
     }
     .cart-itembox {
         text-align: center;
+    }
+    .recentevent-block .nav a {
+        padding: 13px 10px;
+        font-size: 12px;
     }
 }
 

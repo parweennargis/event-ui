@@ -94,6 +94,11 @@ const helpers = {
   },
   apiUrl: function() {
     return config.apiUrl
+  },
+  dotdotdot: function(string) {
+    if (string.length > 10)
+    return string.substring(0,10) + '..';
+  return string;
   }
 };
 

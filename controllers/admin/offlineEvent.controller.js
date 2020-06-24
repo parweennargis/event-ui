@@ -96,7 +96,6 @@ module.exports = {
                 eventData.data.endDay = `${endDate.getFullYear()}-${month}-${day}`;
             }
             return res.render('admin/offline/edit-event', { title: 'Express Admin Event', layout: 'admin', eventCategories: eventCategories.data, eventData: eventData.data  });
-            return res.render('admin/offline/edit-event', { title: 'Express Admin Event', layout: 'admin', eventCategories: eventCategories.data, eventData: eventData.data });
         } catch (error) {
             console.log(error);
             return res.status(400).json({ data: error });

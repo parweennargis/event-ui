@@ -99,5 +99,5 @@ module.exports = {
         }
         console.log(eventData);
         return res.render('admin/update-event', { title: 'Express Admin Event Edit', layout: 'admin', event: eventData.data, pricings: pricings.data, eventCategories: eventCategories.data });
-    },
+    }
 };

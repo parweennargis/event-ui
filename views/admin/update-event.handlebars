@@ -1,3 +1,11 @@
+<style>
+  img {
+    max-width:180px;
+  }
+  .image-width {
+    max-width:180px;
+  }
+</style>
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="page-header">
@@ -137,14 +145,32 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Multiple Image</label>
+                    <label class="col-sm-2 col-form-label" for="images">Multiple Image</label>
                     <input type="file" name="images" id="images" multiple />
+                    {{#if event.images}}
+                      <div class="images-preview">
+                        {{#each event.images}}
+                          <div class="image-width col-md-3"><img src="{{this}}"/>
+                            <button type="button" class="close" aria-label="Close" data-id=""><span aria-hidden="true">&times;</span></button>
+                          </div>
+                        {{/each}}
+                      </div>
+                    {{else}}
+                      <div class="images-preview"></div>
+                    {{/if}}
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Banner</label>
+                    <label class="col-sm-2 col-form-label" for="banner">Banner</label>
                     <input type="file" name="banner" id="banner">
+                    {{#if event.banner}}
+                      <div class="banner-preview">
+                        <div class="image-width col-md-3"><img src="{{event.banner}}"/></div>
+                      </div>
+                    {{else}}
+                      <div class="banner-preview"></div>
+                    {{/if}}
                   </div>
                 </div>
               </div>
@@ -291,19 +317,30 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Event Images</label>
+                    <label class="col-sm-2 col-form-label" for="past_event_images">Event Images</label>
                     <input type="file" name="past_event_images" id="past_event_images" multiple>
+                    {{#if event.past_event_image}}
+                      <div class="past_event_images-preview">
+                        {{#each event.past_event_image}}
+                          <div class="image-width col-md-3"><img src="{{this.image}}"/>
+                            <button type="button" class="close" aria-label="Close" data-id="{{this._id}}"><span aria-hidden="true">&times;</span></button>
+                          </div>
+                        {{/each}}
+                      </div>
+                    {{else}}
+                      <div class="past_event_images-preview"></div>
+                    {{/if}}
                   </div>
                 </div>
               </div>
-              {{#if  event.past_event}}
+              {{#if event.past_event_video}}
                 <div class="row">
                   <div class="col-lg-6">
                     <label class="col-sm-2 col-form-label">Event Videos</label>
-                {{#each event.past_event.videos}}
+                {{#each event.past_event_video}}
                   <div id="inputFormRow">
                       <div class="input-group mb-3">
-                          <input type="text" name="past_event[videos]" class="form-control m-input" placeholder="Video Link" autocomplete="off" value="{{this}}">
+                          <input type="text" name="past_event_video[]" class="form-control m-input" placeholder="Video Link" autocomplete="off" value="{{this}}">
                           <div class="input-group-append">
                               <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
                           </div>
@@ -318,7 +355,7 @@
                     <label class="col-sm-2 col-form-label">Event Videos</label>
                       <div id="inputFormRow">
                           <div class="input-group mb-3">
-                              <input type="text" name="past_event[videos]" class="form-control m-input" placeholder="Video Link" autocomplete="off">
+                              <input type="text" name="past_event_video[]" class="form-control m-input" placeholder="Video Link" autocomplete="off">
                               <div class="input-group-append">
                                   <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
                               </div>

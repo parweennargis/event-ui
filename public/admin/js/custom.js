@@ -160,7 +160,7 @@
             var html = '';
             html += '<div id="inputFormRow">';
             html += '<div class="input-group mb-3">';
-            html += '<input type="text" name="past_event[videos]" class="form-control m-input" placeholder="Video Link" autocomplete="off">';
+            html += '<input type="text" name="past_event_video[]" class="form-control m-input" placeholder="Video Link" autocomplete="off">';
             html += '<div class="input-group-append">';
             html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
             html += '</div>';
@@ -173,6 +173,58 @@
         $(document).on('click', '#removeRow', function () {
             $(this).closest('#inputFormRow').remove();
         });
+        
+        $('#images').change(function(e) {
+            previewImages($(this)[0].files, 'images');    
+        });
 
+        $('#banner').change(function(e) {
+            previewImages($(this)[0].files, 'banner');    
+        });
+
+        $('#past_event_images').change(function(e) {
+            previewImages($(this)[0].files, 'past_event_images');    
+        });
+
+
+        // $('#imageUrl').change(function(e) {
+        //     // console.log($(this));
+        //     console.log($(this).attr('data-image'));
+        //     readURL($(this)[0].files, $(this).attr('data-index'));    
+        // });
+
+        // function readURL(files, index=0) {
+        //     for (let file of files) {
+        //         imageUrls.push(file);
+        //         var reader = new FileReader();
+        //         reader.onload = function (e) {
+        //             var img = '<div class="image-width col-md-3"><img src="' + e.target.result + '"/><button type="button" class="close" aria-label="Close" data-index="' + index + '"><span aria-hidden="true">&times;</span></button></div>';
+        //             $('.preview').append(img);
+        //             index++;
+        //             $('#imageUrl').attr('data-index',index);
+        //         };
+        //         reader.readAsDataURL(file);
+        //     }
+        // }
+
+        $(document).on('click', '.close', function(e) {
+            e.preventDefault();
+            
+            imageUrls.splice($(this).attr('data-index'), 1);
+            $('.preview').html('');
+            readURL(imageUrls);
+        });
+
+        function previewImages(files, id) {
+            $('.' + id + '-preview').html('');
+            for (let file of files) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var img = '<div class="image-width col-md-3"><img src="' + e.target.result + '"/></div>';
+                    $('.' + id + '-preview').append(img);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
     });
 })(jQuery);

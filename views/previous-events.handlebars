@@ -1,13 +1,8 @@
-
 <section id="previous-events" class="pt-3 clearfix mobile-space">
-
 	<div class="mb-15" style="margin-bottom: 0;">
-
-	
 		<!-- section-title - start -->
 		<div class="container text-left  pt-3">
 			<div class="col-lg-12 col-md-12 col-sm-12">
-
 				<div class="section-title text-left">
 					<h2 class="title-large">Previous <strong> Events</strong> </h2>
 				</div>
@@ -15,92 +10,88 @@
 		</div>
 
 		<section class="recentevent-block mt-4">
-<div class="container">
-			   <div class="previous-event-tab-menu clearfix">
-                        <ul class="nav nav-pills">
-                            <li>
-                                <a data-toggle="tab" href="#onsite-job-fair"
-                                    class=" active " data-event="onsite-job-fair">Onsite Job Fair
-                                </a>
-                                <a data-toggle="tab" href="#webinar"
-                                    class="  " data-event="webinar">Webinar
-                                </a>
-                                <a data-toggle="tab" href="#virtual-job-fair"
-                                    class="  " data-event="virtual-job-fair">Virtaul Job Fair
-                                </a>
-                            </li>
-                           
+			<div class="container">
+				<div class="previous-event-tab-menu clearfix">
+					<ul class="nav nav-pills">
+						<li>
+							{{#each data.eventCategories}}
+							<a data-toggle="tab" href="#" data-event="{{_id}}"
+								class="previous-event {{#ifCond @index '===' 0}}active{{/ifCond}}">{{name}}
+							</a>
+							{{/each}}
 
-                        </ul>
-                    </div>
-					</div>
+							{{#each data.virtualCategories}}
+							<a data-toggle="tab" href="#" data-event="{{_id}}" class="previous-event">{{name}}</a>
+							{{/each}}
+						</li>
+					</ul>
+				</div>
+			</div>
 
 			<div class="container">
-				
-					  	<div class="tab-content clearfix">
-						   <div id="onsite-job-fair" class="tab-pane fade in active show">
-							   <div class="row">
+				<div class="tab-content clearfix">
+					<div id="previous-event" class="tab-pane fade in active show">
+						<div class="row">
+							{{#each data.previousEvents.items}}
 								<div class="col-lg-4">
 									<h3 class="text-center">
-										<a href="https://www.thetruckingnetworkevents.ca/recent-event/15" style="color: #ffffff;"
-											target="_blank">
-											Mega Job Fair Event, 07 Mar 2020
+										<a href="/previous-events/{{_id}}" style="color: #ffffff;" target="_blank">
+											{{title}}, {{startDay}} {{startMonth}} {{startYear}}
 										</a>
 									</h3>
 									<div id="carousel1" class="carousel slide" data-ride="carousel">
 										<div class="carousel-inner">
 											<div class="carousel-item1">
-												<a class="fancybox" target="_blank"
-													href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
-													<img class="d-block hover-shadow cursor"
-														src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
-														style="width: 350px; height:250px">
+												<a class="fancybox" target="_blank" href="/previous-events/{{_id}}">
+													<img class="d-block hover-shadow cursor" src="{{past_event_banner_image}}" style="width: 350px; height:250px">
 												</a>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-4">
-									<h3 class="text-center">
-										<a href="https://www.thetruckingnetworkevents.ca/recent-event/15" style="color: #ffffff;"
-											target="_blank">
-											Mega Job Fair Event, 07 Mar 2020
-										</a>
-									</h3>
-									<div id="carousel1" class="carousel slide" data-ride="carousel">
-										<div class="carousel-inner">
-											<div class="carousel-item1">
-												<a class="fancybox" target="_blank"
-													href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
-													<img class="d-block hover-shadow cursor"
-														src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
-														style="width: 350px; height:250px">
-												</a>
-											</div>
+							{{/each}}
+							
+							{{!-- <div class="col-lg-4">
+								<h3 class="text-center">
+									<a href="https://www.thetruckingnetworkevents.ca/recent-event/15"
+										style="color: #ffffff;" target="_blank">
+										Mega Job Fair Event, 07 Mar 2020
+									</a>
+								</h3>
+								<div id="carousel1" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item1">
+											<a class="fancybox" target="_blank"
+												href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
+												<img class="d-block hover-shadow cursor"
+													src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
+													style="width: 350px; height:250px">
+											</a>
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-4">
-									<h3 class="text-center">
-										<a href="https://www.thetruckingnetworkevents.ca/recent-event/15" style="color: #ffffff;"
-											target="_blank">
-											Mega Job Fair Event, 07 Mar 2020
-										</a>
-									</h3>
-									<div id="carousel1" class="carousel slide" data-ride="carousel">
-										<div class="carousel-inner">
-											<div class="carousel-item1">
-												<a class="fancybox" target="_blank"
-													href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
-													<img class="d-block hover-shadow cursor"
-														src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
-														style="width: 350px; height:250px">
-												</a>
-											</div>
+							</div>
+							<div class="col-lg-4">
+								<h3 class="text-center">
+									<a href="https://www.thetruckingnetworkevents.ca/recent-event/15"
+										style="color: #ffffff;" target="_blank">
+										Mega Job Fair Event, 07 Mar 2020
+									</a>
+								</h3>
+								<div id="carousel1" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item1">
+											<a class="fancybox" target="_blank"
+												href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
+												<img class="d-block hover-shadow cursor"
+													src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
+													style="width: 350px; height:250px">
+											</a>
 										</div>
 									</div>
 								</div>
-								{{!-- <div class="container">
+							</div> --}}
+							{{!-- <div class="container">
 									<div class="row mt-2 video-section">
 										<div class="col-lg-12 text-center">
 											<h2 class="white-title">Video</h2>
@@ -120,177 +111,177 @@
 										</div>
 									</div>
 								</div> --}}
-							</div>
-							</div>
-						   <div id="webinar" class="tab-pane">
-							    <div class="row">
-								<div class="col-lg-4">
-									<h3 class="text-center">
-										<a href="https://www.thetruckingnetworkevents.ca/recent-event/15" style="color: #ffffff;"
-											target="_blank">
-											Webinar, 27 Mar 2021
-										</a>
-									</h3>
-									<div id="carousel1" class="carousel slide" data-ride="carousel">
-										<div class="carousel-inner">
-											<div class="carousel-item1">
-												<a class="fancybox" target="_blank"
-													href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
-													<img class="d-block hover-shadow cursor"
-														src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
-														style="width: 350px; height:250px">
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-4">
-									<h3 class="text-center">
-										<a href="https://www.thetruckingnetworkevents.ca/recent-event/15" style="color: #ffffff;"
-											target="_blank">
-											Webinar, 17 Sep 2020
-										</a>
-									</h3>
-									<div id="carousel1" class="carousel slide" data-ride="carousel">
-										<div class="carousel-inner">
-											<div class="carousel-item1">
-												<a class="fancybox" target="_blank"
-													href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
-													<img class="d-block hover-shadow cursor"
-														src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
-														style="width: 350px; height:250px">
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-4">
-									<h3 class="text-center">
-										<a href="https://www.thetruckingnetworkevents.ca/recent-event/15" style="color: #ffffff;"
-											target="_blank">
-											Mega Job Fair Event, 07 Mar 2020
-										</a>
-									</h3>
-									<div id="carousel1" class="carousel slide" data-ride="carousel">
-										<div class="carousel-inner">
-											<div class="carousel-item1">
-												<a class="fancybox" target="_blank"
-													href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
-													<img class="d-block hover-shadow cursor"
-														src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
-														style="width: 350px; height:250px">
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								{{!-- <div class="container">
-									<div class="row mt-3 video-section">
-										<div class="col-lg-12 text-center">
-											<h2 class="white-title">Video</h2>
-										</div>
-
-										<div class="col-lg-4">
-											<div class="embed-responsive embed-responsive-16by9">
-												<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/57JDtCWOdPI"
-													allowfullscreen=""></iframe>
-											</div>
-										</div>
-										<div class="col-lg-4">
-											<div class="embed-responsive embed-responsive-16by9">
-												<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/u_bfBU-S_rg"
-													allowfullscreen=""></iframe>
-											</div>
-										</div>
-									</div>
-								</div> --}}
-							</div>
-							</div>
-							<div id="virtual-job-fair" class="tab-pane ">
-								 <div class="row">
-								<div class="col-lg-4">
-									<h3 class="text-center">
-										<a href="https://www.thetruckingnetworkevents.ca/recent-event/15" style="color: #ffffff;"
-											target="_blank">
-											Virtual job fair, 07 Mar 2020
-										</a>
-									</h3>
-									<div id="carousel1" class="carousel slide" data-ride="carousel">
-										<div class="carousel-inner">
-											<div class="carousel-item1">
-												<a class="fancybox" target="_blank"
-													href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
-													<img class="d-block hover-shadow cursor"
-														src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
-														style="width: 350px; height:250px">
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-4">
-									<h3 class="text-center">
-										<a href="https://www.thetruckingnetworkevents.ca/recent-event/15" style="color: #ffffff;"
-											target="_blank">
-											Virtual job fair, 07 Mar 2020
-										</a>
-									</h3>
-									<div id="carousel1" class="carousel slide" data-ride="carousel">
-										<div class="carousel-inner">
-											<div class="carousel-item1">
-												<a class="fancybox" target="_blank"
-													href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
-													<img class="d-block hover-shadow cursor"
-														src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
-														style="width: 350px; height:250px">
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-4">
-									<h3 class="text-center">
-										<a href="https://www.thetruckingnetworkevents.ca/recent-event/15" style="color: #ffffff;"
-											target="_blank">
-											Virtual job fair, 07 Mar 2020
-										</a>
-									</h3>
-									<div id="carousel1" class="carousel slide" data-ride="carousel">
-										<div class="carousel-inner">
-											<div class="carousel-item1">
-												<a class="fancybox" target="_blank"
-													href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
-													<img class="d-block hover-shadow cursor"
-														src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
-														style="width: 350px; height:250px">
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								{{!-- <div class="container">
-									<div class="row mt-3 video-section">
-										<div class="col-lg-12 text-center">
-											<h2 class="white-title">Video</h2>
-										</div>
-
-										<div class="col-lg-4">
-											<div class="embed-responsive embed-responsive-16by9">
-												<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/57JDtCWOdPI"
-													allowfullscreen=""></iframe>
-											</div>
-										</div>
-										<div class="col-lg-4">
-											<div class="embed-responsive embed-responsive-16by9">
-												<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/u_bfBU-S_rg"
-													allowfullscreen=""></iframe>
-											</div>
-										</div>
-									</div>
-								</div> --}}
-								</div>
-							</div>
 						</div>
+					</div>
+					<div id="webinar" class="tab-pane">
+						<div class="row">
+							<div class="col-lg-4">
+								<h3 class="text-center">
+									<a href="https://www.thetruckingnetworkevents.ca/recent-event/15"
+										style="color: #ffffff;" target="_blank">
+										Webinar, 27 Mar 2021
+									</a>
+								</h3>
+								<div id="carousel1" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item1">
+											<a class="fancybox" target="_blank"
+												href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
+												<img class="d-block hover-shadow cursor"
+													src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
+													style="width: 350px; height:250px">
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<h3 class="text-center">
+									<a href="https://www.thetruckingnetworkevents.ca/recent-event/15"
+										style="color: #ffffff;" target="_blank">
+										Webinar, 17 Sep 2020
+									</a>
+								</h3>
+								<div id="carousel1" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item1">
+											<a class="fancybox" target="_blank"
+												href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
+												<img class="d-block hover-shadow cursor"
+													src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
+													style="width: 350px; height:250px">
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<h3 class="text-center">
+									<a href="https://www.thetruckingnetworkevents.ca/recent-event/15"
+										style="color: #ffffff;" target="_blank">
+										Mega Job Fair Event, 07 Mar 2020
+									</a>
+								</h3>
+								<div id="carousel1" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item1">
+											<a class="fancybox" target="_blank"
+												href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
+												<img class="d-block hover-shadow cursor"
+													src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
+													style="width: 350px; height:250px">
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							{{!-- <div class="container">
+									<div class="row mt-3 video-section">
+										<div class="col-lg-12 text-center">
+											<h2 class="white-title">Video</h2>
+										</div>
+
+										<div class="col-lg-4">
+											<div class="embed-responsive embed-responsive-16by9">
+												<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/57JDtCWOdPI"
+													allowfullscreen=""></iframe>
+											</div>
+										</div>
+										<div class="col-lg-4">
+											<div class="embed-responsive embed-responsive-16by9">
+												<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/u_bfBU-S_rg"
+													allowfullscreen=""></iframe>
+											</div>
+										</div>
+									</div>
+								</div> --}}
+						</div>
+					</div>
+					<div id="virtual-job-fair" class="tab-pane ">
+						<div class="row">
+							<div class="col-lg-4">
+								<h3 class="text-center">
+									<a href="https://www.thetruckingnetworkevents.ca/recent-event/15"
+										style="color: #ffffff;" target="_blank">
+										Virtual job fair, 07 Mar 2020
+									</a>
+								</h3>
+								<div id="carousel1" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item1">
+											<a class="fancybox" target="_blank"
+												href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
+												<img class="d-block hover-shadow cursor"
+													src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
+													style="width: 350px; height:250px">
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<h3 class="text-center">
+									<a href="https://www.thetruckingnetworkevents.ca/recent-event/15"
+										style="color: #ffffff;" target="_blank">
+										Virtual job fair, 07 Mar 2020
+									</a>
+								</h3>
+								<div id="carousel1" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item1">
+											<a class="fancybox" target="_blank"
+												href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
+												<img class="d-block hover-shadow cursor"
+													src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
+													style="width: 350px; height:250px">
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<h3 class="text-center">
+									<a href="https://www.thetruckingnetworkevents.ca/recent-event/15"
+										style="color: #ffffff;" target="_blank">
+										Virtual job fair, 07 Mar 2020
+									</a>
+								</h3>
+								<div id="carousel1" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item1">
+											<a class="fancybox" target="_blank"
+												href="uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
+												<img class="d-block hover-shadow cursor"
+													src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg"
+													style="width: 350px; height:250px">
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							{{!-- <div class="container">
+									<div class="row mt-3 video-section">
+										<div class="col-lg-12 text-center">
+											<h2 class="white-title">Video</h2>
+										</div>
+
+										<div class="col-lg-4">
+											<div class="embed-responsive embed-responsive-16by9">
+												<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/57JDtCWOdPI"
+													allowfullscreen=""></iframe>
+											</div>
+										</div>
+										<div class="col-lg-4">
+											<div class="embed-responsive embed-responsive-16by9">
+												<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/u_bfBU-S_rg"
+													allowfullscreen=""></iframe>
+											</div>
+										</div>
+									</div>
+								</div> --}}
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	</div>

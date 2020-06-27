@@ -33,8 +33,8 @@ const indexRoutes = (app, router) => {
     router.get('/aboutus', homeController.aboutus);
     router.get('/faq', homeController.faq);
     router.get('/previous-events', homeController.previousEvents);
-    router.get('/previous-events-details', homeController.previousEventsDetails);
-    router.get('/our-services', homeController.ourServices);
+    router.get('/previous-events/:eventId', homeController.previousEventsDetails);
+    router.get('/previous-events-tab', homeController.tabPreviousEvents);
 
     return router;
 }

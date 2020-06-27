@@ -1,6 +1,6 @@
-exports.splitDate = (data) => {
+exports.splitDate = (data, isAd = true) => {
     return data.reduce((prev, curr, index) => {
-        if (index == 3) prev.push({ ad: true });
+        if (index == 3 && isAd) prev.push({ ad: true });
         const startDate = new Date(curr.start_date).toDateString().split(' ');
         curr.startDay = startDate[2];
         curr.startMonth = startDate[1];

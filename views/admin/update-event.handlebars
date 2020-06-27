@@ -1,3 +1,11 @@
+<style>
+  img {
+    max-width:180px;
+  }
+  .image-width {
+    max-width:180px;
+  }
+</style>
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="page-header">
@@ -14,206 +22,398 @@
         <div class="card">
           <div class="card-body">
             <form class="forms-sample" id="updateEventForm">
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Event Title</label>
-                <div class="col-sm-10">
-                  <input type="text" name="title" class="form-control" placeholder="Event Title" value="{{title}}">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Event Title</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="title" class="form-control" placeholder="Event Title" value="{{event.title}}">
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Start Date</label>
-                <div class="col-sm-10">
-                  <input type="date" name="start_date" class="form-control" placeholder="Start Date" value="{{start_date}}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">End Date</label>
-                <div class="col-sm-10">
-                  <input type="date" name="end_date" class="form-control" placeholder="End Date" value="{{end_date}}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Start Time</label>
-                <div class="col-sm-10">
-                  <input type="time" name="start_time" class="form-control" placeholder="Start Time" value="{{start_time}}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">End Time</label>
-                <div class="col-sm-10">
-                  <input type="time" name="end_time" class="form-control" placeholder="End Time" value="{{end_time}}">
-                </div>
-              </div>
-              {{!-- // TODO for banner --}}
-
-
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Event Pricing</label>
-                <div class="col-sm-10">
-                  <div class="form-group">
-                    <select class="js-example-basic-multiple" name="pricing" multiple="multiple" style="width:100%">
-                      {{#each pricings}}
-                      <option value="{{_id}}">{{name}}</option>
-                      {{/each}}
-                    </select>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Tax</label>
+                    <div class="col-sm-10">
+                      <div class="form-group">
+                        <select class="form-control form-control-sm" id="exampleFormControlSelect3">
+                          <option>HST</option>
+                          <option>GST</option>
+                        </select>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Event category</label>
-                <div class="col-sm-10">
-                  <div class="form-group">
-                    <select class="js-example-basic-multiple" name="event_category[]" multiple="multiple"
-                      style="width:100%">
-                      {{#each eventCategories}}
-                      <option value="{{_id}}">{{name}}</option>
-                      {{/each}}
-                    </select>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Start Date</label>
+                    <div class="col-sm-10">
+                      <input type="date" name="start_date" class="form-control" placeholder="Start Date" value="{{event.startDay}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">End Date</label>
+                    <div class="col-sm-10">
+                      <input type="date" name="end_date" class="form-control" placeholder="End Date" value="{{event.endDay}}">
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Tax</label>
-                <div class="col-sm-10">
-                  <div class="form-group">
-                    <select class="form-control form-control-sm" id="exampleFormControlSelect3">
-                      <option>HST</option>
-                      <option>GST</option>
-                    </select>
+
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Start Time</label>
+                    <div class="col-sm-10">
+                      <input type="time" name="start_time" class="form-control" placeholder="Start Time" value="{{event.start_time}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">End Time</label>
+                    <div class="col-sm-10">
+                      <input type="time" name="end_time" class="form-control" placeholder="End Time" value="{{event.end_time}}">
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">File upload</label>
-                <input type="file" name="files" id="files" multiple />
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Banner</label>
-                <input type="file" name="banner" class="file-upload-default">
-                <div class="input-group col-sm-10">
-                  <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Banner">
-                  <span class="input-group-append">
-                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                  </span>
-                </div>
-              </div>
 
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Short Description</label>
-                <div class="col-sm-10">
-                  <input type="text" name="short_description" class="form-control" placeholder="Short Description" value="{{short_description}}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Description</label>
-                <div class="col-sm-10">
-                  <textarea class="form-control" rows="4" name="description">{{description}}</textarea>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Organizer Email</label>
-                <div class="col-sm-10">
-                  <input type="text" name="organizer[email]" class="form-control" placeholder="Organizer Email" value="{{organizer.email}}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Contact Number</label>
-                <div class="col-sm-10">
-                  <input type="text" name="organizer[contact_no]" class="form-control" placeholder="Contact Number" value="{{organizer.contact_no}}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Toll Free Number</label>
-                <div class="col-sm-10">
-                  <input type="text" name="organizer[toll_free_no]" class="form-control" placeholder="Toll Free Number" value="{{organizer.toll_free_no}}">
-                </div>
-              </div>
-
-              {{!-- TODO// need to upload the pdf file for floor plan --}}
-              {{!-- <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Floor Plan</label>
-                <div class="col-sm-10">
-                  <input type="text" name="floor_plan" class="form-control" placeholder="Floor Plan">
-                </div>
-              </div> --}}
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Map Link</label>
-                <div class="col-sm-10">
-                  <input type="text" name="link[map]" class="form-control" placeholder="Map Link" value="{{link.map}}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Facebook Link</label>
-                <div class="col-sm-10">
-                  <input type="text" name="link[facebook]" class="form-control" placeholder="Facebook Link" value="{{link.facebook}}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Twitter Link</label>
-                <div class="col-sm-10">
-                  <input type="text" name="link[twitter]" class="form-control" placeholder="Twitter Link" value="{{link.twitter}}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Youtube Link</label>
-                <div class="col-sm-10">
-                  <input type="text" name="link[youtube]" class="form-control" placeholder="Youtube Link" value="{{link.youtube}}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Linkedln Link</label>
-                <div class="col-sm-10">
-                  <input type="text" name="link[linkedln]" class="form-control" placeholder="Linkedln Link" value="{{link.linkedln}}">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Venue Place</label>
-                <div class="col-sm-10">
-                  <input type="text" name="venue[name]" class="form-control" placeholder="Venue Place" value="{{venue.name}}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Venue Street Address</label>
-                <div class="col-sm-10">
-                  <input type="text" name="venue[streetAddress]" class="form-control" placeholder="Venue Street Address" value="{{venue.streetAddress}}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Venue City</label>
-                <div class="col-sm-10">
-                  <input type="text" name="venue[city]" class="form-control" placeholder="Venue City" value="{{venue.city}}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Venue State</label>
-                <div class="col-sm-10">
-                  <input type="text" name="venue[state]" class="form-control" placeholder="Venue State" value="{{venue.state}}">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Venue Country</label>
-                <div class="col-sm-10">
-                  <input type="text" name="venue[country]" class="form-control" placeholder="Venue Country" value="{{venue.country}}">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Is Opening Soon</label>
-                <div class="col-sm-10">
-                  <div class="form-check form-check-primary">
-                    <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="is_opening_soon" checked> Yes </label>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Event category</label>
+                    <div class="col-sm-10">
+                      <div class="form-group">
+                        <select class="js-example-basic-multiple" name="event_category[]" multiple="multiple"
+                          style="width:100%">
+                          {{#each eventCategories}}
+                          {{!-- <option value="{{_id}}">{{name}}</option> --}}
+                          <option value="{{_id}}" {{#ifIn _id ../event.event_category }}selected{{/ifIn}}>{{name}}</option>
+                          {{/each}}
+                        </select>
+                      </div>
+                    </div>
                   </div>
-                  <div class="form-check form-check-danger">
-                    <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="is_opening_soon"> No </label>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Event Pricing</label>
+                    <div class="col-sm-10">
+                      <div class="form-group">
+                        <select class="js-example-basic-multiple" name="pricing" multiple="multiple" style="width:100%">
+                          {{#each pricings}}
+                          {{!-- <option value="{{_id}}">{{name}}</option> --}}
+                          <option value="{{_id}}" {{#ifIn _id ../event.pricing }}selected{{/ifIn}}>{{name}}</option>
+                          {{/each}}
+                        </select>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <button class="btn btn-primary mr-2" id="update-event">Update</button>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Short Description</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="short_description" class="form-control" placeholder="Short Description" value="{{event.short_description}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control desc" name="description" id="description">{{event.description}}</textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="images">Multiple Image</label>
+                    <input type="file" name="images" id="images" multiple />
+                    {{#if event.images}}
+                      <div class="images-preview">
+                        {{#each event.images}}
+                          <div class="image-width col-md-3"><img src="{{this}}"/>
+                            <button type="button" class="close" aria-label="Close" data-id=""><span aria-hidden="true">&times;</span></button>
+                          </div>
+                        {{/each}}
+                      </div>
+                    {{else}}
+                      <div class="images-preview"></div>
+                    {{/if}}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="banner">Banner</label>
+                    <input type="file" name="banner" id="banner">
+                    {{#if event.banner}}
+                      <div class="banner-preview">
+                        <div class="image-width col-md-3"><img src="{{event.banner}}"/></div>
+                      </div>
+                    {{else}}
+                      <div class="banner-preview"></div>
+                    {{/if}}
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Floor Plan</label>
+                    <input type="file" name="floor_plan" id="floor_plan">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Organizer Email</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="organizer[email]" class="form-control" placeholder="Organizer Email" value="{{event.organizer.email}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Toll Free Number</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="organizer[toll_free_no]" class="form-control" placeholder="Toll Free Number" value="{{event.organizer.toll_free_no}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Contact Number</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="organizer[contact_no]" class="form-control" placeholder="Contact Number" value="{{event.organizer.contact_no}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Map Link</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="link[map]" class="form-control" placeholder="Map Link" value="{{event.link.map}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Instagram Link</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="link[instagram]" class="form-control" placeholder="Instagram Link" value="{{event.link.instagram}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Facebook Link</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="link[facebook]" class="form-control" placeholder="Facebook Link" value="{{event.link.facebook}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Twitter Link</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="link[twitter]" class="form-control" placeholder="Twitter Link" value="{{event.link.twitter}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Youtube Link</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="link[youtube]" class="form-control" placeholder="Youtube Link" value="{{event.link.youtube}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Linkedln Link</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="link[linkedln]" class="form-control" placeholder="Linkedln Link" value="{{event.link.linkedln}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Venue Place</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="venue[name]" class="form-control" placeholder="Venue Place" value="{{event.venue.name}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Venue Street Address</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="venue[streetAddress]" class="form-control" placeholder="Venue Street Address" value="{{event.venue.streetAddress}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Venue City</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="venue[city]" class="form-control" placeholder="Venue City" value="{{event.venue.city}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Venue State</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="venue[state]" class="form-control" placeholder="Venue State" value="{{event.venue.state}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Venue Country</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="venue[country]" class="form-control" placeholder="Venue Country" value="{{event.venue.country}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="past_event_images">Event Images</label>
+                    <input type="file" name="past_event_images" id="past_event_images" multiple>
+                    {{#if event.past_event_image}}
+                      <div class="past_event_images-preview">
+                        {{#each event.past_event_image}}
+                          <div class="image-width col-md-3"><img src="{{this.image}}"/>
+                            <button type="button" class="close" aria-label="Close" data-id="{{this._id}}"><span aria-hidden="true">&times;</span></button>
+                          </div>
+                        {{/each}}
+                      </div>
+                    {{else}}
+                      <div class="past_event_images-preview"></div>
+                    {{/if}}
+                  </div>
+                </div>
+              </div>
+              {{#if event.past_event_video}}
+                <div class="row">
+                  <div class="col-lg-6">
+                    <label class="col-sm-2 col-form-label">Event Videos</label>
+                    <button id="addRow" type="button" class="btn btn-info col-form-label">Add Video</button>
+                {{#each event.past_event_video}}
+                  <div id="inputFormRow">
+                      <div class="input-group mb-3">
+                          <input type="text" name="past_event_video[]" class="form-control m-input" placeholder="Video Link" autocomplete="off" value="{{this.video}}">
+                          <div class="input-group-append">
+                              <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
+                          </div>
+                      </div>
+                  </div>
+                {{/each}}
+                <div id="newRow"></div>
+                </div>
+              {{else}}
+                <div class="row">
+                  <div class="col-lg-6">
+                    <label class="col-sm-2 col-form-label">Event Videos</label>
+                      <div id="inputFormRow">
+                          <div class="input-group mb-3">
+                              <input type="text" name="past_event_video[]" class="form-control m-input" placeholder="Video Link" autocomplete="off">
+                              <div class="input-group-append">
+                                  <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
+                              </div>
+                          </div>
+                      </div>
+                      <div id="newRow"></div>
+                </div>
+              {{/if}}
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="past_event_banner_image">Event Banner Image</label>
+                    <input type="file" name="past_event_banner_image" id="past_event_banner_image">
+                    {{#if event.past_event_banner_image}}
+                      <div class="banner-preview">
+                        <div class="image-width col-md-3"><img src="{{event.past_event_banner_image}}"/></div>
+                      </div>
+                    {{else}}
+                      <div class="past_event_banner_image-preview"></div>
+                    {{/if}}
+                  </div>
+                </div>
+            </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Is Opening Soon</label>
+                    <div class="col-sm-10">
+                      <div class="form-check form-check-primary">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="is_opening_soon" {{#ifCond event.is_opening_soon '===' true}}checked{{/ifCond}}> Yes </label>
+                      </div>
+                      <div class="form-check form-check-danger">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="is_opening_soon" {{#ifCond event.is_opening_soon '===' false}}checked{{/ifCond}}> No </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Active</label>
+                    <div class="col-sm-10">
+                      <div class="form-check form-check-primary">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input is_active" name="is_active" {{#ifCond event.is_active '===' true}}checked{{/ifCond}}> Yes </label>
+                      </div>
+                      <div class="form-check form-check-danger">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input is_active" name="is_active" {{#ifCond event.is_active '===' false}}checked{{/ifCond}}> No </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn btn-primary mr-2" id="update-event" data-event="{{event._id}}"">Submit</button>
               <button class="btn btn-light">Cancel</button>
             </form>
           </div>

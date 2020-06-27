@@ -7,7 +7,7 @@
       <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <form class="forms-sample" id="createOfflineEventForm">
+            <form class="forms-sample">
               {{log eventData}}
               <div class="row">
                 <div class="col-md-6">
@@ -170,24 +170,22 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Active</label>
-                <div class="col-sm-10">
-                  <div class="form-check form-check-primary">
-                    <label class="form-check-label">
-                      <input type="radio" class="form-check-input is_active" name="is_active" {{#ifCond eventData.is_active '===' true}}checked{{/ifCond}}> Yes </label>
-                  </div>
-                  <div class="form-check form-check-danger">
-                    <label class="form-check-label">
-                      <input type="radio" class="form-check-input is_active" name="is_active" {{#ifCond eventData.is_active '===' false}}checked{{/ifCond}}> No </label>
+                    <label class="col-sm-2 col-form-label">Active</label>
+                    <div class="col-sm-10">
+                      <div class="form-check form-check-primary">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input is_active" name="is_active" {{#ifCond eventData.is_active '===' true}}checked{{/ifCond}}> Yes </label>
+                      </div>
+                      <div class="form-check form-check-danger">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input is_active" name="is_active" {{#ifCond eventData.is_active '===' false}}checked{{/ifCond}}> No </label>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-                </div>
-              </div>
-
-
             
-              <button class="btn btn-primary mr-2" id="offline-update-event" data-event="{{eventData._id}}">Update</button>
+              <button class="btn btn-primary mr-2" id="online-update-event" data-event="{{eventData._id}}">Update</button>
               <button class="btn btn-light">Cancel</button>
             </form>
           </div>

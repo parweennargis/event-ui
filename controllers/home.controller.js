@@ -505,10 +505,49 @@ module.exports = {
         return res.render('faq');
     },
     previousEvents: async(req, res) => {
-        return res.render('previous-events');
+        try {
+            const promises = [];
+            promises.push(externalUtils.hitApi({ path: "/previous-events" }));
+            promises.push(externalUtils.hitApi({ path: "/event-categories" }));
+            promises.push(externalUtils.hitApi({ path: "/offline-categories" }));
+            const [previousEvents, eventCategories, virtualCategories] = await Promise.all(promises);
+
+            previousEvents.data.items = (previousEvents.data && previousEvents.data.items) ? splitDate(previousEvents.data.items, false) : [];
+
+            return res.render('previous-events', {data: { previousEvents: previousEvents.data, eventCategories: eventCategories.data, virtualCategories: virtualCategories.data }});
+        } catch (error) {
+            console.error(error);
+            return res.render('404-error');
+        }
+        
     },
     previousEventsDetails: async(req, res) => {
-        return res.render('previous-events-details');
+        try {
+            const { params: { eventId } } = req;
+            const eventData = await externalUtils.hitApi({ path: `/events/${eventId}` });
+
+            eventData.data = splitDate([eventData.data])[0];
+            console.log('previous event detail response: ', eventData);
+            return res.render('previous-events-details', { title: 'Previous Event Detail', event: eventData.data });
+        } catch (error) {
+            console.error(error);
+            return res.render('404-error');
+        }
+        
+    },
+    tabPreviousEvents: async(req, res) => {
+        try {
+            const { query: { eventCategoryId } } = req;
+            const eventData = await externalUtils.hitApi({ path: `/previous-events`, qs: { eventCategoryId } });
+            const items = (eventData.data && eventData.data.items) ? splitDate(eventData.data.items) : [];
+            if (eventData.data) eventData.data.items = items;
+
+            console.log('tabPreviousEvent: ', eventData);
+            return res.status(200).json(eventData);
+        } catch (error) {
+            console.log(error);
+            return res.status(400).json({ message: error.message });
+        }
     },
     ourServices: async(req, res) => {
         return res.render('our-services');

@@ -3,7 +3,7 @@
 
     var token = localStorage.getItem('token');
 
-    $('#offline-create-event').click(function (e) {
+    $('#online-create-event').click(function (e) {
         e.preventDefault();
 
         const title = $('#title').val();
@@ -73,7 +73,7 @@
     });
 
 
-    $('#offline-update-event').click(function (e) {
+    $('#online-update-event').click(function (e) {
         e.preventDefault();
         var eventId = $(this).attr('data-event');
 

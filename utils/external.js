@@ -23,7 +23,13 @@ const hitApi = async ({url=`${config.apiUrl}`, path="", method='GET', headers={}
                 // throw new Error(err.message);
                 reject(err);
             }
-            console.log(response.statusCode);
+            // console.log(response);
+            console.group();
+            console.log(`url: ${options.url}`);
+            console.log(`statusCode: ${response.statusCode}`);
+            console.log(`body: ${response.body}`);
+            console.groupEnd();
+            // console.table([{ url: options.url, statusCode: response.statusCode, body: response.body }])
             // console.log(JSON.parse(response.body));
             try {
                 if (response.statusCode === 200) resolve(JSON.parse(response.body));

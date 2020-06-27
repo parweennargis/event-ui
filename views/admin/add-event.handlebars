@@ -1,3 +1,12 @@
+<style>
+  img {
+    max-width:180px;
+  }
+  .image-width {
+    max-width:180px;
+  }
+</style>
+
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="page-header">
@@ -60,7 +69,6 @@
 
 
               <div class="row">
-
                 <div class="col-md-6">
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Start Time</label>
@@ -112,7 +120,7 @@
               </div>
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Short Description</label>
                     <div class="col-sm-10">
@@ -120,33 +128,32 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Description</label>
                     <div class="col-sm-10">
-                      <textarea class="form-control desc" name="description"></textarea>
+                      <textarea class="form-control desc" name="description" id="description"></textarea>
                     </div>
                   </div>
                 </div>
               </div>
-
+                
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Multiple Image</label>
-                    <input type="file" name="files" id="files" multiple />
+                    <label class="col-sm-2 col-form-label" for="images">Multiple Image</label>
+                    <input type="file" name="images" id="images" multiple />
+                    <div class="images-preview"></div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Banner</label>
-                    <input type="file" name="banner" class="file-upload-default">
-                    <div class="input-group col-sm-10">
-                      <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Banner">
-                      <span class="input-group-append">
-                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                      </span>
-                    </div>
+                    <label class="col-sm-2 col-form-label" for="banner">Banner</label>
+                    <input type="file" name="banner" id="banner">
+                    <div class="banner-preview"></div>
                   </div>
                 </div>
               </div>
@@ -155,13 +162,7 @@
                 <div class="col-md-6">
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Floor Plan</label>
-                    <input type="file" name="banner" class="file-upload-default">
-                    <div class="input-group col-sm-10">
-                      <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Floor Plan">
-                      <span class="input-group-append">
-                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                      </span>
-                    </div>
+                    <input type="file" name="floor_plan" id="floor_plan">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -207,7 +208,7 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Instagram Link</label>
                     <div class="col-sm-10">
-                      <input type="text" name="link[map]" class="form-control" placeholder="Map Link">
+                      <input type="text" name="link[instagram]" class="form-control" placeholder="Instagram Link">
                     </div>
                   </div>
                 </div>
@@ -300,22 +301,70 @@
                   </div>
                 </div>
                 <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="past_event_images">Event Images</label>
+                    <input type="file" name="past_event_images" id="past_event_images" multiple>
+                    <div class="past_event_images-preview"></div>
+                  </div>
                 </div>
               </div>
 
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Is Opening Soon</label>
-                <div class="col-sm-10">
-                  <div class="form-check form-check-primary">
-                    <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="is_opening_soon" checked> Yes </label>
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="col-sm-2 col-form-label">Event Videos</label>
+                  <button id="addRow" type="button" class="btn btn-info col-form-label">Add Video</button>
+                    <div id="inputFormRow">
+                        <div class="input-group mb-3">
+                            <input type="text" name="past_event_video[]" class="form-control m-input" placeholder="Video Link" autocomplete="off">
+                            <div class="input-group-append">
+                                <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="newRow"></div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="past_event_banner_image">Event Banner Image</label>
+                    <input type="file" name="past_event_banner_image" id="past_event_banner_image">
+                    <div class="past_event_banner_image-preview"></div>
                   </div>
-                  <div class="form-check form-check-danger">
-                    <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="is_opening_soon"> No </label>
+                </div>
+            </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Is Opening Soon</label>
+                    <div class="col-sm-10">
+                      <div class="form-check form-check-primary">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="is_opening_soon" {{#ifCond event.is_opening_soon '===' true}}checked{{/ifCond}}> Yes </label>
+                      </div>
+                      <div class="form-check form-check-danger">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="is_opening_soon" {{#ifCond event.is_opening_soon '===' false}}checked{{/ifCond}}> No </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Active</label>
+                    <div class="col-sm-10">
+                      <div class="form-check form-check-primary">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input is_active" name="is_active" {{#ifCond event.is_active '===' true}}checked{{/ifCond}}> Yes </label>
+                      </div>
+                      <div class="form-check form-check-danger">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input is_active" name="is_active" {{#ifCond event.is_active '===' false}}checked{{/ifCond}}> No </label>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              
               <button class="btn btn-primary mr-2" id="create-event">Submit</button>
               <button class="btn btn-light">Cancel</button>
             </form>
@@ -327,3 +376,11 @@
     </div>
   </div>
   <!-- content-wrapper ends -->
+  {{#section 'script'}}
+{{log images}}
+<script type="application/javascript">
+    $(function() {
+    });
+</script>
+
+{{/section}}

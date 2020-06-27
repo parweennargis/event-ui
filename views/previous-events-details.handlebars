@@ -6,7 +6,7 @@
 		<!-- breadcrumb-section - start
 		================================================== -->
 		<section id="breadcrumb-section" class="breadcrumb-section clearfix">
-			<div class="jarallax" style="background-image: url(https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg);">
+			<div class="jarallax" style="background-image: url({{event.past_event_banner_image}});">
 				<div class="overlay-black">
 					<div class="container">
 						<div class="row justify-content-center">
@@ -15,7 +15,7 @@
 								<!-- breadcrumb-title - start -->
 								<div class="breadcrumb-title text-center">
 									<span class="sub-title">Previous Event</span>
-									<h2 class="big-title">Mega Job Fair Event, 07 Mar 2020</h2>
+									<h2 class="big-title">{{event.title}}, {{event.startDay}} {{event.startMonth}} {{event.startYear}}</h2>
 								</div>
 								<!-- breadcrumb-title - end -->
 							</div>
@@ -52,16 +52,31 @@
 				</div>
 
 				<div class="grid zoom-gallery clearfix mb-80" data-isotope="{ &quot;masonry&quot;: { &quot;columnWidth&quot;: 0 } }">
-				<div class="grid-item  photo-gallery " data-category="photo-gallery">
-					<a class="popup-link" href="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg">
-						<img src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg" alt="Image_not_found">
-					</a>
-					<div class="item-content">
-						<h3>John Doe Wedding day</h3>
-						<span>Wedding Party, 24 June 2016</span>
-					</div>
-				</div>
-				<div class="grid-item  video-gallery " data-category="video-gallery">
+					{{#each event.past_event_image}}
+						<div class="grid-item  photo-gallery " data-category="photo-gallery">
+							<a class="popup-link" href="{{this.image}}">
+								<img src="{{this.image}}" alt="Image_not_found">
+							</a>
+							{{!-- <div class="item-content">
+								<h3>John Doe Wedding day</h3>
+								<span>Wedding Party, 24 June 2016</span>
+							</div> --}}
+						</div>
+					{{/each}}
+					{{log event.past_event_video}}
+					{{#each event.past_event_video}}
+						<div class="grid-item  video-gallery " data-category="video-gallery">
+							<a class="popup-youtube" href="{{this.video}}">
+								<img src="{{this.video}}" alt="Image_not_found">
+							</a>
+							{{!-- <div class="item-content">
+								<h3>Business Conference in Dubai</h3>
+								<span>Food Festival, 24 June 2016</span>
+							</div> --}}
+						</div>
+					{{/each}}
+				
+				{{!-- <div class="grid-item  video-gallery " data-category="video-gallery">
 					<a class="popup-youtube" href="https://youtu.be/-haiaZ011OM">
 						<img src="https://www.thetruckingnetworkevents.ca/uploads/images/Skype_Picture_2020_03_10T16_54_28_563Z-compressed.jpg" alt="Image_not_found">
 					</a>
@@ -105,7 +120,7 @@
 						<h3>Business Conference in Dubai</h3>
 						<span>Food Festival, 24 June 2016</span>
 					</div>
-				</div>
+				</div> --}}
 				
 			</div>
 			</div>

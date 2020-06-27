@@ -312,6 +312,7 @@
               <div class="row">
                 <div class="col-lg-6">
                   <label class="col-sm-2 col-form-label">Event Videos</label>
+                  <button id="addRow" type="button" class="btn btn-info col-form-label">Add Video</button>
                     <div id="inputFormRow">
                         <div class="input-group mb-3">
                             <input type="text" name="past_event_video[]" class="form-control m-input" placeholder="Video Link" autocomplete="off">
@@ -323,7 +324,11 @@
                     <div id="newRow"></div>
                 </div>
                 <div class="col-md-6">
-                  <button id="addRow" type="button" class="btn btn-info col-form-label">Add Video</button>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="past_event_banner_image">Event Banner Image</label>
+                    <input type="file" name="past_event_banner_image" id="past_event_banner_image">
+                    <div class="past_event_banner_image-preview"></div>
+                  </div>
                 </div>
             </div>
 

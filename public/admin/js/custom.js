@@ -31,6 +31,9 @@
             for (var i = 0; i < $('#past_event_images').get(0).files.length; i++) {
                 formData.append('past_event_images', $('#past_event_images').get(0).files[i]);
             }
+            for (var i = 0; i < $('#past_event_banner_image').get(0).files.length; i++) {
+                formData.append('past_event_banner_image', $('#past_event_banner_image').get(0).files[i]);
+            }
             formData.append('event_type', 'ONLINE');
 
             // process the form
@@ -82,6 +85,9 @@
             }
             for (var i = 0; i < $('#past_event_images').get(0).files.length; i++) {
                 formData.append('past_event_images', $('#past_event_images').get(0).files[i]);
+            }
+            for (var i = 0; i < $('#past_event_banner_image').get(0).files.length; i++) {
+                formData.append('past_event_banner_image', $('#past_event_banner_image').get(0).files[i]);
             }
             formData.append('event_type', 'ONLINE');
             // console.log($('#files').get(0).files);
@@ -184,6 +190,10 @@
 
         $('#past_event_images').change(function(e) {
             previewImages($(this)[0].files, 'past_event_images');    
+        });
+
+        $('#past_event_banner_image').change(function(e) {
+            previewImages($(this)[0].files, 'past_event_banner_image');    
         });
 
 

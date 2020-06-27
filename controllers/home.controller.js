@@ -510,4 +510,7 @@ module.exports = {
     previousEventsDetails: async(req, res) => {
         return res.render('previous-events-details');
     },
+    ourServices: async(req, res) => {
+        return res.render('our-services');
+    },
 };

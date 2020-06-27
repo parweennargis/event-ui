@@ -9183,7 +9183,7 @@ button {
 }
 
 .service-section .service-wrapper .service-item .service-content .service-title {
-    padding-bottom: 30px;
+    padding-bottom: 0px;
     border-bottom: 1px solid #f0f0f0;
 }
 

@@ -10284,6 +10284,7 @@ button {
     }
     .section-title {
         text-align: center !important;
+        margin-bottom: 20px;
     }
     .event-section .event-tab-menu .nav {
         float: none;

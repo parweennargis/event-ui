@@ -255,8 +255,9 @@
     // print form
     document.getElementById('printButton').addEventListener("click", print)
     function print() {
+        var tabId = $('#myTab').find('.nav-link.active.show').attr('href');
         printJS({
-            printable: 'home',
+            printable: tabId.split('#')[1],
             type: 'html'
         })
     }
@@ -274,7 +275,8 @@
     // print HTML as pdf
     document.getElementById('elementToPrint').addEventListener("click", convertHTMLtoPDF);
     function convertHTMLtoPDF() {
-        const element = document.getElementById('home');
+        var tabId = $('#myTab').find('.nav-link.active.show').attr('href');
+        const element = document.getElementById(tabId.split('#')[1]);
         html2pdf(element, {
             margin: 1,
             filename: 'register.pdf',

@@ -4995,6 +4995,7 @@ button {
 .event-gallery-section .grid-item {
     float: left;
     display: inline-block;
+    border: 2px solid #FFF;
 }
 
 .event-gallery-section .grid-item {
@@ -10283,6 +10284,7 @@ button {
     }
     .section-title {
         text-align: center !important;
+        margin-bottom: 20px;
     }
     .event-section .event-tab-menu .nav {
         float: none;

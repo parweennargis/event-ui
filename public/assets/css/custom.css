@@ -1937,93 +1937,6 @@ a.remove {
 
 /* service page end*/
 
-@media (max-width:767px) {
-    .navbar {
-        flex-grow: auto;
-        position: absolute;
-        top: 50px;
-    }
-    .header-bottom .col-lg-9 {
-        position: absolute;
-        top: 0px;
-    }
-    .mainmenu-wrapper {
-        justify-content: normal;
-    }
-    .mainmenu-wrapper .row {
-        width: 100%
-    }
-    .navbar-toggler:not(:disabled):not(.disabled) {
-        cursor: pointer;
-        width: 40px;
-        height: 30px;
-        font-size: 16px;
-        padding: 0;
-    }
-    .navbar-collapse {
-        background: #fff;
-        padding: 10px;
-    }
-    .mobile-space {
-        margin-top: 110px;
-    }
-    .default-footer-section .footer-top .instagram-wrapper ul {
-        display: block;
-        width: 100%;
-    }
-    .instagram-wrapper {
-        text-align: center;
-    }
-    .default-footer-section .footer-top .instagram-wrapper ul li {
-        width: 100%;
-        height: inherit;
-        margin: 5px;
-    }
-    .sidebar-section .location-wrapper .contact-links {
-        padding: 10px 10px 30px;
-    }
-    .register .nav-tabs .nav-link {
-        font-size: 15px;
-    }
-    .alertbox {
-        font-size: 15px;
-    }
-    .plan-heading {
-        padding: 5px;
-    }
-    .plan-heading h2 {
-        font-size: 30px;
-    }
-    .cart-item {
-        position: relative;
-        ;
-    }
-    .cart-item .col-md-3 {
-        position: unset;
-    }
-    .package-details h4 {
-        font-size: 18px;
-    }
-    .remove {
-        position: absolute;
-        right: 7px;
-        top: 9px;
-        width: 16px;
-        overflow: hidden;
-        height: 20px;
-    }
-    .sub-head {
-        display: none;
-    }
-    .cart-itembox {
-        text-align: center;
-    }
-    .recentevent-block .nav a {
-        padding: 13px 10px;
-        font-size: 12px;
-    }
-}
-
 .border-red {
     border-color: #dc3445 !important;
 }
@@ -2120,4 +2033,158 @@ a.remove {
     width: 100%;
     text-align: center;
     font-size: 40px;
+}
+
+.width1000 {
+    max-width: 1000px;
+}
+
+.scroller {
+    width: 100%;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+#virtual-event-section .tab-content {
+    text-align: left;
+}
+
+.scroller p {
+    font-size: 14px !important;
+    color: #000 !important;
+}
+
+.scroller li {
+    font-size: 14px !important;
+}
+
+.redtxt {
+    color: #c83538;
+}
+
+.know-text {
+    font-size: 14px;
+}
+
+.know-tab-menu {
+    padding: 15px 0;
+}
+
+.know-tab-menu .nav li a {
+    margin: 5px 15px;
+    font-size: 16px;
+    color: #000;
+}
+
+.know-tab-menu .nav li a.active {
+    color: #c83538;
+    border-bottom: 2px solid #c83538;
+    ;
+}
+
+#partners-carousel .item {
+    border: 2px solid #fff;
+    padding: 0;
+}
+
+#partners-carousel .plus-effect span {
+    text-align: center;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+#partners-carousel .plus-effect:before,
+#partners-carousel .plus-effect:after {
+    display: none !important;
+}
+
+@media (max-width:767px) {
+    .navbar {
+        flex-grow: auto;
+        position: absolute;
+        top: 50px;
+    }
+    .header-bottom .col-lg-9 {
+        position: absolute;
+        top: 0px;
+    }
+    .mainmenu-wrapper {
+        justify-content: normal;
+    }
+    .mainmenu-wrapper .row {
+        width: 100%
+    }
+    .navbar-toggler:not(:disabled):not(.disabled) {
+        cursor: pointer;
+        width: 40px;
+        height: 30px;
+        font-size: 16px;
+        padding: 0;
+    }
+    .navbar-collapse {
+        background: #fff;
+        padding: 10px;
+    }
+    .mobile-space {
+        margin-top: 110px;
+    }
+    .default-footer-section .footer-top .instagram-wrapper ul {
+        display: block;
+        width: 100%;
+    }
+    .instagram-wrapper {
+        text-align: center;
+    }
+    .default-footer-section .footer-top .instagram-wrapper ul li {
+        width: 100%;
+        height: inherit;
+        margin: 5px;
+    }
+    .sidebar-section .location-wrapper .contact-links {
+        padding: 10px 10px 30px;
+    }
+    .register .nav-tabs .nav-link {
+        font-size: 15px;
+    }
+    .alertbox {
+        font-size: 15px;
+    }
+    .plan-heading {
+        padding: 5px;
+    }
+    .plan-heading h2 {
+        font-size: 30px;
+    }
+    .cart-item {
+        position: relative;
+        ;
+    }
+    .cart-item .col-md-3 {
+        position: unset;
+    }
+    .package-details h4 {
+        font-size: 18px;
+    }
+    .remove {
+        position: absolute;
+        right: 7px;
+        top: 9px;
+        width: 16px;
+        overflow: hidden;
+        height: 20px;
+    }
+    .sub-head {
+        display: none;
+    }
+    .cart-itembox {
+        text-align: center;
+    }
+    .recentevent-block .nav a {
+        padding: 13px 10px;
+        font-size: 12px;
+    }
 }

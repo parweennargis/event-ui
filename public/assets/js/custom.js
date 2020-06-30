@@ -183,6 +183,11 @@
             preloader: false,
             focus: '#username'
         });
+        $('.know-virtual').magnificPopup({
+            modal: true,
+            type: 'inline',
+            preloader: false,
+        });
         $(document).on('click', '.popup-modal-dismiss', function(e) {
             e.preventDefault();
             $.magnificPopup.close();
@@ -479,13 +484,31 @@
     // partners-carousel - start
     // --------------------------------------------------
     $('#partners-carousel').owlCarousel({
-        nav: true,
-        items: 1,
+        nav: false,
         loop: true,
         autoplay: true,
         smartSpeed: 1000,
         autoplayTimeout: 4000,
-        autoplayHoverPause: true
+        autoplayHoverPause: true,
+        margin: 10,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            360: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            991: {
+                items: 5,
+            },
+            1199: {
+                items: 7,
+            }
+        }
+
     });
     // partners-carousel - end
     // --------------------------------------------------
@@ -1589,7 +1612,7 @@
         })
     });
 
-    $('.previous-event').on('click', function (e) {
+    $('.previous-event').on('click', function(e) {
         e.preventDefault();
         var previousTabId = $('.previous-event').find('.active').attr('data-event');
         var currentTabId = $(this).attr('data-event');
@@ -1606,14 +1629,14 @@
             data: {
                 'eventCategoryId': eventCategoryId,
             },
-            success: function (result) {
+            success: function(result) {
                 // console.log(result);
                 var html = '<div class="row">';
                 if (result && result.data) {
                     var items = result.data.items;
                     if (items.length) {
                         result.data.items.forEach((item) => {
-                            html += '<div class="col-lg-4"><h3 class="text-center"><a href="/previous-events/'+ item._id + '" style="color: #ffffff;" target="_blank">' + item.title + ', ' + item.startDay + ' ' + item.startMonth + ' ' + item.startYear + '</a></h3><div id="carousel1" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item1"><a class="fancybox" target="_blank" href="/previous-events/' + item._id + '"><img class="d-block hover-shadow cursor" src="' + item.past_event_banner_image + '" style="width: 350px; height:250px"></a></div></div></div></div>'
+                            html += '<div class="col-lg-4"><h3 class="text-center"><a href="/previous-events/' + item._id + '" style="color: #ffffff;" target="_blank">' + item.title + ', ' + item.startDay + ' ' + item.startMonth + ' ' + item.startYear + '</a></h3><div id="carousel1" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item1"><a class="fancybox" target="_blank" href="/previous-events/' + item._id + '"><img class="d-block hover-shadow cursor" src="' + item.past_event_banner_image + '" style="width: 350px; height:250px"></a></div></div></div></div>'
                         })
                         html += '</div>';
                         $('#previous-event').html(html);
@@ -1624,7 +1647,7 @@
 
                 }
             },
-            error: function (xhr, status, error) {
+            error: function(xhr, status, error) {
                 console.log(error);
             }
         });

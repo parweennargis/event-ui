@@ -29,6 +29,12 @@
             email: $('#organizer_email').val()
         }
         is_active = 'on' ? true : false;
+        var past_event_video = [];
+        $($('#inputFormRow input') || []).each(function(index, obj) {
+            if ($(obj).val().trim() !== '') {
+                past_event_video.push($(obj).val().trim());
+            }
+        })
 
         const data = { zoom_link, event_type, is_active, description, end_time, start_time, end_date, start_date, title }
         const formData = new FormData();
@@ -37,6 +43,9 @@
         });
         event_category.forEach((category, index) => {
             formData.append("event_category[" + index + "]", category);
+        });
+        past_event_video.forEach((val, index) => {
+            formData.append("past_event_video[" + index + "]", val);
         });
         formData.append("link[facebook]", link.facebook);
         formData.append("link[twitter]", link.twitter);
@@ -48,6 +57,12 @@
 
         for (var i = 0; i < $('#banner').get(0).files.length; i++) {
             formData.append('banner', $('#banner').get(0).files[i]);
+        }
+        for (var i = 0; i < $('#past_event_images').get(0).files.length; i++) {
+            formData.append('past_event_images', $('#past_event_images').get(0).files[i]);
+        }
+        for (var i = 0; i < $('#past_event_banner_image').get(0).files.length; i++) {
+            formData.append('past_event_banner_image', $('#past_event_banner_image').get(0).files[i]);
         }
 
         // process the form
@@ -101,6 +116,13 @@
         }
         is_active = 'on' ? true : false;
 
+        var past_event_video = [];
+        $($('#inputFormRow input') || []).each(function(index, obj) {
+            if ($(obj).val().trim() !== '') {
+                past_event_video.push($(obj).val().trim());
+            }
+        })
+
         const data = { zoom_link, event_type, is_active, description, end_time, start_time, end_date, start_date, title }
         const formData = new FormData();
         Object.keys(data).forEach((key) => {
@@ -108,6 +130,9 @@
         });
         event_category.forEach((category, index) => {
             formData.append("event_category[" + index + "]", category);
+        });
+        past_event_video.forEach((val, index) => {
+            formData.append("past_event_video[" + index + "]", val);
         });
         formData.append("link[facebook]", link.facebook);
         formData.append("link[twitter]", link.twitter);
@@ -120,6 +145,13 @@
         for (var i = 0; i < $('#banner').get(0).files.length; i++) {
             formData.append('banner', $('#banner').get(0).files[i]);
         }
+        for (var i = 0; i < $('#past_event_images').get(0).files.length; i++) {
+            formData.append('past_event_images', $('#past_event_images').get(0).files[i]);
+        }
+        for (var i = 0; i < $('#past_event_banner_image').get(0).files.length; i++) {
+            formData.append('past_event_banner_image', $('#past_event_banner_image').get(0).files[i]);
+        }
+
         // console.log($('#banner').get(0).files);
         // console.log(formData);
 

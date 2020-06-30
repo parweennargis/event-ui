@@ -953,7 +953,7 @@
                             if (item.ad) {
                                 html += '<div class="col-lg-3 col-md-6 col-sm-12"><div class="event-item2 clearfix text-center no-shadow"><img src="assets/images/ad-img.jpg" alt="Image_not_found"></div></div>';
                             } else {
-                                html += '<div class="col-lg-3 col-md-6 col-sm-12"><div class="event-item2 clearfix"><div class="event-image"><div class="post-date"><span class="date">' + item.startDay + '</span><small class="month">' + item.startMonth + '</small></div>' + shareEventHtml(item._id, item.title) + '<img src="assets/images/upcoming-img.jpg" alt="Image_not_found"></div><div class="event-content"><div class="event-title mb-15"><h3 class="title">' + item.title + '</h3><span class="ticket-price greycolor">' + item.short_description + '</span></div><div class="event-post-meta ul-li-block mb-15"><ul><li><span class="icon"><i class="far fa-clock"></i></span>' + item.start_time + 'to ' + item.end_time + '</li><li><span class="icon"><i class="fas fa-map-marker-alt"></i></span>' + item.venue.name + '</li></ul></div><div class="text-center"><a href="event/' + item._id + '" class="button-red" target="_blank">Event Details</a></div></div></div></div>';
+                                html += '<div class="col-lg-3 col-md-6 col-sm-12"><div class="event-item2 clearfix"><div class="event-image"><div class="post-date"><span class="date">' + item.startDay + '</span><small class="month">' + item.startMonth + '</small></div>' + shareEventHtml(item._id, item.title) + '<img src="assets/images/upcoming-img.jpg" alt="Image_not_found"></div><div class="event-content"><div class="event-title mb-15"><h3 class="title">' + item.title + ' - </br> ' + ' ' + item.startMonth + ' ' + item.startYear + ' - ' + item.venue.city + ',' + item.venue.state + '</h3><span class="ticket-price greycolor">' + item.short_description + '</span></div><div class="event-post-meta ul-li-block mb-15"><ul><li><span class="icon"><i class="far fa-clock"></i></span>' + item.start_time + ' to ' + item.end_time + '</li><li><span class="icon"><i class="fas fa-map-marker-alt"></i></span>' + item.venue.name + '</li></ul></div><div class="text-center"><a href="event/' + item._id + '" class="button-red" target="_blank">Event Details</a></div></div></div></div>';
                             }
                         })
                         html += '</div>';
@@ -1638,9 +1638,11 @@
                 var html = '<div class="row">';
                 if (result && result.data) {
                     var items = result.data.items;
+                    console.log('cou ndbfhjds');
+                    console.log(items.length);
                     if (items.length) {
                         result.data.items.forEach((item) => {
-                            html += '<div class="col-lg-4"><h3 class="text-center"><a href="/previous-events/' + item._id + '" style="color: #ffffff;" target="_blank">' + item.title + ', ' + item.startDay + ' ' + item.startMonth + ' ' + item.startYear + '</a></h3><div id="carousel1" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item1"><a class="fancybox" target="_blank" href="/previous-events/' + item._id + '"><img class="d-block hover-shadow cursor" src="' + item.past_event_banner_image + '" style="width: 350px; height:250px"></a></div></div></div></div>'
+                            html += '<div class="col-lg-4"><h3 class="text-center"><a href="/previous-events/' + item._id + '" style="color: #ffffff;" target="_blank">' + item.title + ', ' + item.startMonth + ' ' + item.startDay + ' ' + item.startYear + '</a></h3><div id="carousel1" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item1"><a class="fancybox" target="_blank" href="/previous-events/' + item._id + '"><img class="d-block hover-shadow cursor" src="' + item.past_event_banner_image + '" style="width: 350px; height:250px"></a></div></div></div></div>'
                         })
                         html += '</div>';
                         $('#previous-event').html(html);

@@ -570,7 +570,7 @@ module.exports = {
         try {
             const { query: { eventCategoryId } } = req;
             const eventData = await externalUtils.hitApi({ path: `/previous-events`, qs: { eventCategoryId } });
-            const items = (eventData.data && eventData.data.items) ? splitDate(eventData.data.items) : [];
+            const items = (eventData.data && eventData.data.items) ? splitDate(eventData.data.items, false) : [];
             if (eventData.data) eventData.data.items = items;
 
             // console.log('tabPreviousEvent: ', eventData);

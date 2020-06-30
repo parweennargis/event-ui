@@ -3,6 +3,7 @@ const router = express.Router();
 
 const homeController = require('../controllers/admin/home.controller');
 const pricingController = require('../controllers/admin/pricing.controller');
+const partnerController = require('../controllers/admin/partner.controller');
 const offlineEventController = require('../controllers/admin/offlineEvent.controller');
 
 // Login Routes
@@ -29,5 +30,10 @@ router.get('/offline-add-category', offlineEventController.offlineAddCategory);
 
 router.get('/offline-all-events/:eventId', offlineEventController.offlineEditEvent);
 router.get('/offline-update-category/:categoryTd', offlineEventController.offlineEditCategory);
+
+// Our Partners Routes
+router.get('/partners', partnerController.allPartners);
+router.get('/add-partner', partnerController.addPartner);
+router.get('/offline-add-category', offlineEventController.offlineAddCategory);
 
 module.exports = router;

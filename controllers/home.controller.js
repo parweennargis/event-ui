@@ -48,7 +48,7 @@ module.exports = {
                 eventCategories: onlineEventCategories,
                 offlineEventList: offlineEventList.data,
                 offlineEventCategories: virtualEventCategories,
-                host: req.host
+                host: req.hostname
             };
 
             // console.log(data);
@@ -85,7 +85,7 @@ module.exports = {
                 event: event.data,
                 user: profile && profile.data ? profile.data : null,
                 isUser: profile && profile.data,
-                host: req.host
+                host: req.hostname
             };
 
             return res.render('event-detail', { title: 'Event Detail', data });
@@ -118,7 +118,7 @@ module.exports = {
     },
     register: async(req, res) => {
         const data = {
-            host: req.host
+            host: req.hostname
         };
         return res.render('register', { title: 'Register', data });
     },
@@ -478,7 +478,7 @@ module.exports = {
                 user: profile && profile.data ? profile.data : null,
                 isUser: profile && profile.data,
                 isEventFollow,
-                host: req.host
+                host: req.hostname
             };
 
             return res.render('virtual-event-detail', { title: 'Virtual Event Detail', data });

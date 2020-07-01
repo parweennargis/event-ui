@@ -147,7 +147,7 @@
                                         <div class="navbar-nav">
 
                                             <div class="nav-item dropdown">
-                                                <a href="#" class="nav-link dropdown-toggle active"
+                                                <a href="#" class="nav-link dropdown-toggle"
                                                     data-toggle="dropdown">Home</a>
                                                 <div class="dropdown-menu">
                                                     <a href="/" class="dropdown-item">Home</a>
@@ -178,7 +178,7 @@
                                                 class="nav-item nav-link">Jobs</a>
 
                                             <div class="nav-item dropdown">
-                                                <a href="#" class="nav-link dropdown-toggle active"
+                                                <a href="#" class="nav-link dropdown-toggle"
                                                     data-toggle="dropdown">E-Learning</a>
                                                 <div class="dropdown-menu">
                                                     <a href="http://onlinetraining.thetruckingnetwork.ca/"
@@ -190,7 +190,7 @@
 
                                             {{!-- <a href="#" class="nav-item nav-link">Enquiry</a> --}}
                                             <a href="https://www.thetruckingnetwork.ca" target="_blank"
-                                                class="nav-item nav-link">The Trucking Network</a>
+                                                class="nav-item nav-link">TTN</a>
                                             <a href="/faq" target="_blank" class="nav-item nav-link">Faq</a>
                                             <a href="/contact" target="_blank" class="nav-item nav-link">Contact</a>
                                             <a href="/cart" class="nav-item nav-link cart">
@@ -341,18 +341,20 @@
             <div id="event-expertise-carousel" class="event-expertise-carousel owl-carousel owl-theme">
 
                 <!-- expertise-item - start -->
+                {{#each data.sponsors }}
                 <div class="item">
                     <div class="expertise-item">
                         <div class="image image-wrapper">
                             <img src="assets/images/partners/image1.jpg" alt="Image_not_found">
                             <a href="www.google.com" class="plus-effect" target="_blank">
-                                <span> Compnay name</span>
+                                <span> {{title}}</span>
 
                             </a>
                         </div>
 
                     </div>
                 </div>
+                {{/each}}
                 <!-- expertise-item - end -->
 
             </div>

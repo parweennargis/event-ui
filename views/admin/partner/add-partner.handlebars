@@ -21,133 +21,18 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Start Date</label>
+                    <label class="col-sm-2 col-form-label">Title</label>
                     <div class="col-sm-10">
-                      <input type="date" name="start_date" id="start_date" class="form-control"
-                        placeholder="Start Date">
+                      <input type="text" name="title" id="title" class="form-control"
+                        placeholder="Title">
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">End Date</label>
-                    <div class="col-sm-10">
-                      <input type="date" name="end_date" id="end_date" class="form-control" placeholder="End Date">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Start Time</label>
-                    <div class="col-sm-10">
-                      <input type="time" name="start_time" id="start_time" class="form-control"
-                        placeholder="Start Time">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">End Time</label>
-                    <div class="col-sm-10">
-                      <input type="time" name="end_time" id="end_time" class="form-control" placeholder="End Time">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Description</label>
                     <div class="col-sm-10">
-                      <textarea class="form-control desc" name="description" id="description"></textarea>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Organizer Email</label>
-                    <div class="col-sm-10">
-                      <input type="text" name="organizer[email]" id="organizer_email" class="form-control"
-                        placeholder="Organizer Email">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Contact Number</label>
-                    <div class="col-sm-10">
-                      <input type="text" name="organizer[contact_no]" id="organizer_contact_no" class="form-control"
-                        placeholder="Contact Number">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Facebook Link</label>
-                    <div class="col-sm-10">
-                      <input type="text" name="link[facebook]" id="link_facebook" class="form-control"
-                        placeholder="Facebook Link">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Twitter Link</label>
-                    <div class="col-sm-10">
-                      <input type="text" name="link[twitter]" id="link_twitter" class="form-control"
-                        placeholder="Twitter Link">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Youtube Link</label>
-                    <div class="col-sm-10">
-                      <input type="text" name="link[youtube]" id="link_youtube" class="form-control"
-                        placeholder="Youtube Link">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Linkedln Link</label>
-                    <div class="col-sm-10">
-                      <input type="text" name="link[linkedln]" id="link_linkedln" class="form-control"
-                        placeholder="Linkedln Link">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Instagram Link</label>
-                    <div class="col-sm-10">
-                      <input type="text" name="link[instagram]" id="link_instagram" class="form-control"
-                        placeholder="Instagram Link">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Zoom Link</label>
-                    <div class="col-sm-10">
-                      <input type="text" name="zoom_link" id="zoom_link" class="form-control" placeholder="Zoom Link">
+                      <input type="text" name="description" id="description" class="form-control" placeholder="Description">
                     </div>
                   </div>
                 </div>
@@ -157,7 +42,7 @@
                 <div class="col-md-6">
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Banner</label>
-                    <input type="file" name="banner" id="banner">
+                    <input type="file" name="image" id="image">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -177,42 +62,7 @@
                 </div>
               </div>
 
-              <div class="row">
-                <div class="col-lg-6">
-                  <label class="col-sm-2 col-form-label">Event Videos</label>
-                  <button id="addRow" type="button" class="btn btn-info col-form-label">Add Video</button>
-                  <div id="inputFormRow">
-                    <div class="input-group mb-3">
-                      <input type="text" name="past_event_video[]" class="form-control m-input" placeholder="Video Link"
-                        autocomplete="off">
-                      <div class="input-group-append">
-                        <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="newRow"></div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="past_event_banner_image">Event Banner Image</label>
-                    <input type="file" name="past_event_banner_image" id="past_event_banner_image">
-                    <div class="past_event_banner_image-preview"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="past_event_images">Event Images</label>
-                    <input type="file" name="past_event_images" id="past_event_images" multiple>
-                    <div class="past_event_images-preview"></div>
-                  </div>
-                </div>
-              </div>
-
-
-              <button class="btn btn-primary mr-2" id="online-create-event">Submit</button>
+              <button class="btn btn-primary mr-2" id="create-sponser">Submit</button>
               <button class="btn btn-light">Cancel</button>
             </form>
           </div>

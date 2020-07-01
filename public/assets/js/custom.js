@@ -1647,8 +1647,8 @@
                         html += '</div>';
                         $('#previous-event').html(html);
                     } else {
-                        html += '<p>No Event(s) Found';
-                        $('#previous-event').html(html);
+                        html += '<p>No Previous Event(s) Found</p>';
+                        $('#previous-event').html(html).css('color', 'white');
                     }
 
                 }

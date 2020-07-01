@@ -1424,6 +1424,24 @@ a.remove {
     justify-content: space-between;
 }
 
+.sidebar-section .shareall .dropdown-menu {
+    width: 200px;
+}
+
+.no-events {
+    text-align: center;
+    color: #fff;
+    width: 100%;
+}
+
+.partner-box {
+    height: 120px;
+}
+
+.align-self-center a {
+    color: #63615d;
+}
+
 .bg-white {
     background: #fff;
     padding-top: 15px;
@@ -1443,8 +1461,8 @@ a.remove {
 
 .bg-gray .event-date {
     padding: 10px;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 36px;
+    font-weight: normal;
     text-align: center;
 }
 
@@ -1921,10 +1939,19 @@ a.remove {
 .previous-event-tab-menu {
     display: flex;
     justify-content: center;
+    position: relative;
+}
+
+.previous-event-tab-menu .nav {
+    background: #fff;
 }
 
 
 /* previous event page end */
+
+#partners-carousel .owl-nav {
+    display: none;
+}
 
 
 /* service page */

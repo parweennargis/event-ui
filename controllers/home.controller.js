@@ -240,9 +240,9 @@ module.exports = {
             };
             const apiResponse = await externalUtils.hitApi({ path: `/login`, method: 'POST', body, headers });
             // console.log(apiResponse);
-            
+
             res.cookie('token', apiResponse.data.token, { httpOnly: true, secure: false });
-            
+
             return res.status(200).json({ data: apiResponse.data });
         } catch (error) {
             console.log(error);
@@ -542,13 +542,13 @@ module.exports = {
 
             previousEvents.data.items = (previousEvents.data && previousEvents.data.items) ? splitDate(previousEvents.data.items, false) : [];
 
-            return res.render('previous-events', {data: { previousEvents: previousEvents.data, eventCategories: eventCategories.data, virtualCategories: virtualCategories.data }});
+            return res.render('previous-events', { data: { previousEvents: previousEvents.data, eventCategories: eventCategories.data, virtualCategories: virtualCategories.data } });
         } catch (error) {
             console.error(error);
             // return res.render('404-error');
             redirectPage(error, req, res);
         }
-        
+
     },
     previousEventsDetails: async(req, res) => {
         try {
@@ -557,14 +557,14 @@ module.exports = {
 
             eventData.data = splitDate([eventData.data])[0];
             // console.log('previous event detail response: ', eventData);
-            
+
             return res.render('previous-events-details', { title: 'Previous Event Detail', event: eventData.data });
         } catch (error) {
             console.error(error);
             // return res.render('404-error');
             redirectPage(error, req, res);
         }
-        
+
     },
     tabPreviousEvents: async(req, res) => {
         try {
@@ -582,5 +582,8 @@ module.exports = {
     },
     ourServices: async(req, res) => {
         return res.render('our-services');
+    },
+    partners: async(req, res) => {
+        return res.render('partners');
     },
 };

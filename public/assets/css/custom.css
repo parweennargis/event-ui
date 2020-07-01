@@ -2215,3 +2215,7 @@ a.remove {
         font-size: 12px;
     }
 }
+
+#previous-event p {
+    color: #fff;
+}

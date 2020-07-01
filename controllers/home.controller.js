@@ -26,7 +26,8 @@ module.exports = {
             promises.push(externalUtils.hitApi({ path: "/event-categories" }));
             promises.push(externalUtils.hitApi({ path: "/offline-events", qs: { 'limit': 20 } }));
             promises.push(externalUtils.hitApi({ path: "/offline-categories" }));
-            const [eventList, eventCategories, offlineEventList, offlineEventCategories] = await Promise.all(promises);
+            promises.push(externalUtils.hitApi({ path: "/sponsors" }));
+            const [eventList, eventCategories, offlineEventList, offlineEventCategories, sponsors] = await Promise.all(promises);
 
             // Event list api
             eventList.data.items = (eventList.data && eventList.data.items) ? splitDate(eventList.data.items) : [];
@@ -48,7 +49,8 @@ module.exports = {
                 eventCategories: onlineEventCategories,
                 offlineEventList: offlineEventList.data,
                 offlineEventCategories: virtualEventCategories,
-                host: req.hostname
+                host: req.hostname,
+                sponsors: sponsors.data
             };
 
             // console.log(data);

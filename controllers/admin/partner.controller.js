@@ -24,7 +24,7 @@ module.exports = {
                 'Authorization': `Bearer ${cookies[1]}`
             };
 
-            const partners = await hitApi.hitApi({ path: '/sponsors', method: 'GET', headers });
+            const partners = await hitApi.hitApi({ path: '/sponsors', headers });
             console.log(partners);
             return res.render('admin/partner/all-partner', { title: 'Express Admin Event', layout: 'admin', partners: partners.data });
         } catch (error) {

@@ -6,41 +6,41 @@
     $('#create-sponser').click(function (e) {
         e.preventDefault();
         alert('fsfsdfsdf');
-        const title = $('#title').val();
-        const description = $('#description').val();
-        let is_active = 'on' ? true : false;
+        // const title = $('#title').val();
+        // const description = $('#description').val();
+        // let is_active = 'on' ? true : false;
 
 
-        const data = { title, description, is_active }
-        const formData = new FormData();
-        Object.keys(data).forEach((key) => {
-            formData.append(key, data[key]);
-        });
+        // const data = { title, description, is_active }
+        // const formData = new FormData();
+        // Object.keys(data).forEach((key) => {
+        //     formData.append(key, data[key]);
+        // });
 
-        for (var i = 0; i < $('#image').get(0).files.length; i++) {
-            formData.append('image', $('#image').get(0).files[i]);
-        }
+        // for (var i = 0; i < $('#image').get(0).files.length; i++) {
+        //     formData.append('image', $('#image').get(0).files[i]);
+        // }
 
-        // process the form
-        $.ajax({
-            type: 'POST',
-            url: API_URL + '/sponsors',
-            data: formData,
-            processData: false,
-            contentType: false,
-            mimeType: "multipart/form-data",
-            cache: false,
-            headers: {
-                'Authorization': token
-            },
-            success: function (data) {
-                // redirect to event listing page
-                location.href = '/admin/partners';
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        })
+        // // process the form
+        // $.ajax({
+        //     type: 'POST',
+        //     url: API_URL + '/sponsors',
+        //     data: formData,
+        //     processData: false,
+        //     contentType: false,
+        //     mimeType: "multipart/form-data",
+        //     cache: false,
+        //     headers: {
+        //         'Authorization': token
+        //     },
+        //     success: function (data) {
+        //         // redirect to event listing page
+        //         location.href = '/admin/partners';
+        //     },
+        //     error: function (error) {
+        //         console.log(error);
+        //     }
+        // })
     });
 
 

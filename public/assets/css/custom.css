@@ -2106,12 +2106,33 @@ a.remove {
 .know-tab-menu .nav li a.active {
     color: #c83538;
     border-bottom: 2px solid #c83538;
-    ;
 }
 
 #partners-carousel .item {
     border: 2px solid #fff;
     padding: 0;
+    width: 180px;
+    height: 90px;
+    background: #fff;
+}
+
+#partners-carousel .item .expertise-item {
+    border: 2px solid #fff;
+    padding: 0;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+#partners-carousel .item .expertise-item .image {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
 }
 
 #partners-carousel .plus-effect span {
@@ -2122,6 +2143,8 @@ a.remove {
     width: 100%;
     height: 100%;
     justify-content: center;
+    font-size: 12px;
+    padding: 5px;
 }
 
 #partners-carousel .plus-effect:before,

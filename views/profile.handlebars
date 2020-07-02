@@ -224,7 +224,7 @@
 
 <script>
     // print form
-    document.getElementById('printButton').addEventListener("click", print)
+    {{!-- document.getElementById('printButton').addEventListener("click", print) --}}
     function print() {
         printJS({
             printable: 'home',
@@ -233,7 +233,7 @@
     }
 
     // send msg on whatsapp
-    document.getElementById('sendButtons').addEventListener("click", getLinkWhastapp)
+    {{!-- document.getElementById('sendButtons').addEventListener("click", getLinkWhastapp) --}}
     function getLinkWhastapp(number, message) {
         number = ''
         message = 'Mess'
@@ -242,7 +242,7 @@
     }
 
     // print HTML as pdf
-    document.getElementById('elementToPrint').addEventListener("click", convertHTMLtoPDF);
+    {{!-- document.getElementById('elementToPrint').addEventListener("click", convertHTMLtoPDF); --}}
     function convertHTMLtoPDF() {
         const element = document.getElementById('home');
         html2pdf(element, {

@@ -18,6 +18,10 @@ const clearCookie = (err, req, res) => {
     }
 }
 
+const getSponsors = async () => {
+   return  externalUtils.hitApi({ path: "/sponsors", qs: { 'is_active': true } });
+}
+
 module.exports = {
     home: async(req, res) => {
         try {
@@ -26,7 +30,7 @@ module.exports = {
             promises.push(externalUtils.hitApi({ path: "/event-categories" }));
             promises.push(externalUtils.hitApi({ path: "/offline-events", qs: { 'limit': 20 } }));
             promises.push(externalUtils.hitApi({ path: "/offline-categories" }));
-            promises.push(externalUtils.hitApi({ path: "/sponsors" }));
+            promises.push(getSponsors());
             const [eventList, eventCategories, offlineEventList, offlineEventCategories, sponsors] = await Promise.all(promises);
 
             // Event list api
@@ -65,7 +69,8 @@ module.exports = {
         try {
             const { params: { eventId }, headers: { cookie } } = req;
             const promises = [
-                externalUtils.hitApi({ path: `/events/${eventId}` })
+                externalUtils.hitApi({ path: `/events/${eventId}` }),
+                getSponsors()
             ];
             if (cookie) {
                 const cookies = cookie.split('=');
@@ -75,7 +80,7 @@ module.exports = {
                 };
                 promises.push(externalUtils.hitApi({ path: `/profile`, headers }));
             }
-            const [event, profile] = await Promise.all(promises);
+            const [event, sponsors, profile] = await Promise.all(promises);
 
             if (event && event.data && event.data.start_date) {
                 const startDate = new Date(event.data.start_date).toDateString().split(' ');
@@ -87,7 +92,8 @@ module.exports = {
                 event: event.data,
                 user: profile && profile.data ? profile.data : null,
                 isUser: profile && profile.data,
-                host: req.hostname
+                host: req.hostname,
+                sponsors: sponsors.data
             };
 
             return res.render('event-detail', { title: 'Event Detail', data });
@@ -453,7 +459,8 @@ module.exports = {
         try {
             const { params: { eventId }, headers: { cookie } } = req;
             const promises = [
-                externalUtils.hitApi({ path: `/events/${eventId}` })
+                externalUtils.hitApi({ path: `/events/${eventId}` }),
+                getSponsors()
             ];
             if (cookie) {
                 const cookies = cookie.split('=');
@@ -463,7 +470,7 @@ module.exports = {
                 };
                 promises.push(externalUtils.hitApi({ path: `/profile`, headers }));
             }
-            const [event, profile] = await Promise.all(promises);
+            const [event, sponsors, profile] = await Promise.all(promises);
 
             if (event && event.data && event.data.start_date) {
                 const startDate = new Date(event.data.start_date).toDateString().split(' ');
@@ -480,7 +487,8 @@ module.exports = {
                 user: profile && profile.data ? profile.data : null,
                 isUser: profile && profile.data,
                 isEventFollow,
-                host: req.hostname
+                host: req.hostname,
+                sponsors: sponsors.data
             };
 
             return res.render('virtual-event-detail', { title: 'Virtual Event Detail', data });
@@ -540,11 +548,12 @@ module.exports = {
             promises.push(externalUtils.hitApi({ path: "/previous-events" }));
             promises.push(externalUtils.hitApi({ path: "/event-categories" }));
             promises.push(externalUtils.hitApi({ path: "/offline-categories" }));
-            const [previousEvents, eventCategories, virtualCategories] = await Promise.all(promises);
+            promises.push(getSponsors());
+            const [previousEvents, eventCategories, virtualCategories, sponsors] = await Promise.all(promises);
 
             previousEvents.data.items = (previousEvents.data && previousEvents.data.items) ? splitDate(previousEvents.data.items, false) : [];
 
-            return res.render('previous-events', { data: { previousEvents: previousEvents.data, eventCategories: eventCategories.data, virtualCategories: virtualCategories.data } });
+            return res.render('previous-events', { data: { previousEvents: previousEvents.data, eventCategories: eventCategories.data, virtualCategories: virtualCategories.data, sponsors: sponsors.data } });
         } catch (error) {
             console.error(error);
             // return res.render('404-error');
@@ -555,12 +564,16 @@ module.exports = {
     previousEventsDetails: async(req, res) => {
         try {
             const { params: { eventId } } = req;
-            const eventData = await externalUtils.hitApi({ path: `/events/${eventId}` });
+            const promises = [
+                externalUtils.hitApi({ path: `/events/${eventId}` }),
+                getSponsors()
+            ]
+            const [eventData, sponsors] = await Promise.all(promises);
 
             eventData.data = splitDate([eventData.data])[0];
             // console.log('previous event detail response: ', eventData);
 
-            return res.render('previous-events-details', { title: 'Previous Event Detail', event: eventData.data });
+            return res.render('previous-events-details', { title: 'Previous Event Detail', data: { event: eventData.data, sponsors: sponsors.data }});
         } catch (error) {
             console.error(error);
             // return res.render('404-error');

@@ -325,45 +325,42 @@
 
     {{{body}}}
 
+    {{#if data.sponsors}}
+        <!-- event-expertise-section - start
+            ================================================== -->
+        <section id="partners-carousel" class="event-expertise-section bg-gray-light pt-5 clearfix">
+            <div class="container">
 
-    <!-- event-expertise-section - start
-		================================================== -->
-    <section id="partners-carousel" class="event-expertise-section bg-gray-light pt-5 clearfix">
-        <div class="container">
-
-            <!-- section-title - start -->
-            <div class="section-title text-center mb-50">
-                <h2 class="medium-title">Partners in <strong>our Success</strong></h2>
-            </div>
-            <!-- section-title - end -->
-
-            <!-- event-expertise-carousel - start -->
-            <div id="event-expertise-carousel" class="event-expertise-carousel owl-carousel owl-theme">
-
-                <!-- expertise-item - start -->
-                {{!-- {{#each data.sponsors }} --}}
-                <div class="item">
-                    <div class="expertise-item">
-                        <div class="image image-wrapper">
-                            <img src="assets/images/partners/image1.jpg" alt="Image_not_found">
-                            <a href="www.google.com" class="plus-effect" target="_blank">
-                                <span> {{title}}</span>
-
-                            </a>
-                        </div>
-
-                    </div>
+                <!-- section-title - start -->
+                <div class="section-title text-center mb-50">
+                    <h2 class="medium-title">Partners in <strong>our Success</strong></h2>
                 </div>
-                {{!-- {{/each}} --}}
-                <!-- expertise-item - end -->
+                <!-- section-title - end -->
+
+                <!-- event-expertise-carousel - start -->
+                <div id="event-expertise-carousel" class="event-expertise-carousel owl-carousel owl-theme">
+                    <!-- expertise-item - start -->
+                    {{#each data.sponsors }}
+                        <div class="item">
+                            <div class="expertise-item">
+                                <div class="image image-wrapper">
+                                    <img src="{{image_url}}" alt="Image_not_found">
+                                    <a href="{{website}}" class="plus-effect" target="_blank">
+                                        <span> {{title}}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                    <!-- expertise-item - end -->
+                </div>
+                <!-- event-expertise-carousel - end -->
 
             </div>
-            <!-- event-expertise-carousel - end -->
-
-        </div>
-    </section>
-    <!-- event-expertise-section - end
-		================================================== -->
+        </section>
+        <!-- event-expertise-section - end
+            ================================================== -->
+    {{/if}}
 
 
 

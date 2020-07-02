@@ -6,11 +6,12 @@
     $('#create-sponser').click(function (e) {
         e.preventDefault();
         const title = $('#title').val();
+        const website = $('#website').val();
         const description = $('#description').val();
         const is_active = $('input[name="is_active"]:checked').val();
 
 
-        const data = { title, description, is_active }
+        const data = { title, website, description, is_active }
         const formData = new FormData();
         Object.keys(data).forEach((key) => {
             formData.append(key, data[key]);
@@ -46,11 +47,12 @@
         e.preventDefault();
         var sponsorId = $(this).attr('data-id');
         const title = $('#title').val();
+        const website = $('#website').val();
         const description = $('#description').val();
         const is_active = $('input[name="is_active"]:checked').val();
 
 
-        const data = { title, description, is_active }
+        const data = { title, website, description, is_active }
         const formData = new FormData();
         Object.keys(data).forEach((key) => {
             formData.append(key, data[key]);

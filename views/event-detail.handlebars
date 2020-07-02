@@ -113,9 +113,9 @@
                                 <a href="mailto:?subject={{data.event.title}}&body={{data.host}}/event/{{data.event._id}}">
                                     <i class="far fa-envelope" aria-hidden="true"></i> Email
                                 </a>
-                                {{!-- <a href="#" id="elementToPrint">
+                                <a href="#" id="elementToPrint">
                                     <i class="fa fa-download" aria-hidden="true"></i> Download
-                                </a> --}}
+                                </a>
                             </div>
 
                         </div>
@@ -253,9 +253,9 @@
         <script>
 
     // print HTML as pdf
-    {{!-- document.getElementById('elementToPrint').addEventListener("click", convertHTMLtoPDF); --}}
+    document.getElementById('elementToPrint').addEventListener("click", convertHTMLtoPDF);
     function convertHTMLtoPDF() {
-        const element = document.getElementsByClassName('content-events');
+        const element = document.getElementById('downloadTab');
         var opt = {
             margin:       1,
             filename:     '{{data.event.title}}' + '.pdf',

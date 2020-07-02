@@ -65,6 +65,9 @@
                                 <a href="mailto:?subject={{data.event.title}}&body={{data.host}}/virtual-event/{{data.event._id}}">
                                     <i class="far fa-envelope" aria-hidden="true"></i> Email
                                 </a>
+                                <a href="#" id="elementToPrint">
+                                    <i class="fa fa-download" aria-hidden="true"></i> Download
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -152,3 +155,26 @@
     </section>
     <!-- event-details-section - end
 		================================================== -->
+    <script>
+        // print HTML as pdf
+        document.getElementById('elementToPrint').addEventListener("click", convertHTMLtoPDF);
+        function convertHTMLtoPDF() {
+            const element = document.getElementById('event-details-section');
+            var opt = {
+                margin:       1,
+                filename:     '{{data.event.title}}' + '.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                {{!-- jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } --}}
+                jsPDF: { unit: 'pt', format: 'a4', orientation: 'portrait', compress: true, putOnlyUsedFonts: true }
+            };
+            {{!-- var opt = {
+                margin: 1,
+                filename: 'event-detail.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { dpi: 192, letterRendering: true },
+                jsPDF: { unit: 'pt', format: 'a4', orientation: 'portrait', compress: true, putOnlyUsedFonts: true }
+            }; --}}
+            html2pdf(element, opt);
+        }
+    </script>

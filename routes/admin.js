@@ -33,6 +33,7 @@ router.get('/offline-update-category/:categoryTd', offlineEventController.offlin
 
 // Our Partners Routes
 router.get('/partners', partnerController.allPartners);
+router.get('/partners/:partnerId', partnerController.editPartner);
 router.get('/add-partner', partnerController.addPartner);
 router.get('/offline-add-category', offlineEventController.offlineAddCategory);
 

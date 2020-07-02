@@ -196,6 +196,10 @@
             previewImages($(this)[0].files, 'past_event_banner_image');    
         });
 
+        $('#partner-image').change(function(e) {
+            previewImages($(this)[0].files, 'partner-image');    
+        });
+
 
         // $('#imageUrl').change(function(e) {
         //     // console.log($(this));

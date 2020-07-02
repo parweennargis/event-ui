@@ -59,7 +59,7 @@ module.exports = {
                 'Authorization': `Bearer ${cookies[1]}`
             };
             const [partnerData] = await Promise.all([
-                hitApi.hitApi({ path: `/event/${eventId}`, method: 'GET', headers })
+                hitApi.hitApi({ path: `/sponsors/${partnerId}`, method: 'GET', headers })
             ]);
             console.log('partnerData: ', partnerData);
             return res.render('admin/partner/edit-partner', { title: 'Express Admin Event', layout: 'admin', partnerData: partnerData.data });

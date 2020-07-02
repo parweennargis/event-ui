@@ -519,7 +519,10 @@ module.exports = {
         }
     },
     contact: async(req, res) => {
-        return res.render('contact');
+        const promises = [];
+        promises.push(getSponsors());
+        const [sponsors] = await Promise.all(promises);
+        return res.render('contact', { title: 'Contact Us', data: { sponsors: sponsors.data } });
     },
     sendContact: async(req, res) => {
         try {
@@ -537,10 +540,16 @@ module.exports = {
         }
     },
     aboutus: async(req, res) => {
-        return res.render('aboutus');
+        const promises = [];
+        promises.push(getSponsors());
+        const [sponsors] = await Promise.all(promises);
+        return res.render('aboutus', { title: 'AboutUs', data: { sponsors: sponsors.data } });
     },
     faq: async(req, res) => {
-        return res.render('faq');
+        const promises = [];
+        promises.push(getSponsors());
+        const [sponsors] = await Promise.all(promises);
+        return res.render('faq', { title: 'FAQ', data: { sponsors: sponsors.data } });
     },
     previousEvents: async(req, res) => {
         try {

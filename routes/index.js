@@ -37,6 +37,8 @@ const indexRoutes = (app, router) => {
     router.get('/previous-events-tab', homeController.tabPreviousEvents);
     router.get('/partners', homeController.partners);
 
+    router.get('/services', homeController.ourServices);
+
     return router;
 }
 

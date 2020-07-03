@@ -542,8 +542,8 @@
     // --------------------------------------------------
     $('#event-details-carousel').owlCarousel({
         nav: false,
-        items: 6,
-        loop: true,
+        items: 1,
+        loop: false,
         smartSpeed: 1000
     });
     // event-details-carousel - end

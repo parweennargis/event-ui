@@ -206,9 +206,9 @@
                                                 </div>
                                             </div>
                                             <a href="#login-modal"
-                                                class="nav-item nav-link register-modal-btn bluecolor login">Login |</a>
+                                                class="nav-item nav-link register-modal-btn bluecolor login">Login</a>
                                             <a href="/register" class="nav-item nav-link bluecolor signup"
-                                                style="padding-left: 0;">Sign up</a>
+                                               >Sign up</a>
                                             <div id="login-modal"
                                                 class="reglog-modal-wrapper register-modal mfp-hide clearfix">
                                                 <div class="overlay-black clearfix">
@@ -328,7 +328,7 @@
     {{#if data.sponsors}}
         <!-- event-expertise-section - start
             ================================================== -->
-        <section id="partners-carousel" class="event-expertise-section bg-gray-light pt-5 clearfix">
+        <section class="event-expertise-section bg-gray-light pt-5 clearfix">
             <div class="container">
 
                 <!-- section-title - start -->
@@ -338,18 +338,18 @@
                 <!-- section-title - end -->
 
                 <!-- event-expertise-carousel - start -->
-                <div id="event-expertise-carousel" class="event-expertise-carousel owl-carousel owl-theme">
+                <div id="partners-carousel"  class="event-expertise-carousel owl-carousel ">
                     <!-- expertise-item - start -->
                     {{#each data.sponsors }}
                         <div class="item">
-                            <div class="expertise-item">
+                            
                                 <div class="image image-wrapper">
                                     <img src="{{image_url}}" alt="Image_not_found">
                                     <a href="{{website}}" class="plus-effect" target="_blank">
                                         <span> {{title}}</span>
                                     </a>
                                 </div>
-                            </div>
+                            
                         </div>
                     {{/each}}
                     <!-- expertise-item - end -->

@@ -7,6 +7,15 @@
 
 .nav-link {
     color: #000;
+    position: relative;
+}
+
+.login:after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    content: '|';
+    color: #2968e7;
 }
 
 .bluecolor {
@@ -2117,15 +2126,15 @@ a.remove {
 #partners-carousel .item {
     border: 2px solid #fff;
     padding: 0;
-    width: 180px;
+    width: 100%;
     height: 90px;
     background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #partners-carousel .item .expertise-item {
-    border: 2px solid #fff;
-    padding: 0;
-    background: #fff;
     display: flex;
     align-items: center;
     width: 100%;
@@ -2136,9 +2145,9 @@ a.remove {
 #partners-carousel .item .expertise-item .image {
     display: flex;
     align-items: center;
-    width: 100%;
-    height: 100%;
     justify-content: center;
+    height: 100%;
+    max-width: 100%;
 }
 
 #partners-carousel .plus-effect span {
@@ -2162,7 +2171,9 @@ a.remove {
     .navbar {
         flex-grow: auto;
         position: absolute;
-        top: 50px;
+        top: 60px;
+        left: 0;
+        padding: 0;
     }
     .header-bottom .col-lg-9 {
         position: absolute;
@@ -2180,13 +2191,41 @@ a.remove {
         height: 30px;
         font-size: 16px;
         padding: 0;
+        margin-left: 20px;
     }
     .navbar-collapse {
         background: #fff;
         padding: 10px;
+        height: 100vh;
+        width: 100vw;
+    }
+    .navbar-expand-md .navbar-nav .nav-link {
+        font-size: 21px;
+        padding: 0.5rem 0.8rem;
+        border-bottom: 1px solid #e4e4e4;
+    }
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+    /* .bluecolor:last-child {
+        padding-left: 13x;
+    } */
+    .login:after {
+        display: none;
+    }
+    .dropdown-item {
+        font-size: 18px;
+    }
+    .navbar-nav .dropdown-menu {
+        padding: 0;
+    }
+    .dropdown-toggle::after {
+        position: absolute;
+        right: 10px;
+        top: 20px;
     }
     .mobile-space {
-        margin-top: 110px;
+        margin-top: 50px;
     }
     .default-footer-section .footer-top .instagram-wrapper ul {
         display: block;

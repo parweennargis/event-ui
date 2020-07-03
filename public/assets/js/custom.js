@@ -541,8 +541,8 @@
     // event-details-carousel - start
     // --------------------------------------------------
     $('#event-details-carousel').owlCarousel({
-        nav: true,
-        items: 1,
+        nav: false,
+        items: 6,
         loop: true,
         smartSpeed: 1000
     });

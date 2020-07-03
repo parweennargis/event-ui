@@ -6,9 +6,11 @@ const redirectPage = (err, req, res) => {
     if (err.message === 'Token') {
         res.clearCookie('token');
         res.redirect('/');
-    } else if (err === 'Invalid token' || err.errors === 'jwt expired') {
+    } else if (err === 'Invalid token' || err.errors === 'jwt expired' || err.errors === 'jwt malformed' || err.errors === 'invalid signature') {
         res.clearCookie('token');
         res.redirect(req.originalUrl);
+    } else {
+        return res.render('404-error');
     }
 }
 

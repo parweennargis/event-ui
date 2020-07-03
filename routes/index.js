@@ -38,6 +38,8 @@ const indexRoutes = (app, router) => {
     router.get('/partners', homeController.partners);
     router.get('/our-services', homeController.ourServices);
 
+    router.get('/services', homeController.ourServices);
+
     return router;
 }
 

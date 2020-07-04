@@ -612,4 +612,7 @@ module.exports = {
     partners: async(req, res) => {
         return res.render('partners');
     },
+    terms: async(req, res) => {
+        return res.render('terms');
+    },
 };

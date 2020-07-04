@@ -1602,16 +1602,18 @@
                 console.log(response);
                 if (response.data) {
                     document.getElementById("newsletter-email").value = "";
-                    alert('Subscribed Successfully');
+                    // alert('Subscribed Successfully');
                     // $("#subscribe-newsletter").html('Subscribed Successfully');
                     // $("#subscribe-newsletter").prop('disabled', true);
+                    $('#subscribe-modal').modal('show');
                 }
             },
             error: function(xhr, status, error) {
                 document.getElementById("newsletter-email").value = "";
-                alert('Subscribed Successfully');
+                // alert('Subscribed Successfully');
                 // if error from the validator from backend then handle it and show in the frontend
-                $('#newsletter-email').html(xhr.responseJSON.data.errors);
+                // $('#newsletter-email').html(xhr.responseJSON.data.errors);
+                $('#subscribe-modal').modal('show');
             }
         })
     });

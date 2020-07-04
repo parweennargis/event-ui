@@ -15,6 +15,10 @@
         const occupation = $('#occupation_job').val();
         const heard_about = $('#heard_about_job').val();
         const occupation_looking_for = $('#occupation_looking_for_job').val();
+        const license_number = $('#license_number').val();
+        const license_type = $('#license_type').val();
+        const license_date_of_expiry = $('#license_date_of_expiry').val();
+        const driving_record_rating = $('#driving_record_rating').val();
 
         const dataObject = { heard_about, occupation_looking_for, total_experience, occupation, postal_code, address, confirm_password, password, phone_no, email, last_name, first_name };
 
@@ -49,6 +53,10 @@
         delete dataObject.confirm_password;
         // add role_type in the object
         dataObject.role_type = role_type;
+        dataObject.license_number = license_number;
+        dataObject.license_type = license_type;
+        dataObject.license_date_of_expiry = license_date_of_expiry;
+        dataObject.driving_record_rating = driving_record_rating;
 
         $.ajax({
             method: 'POST',
@@ -92,7 +100,7 @@
         const heard_about = $('#heard_about_exhibitor').val();
         const current_position = $('#current_position_exhibitor').val();
 
-        const dataObject = { heard_about, current_position, company_website, company_name, postal_code, address, confirm_password, password, phone_no, email, last_name, first_name };
+        const dataObject = { heard_about, current_position, company_name, postal_code, address, confirm_password, password, phone_no, email, last_name, first_name };
 
         $("#message_exhibitor").text("");
         let isReturn = false;
@@ -125,6 +133,7 @@
         delete dataObject.confirm_password;
         // add role_type in the object
         dataObject.role_type = role_type;
+        dataObject.company_website = company_website;
 
         $.ajax({
             method: 'POST',

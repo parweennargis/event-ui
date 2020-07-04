@@ -6427,7 +6427,7 @@ button {
     width: 190px;
     /* margin: 0 auto; */
     position: relative;
-    margin-top: -50px;
+    margin-top: -60px;
     /* -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%); */
@@ -6443,7 +6443,7 @@ button {
 .absolute-eventmake-section .eventmaking-wrapper .eventmake-tabs li {
     float: left;
     width: auto;
-    height: 50px;
+    height: 60px;
     margin-right: 10px;
     display: inline-block;
 }
@@ -6457,12 +6457,11 @@ button {
     height: 100%;
     display: block;
     font-weight: 700;
-    line-height: 50px;
-    padding: 0px 30px;
+    line-height: 42px;
+    padding: 0px 10px 0 50px;
     color: #878787;
-    font-size: 18px;
+    font-size: 16px;
     text-transform: capitalize;
-    background-color: rgba(51, 51, 51, 0.5);
 }
 
 .absolute-eventmake-section .eventmaking-wrapper .eventmake-tabs li a i {
@@ -6473,8 +6472,8 @@ button {
 }
 
 .absolute-eventmake-section .eventmaking-wrapper .eventmake-tabs li:hover a {
-    color: #333333;
-    background-color: #ffffff;
+    color: #fff;
+    /* background-color: #ffffff; */
 }
 
 .absolute-eventmake-section .eventmaking-wrapper .eventmake-tabs li:hover a i {
@@ -6482,8 +6481,8 @@ button {
 }
 
 .absolute-eventmake-section .eventmaking-wrapper .eventmake-tabs li .active {
-    color: #333333;
-    background-color: #ffffff;
+    color: #fff;
+    /* background-color: #ffffff; */
 }
 
 .absolute-eventmake-section .eventmaking-wrapper .eventmake-tabs li .active i {

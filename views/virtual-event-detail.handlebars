@@ -1,6 +1,6 @@
 <!-- event-details-section - start
 		================================================== -->
-    <section id="event-details-section" class="event-details-section sec-ptb-100 clearfix">
+    <section id="event-details-section" class="event-details-section sec-ptb-100  mobile-space clearfix">
           <div class="main-banner">
             <div class="bg-img">
                 {{#if data.event.banner}}
@@ -19,9 +19,9 @@
                 <div id="event-details-carousel" class="event-details-carousel owl-carousel owl-theme">
                     <div class="item">
                         {{#if data.event.banner}}
-                            <img src="{{data.event.banner}}" alt="Image_not_found">
+                            <img src="{{data.event.banner}}" alt="">
                         {{else}}
-                            <img src="/assets/images/linked-profile-2.jpg" alt="Image_not_found">
+                            <img src="/assets/images/linked-profile-2.jpg" alt="">
                         {{/if}}
                     </div>
                 </div>
@@ -33,15 +33,16 @@
             <div class="col-lg-4 col-md-12 col-sm-12">
                 <div class="sidebar-section bg-gray">
                     <div class="row">
-                        <div class="event-info-list ul-li clearfix mb-30">
+                        <div class="col-md-7 col-sm-6">
+                        <div class="event-info-list">
                             <div class="event-content">
                                         {{!-- <small class="event-title">Event Date</small> --}}
                                         <h2 class="event-date">{{data.event.startMonth}}  {{data.event.startDay}}<br />
                                             {{data.event.startYear}}</h2>
                                     </div>
                         </div>
-
-                        <div class="col-md-5 shareall  ml-auto">
+</div>
+                        <div class="col-md-5 col-sm-6 shareall">
                             <a href="" class="like-event" data-event="{{data.event._id}}" data-like="{{#if data.isEventFollow}}true{{else}}false{{/if}}">
                             {{#if data.isEventFollow}}
                                 <i class="like-icon fas fa-heart"></i>
@@ -71,7 +72,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-title mb-30">
+                    <div class="event-title mt-4 mb-4">
                         <!-- <span class="tag-item">
 									<i class="fas fa-bookmark"></i>
 									Featured Event

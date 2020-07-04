@@ -490,7 +490,7 @@
         smartSpeed: 1000,
         autoplayTimeout: 4000,
         autoplayHoverPause: true,
-        margin: 10,
+        margin: 20,
         responsive: {
             0: {
                 items: 1,
@@ -499,7 +499,7 @@
                 items: 1,
             },
             768: {
-                items: 2,
+                items: 4,
             },
             991: {
                 items: 5,

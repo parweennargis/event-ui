@@ -176,23 +176,29 @@
                                             <a href="/previous-events" class="nav-item nav-link">Previous Events</a>
                                             <a href="https://thetruckingnetworkjobs.ca/" target="_blank"
                                                 class="nav-item nav-link">Jobs</a>
+                                            <a href="http://onlinetraining.thetruckingnetwork.ca/" target="_blank"
+                                                class="nav-item nav-link">E-Learning</a>
+
+                                            {{!-- <a href="#" class="nav-item nav-link">Enquiry</a> --}}
+                                            {{!-- <a href="https://www.thetruckingnetwork.ca" target="_blank"
+                                                class="nav-item nav-link">TTN</a> --}}
 
                                             <div class="nav-item dropdown">
                                                 <a href="#" class="nav-link dropdown-toggle"
-                                                    data-toggle="dropdown">E-Learning</a>
+                                                    data-toggle="dropdown">TTN</a>
                                                 <div class="dropdown-menu">
-                                                    <a href="http://onlinetraining.thetruckingnetwork.ca/"
-                                                        class="dropdown-item">E-Learning</a>
+                                                    <a href="https://www.thetruckingnetwork.ca/"
+                                                        class="dropdown-item"  target="_blank">TTN Website</a>
+                                                    <a href="#"
+                                                        class="dropdown-item"  target="_blank">TTN E-Magazine</a>
                                                     <a href="https://thetruckingnetwork.ca/editorial-blog/"
-                                                        class="dropdown-item">Blog</a>
+                                                        class="dropdown-item"  target="_blank">TTN Bolg</a>
                                                 </div>
                                             </div>
 
-                                            {{!-- <a href="#" class="nav-item nav-link">Enquiry</a> --}}
-                                            <a href="https://www.thetruckingnetwork.ca" target="_blank"
-                                                class="nav-item nav-link">TTN</a>
-                                                <a href="/our-services" target="_blank" class="nav-item nav-link">Services</a>
-                                            <a href="/faq" target="_blank" class="nav-item nav-link">Faq</a>
+                                            <a href="/our-services" target="_blank"
+                                                class="nav-item nav-link">Services</a>
+                                            <a href="/faq" target="_blank" class="nav-item nav-link">FAQ</a>
                                             <a href="/contact" target="_blank" class="nav-item nav-link">Contact</a>
                                             <a href="/cart" class="nav-item nav-link cart">
                                                 <span class="cart-value">0</span>
@@ -208,8 +214,7 @@
                                             </div>
                                             <a href="#login-modal"
                                                 class="nav-item nav-link register-modal-btn bluecolor login">Login</a>
-                                            <a href="/register" class="nav-item nav-link bluecolor signup"
-                                               >Sign up</a>
+                                            <a href="/register" class="nav-item nav-link bluecolor signup">Sign up</a>
                                             <div id="login-modal"
                                                 class="reglog-modal-wrapper register-modal mfp-hide clearfix">
                                                 <div class="overlay-black clearfix">
@@ -341,39 +346,39 @@
     {{{body}}}
 
     {{#if data.sponsors}}
-        <!-- event-expertise-section - start
+    <!-- event-expertise-section - start
             ================================================== -->
-        <section class="event-expertise-section bg-gray-light pt-5 pb-5 clearfix">
-            <div class="container">
+    <section class="event-expertise-section bg-gray-light pt-5 pb-5 clearfix">
+        <div class="container">
 
-                <!-- section-title - start -->
-                <div class="section-title text-center mb-30">
-                    <h2 class="medium-title"><strong>Partners in our Success</strong></h2>
-                </div>
-                <!-- section-title - end -->
-
-                <!-- event-expertise-carousel - start -->
-                <div id="partners-carousel"  class="event-expertise-carousel owl-carousel ">
-                    <!-- expertise-item - start -->
-                    {{#each data.sponsors }}
-                        <div class="item">
-                            
-                                <div class="image image-wrapper">
-                                    <img src="{{image_url}}" alt="Image_not_found">
-                                    <a href="{{website}}" class="plus-effect" target="_blank">
-                                        <span> {{title}}</span>
-                                    </a>
-                                </div>
-                            
-                        </div>
-                    {{/each}}
-                    <!-- expertise-item - end -->
-                </div>
-                <!-- event-expertise-carousel - end -->
-
+            <!-- section-title - start -->
+            <div class="section-title text-center mb-30">
+                <h2 class="medium-title"><strong>Partners in our Success</strong></h2>
             </div>
-        </section>
-        <!-- event-expertise-section - end
+            <!-- section-title - end -->
+
+            <!-- event-expertise-carousel - start -->
+            <div id="partners-carousel" class="event-expertise-carousel owl-carousel ">
+                <!-- expertise-item - start -->
+                {{#each data.sponsors }}
+                <div class="item">
+
+                    <div class="image image-wrapper">
+                        <img src="{{image_url}}" alt="Image_not_found">
+                        <a href="{{website}}" class="plus-effect" target="_blank">
+                            <span> {{title}}</span>
+                        </a>
+                    </div>
+
+                </div>
+                {{/each}}
+                <!-- expertise-item - end -->
+            </div>
+            <!-- event-expertise-carousel - end -->
+
+        </div>
+    </section>
+    <!-- event-expertise-section - end
             ================================================== -->
     {{/if}}
 
@@ -385,7 +390,7 @@
         <div class="container">
             <div class="row">
                 <div class="subscribe">
-                    <h3>Subscribe Newsletter</h3>
+                    <h3>Subscribe to our Event Notifications</h3>
                     <div class="sub col-md-4"> <input type="text" id="newsletter-email" type="email"> </div>
                     <div> <button class="button-red" id="subscribe-newsletter">Subscribe</button> </div>
                 </div>
@@ -629,11 +634,18 @@
     </script>
 
     <!-- custom jquery include -->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="/assets/js/custom.js "></script>
     <script src="/assets/js/print.min.js"></script>
     {{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script> --}}
     <script src="/assets/js/html2pdf.min.js"></script>
     <script src="/assets/js/custom/register.js "></script>
+    <script>
+        function onSubmit(token) {
+            alert('test');
+            document.getElementById("demo-form").submit();
+        }
+    </script>
 </body>
 
 </html>

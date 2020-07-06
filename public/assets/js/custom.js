@@ -1576,6 +1576,8 @@
         }).on('hide.bs.collapse', function() {
             $(this).prev(".card-header").find(".fa").removeClass("fa-minus").addClass("fa-plus");
         });
+
+        $("#subscribe-sucess").html('');
     });
 
     $('#subscribe-newsletter').click(function(e) {
@@ -1614,11 +1616,18 @@
                     // $("#subscribe-newsletter").prop('disabled', true);
                     // $('#subscribe-modal').modal('show');
                     $("#subscribe-error").html('');
-                    $('.subscribe-bt').magnificPopup({
-                        modal: true,
-                        type: 'inline',
-                        preloader: false,
-                    });
+                    $("#subscribe-sucess").html(' Thank you for your subscription, you will be notified for our ongoing and upcoming events');
+
+                    setTimeout(function() {
+                        $("#subscribe-sucess").html('').fadeOut('slow');
+                    }, 5000);
+
+                    // $('.subscribe-bt').magnificPopup({
+                    //     modal: true,
+                    //     type: 'inline',
+                    //     preloader: false,
+                    // });
+
                 }
             },
             error: function(xhr, status, error) {
@@ -1626,7 +1635,12 @@
                 // alert('Subscribed Successfully');
                 // if error from the validator from backend then handle it and show in the frontend
                 // $('#newsletter-email').html(xhr.responseJSON.data.errors);
-                $('#subscribe-modal').modal('show');
+                // $('#subscribe-modal').modal('show');
+                $("#subscribe-sucess").html(' Thank you for your subscription, you will be notified for our ongoing and upcoming events');
+
+                setTimeout(function() {
+                    $("#subscribe-sucess").html('').fadeOut('slow');
+                }, 5000);
             }
         })
     });

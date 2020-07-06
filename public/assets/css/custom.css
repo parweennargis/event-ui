@@ -1831,8 +1831,26 @@ a.remove {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 30px 20px;
     width: 100%;
+    position: relative;
+}
+
+.subscribe-error {
+    position: absolute;
+    color: #c83538;
+    padding: 5px 0;
+    font-size: 12px;
+}
+
+.subscribe-success {
+    position: absolute;
+    bottom: -16px;
+    padding: 5px 20px;
+    font-size: 12px;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
 }
 
 .subscribe h3 {
@@ -2327,6 +2345,16 @@ a.remove {
     }
     .main-banner {
         display: none;
+    }
+    .subscribe-success {
+        bottom: -37px;
+    }
+    .subscribe {
+        padding: 30px 10px;
+    }
+    .subscribe h3 {
+        font-size: 12px;
+        font-weight: bold;
     }
 }
 

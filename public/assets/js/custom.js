@@ -188,6 +188,11 @@
             type: 'inline',
             preloader: false,
         });
+        // $('.subscribe-bt').magnificPopup({
+        //     modal: true,
+        //     type: 'inline',
+        //     preloader: false,
+        // });
         $(document).on('click', '.popup-modal-dismiss', function(e) {
             e.preventDefault();
             $.magnificPopup.close();
@@ -1579,13 +1584,15 @@
         const email = $('#newsletter-email').val();
 
         if (email === '') {
-            alert('Please fill the Email');
+            // alert('Please fill the Email');
+            $("#subscribe-error").html('Please fill the Email address');
             $('#newsletter-email').addClass('border-red');
             return;
         }
         const validEmail = /(.+)@(.+){2,}\.(.+){2,}/.test(email);
         if (!validEmail) {
-            alert('Please fill Valid Email Id');
+            // alert('Please fill Valid Email Id');
+            $("#subscribe-error").html('Please fill the Email address');
             $('#newsletter-email').addClass('border-red');
             return;
         }
@@ -1605,7 +1612,13 @@
                     // alert('Subscribed Successfully');
                     // $("#subscribe-newsletter").html('Subscribed Successfully');
                     // $("#subscribe-newsletter").prop('disabled', true);
-                    $('#subscribe-modal').modal('show');
+                    // $('#subscribe-modal').modal('show');
+                    $("#subscribe-error").html('');
+                    $('.subscribe-bt').magnificPopup({
+                        modal: true,
+                        type: 'inline',
+                        preloader: false,
+                    });
                 }
             },
             error: function(xhr, status, error) {
@@ -1644,7 +1657,7 @@
                     console.log(items.length);
                     if (items.length) {
                         result.data.items.forEach((item) => {
-                            html += '<div class="col-lg-4"><h3 class="text-center"><a href="/previous-events/' + item._id + '" style="color: #ffffff;" target="_blank"><span class="w-100">' + item.title + '</span><span  class="w-100">' + item.startMonth  + ' ' + item.startDay  + ' ' + item.startYear + '</span></a></h3><div id="carousel1" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item1"><a class="fancybox" target="_blank" href="/previous-events/' + item._id + '"><img class="d-block hover-shadow cursor" src="' + item.past_event_banner_image + '" style="width: 350px; height:250px"></a></div></div></div></div>'
+                            html += '<div class="col-lg-4"><h3 class="text-center"><a href="/previous-events/' + item._id + '" style="color: #ffffff;" target="_blank"><span class="w-100">' + item.title + '</span><span  class="w-100">' + item.startMonth + ' ' + item.startDay + ' ' + item.startYear + '</span></a></h3><div id="carousel1" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item1"><a class="fancybox" target="_blank" href="/previous-events/' + item._id + '"><img class="d-block hover-shadow cursor" src="' + item.past_event_banner_image + '" style="width: 350px; height:250px"></a></div></div></div></div>'
                         })
                         html += '</div>';
                         $('#previous-event').html(html);

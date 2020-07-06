@@ -1594,7 +1594,7 @@
         const validEmail = /(.+)@(.+){2,}\.(.+){2,}/.test(email);
         if (!validEmail) {
             // alert('Please fill Valid Email Id');
-            $("#subscribe-error").html('Please fill the Email address');
+            $("#subscribe-error").html('Please fill valid Email address');
             $('#newsletter-email').addClass('border-red');
             return;
         }
@@ -1611,35 +1611,22 @@
                 console.log(response);
                 if (response.data) {
                     document.getElementById("newsletter-email").value = "";
-                    // alert('Subscribed Successfully');
-                    // $("#subscribe-newsletter").html('Subscribed Successfully');
-                    // $("#subscribe-newsletter").prop('disabled', true);
-                    // $('#subscribe-modal').modal('show');
                     $("#subscribe-error").html('');
-                    $("#subscribe-sucess").html(' Thank you for your subscription, you will be notified for our ongoing and upcoming events');
+                    $("#subscribe-success").show().html(' Thank you for your subscription, you will be notified for our ongoing and upcoming events');
 
                     setTimeout(function() {
-                        $("#subscribe-sucess").html('').fadeOut('slow');
+                        $("#subscribe-success").html('').fadeOut('slow');
+                        $("#subscribe-success").hide();
                     }, 5000);
-
-                    // $('.subscribe-bt').magnificPopup({
-                    //     modal: true,
-                    //     type: 'inline',
-                    //     preloader: false,
-                    // });
-
                 }
             },
             error: function(xhr, status, error) {
                 document.getElementById("newsletter-email").value = "";
-                // alert('Subscribed Successfully');
-                // if error from the validator from backend then handle it and show in the frontend
-                // $('#newsletter-email').html(xhr.responseJSON.data.errors);
-                // $('#subscribe-modal').modal('show');
-                $("#subscribe-sucess").html(' Thank you for your subscription, you will be notified for our ongoing and upcoming events');
+                $("#subscribe-success").show().html(' Thank you for your subscription, you will be notified for our ongoing and upcoming events');
 
                 setTimeout(function() {
-                    $("#subscribe-sucess").html('').fadeOut('slow');
+                    $("#subscribe-success").html('').fadeOut('slow');
+                    $("#subscribe-success").hide();
                 }, 5000);
             }
         })

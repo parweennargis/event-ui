@@ -42,7 +42,7 @@
                                     </div>
                         </div>
 </div>
-                        <div class="col-md-5 col-sm-6 shareall">
+                        <div class="col-md-5 col-sm-6 shareall" id="shareall">
                             <a href="" class="like-event" data-event="{{data.event._id}}" data-like="{{#if data.isEventFollow}}true{{else}}false{{/if}}">
                             {{#if data.isEventFollow}}
                                 <i class="like-icon fas fa-heart"></i>
@@ -160,22 +160,19 @@
         // print HTML as pdf
         document.getElementById('elementToPrint').addEventListener("click", convertHTMLtoPDF);
         function convertHTMLtoPDF() {
-            const element = document.getElementById('event-details-section');
-            var opt = {
-                margin:       1,
-                filename:     '{{data.event.title}}' + '.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2 },
-                {{!-- jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } --}}
-                jsPDF: { unit: 'pt', format: 'a4', orientation: 'portrait', compress: true, putOnlyUsedFonts: true }
-            };
-            {{!-- var opt = {
-                margin: 1,
-                filename: 'event-detail.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { dpi: 192, letterRendering: true },
-                jsPDF: { unit: 'pt', format: 'a4', orientation: 'portrait', compress: true, putOnlyUsedFonts: true }
-            }; --}}
-            html2pdf(element, opt);
+            printJS({
+                printable: 'event-details-section',
+                type: 'html',
+                documentTitle: '{{data.event.title}}',
+                 css: [
+                'http://dev.neuproelectro.com/assets/css/custom.css',
+                'http://dev.neuproelectro.com/assets/css/style.css',
+                'http://dev.neuproelectro.com/assets/css/bootstrap.min.css'
+                ],
+                ignoreElements: [
+                    'shareall'
+                ],
+                style:'#event-details-carousel:{width: 100%}'
+            });
         }
     </script>

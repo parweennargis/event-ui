@@ -66,15 +66,9 @@
 					{{!-- {{log event.past_event_video}} --}}
 					{{#each data.event.past_event_video}}
 						<div class="grid-item  video-gallery " data-category="video-gallery">
-							<a class="popup-youtube" href="{{this.video}}">
-								<img src="{{this.video}}" alt="Image_not_found">
-							</a>
-							{{!-- <div class="item-content">
-								<h3>Business Conference in Dubai</h3>
-								<span>Food Festival, 24 June 2016</span>
-							</div> --}}
+							<iframe class="embed-responsive-item" src="{{this.video}}" allowfullscreen="" style="height: 250px;width: 288px;"></iframe>						
 						</div>
-					{{/each}}
+					{{/each}}	
 			</div>
 			</div>
 		</section>

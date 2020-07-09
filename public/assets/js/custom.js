@@ -1675,4 +1675,13 @@
         });
     }
 
+    // input box mask phone number
+    $(document).ready(function() {
+        // $('#yourphone').usPhoneFormat({
+        //     format: '(xxx) xxx-xxxx',
+        // });
+
+        $('#phone_no_job, #phone_no_exhibitor').usPhoneFormat();
+    });
+
 })(jQuery);

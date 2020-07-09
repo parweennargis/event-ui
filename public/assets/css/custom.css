@@ -2209,6 +2209,23 @@ a.remove {
     position: initial;
 }
 
+.prefix {
+    position: absolute;
+    bottom: 9px;
+    font-size: 1rem;
+    left: 24px;
+    font-style: normal;
+}
+
+q {
+    font-size: 18px;
+}
+
+#phone_no_job,
+#phone_no_exhibitor {
+    padding-left: 25px;
+}
+
 @media (max-width:767px) {
     .navbar {
         flex-grow: auto;

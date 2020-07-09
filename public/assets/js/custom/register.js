@@ -20,7 +20,7 @@
         const license_date_of_expiry = $('#license_date_of_expiry').val();
         const driving_record_rating = $('#driving_record_rating').val();
 
-        const dataObject = { heard_about, occupation_looking_for, total_experience, occupation, postal_code, address, confirm_password, password, phone_no, email, last_name, first_name };
+        const dataObject = { heard_about, occupation_looking_for, total_experience, occupation, postal_code, address, confirm_password, password, phone_no, email, first_name };
 
         $("#message_job").text("");
         let isReturn = false;
@@ -57,6 +57,7 @@
         dataObject.license_type = license_type;
         dataObject.license_date_of_expiry = license_date_of_expiry;
         dataObject.driving_record_rating = driving_record_rating;
+        dataObject.last_name = last_name;
 
         $.ajax({
             method: 'POST',
@@ -75,7 +76,7 @@
             error: function (xhr, status, error) {
                 // if error from the validator from backend then handle it and show in the frontend
                 if (xhr.status === 400) {
-                    const error = xhr.responseJSON.errors;
+                    const error = xhr.responseJSON.data.errors;
                     $("#message_job").text(error);
                 }
             }
@@ -100,7 +101,7 @@
         const heard_about = $('#heard_about_exhibitor').val();
         const current_position = $('#current_position_exhibitor').val();
 
-        const dataObject = { heard_about, current_position, company_name, postal_code, address, confirm_password, password, phone_no, email, last_name, first_name };
+        const dataObject = { heard_about, current_position, company_name, postal_code, address, confirm_password, password, phone_no, email, first_name };
 
         $("#message_exhibitor").text("");
         let isReturn = false;
@@ -134,6 +135,7 @@
         // add role_type in the object
         dataObject.role_type = role_type;
         dataObject.company_website = company_website;
+        dataObject.last_name = last_name;
 
         $.ajax({
             method: 'POST',

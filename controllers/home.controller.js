@@ -615,4 +615,20 @@ module.exports = {
     terms: async(req, res) => {
         return res.render('terms');
     },
+    activateAccount: async(req, res) => {
+        try {
+            const { query: { token } } = req;
+            if (!token) return res.render('activate-account', { error: 'Link is Invalid' });
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            const body = { token };
+            const apiResponse = await externalUtils.hitApi({ path: `/activate-account`, method: 'POST', body, headers });
+
+            return res.render('activate-account', { title: 'Activate Account', isActivate: true });
+        } catch (error) {
+            console.log(error);
+            return res.render('activate-account', { error: error.errors });
+        }
+    }
 };

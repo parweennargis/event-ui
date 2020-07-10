@@ -161,9 +161,6 @@
                             {{!-- <div>
                                 <p style="color: #c83639; margin-left: 33%;">Coming Soon</p>
                             </div> --}}
-                            <div class="button">
-                                <a href="/register" class="button-red disp-flow-root width-215" target="_blank">Register Now</a>
-                            </div>
                             {{!-- TODO --}}
                             {{#if data.isUser }}
                                 {{#equalsTo data.user.role_type 'EXHIBITOR'}}
@@ -177,6 +174,9 @@
                                     </div> --}}
                                 {{/equalsTo}}
                             {{else}}
+                                <div class="button">
+                                    <a href="/register" class="button-red disp-flow-root width-215" target="_blank">Register Now</a>
+                                </div>
                                 {{!-- <div class="button">
                                     <a href="/event/{{data.event._id}}/plans" class="button-red disp-flow-root width-215">Secure Your Booth Space</a>
                                 </div>

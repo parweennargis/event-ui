@@ -660,6 +660,11 @@ ul.social-media-gray {
     color: #cc0b0f !important;
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
 
 /* register form */
 

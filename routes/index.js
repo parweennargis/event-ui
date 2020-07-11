@@ -41,6 +41,8 @@ const indexRoutes = (app, router) => {
     router.get('/services', homeController.ourServices);
     router.get('/terms', homeController.terms);
 
+    router.get('/activate-account', homeController.activateAccount);
+
     return router;
 }
 

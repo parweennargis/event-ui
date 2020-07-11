@@ -1,0 +1,45 @@
+<section id="checkout-section" class="pt-3 pb-5 clearfix mobile-space event-section">
+    <div class="container">
+        <div class="mb-15">
+            <div class="row">
+                {{#if isActivate}}
+                {{!-- Thank you message --}}
+                <div class="col-md-6 m-auto thankyou">
+                    <div class="cart-item " style="cursor: auto;">
+                        <div class=" text-center pb-4">
+                            <img src="../assets/images/check-circle.gif" alt="" class="m-4">
+                            <h4>THANK YOU</h4>
+                            <p>Your email is verified!!<br /></p>
+                        </div>
+                        <div class="col-md-12 text-center mb-4">
+                            <a href="/" class="button-red pl-4 pr-4">Go To Home Page</a>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+                {{!-- Thank you message end--}}
+                {{/if}}
+                {{#if error}}
+                {{!-- Error message --}}
+                <div class="col-md-6 m-auto error">
+                    <div class="cart-item " style="cursor: auto;">
+                        <div class=" text-center pb-4">
+                            <img src="../assets/images/warning.gif" alt="" class="m-4">
+                            <h4>{{error}}</h4>
+                            {{!-- <p>We are working on it please try again<br /> meanwhile we wil fix that issue.<br />
+                                </p> --}}
+                        </div>
+                        <div class="col-md-12 text-center mb-4">
+                            <a href="/" class="button-red pl-4 pr-4">Go To Home Page</a>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+                {{!-- Error message end--}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</section>

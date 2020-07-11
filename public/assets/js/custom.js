@@ -493,7 +493,7 @@
         loop: true,
         autoplay: true,
         smartSpeed: 1000,
-        autoplayTimeout: 4000,
+        autoplayTimeout: 2000,
         autoplayHoverPause: true,
         margin: 20,
         responsive: {

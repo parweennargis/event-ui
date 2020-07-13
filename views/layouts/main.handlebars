@@ -37,7 +37,7 @@
     <!-- custom css include -->
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/custom.css">
-    <link rel="stylesheet" type="text/css" href="https://printjs-4de6.kxcdn.com/print.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/print.min.css">
 
     <!-- jquery -->
     <script src="/assets/js/jquery-3.3.1.min.js "></script>
@@ -153,8 +153,8 @@
                                                 <div class="dropdown-menu">
                                                     <a href="/" class="dropdown-item">Home</a>
                                                     <a href="/aboutus" class="dropdown-item">About us</a>
-                                                     <a href="/our-services"
-                                                        class="dropdown-item"  target="_blank">Our Services</a>
+                                                    <a href="/our-services" class="dropdown-item" target="_blank">Our
+                                                        Services</a>
                                                 </div>
                                             </div>
                                             {{!-- <div class="nav-item dropdown">
@@ -190,17 +190,16 @@
                                                 <a href="#" class="nav-link dropdown-toggle"
                                                     data-toggle="dropdown">TTN</a>
                                                 <div class="dropdown-menu">
-                                                    <a href="https://www.thetruckingnetwork.ca/"
-                                                        class="dropdown-item"  target="_blank">TTN Website</a>
-                                                    <a href="#"
-                                                        class="dropdown-item"  target="_blank">E-Magazine</a>
+                                                    <a href="https://www.thetruckingnetwork.ca/" class="dropdown-item"
+                                                        target="_blank">TTN Website</a>
+                                                    <a href="#" class="dropdown-item" target="_blank">E-Magazine</a>
                                                     <a href="https://thetruckingnetwork.ca/editorial-blog/"
-                                                        class="dropdown-item"  target="_blank">Blog</a>
-                                                   
+                                                        class="dropdown-item" target="_blank">Blog</a>
+
                                                 </div>
                                             </div>
 
-                                            
+
                                             <a href="/faq" target="_blank" class="nav-item nav-link">FAQ</a>
                                             <a href="/contact" target="_blank" class="nav-item nav-link">Contact</a>
                                             <a href="/cart" class="nav-item nav-link cart">
@@ -311,7 +310,7 @@
 
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
 
                                     </div>
@@ -372,26 +371,25 @@
             ================================================== -->
     {{/if}}
 
-
-
-
-
+    <!-- newsletter - start
+            ================================================== -->
     <section id="newsletter">
         <div class="container">
             <div class="row">
                 <div class="subscribe">
                     <h3>Subscribe to our Event Notifications</h3>
-                    <div class="sub col-md-4"> <input type="text" id="newsletter-email" type="email"> 
-                     <p class="subscribe-error" id="subscribe-error"></p>
+                    <div class="sub col-md-4"> <input type="text" id="newsletter-email" type="email">
+                        <p class="subscribe-error" id="subscribe-error"></p>
                     </div>
                     <div> <button class="button-red subscribe-bt" id="subscribe-newsletter">Subscribe</button> </div>
-                     <p class="text-center subscribe-success" id="subscribe-success" style="display:none"></p>
+                    <p class="text-center subscribe-success" id="subscribe-success" style="display:none"></p>
                 </div>
                 <div id="subscribe-modal" class="reglog-modal-wrapper  mfp-hide clearfix">
                     <div class="overlay-black clearfix">
                         <!-- rightside-content - start -->
                         <div class="rightside-content text-center login-section">
-                            <p class="p-4">Thank you for your subscription, you will be notified for our ongoing and upcoming events</p>
+                            <p class="p-4">Thank you for your subscription, you will be notified for our ongoing and
+                                upcoming events</p>
                         </div>
                         <!-- rightside-content - end -->
                         <a class="popup-modal-dismiss" href="#!">
@@ -402,6 +400,8 @@
             </div>
         </div>
     </section>
+    <!-- newsletter - end
+            ================================================== -->
 
     <!-- default-footer-section - start
 		================================================== -->
@@ -623,7 +623,7 @@
 
     <!-- color panal - jqury include -->
     <!-- <script src="assets/js/style-switcher.js "></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+    <script src="/assets/js/slick.js"></script>
 
     <script>
         var API_URL = '{{apiUrl}}';
@@ -638,10 +638,6 @@
     <script src="/assets/js/custom/register.js "></script>
     <script src="/assets/js/jquery-input-mask-phone-number.js "></script>
     <script>
-        function onSubmit(token) {
-            alert('test');
-            document.getElementById("demo-form").submit();
-        }
     </script>
 </body>
 

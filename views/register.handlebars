@@ -318,4 +318,9 @@
         });
     }
 
+    $(window).on('load', function() {
+        var today = new Date().toISOString().split('T')[0];
+        $('#license_date_of_expiry').attr('min', today);
+    });
+
 </script>

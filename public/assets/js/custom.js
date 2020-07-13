@@ -1586,14 +1586,12 @@
         const email = $('#newsletter-email').val();
 
         if (email === '') {
-            // alert('Please fill the Email');
             $("#subscribe-error").html('Please fill the Email address');
             $('#newsletter-email').addClass('border-red');
             return;
         }
         const validEmail = /(.+)@(.+){2,}\.(.+){2,}/.test(email);
         if (!validEmail) {
-            // alert('Please fill Valid Email Id');
             $("#subscribe-error").html('Please fill valid Email address');
             $('#newsletter-email').addClass('border-red');
             return;
@@ -1608,7 +1606,6 @@
             },
             data: JSON.stringify({ email }),
             success: function(response) {
-                console.log(response);
                 if (response.data) {
                     document.getElementById("newsletter-email").value = "";
                     $("#subscribe-error").html('');
@@ -1621,12 +1618,12 @@
                 }
             },
             error: function(xhr, status, error) {
-                document.getElementById("newsletter-email").value = "";
-                $("#subscribe-success").show().html(' Thank you for your subscription, you will be notified for our ongoing and upcoming events');
+                $("#subscribe-error").show().html(xhr.responseJSON.errors);
+                $('#newsletter-email').addClass('border-red');
 
                 setTimeout(function() {
-                    $("#subscribe-success").html('').fadeOut('slow');
-                    $("#subscribe-success").hide();
+                    $("#subscribe-error").html('').fadeOut('slow');
+                    $("#subscribe-error").hide();
                 }, 5000);
             }
         })

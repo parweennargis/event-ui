@@ -11,7 +11,7 @@
                            
                             <div class="tab-content">
                                 <div class="tab-pane fade show active">
-                                    <form id="contact-us-form">
+                                    <form id="contact-us-form" name="contact-form">
                                         <div class="row ">
                                             <div class="col-md-12 form-box">
                                                 <div class="form-group col-md-6 col-sm-12">
@@ -37,10 +37,10 @@
                                                 <div class="form-group col-md-12 col-sm-12">
                                                     <label class="string optional active">Message<span>*</span>
                                                     </label>
-                                                    <textarea type="text" class="form-control" name="message"></textarea>
+                                                    <textarea type="text" class="form-control" name="message" id="message"></textarea>
                                                 </div>
                                                 <div class="form-group col-md-12 col-sm-12 text-left mt-1 mb-1">
-                                                    <div class="agree_text text-color-red" id="error-message-contact"></div>
+                                                    <div class="agree_text text-color-red" id="error-message-contact" style="font-size: 18px;"></div>
                                                 </div>
                                                 {{!-- <div class="g-reCAPTCHA" data-sitekey="6Lekda0ZAAAAABMpCDRCkEWRQZjVur0tMyVPGtT7"></div> --}}
                                                 {{!-- <button class="g-recaptcha" 

@@ -206,6 +206,12 @@ module.exports = {
     response: async(req, res) => {
         return res.render('response');
     },
+    contactResponse: async(req, res) => {
+        return res.render('contact-response');
+    },
+    error: async(req, res) => {
+        return res.render('404-error');
+    },
     profile: async(req, res) => {
         try {
             const { headers: { cookie } } = req;

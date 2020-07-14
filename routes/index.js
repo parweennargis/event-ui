@@ -9,6 +9,7 @@ const indexRoutes = (app, router) => {
     router.get('/cart', homeController.cart);
     router.get('/checkout', homeController.checkout);
     router.get('/response', homeController.response);
+    router.get('/error', homeController.error);
     router.get('/reset-password', homeController.resetPassword);
     router.get('/event/:eventId/plans', homeController.eventPlan);
     router.post('/login', homeController.login);
@@ -40,6 +41,7 @@ const indexRoutes = (app, router) => {
 
     router.get('/services', homeController.ourServices);
     router.get('/terms', homeController.terms);
+    router.get('/contact-success', homeController.contactResponse);
 
     router.get('/activate-account', homeController.activateAccount);
 

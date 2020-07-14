@@ -1535,6 +1535,15 @@
         var arr = $('#contact-us-form').serializeArray();
         var data = {};
         var isError = false;
+        const messageText = $('#message').val();
+        const badWordsResult = checkBadWords(messageText);
+        // alert(badWordsResult);
+        if (messageText !== badWordsResult) {
+            document.getElementById(`message`).focus();
+            $(`#message`).addClass('border-red');
+            $('#error-message-contact').html('Inappropriate input text. Please check');
+            return;
+        }
         $(arr).each(function(index, obj) {
             if (!obj.value || obj.value.trim() === '') {
                 $('#contact-us-form').find('input[name=' + obj.name + ']').addClass('border-red')
@@ -1555,7 +1564,11 @@
             data: JSON.stringify(data),
             success: function(response) {
                 console.log(response);
-                $('#error-message-contact').html('Thanks for contacting us, we wil get back to you shortly.');
+                var frm = document.getElementsByName('contact-form')[0];
+                console.log(frm);
+                frm.reset();  // Reset all form data
+                location.href = '/contact-success';
+                // $('#error-message-contact').html('Thanks for contacting us, we wil get back to you shortly.');
             },
             error: function(xhr) {
                 console.log(xhr.status);
@@ -1680,5 +1693,10 @@
 
         $('#phone_no_job, #phone_no_exhibitor').usPhoneFormat();
     });
+
+    function checkBadWords(message){
+        var badWord = /crap|ugly|analannie|urine|stupid|assfuck|analsex|angry|angie|dick|die|damn|smegma|abo|amateur|addict|adult|addicts|abortion|abbo|turd|abuse|wank|twat|wtf|tosser|tit|spunk|dildo|pube|sh1t|flange|piss|scrotum|queer|jizz|labia|lmfao|nigger|nigga|muff|lmao|knobend|jerk|homo|Goddamn|fudgepacker|dyke|fag|feck|fellate|felching|fellatio|boner|coon|clitoris|buttplug|bum|boob|bugger|bollok|biatch|bloody|blow|bollock|blowjob|anal|balls|ballsack|fucked|anus|penis|dog|slut|poop|suck|fart|shithead|fucker|bastard|cocksucker|cock|tits|bullshit|motherfucking|hell|kiss|witch|brat|fool|ass|fuck|cunt|testicles|vagina|butt|basterddouch|prick|bellend|sex|sexy|fucking|f\*cking|f\*ck|bitch|b\*tch|shit|sh\*t|fool|dumb|couch potato|arse|arsehole|asshole|\*ssh\*l\*|\*\*\*\*|c\*ck|\*\*\*\*sucker|c\*cks\*ck\*r|\*\*\*\*|c\*nt|dickhead|d\*c\*h\*a\*|\*\*\*\*|f\*c\*|\*\*\*\*wit|f\*ckw\*t|fuk|f\*k|fuking|f\*k\*ng|mother\*\*\*\*er|m\*th\*rf\*ck\*r|\*\*\*\*\*\*|n\*gg\*r|pussy|p\*ssy|\*\*\*\*|sh\*t|wanker|w\*nk\*r|wankers|w\*nk\*rs|whore|wh\*r\*|slag| sl\*g|\*\*\*\*\*|b\*tch|f u c k|f\*c\*|b.i.t.c.h|b\*tch|d-i-c-k|d\*\*\*/gi;
+        return message.replace(badWord,"**");
+    }
 
 })(jQuery);

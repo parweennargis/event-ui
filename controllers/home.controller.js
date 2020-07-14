@@ -215,6 +215,7 @@ module.exports = {
     profile: async(req, res) => {
         try {
             const { headers: { cookie } } = req;
+            if (!cookie) throw new Error('Token');
             const cookies = cookie.split('=');
             const headers = {
                 'Content-Type': 'application/json',
@@ -487,7 +488,7 @@ module.exports = {
                 event.data.startYear = startDate[3];
             }
             let isEventFollow = false;
-            const [eventFollow] = (profile && profile.data) ? profile.data.event_follows.filter(id => eventId === id): [];
+            const [eventFollow] = (profile && profile.data && profile.data.event_follows) ? profile.data.event_follows.filter(id => eventId === id): [];
             if (eventFollow) isEventFollow = true;
 
             const data = {

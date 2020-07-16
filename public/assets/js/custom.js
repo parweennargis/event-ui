@@ -1182,15 +1182,16 @@
 
     $('.add-to-cart').on('click', function(e) {
         e.preventDefault();
+        var self = this;
         verifyUser(function(isVerify) {
             if (!isVerify) {
-                $('#login-modal').modal("show");
+                $('.register-modal-btn').trigger('click');
                 return;
             }
 
-            var price = $(this).attr('data-price');
-            var event = $(this).attr('data-event');
-            var id = $(this).attr('data-id');
+            var price = $(self).attr('data-price');
+            var event = $(self).attr('data-event');
+            var id = $(self).attr('data-id');
             var quantity = $('#quantity-' + id).val();
 
             // console.log($(this).attr('data-price'));
@@ -1400,6 +1401,9 @@
     $('.remove').on('click', function(e) {
         e.preventDefault();
         var cartId = $(this).attr('data-id');
+        var eventId = $(this).attr('data-event-id');
+        var price = parseInt($(this).attr('data-price'));
+        var tax = parseInt($(this).attr('data-tax'));
         if (!cartId) return;
         $.ajax({
             method: 'DELETE',
@@ -1409,6 +1413,18 @@
             },
             success: function(response) {
                 console.log(response);
+                $('#' + cartId).remove();
+                var subTotal = parseInt($('#cart-sub-total').text().trim().split('$')[1]);
+                var subTax = parseInt($('#cart-tax').text().trim().split('$')[1]);
+                var total = parseInt($('#cart-total-price').text().trim());
+                $('#cart-sub-total').text('$ ' + (subTotal - price));
+                $('#cart-tax').text('$ ' + (subTax - tax));
+                var finalTotal = total - (price + tax);
+                $('#cart-total-price').text(finalTotal);
+                var plans = $('#' + eventId).find('.event-plan');
+                if (!plans.length) {
+                    $('#' + eventId).remove();
+                }
             },
             error: function(xhr) {
                 console.log(xhr.status);
@@ -1494,7 +1510,7 @@
         var eventId = $(this).attr('data-event');
         verifyUser(function(isVerify) {
             if (!isVerify) {
-                $('#login-modal').modal('show');
+                $('.register-modal-btn').trigger('click');
                 return;
             }
             //TODO: hit api to check if profile is complete and its jobseeker

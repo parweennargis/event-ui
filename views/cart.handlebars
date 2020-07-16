@@ -17,14 +17,14 @@
                 <div class="col-md-9">
                     {{!-- {{log data}} --}}
                     {{#each data }}
-                        <div class="plan-heading mb-3 {{event._id}}" data-count="">
+                        <div class="plan-heading mb-3" data-count="" id="{{event._id}}">
                             <div class="col-md-12">
-                                <h2 class="pb-2"><strong> MEGA JOB FAIR EVENT -</strong></h2>
-                                <h3>FALL 2020- BRAMPTON, ON</h3>
-                                <h4><strong>September 12th, 2020</strong></h4>
+                                <h2 class="pb-2"><strong> {{event.title}} -</strong></h2>
+                                <h3>{{event.venue.city}}, {{event.venue.state}}</h3>
+                                <h4><strong>{{event.startMonth}} {{event.startDay}}, {{event.startYear}}</strong></h4>
                             </div>
                             {{#each plans}}
-                                <div class="col-md-12 {{cartId}}">
+                                <div class="col-md-12 event-plan" id="{{cartId}}">
                                     <div class="cart-item">
                                         <div class="row">
                                             <div class="price col-md-9">
@@ -32,7 +32,7 @@
                                                 <a href="/event/{{../event._id}}" class="bluecolor">More Details</a>
                                             </div>
                                             <div class=" col-md-3 text-right remove-box">
-                                                <a href="#" class="remove" data-id="{{cartId}}" data-event-id="{{../event._id}}"><img src="../assets/images/remove.png" /> Remove</a>
+                                                <a href="#" class="remove" data-id="{{cartId}}" data-event-id="{{../event._id}}" data-price="{{price}}" data-tax="{{tax}}"><img src="../assets/images/remove.png" /> Remove</a>
                                             </div>
                                         </div>
                                         <div class="package-details">
@@ -58,7 +58,7 @@
                             <div class="col-md-5">
                                 Sub Total: 
                             </div>
-                            <div class="col-md-7 text-right">
+                            <div class="col-md-7 text-right" id="cart-sub-total">
                                 ${{totalPrice}}
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                             <div class="col-md-5">
                                 Taxes: 
                             </div>
-                            <div class="col-md-7 text-right">
+                            <div class="col-md-7 text-right" id="cart-tax">
                                 ${{totalTax}}
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                                 Total Price:
                             </div>
                             <div class="col-md-7 text-right">
-                               <strong> ${{math totalTax '+' totalPrice }}</strong>
+                               <strong>$</strong><strong id="cart-total-price">{{math totalTax '+' totalPrice }}</strong>
                             </div>
                         </div>
                         <div class="row mt-3">

@@ -145,6 +145,10 @@ module.exports = {
             const apiResponse = await externalUtils.hitApi({ path: `/cart`, headers });
             // console.log('cart response: ', apiResponse);
             const { totalTax, totalPrice } = apiResponse.data.reduce((prev, curr) => {
+                const startDate = new Date(curr.event.start_date).toDateString().split(' ');
+                curr.event.startDay = startDate[2];
+                curr.event.startMonth = startDate[1];
+                curr.event.startYear = startDate[3];
                 prev.totalTax += curr.tax;
                 prev.totalPrice += curr.price;
                 return prev;

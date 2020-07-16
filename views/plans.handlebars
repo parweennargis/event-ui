@@ -79,13 +79,27 @@
                                                 <div class="separator clear-left">
                                                     <ul>
                                                         {{!-- {{this.description}} --}}
-                                                        <li>- 10x10' Booth space inside the Hall</li>
-                                                            <li>- 1 Month Listing on TTN Job Portal*</li>
-                                                            <li>- Prime Coverage on Poster Adv</li>
-                                                            <li>- PPT Display during event</li>
-                                                            <li>- Social Media Promotion</li>
-                                                            <li>- Newspaper Adv</li>
-                                                            <li>- Radio Ads</li>
+                                                        {{#if this.main_description_1}}
+                                                            <li>- {{this.main_description_1}}</li>
+                                                        {{/if}}
+                                                        {{#if this.main_description_2}}
+                                                            <li>- {{this.main_description_2}}</li>
+                                                        {{/if}}
+                                                        {{#if this.main_description_3}}
+                                                            <li>- {{this.main_description_3}}</li>
+                                                        {{/if}}
+                                                        {{#if this.main_description_4}}
+                                                            <li>- {{this.main_description_4}}</li>
+                                                        {{/if}}
+                                                        {{#if this.main_description_5}}
+                                                            <li>- {{this.main_description_5}}</li>
+                                                        {{/if}}
+                                                        {{#if this.main_description_6}}
+                                                            <li>- {{this.main_description_6}}</li>
+                                                        {{/if}}
+                                                        {{#if this.main_description_7}}
+                                                            <li>- {{this.main_description_7}}</li>
+                                                        {{/if}}
                                                     </ul>
                                                     <div class="row">
                                                         <div class="col-md-5">
@@ -108,193 +122,19 @@
                                 </div>
                             {{/each}}
                             {{#ifCond data.pricing.length '===' 0}}
-                           
-<div class="col-sm-12">
-                                        <div class="col-item">
-                                            <div class="info">
-                                                <div class="row">
-                                                    <div class="w-100">
-                                 <img src="/assets/images/calendar-heart.gif" alt="" class="mt-3 mb-3 " style="max-width: 50px; margin:0 auto;"><br/>
-                                 <h4 style="text-align: center; margin:auto;">No Pricing Plan Found</h4>
-                            </div>
-                                                </div>
-                                               
-                                                <div class="clearfix">
+                                <div class="col-sm-12">
+                                    <div class="col-item">
+                                        <div class="info">
+                                            <div class="row">
+                                                <div class="w-100">
+                                                    <img src="/assets/images/calendar-heart.gif" alt="" class="mt-3 mb-3 " style="max-width: 50px; margin:0 auto;"><br/>
+                                                    <h4 style="text-align: center; margin:auto;">No Pricing Plan Found</h4>
                                                 </div>
                                             </div>
+                                            <div class="clearfix"></div>
                                         </div>
+                                    </div>
                             {{/ifCond}}
-                            {{!-- <div class="slide">
-                                <div class="col-sm-12">
-                                    <div class="col-item">
-                                        <div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-12">
-                                                    <h3>Standard</h3>
-                                                    <h5 class="price-text-color">
-                                                        <span>$</span> 1550</h5>
-                                                    <h6 class="mt-4 mb-4">Standard Booth</h6>
-                                                </div>
-                                            </div>
-                                            <div class="separator clear-left">
-                                                <ul>
-                                                    <li>- 10x10' Booth space inside the Hall</li>
-                                                    <li>- 1 Month Listing on TTN Job Portal*</li>
-                                                    <li>- Prime Coverage on Poster Adv</li>
-                                                    <li>- PPT Display during event</li>
-                                                    <li>- Social Media Promotion</li>
-                                                    <li>- Newspaper Adv</li>
-                                                    <li>- Radio Ads</li>
-                                                </ul>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="numbers-row">
-                                                        <div class="dec inputbutton">-</div> <input type="text"
-                                                            value="1">
-                                                        <div class="inc inputbutton">+</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-7 text-right">
-                                                    <a href="#" class="button-red pl-4 pr-4">Buy this plan</a>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            {{!-- <div class="slide">
-                                <div class="col-sm-12">
-                                    <div class="col-item">
-                                        <div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-12">
-                                                    <h3>Premium</h3>
-                                                    <h5 class="price-text-color">
-                                                        <span>$</span> 1780</h5>
-                                                    <h6 class="mt-4 mb-4">Premium Booth</h6>
-                                                </div>
-                                            </div>
-                                            <div class="separator clear-left">
-                                                <ul>
-                                                    <li>- Standard booth Premium Location</li>
-                                                    <li>- 10x10' Booth space inside the Hall</li>
-                                                    <li>- 1 Month Listing on TTN Job Portal*</li>
-                                                    <li>- Prime Coverage on Poster Adv</li>
-                                                    <li>- PPT Display during event</li>
-                                                    <li>- Social Media Promotion</li>
-                                                    <li>- Newspaper Adv</li>
-                                                    <li>- Radio Ads</li>
-                                                </ul>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="numbers-row">
-                                                        <div class="dec inputbutton">-</div> <input type="text"
-                                                            value="1">
-                                                        <div class="inc inputbutton">+</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-7 text-right">
-                                                    <a href="#" class="button-red pl-4 pr-4">Buy this plan</a>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="slide">
-                                <div class="col-sm-12">
-                                    <div class="col-item">
-                                        <div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-12">
-                                                    <h3>Silver</h3>
-                                                    <h5 class="price-text-color">
-                                                        <span>$</span> 3999</h5>
-                                                    <h6 class="mt-4 mb-4">Hall Premium Location</h6>
-                                                </div>
-                                            </div>
-                                            <div class="separator clear-left">
-                                                <ul>
-                                                    <li>- SILVER Sponsorship</li>
-                                                    <li>- Standard booth Premium Location</li>
-                                                    <li>- 10x10' Booth space inside the Hall</li>
-                                                    <li>- 1 Month Listing on TTN Job Portal*</li>
-                                                    <li>- Prime Coverage on Poster Adv</li>
-                                                    <li>- PPT Display during event</li>
-                                                    <li>- Social Media Promotion</li>
-                                                    <li>- Newspaper Adv</li>
-                                                    <li>- Radio Ads</li>
-                                                </ul>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="numbers-row">
-                                                        <div class="dec inputbutton">-</div> <input type="text"
-                                                            value="1">
-                                                        <div class="inc inputbutton">+</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-7 text-right">
-                                                    <a href="#" class="button-red pl-4 pr-4">Buy this plan</a>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="slide">
-                                <div class="col-sm-12">
-                                    <div class="col-item">
-                                        <div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-12">
-                                                    <h3>Silver</h3>
-                                                    <h5 class="price-text-color">
-                                                        <span>$</span> 3999</h5>
-                                                    <h6 class="mt-4 mb-4">Hall Premium Location</h6>
-                                                </div>
-                                            </div>
-                                            <div class="separator clear-left">
-                                                <ul>
-                                                    <li>- SILVER Sponsorship</li>
-                                                    <li>- Standard booth Premium Location</li>
-                                                    <li>- 10x10' Booth space inside the Hall</li>
-                                                    <li>- 1 Month Listing on TTN Job Portal*</li>
-                                                    <li>- Prime Coverage on Poster Adv</li>
-                                                    <li>- PPT Display during event</li>
-                                                    <li>- Social Media Promotion</li>
-                                                    <li>- Newspaper Adv</li>
-                                                    <li>- Radio Ads</li>
-                                                </ul>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="numbers-row">
-                                                        <div class="dec inputbutton">-</div> <input type="text"
-                                                            value="1">
-                                                        <div class="inc inputbutton">+</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-7 text-right">
-                                                    <a href="#" class="button-red pl-4 pr-4">Buy this plan</a>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
-
-
                         </section>
 
                     </div>
@@ -313,7 +153,7 @@
         {{!-- horizontal ads section ednd --}}
 
         {{!-- other user also bought this --}}
-        <div class="container mt-5">
+        {{!-- <div class="container mt-5">
             <h3 style="text-transform: none;">Other user also bought this items</h3>
             <section class="otheruser slider">
                 <div class="slide">
@@ -410,7 +250,6 @@
 
 
             </section>
-
-        </div>
+        </div> --}}
     </div>
 </section>

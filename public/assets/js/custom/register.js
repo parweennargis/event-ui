@@ -70,7 +70,7 @@
                 console.log(response);
                 if (response.data) {
                     // TODO (set token in local storage, need to chnage in the API)
-                    location.href = "/";
+                    location.href = '/registration-success';
                 }
             },
             error: function (xhr, status, error) {
@@ -148,7 +148,7 @@
                 console.log(response);
                 if (response.data) {
                     // TODO (set token in local storage, need to chnage in the API)
-                    location.href = "/";
+                    location.href = '/registration-success';
                 }
             },
             error: function (xhr, status, error) {

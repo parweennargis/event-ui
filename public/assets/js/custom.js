@@ -1708,7 +1708,7 @@
         //     format: '(xxx) xxx-xxxx',
         // });
 
-        $('#phone_no_job, #phone_no_exhibitor').usPhoneFormat();
+        $('#phone_no_job, #phone_no_exhibitor, #phone_no_contact').usPhoneFormat();
     });
 
     function checkBadWords(message) {

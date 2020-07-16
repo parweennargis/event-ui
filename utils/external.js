@@ -34,7 +34,7 @@ const hitApi = async ({url=`${config.apiUrl}`, path="", method='GET', headers={}
                 reject(JSON.parse(response.body));
             } catch (error) {
                 console.log(error);
-                resolve(response.body);
+                resolve(JSON.parse(response.body));
             }
         });
     });

@@ -21,6 +21,7 @@ router.get('/events/:eventId', homeController.getEventById);
 // Pricing Plan Routes
 router.get('/pricing-plan', pricingController.pricingPlanList);
 router.get('/add-pricing-plan', pricingController.addPricingPlan);
+router.get('/pricing-plan/:pricingId', pricingController.editPricingPlan);
 
 // offline Webinars Routes
 router.get('/offline-all-events', offlineEventController.offlineAllEvents);

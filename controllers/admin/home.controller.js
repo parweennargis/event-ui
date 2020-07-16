@@ -97,6 +97,7 @@ module.exports = {
             }
             eventData.data.endDay = `${endDate.getFullYear()}-${month}-${day}`;
         }
+        eventData.data.pricing = eventData && eventData.data && (eventData.data.pricing || []).map(pricing => pricing._id);
         // console.log(eventData);
         return res.render('admin/update-event', { title: 'Express Admin Event Edit', layout: 'admin', event: eventData.data, pricings: pricings.data, eventCategories: eventCategories.data });
     }

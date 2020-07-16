@@ -95,8 +95,7 @@
                         <select class="js-example-basic-multiple" name="event_category[]" multiple="multiple"
                           style="width:100%">
                           {{#each eventCategories}}
-                          {{!-- <option value="{{_id}}">{{name}}</option> --}}
-                          <option value="{{_id}}" {{#ifIn _id ../event.event_category }}selected{{/ifIn}}>{{name}}</option>
+                            <option value="{{_id}}" {{#ifIn _id ../event.event_category }}selected{{/ifIn}}>{{name}}</option>
                           {{/each}}
                         </select>
                       </div>
@@ -108,10 +107,9 @@
                     <label class="col-sm-2 col-form-label">Event Pricing</label>
                     <div class="col-sm-10">
                       <div class="form-group">
-                        <select class="js-example-basic-multiple" name="pricing" multiple="multiple" style="width:100%">
+                        <select class="js-example-basic-multiple" name="pricing[]" multiple="multiple" style="width:100%">
                           {{#each pricings}}
-                          {{!-- <option value="{{_id}}">{{name}}</option> --}}
-                          <option value="{{_id}}" {{#ifIn _id ../event.pricing }}selected{{/ifIn}}>{{name}}</option>
+                            <option value="{{_id}}" {{#ifIn _id ../event.pricing }}selected{{/ifIn}}>{{name}}</option>
                           {{/each}}
                         </select>
                       </div>

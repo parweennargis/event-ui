@@ -1,0 +1,140 @@
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title"> Create New Pricing Plan </h3>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item" id="error_msg"></li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <form class="forms-sample" id="createEventForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control"  maxlength="50" placeholder="Price Name" id="name" value="{{pricing.name}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Amount</label>
+                    <div class="col-sm-10">
+                      <input type="number" class="form-control" placeholder="Price Amount" id="amount" value="{{pricing.amount}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" maxlength="50" placeholder="Short Description" id="short_description" value="{{pricing.short_description}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Details</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" maxlength="50" placeholder="Details" id="main_description_1" value="{{pricing.main_description_1}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Details</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" maxlength="50" placeholder="Details" id="main_description_2" value="{{pricing.main_description_2}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Details</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" maxlength="50" placeholder="Details" id="main_description_3" value="{{pricing.main_description_3}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Details</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" maxlength="50" placeholder="Details" id="main_description_4" value="{{pricing.main_description_4}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Details</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" maxlength="50" placeholder="Details" id="main_description_5" value="{{pricing.main_description_5}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Details</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" maxlength="50" placeholder="Details" id="main_description_6" value="{{pricing.main_description_6}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Details</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" maxlength="50" placeholder="Details" id="main_description_7" value="{{pricing.main_description_7}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Active</label>
+                    <div class="col-sm-10">
+                      <div class="form-check form-check-primary">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input is_active" name="is_active" {{#ifCond pricing.is_active '===' true}}checked{{/ifCond}} value="true"> Yes </label>
+                      </div>
+                      <div class="form-check form-check-danger">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input is_active" name="is_active" {{#ifCond pricing.is_active '===' false}}checked{{/ifCond}} value="false"> No </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <button class="btn btn-primary mr-2" id="update-pricing-plan" data-id="{{pricing._id}}">Update Pricing Plan</button>
+              <button class="btn btn-light">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- content-wrapper ends -->

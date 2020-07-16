@@ -18,6 +18,20 @@
     color: #2968e7;
 }
 
+.admin-name {
+    width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    /* padding: 0 !important; */
+}
+
+.admin-name:after {
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+
 .bluecolor {
     color: #2968e7 !important;
 }
@@ -480,13 +494,13 @@ ul.social-media-gray {
 
 .forgot a {
     font-size: 14px;
-    color: #333333 !important;
+    color: #cc0b0f;
     padding-left: 30px;
 }
 
 .forgot a:hover {
     font-size: 14px;
-    color: #cc0b0f !important;
+    color: #333 !important;
     padding-left: 30px;
 }
 
@@ -660,7 +674,7 @@ ul.social-media-gray {
     color: #cc0b0f !important;
 }
 
-.dropdown:hover .dropdown-menu {
+#navbarCollapse .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
 }
@@ -1175,7 +1189,7 @@ a.remove {
     height: 30px;
     background: url(/assets/images/cart.png) left bottom no-repeat;
     position: relative;
-    margin: 0 20px;
+    margin: -10px 20px 0;
 }
 
 .cart-value {
@@ -1378,6 +1392,10 @@ a.remove {
 }
 
 .event-image .dropdown-menu {
+    margin-left: 30px;
+}
+
+.tab-content .dropdown-menu {
     margin-left: 30px;
 }
 
@@ -2030,6 +2048,13 @@ a.remove {
     color: red;
 }
 
+#likeToast {
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    z-index: 999;
+}
+
 
 /* 
 
@@ -2226,6 +2251,7 @@ q {
     font-size: 18px;
 }
 
+#phone_no_contact,
 #phone_no_job,
 #phone_no_exhibitor {
     padding-left: 25px;
@@ -2276,6 +2302,12 @@ q {
     } */
     .login:after {
         display: none;
+    }
+    .admin-name {
+        width: 100%;
+    }
+    .cart {
+        margin-top: auto;
     }
     .dropdown-item {
         font-size: 18px;

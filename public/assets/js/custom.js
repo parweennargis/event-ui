@@ -1477,7 +1477,7 @@
         $.each(files, function(key, value) {
             formData.append('file', value);
         });
-        var msgName = name.replace(/^./, name[0].toUpperCase()); 
+        var msgName = name.replace(/^./, name[0].toUpperCase());
         // process the form
         $.ajax({
             type: 'POST',
@@ -1599,7 +1599,7 @@
                 console.log(response);
                 var frm = document.getElementsByName('contact-form')[0];
                 console.log(frm);
-                frm.reset();  // Reset all form data
+                frm.reset(); // Reset all form data
                 location.href = '/contact-success';
                 // $('#error-message-contact').html('Thanks for contacting us, we wil get back to you shortly.');
             },
@@ -1724,19 +1724,19 @@
         //     format: '(xxx) xxx-xxxx',
         // });
 
-        $('#phone_no_job, #phone_no_exhibitor').usPhoneFormat();
+        $('#phone_no_job, #phone_no_exhibitor, #phone_no_contact').usPhoneFormat();
     });
 
-    function checkBadWords(message){
+    function checkBadWords(message) {
         var badWord = /crap|ugly|analannie|urine|stupid|assfuck|analsex|angry|angie|dick|die|damn|smegma|abo|amateur|addict|adult|addicts|abortion|abbo|turd|abuse|wank|twat|wtf|tosser|tit|spunk|dildo|pube|sh1t|flange|piss|scrotum|queer|jizz|labia|lmfao|nigger|nigga|muff|lmao|knobend|jerk|homo|Goddamn|fudgepacker|dyke|fag|feck|fellate|felching|fellatio|boner|coon|clitoris|buttplug|bum|boob|bugger|bollok|biatch|bloody|blow|bollock|blowjob|anal|balls|ballsack|fucked|anus|penis|dog|slut|poop|suck|fart|shithead|fucker|bastard|cocksucker|cock|tits|bullshit|motherfucking|hell|kiss|witch|brat|fool|ass|fuck|cunt|testicles|vagina|butt|basterddouch|prick|bellend|sex|sexy|fucking|f\*cking|f\*ck|bitch|b\*tch|shit|sh\*t|fool|dumb|couch potato|arse|arsehole|asshole|\*ssh\*l\*|\*\*\*\*|c\*ck|\*\*\*\*sucker|c\*cks\*ck\*r|\*\*\*\*|c\*nt|dickhead|d\*c\*h\*a\*|\*\*\*\*|f\*c\*|\*\*\*\*wit|f\*ckw\*t|fuk|f\*k|fuking|f\*k\*ng|mother\*\*\*\*er|m\*th\*rf\*ck\*r|\*\*\*\*\*\*|n\*gg\*r|pussy|p\*ssy|\*\*\*\*|sh\*t|wanker|w\*nk\*r|wankers|w\*nk\*rs|whore|wh\*r\*|slag| sl\*g|\*\*\*\*\*|b\*tch|f u c k|f\*c\*|b.i.t.c.h|b\*tch|d-i-c-k|d\*\*\*/gi;
-        return message.replace(badWord,"**");
+        return message.replace(badWord, "**");
     }
 
     function previewImages(files, id) {
         $('.' + id + '-preview').html('');
         for (let file of files) {
             var reader = new FileReader();
-            reader.onload = function (e) {
+            reader.onload = function(e) {
                 var img = '<div class="image-width col-md-3"><img src="' + e.target.result + '"/></div>';
                 $('.' + id + '-preview').append(img);
             };
@@ -1745,7 +1745,17 @@
     }
 
     $('#resume').change(function(e) {
-        previewImages($(this)[0].files, 'resume');    
+        previewImages($(this)[0].files, 'resume');
+    });
+
+
+    $(document).ready(function() {
+        $("#likeToast").hide();
+        $(".like-event").click(function showAlert() {
+            $("#likeToast").fadeTo(2000, 500).slideUp(500, function() {
+                $("#likeToast").slideUp(500);
+            });
+        });
     });
 
 })(jQuery);

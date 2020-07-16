@@ -1,5 +1,8 @@
 <!-- event-details-section - start
 		================================================== -->
+
+       
+
     <section id="event-details-section" class="event-details-section sec-ptb-100  mobile-space clearfix">
           <div class="main-banner">
             <div class="bg-img">
@@ -32,6 +35,11 @@
             <!-- sidebar-section - start -->
             <div class="col-lg-4 col-md-12 col-sm-12">
                 <div class="sidebar-section bg-gray">
+                      <div class="alert alert-success" id="likeToast">
+                            {{!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> --}}
+                            The event is followed successfully!
+            </div>
+
                     <div class="row">
                         <div class="col-md-7 col-sm-6">
                         <div class="event-info-list">
@@ -50,6 +58,8 @@
                                 <i class="like-icon far fa-heart " ></i>
                             {{/if}}                                
                             </a>
+                      
+
                             <a href="" class="post-share" data-toggle="dropdown">
                                 <img src="/assets/images/share.png" alt="Share">
                             </a>
@@ -156,6 +166,10 @@
     </section>
     <!-- event-details-section - end
 		================================================== -->
+
+         
+
+
     <script>
         // print HTML as pdf
         document.getElementById('elementToPrint').addEventListener("click", convertHTMLtoPDF);

@@ -42,6 +42,7 @@ const indexRoutes = (app, router) => {
     router.get('/services', homeController.ourServices);
     router.get('/terms', homeController.terms);
     router.get('/contact-success', homeController.contactResponse);
+    router.get('/registration-success', homeController.registrationSuccess);
 
     router.get('/activate-account', homeController.activateAccount);
 

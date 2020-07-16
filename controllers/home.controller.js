@@ -21,11 +21,11 @@ const clearCookie = (err, req, res) => {
 }
 
 const getSponsors = async () => {
-   return  externalUtils.hitApi({ path: "/sponsors", qs: { 'is_active': true } });
+    return externalUtils.hitApi({ path: "/sponsors", qs: { 'is_active': true } });
 }
 
 module.exports = {
-    home: async(req, res) => {
+    home: async (req, res) => {
         try {
             const promises = [];
             promises.push(externalUtils.hitApi({ path: "/events" }));
@@ -67,7 +67,7 @@ module.exports = {
             redirectPage(error, req, res);
         }
     },
-    eventDetail: async(req, res) => {
+    eventDetail: async (req, res) => {
         try {
             const { params: { eventId }, headers: { cookie } } = req;
             const promises = [
@@ -104,7 +104,7 @@ module.exports = {
             redirectPage(error, req, res);
         }
     },
-    getEvents: async(req, res) => {
+    getEvents: async (req, res) => {
         try {
             const { query: { page, eventCategoryId } } = req;
             const apiResponse = await externalUtils.hitApi({ path: `/events`, qs: { page, eventCategoryId } });
@@ -125,16 +125,16 @@ module.exports = {
             return res.status(400).json({ message: error.message });
         }
     },
-    register: async(req, res) => {
+    register: async (req, res) => {
         const data = {
             host: req.hostname
         };
         return res.render('register', { title: 'Register', data });
     },
-    plans: async(req, res) => {
+    plans: async (req, res) => {
         return res.render('plans');
     },
-    cart: async(req, res) => {
+    cart: async (req, res) => {
         try {
             const { headers: { cookie } } = req;
             const cookies = cookie.split('=');
@@ -160,7 +160,7 @@ module.exports = {
             return res.redirect('/');
         }
     },
-    eventPlan: async(req, res) => {
+    eventPlan: async (req, res) => {
         try {
             const { params: { eventId } } = req;
             const apiResponse = await externalUtils.hitApi({ path: `/events/${eventId}` });
@@ -180,7 +180,7 @@ module.exports = {
             return res.redirect('/');
         }
     },
-    checkout: async(req, res) => {
+    checkout: async (req, res) => {
         try {
             const { headers: { cookie } } = req;
             const cookies = cookie.split('=');
@@ -206,16 +206,19 @@ module.exports = {
             return res.redirect('/');
         }
     },
-    response: async(req, res) => {
+    response: async (req, res) => {
         return res.render('response');
     },
-    contactResponse: async(req, res) => {
+    contactResponse: async (req, res) => {
         return res.render('contact-response');
     },
-    error: async(req, res) => {
+    registrationSuccess: async (req, res) => {
+        return res.render('registration-success');
+    },
+    error: async (req, res) => {
         return res.render('404-error');
     },
-    profile: async(req, res) => {
+    profile: async (req, res) => {
         try {
             const { headers: { cookie } } = req;
             if (!cookie) throw new Error('Token');
@@ -234,7 +237,7 @@ module.exports = {
             redirectPage(error, req, res);
         }
     },
-    resetPassword: async(req, res) => {
+    resetPassword: async (req, res) => {
         try {
             const { query: { token } } = req;
             if (!token) throw new Error('Link is invalid');
@@ -252,7 +255,7 @@ module.exports = {
         }
 
     },
-    login: async(req, res) => {
+    login: async (req, res) => {
         try {
             const { body } = req;
             const headers = {
@@ -269,11 +272,11 @@ module.exports = {
             return res.status(400).json({ data: error });
         }
     },
-    logout: async(req, res) => {
+    logout: async (req, res) => {
         res.clearCookie('token');
         return res.json({});
     },
-    payment: async(req, res) => {
+    payment: async (req, res) => {
         try {
             const { headers: { cookie }, body } = req;
             const cookies = cookie.split('=');
@@ -288,7 +291,7 @@ module.exports = {
             return res.status(400).json({ data: error });
         }
     },
-    addItemIncart: async(req, res) => {
+    addItemIncart: async (req, res) => {
         try {
             const { headers: { cookie }, body } = req;
             const cookies = cookie.split('=');
@@ -305,7 +308,7 @@ module.exports = {
             return res.status(400).json({ data: error });
         }
     },
-    forgotPassword: async(req, res) => {
+    forgotPassword: async (req, res) => {
         try {
             const { body } = req;
             const headers = {
@@ -320,7 +323,7 @@ module.exports = {
             return res.status(400).json({ data: error });
         }
     },
-    changePassword: async(req, res) => {
+    changePassword: async (req, res) => {
         try {
             const { body } = req;
             const headers = {
@@ -335,7 +338,7 @@ module.exports = {
             return res.status(400).json({ data: error });
         }
     },
-    getUserCart: async(req, res) => {
+    getUserCart: async (req, res) => {
         try {
             const { headers: { cookie } } = req;
             const cookies = cookie.split('=');
@@ -356,7 +359,7 @@ module.exports = {
             return res.status(400).json({ data: error });
         }
     },
-    verify: async(req, res) => {
+    verify: async (req, res) => {
         try {
             const { headers: { cookie } } = req;
             const cookies = cookie.split('=');
@@ -377,7 +380,7 @@ module.exports = {
             return res.status(400).json({ data: error.message || error });
         }
     },
-    deleteItemFromCart: async(req, res) => {
+    deleteItemFromCart: async (req, res) => {
         try {
             const { headers: { cookie }, params: { cartId } } = req;
             const cookies = cookie.split('=');
@@ -397,7 +400,7 @@ module.exports = {
             return res.status(400).json({ data: error.message || error });
         }
     },
-    postRegister: async(req, res) => {
+    postRegister: async (req, res) => {
         try {
             const { body } = req;
             const headers = {
@@ -412,7 +415,7 @@ module.exports = {
             return res.status(400).json({ data: error });
         }
     },
-    updateProfile: async(req, res) => {
+    updateProfile: async (req, res) => {
         try {
             const { headers: { cookie }, body } = req;
             const cookies = cookie.split('=');
@@ -432,7 +435,7 @@ module.exports = {
             return res.status(400).json({ data: error.message || error });
         }
     },
-    uploadData: async(req, res) => {
+    uploadData: async (req, res) => {
         try {
             const { headers: { cookie }, body: { name }, file } = req;
             const cookies = cookie.split('=');
@@ -467,7 +470,7 @@ module.exports = {
             return res.status(400).json({ data: error.message || error });
         }
     },
-    virtualEventDetail: async(req, res) => {
+    virtualEventDetail: async (req, res) => {
         try {
             const { params: { eventId }, headers: { cookie } } = req;
             const promises = [
@@ -491,7 +494,7 @@ module.exports = {
                 event.data.startYear = startDate[3];
             }
             let isEventFollow = false;
-            const [eventFollow] = (profile && profile.data && profile.data.event_follows) ? profile.data.event_follows.filter(id => eventId === id): [];
+            const [eventFollow] = (profile && profile.data && profile.data.event_follows) ? profile.data.event_follows.filter(id => eventId === id) : [];
             if (eventFollow) isEventFollow = true;
 
             const data = {
@@ -510,7 +513,7 @@ module.exports = {
             redirectPage(error, req, res);
         }
     },
-    eventAction: async(req, res) => {
+    eventAction: async (req, res) => {
         try {
             const { headers: { cookie }, body } = req;
             const cookies = cookie.split('=');
@@ -530,13 +533,13 @@ module.exports = {
             return res.status(400).json({ data: error.message || error });
         }
     },
-    contact: async(req, res) => {
+    contact: async (req, res) => {
         const promises = [];
         promises.push(getSponsors());
         const [sponsors] = await Promise.all(promises);
         return res.render('contact', { title: 'Contact Us', data: { sponsors: sponsors.data } });
     },
-    sendContact: async(req, res) => {
+    sendContact: async (req, res) => {
         try {
             const { body } = req;
             const headers = {
@@ -551,19 +554,19 @@ module.exports = {
             return res.status(400).json({ data: error.message || error });
         }
     },
-    aboutus: async(req, res) => {
+    aboutus: async (req, res) => {
         const promises = [];
         promises.push(getSponsors());
         const [sponsors] = await Promise.all(promises);
         return res.render('aboutus', { title: 'AboutUs', data: { sponsors: sponsors.data } });
     },
-    faq: async(req, res) => {
+    faq: async (req, res) => {
         const promises = [];
         promises.push(getSponsors());
         const [sponsors] = await Promise.all(promises);
         return res.render('faq', { title: 'FAQ', data: { sponsors: sponsors.data } });
     },
-    previousEvents: async(req, res) => {
+    previousEvents: async (req, res) => {
         try {
             const promises = [];
             promises.push(externalUtils.hitApi({ path: "/previous-events" }));
@@ -582,7 +585,7 @@ module.exports = {
         }
 
     },
-    previousEventsDetails: async(req, res) => {
+    previousEventsDetails: async (req, res) => {
         try {
             const { params: { eventId } } = req;
             const promises = [
@@ -594,7 +597,7 @@ module.exports = {
             eventData.data = splitDate([eventData.data])[0];
             // console.log('previous event detail response: ', eventData);
 
-            return res.render('previous-events-details', { title: 'Previous Event Detail', data: { event: eventData.data, sponsors: sponsors.data }});
+            return res.render('previous-events-details', { title: 'Previous Event Detail', data: { event: eventData.data, sponsors: sponsors.data } });
         } catch (error) {
             console.error(error);
             // return res.render('404-error');
@@ -602,7 +605,7 @@ module.exports = {
         }
 
     },
-    tabPreviousEvents: async(req, res) => {
+    tabPreviousEvents: async (req, res) => {
         try {
             const { query: { eventCategoryId } } = req;
             const eventData = await externalUtils.hitApi({ path: `/previous-events`, qs: { eventCategoryId } });
@@ -616,16 +619,16 @@ module.exports = {
             return res.status(400).json({ message: error.message });
         }
     },
-    ourServices: async(req, res) => {
+    ourServices: async (req, res) => {
         return res.render('our-services');
     },
-    partners: async(req, res) => {
+    partners: async (req, res) => {
         return res.render('partners');
     },
-    terms: async(req, res) => {
+    terms: async (req, res) => {
         return res.render('terms');
     },
-    activateAccount: async(req, res) => {
+    activateAccount: async (req, res) => {
         try {
             const { query: { token } } = req;
             if (!token) return res.render('activate-account', { error: 'Link is Invalid' });

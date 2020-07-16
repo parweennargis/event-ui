@@ -287,11 +287,17 @@
     // print form
     document.getElementById('printButton').addEventListener("click", print)
     function print() {
-        var tabId = $('#myTab').find('.nav-link.active').attr('href');
+        {{!-- var tabId = $('#myTab').find('.nav-link.active').attr('href'); --}}
         printJS({
-            printable: tabId.split('#')[1],
-            type: 'html'
-        })
+            printable: 'myTabContent', //tabId.split('#')[1],
+            type: 'html',
+            css: [
+                'http://dev.neuproelectro.com/assets/css/custom.css',
+                'http://dev.neuproelectro.com/assets/css/style.css',
+                'http://dev.neuproelectro.com/assets/css/bootstrap.min.css',
+                'http://dev.neuproelectro.com/assets/css/fontawesome-all.css'
+            ]
+        });
     }
 
     // send msg on whatsapp

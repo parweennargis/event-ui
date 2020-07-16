@@ -1042,8 +1042,11 @@
                         this.reset();
                     });
                     // $('#register-modal').modal('hide');
-                    // location.href = "/"
-                    window.location.reload();
+                    if (window.location.pathname === '/register') {
+                        location.href = "/"
+                    } else {
+                        window.location.reload();
+                    }
                 }
             },
             error: function(xhr, status, error) {

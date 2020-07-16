@@ -36,7 +36,7 @@ module.exports = {
         const body = { event_type: 'ONLINE' };
 
         const events = await hitApi.hitApi({ path: '/all-events', method: 'POST', body, headers });
-        console.log(events);
+        // console.log(events);
         return res.render('admin/event', { title: 'Express Admin Event', layout: 'admin', events: events.data });
     },
     addEvent: async (req, res) => {
@@ -97,7 +97,7 @@ module.exports = {
             }
             eventData.data.endDay = `${endDate.getFullYear()}-${month}-${day}`;
         }
-        console.log(eventData);
+        // console.log(eventData);
         return res.render('admin/update-event', { title: 'Express Admin Event Edit', layout: 'admin', event: eventData.data, pricings: pricings.data, eventCategories: eventCategories.data });
     }
 };

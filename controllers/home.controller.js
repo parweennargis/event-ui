@@ -92,8 +92,7 @@ module.exports = {
             }
             const data = {
                 event: event.data,
-                user: profile && profile.data ? profile.data : null,
-                isUser: profile && profile.data,
+                user: profile && profile.data,
                 host: req.hostname,
                 sponsors: sponsors.data
             };

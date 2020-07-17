@@ -284,7 +284,7 @@ module.exports = {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${cookies[1]}`
             };
-            // const apiResponse = await externalUtils.hitApi({ path: `/payment`, method: 'POST', body, headers });
+            const apiResponse = await externalUtils.hitApi({ path: `/payment`, method: 'POST', body, headers });
             res.json({});
         } catch (error) {
             console.log(error);
@@ -373,7 +373,7 @@ module.exports = {
             const apiResponse = await externalUtils.hitApi({ path: `/verify`, headers });
             // console.log('verify response: ', apiResponse);
 
-            res.json({ data: true });
+            res.json({ data: apiResponse.data });
         } catch (error) {
             console.log(error);
             clearCookie(error, req, res);
@@ -643,5 +643,8 @@ module.exports = {
             console.log(error);
             return res.render('activate-account', { error: error.errors });
         }
-    }
+    },
+    checkoutResponse: async (req, res) => {
+        return res.render('checkout-response');
+    },
 };

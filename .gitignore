@@ -8,3 +8,6 @@ public/.DS_Store
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+#webstorm file
+.idea

@@ -207,7 +207,7 @@
                                             </a>
                                             <div class="nav-item dropdown user">
                                                 <a href="#" class="nav-link dropdown-toggle admin-name "
-                                                    data-toggle="dropdown">pradeep.pk4411@gmail.com</a>
+                                                    data-toggle="dropdown"></a>
                                                 <div class="dropdown-menu dropdown-menu-right">
                                                     <a href='/profile' class="dropdown-item">My Profile</a>
                                                     {{!-- <a href='#' class="dropdown-item">My Orders</a> --}}
@@ -638,6 +638,10 @@
     <script src="/assets/js/custom/register.js "></script>
     <script src="/assets/js/jquery-input-mask-phone-number.js "></script>
     <script>
+        $(window).on('load', function () {
+            var email = localStorage.getItem('email');
+            $('.admin-name').text(email);
+        })
     </script>
 </body>
 

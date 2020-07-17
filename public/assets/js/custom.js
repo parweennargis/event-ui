@@ -1240,6 +1240,8 @@
                 if (location.href === window.location.origin + window.location.pathname) {
                     $('#absolute-eventmake-section').hide();
                 }
+                localStorage.setItem('email', response.data.email);
+                localStorage.setItem('role', response.data.role);
                 console.log(location.href);
                 console.log(window.location);
                 return cb(true);
@@ -1275,11 +1277,13 @@
         data['isSameAsBilling'] = isChecked;
         // console.log('isChecked: ', isChecked);
         if (!isChecked) {
+            var billing = {};
             var billingInfo = $('#payment-form').serializeArray();
             console.log(billingInfo);
             billingInfo.forEach(function(row) {
-                data[row.name] = row.value;
+                billing[row.name] = row.value;
             });
+            data.billing = billing;
         }
         console.log(data);
         $.ajax({
@@ -1291,10 +1295,14 @@
             data: JSON.stringify(data),
             success: function(response) {
                 console.log(response);
+                location.href = '/checkout-success';
             },
             error: function(xhr, status, error) {
                 console.log(xhr.status);
                 console.log(xhr.responseJSON);
+                $("#checkout-error").html(xhr.responseJSON.data.errors).fadeTo(2000, 500).slideUp(500, function() {
+                    $("#checkout-error").slideUp(500);
+                });
             }
         });
     });
@@ -1757,5 +1765,17 @@
             });
         });
     });
+
+    $('#checkout').on('click', function (e) {
+        e.preventDefault();
+        var cartPrice = parseInt($('#cart-total-price').text());
+        if (cartPrice === 0) {
+            $("#cart-error").html('Please add any event to cart').fadeTo(2000, 500).slideUp(500, function() {
+                $("#cart-error").slideUp(500);
+            });
+        } else {
+            location.href = '/checkout';
+        }
+    })
 
 })(jQuery);

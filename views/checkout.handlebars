@@ -32,7 +32,7 @@
                                     <strong>Price</strong>
                                 </div>
                                 <div class="col-md-2">
-                                    <strong>HST</strong>
+                                    <strong>HST/GST</strong>
                                 </div>
                                 <div class="col-md-3">
                                     <strong>Subtotal</strong>
@@ -55,89 +55,28 @@
                                             ${{ total_price }}
                                         </div>
                                     {{/each}}
-                                    {{!-- <div class="col-md-4 pb-3">
-                                        Premium
-                                    </div>
-                                    <div class="col-md-3 pb-3">
-                                        $1800
-                                    </div>
-                                    <div class="col-md-2 pb-3">
-                                        $200
-                                    </div>
-                                    <div class="col-md-3 pb-3">
-                                        $2000
-                                    </div> --}}
                                 </div>
                             </div>
-
                         </div>
                         {{/each}}
                         
-
-
-                        {{!-- <div class="col-md-12 ">
-                            <h4> MEGA JOB FAIR EVENT - <strong>FALL 2020- BRAMPTON, ON
-                                    September 12th, 2020</strong></h4>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="row mt-4 mb-3 pl-4 pr-4">
-                                <div class="col-md-4">
-                                    <strong> Package Type</strong>
-                                </div>
-                                <div class="col-md-3">
-                                    <strong>Price</strong>
-                                </div>
-                                <div class="col-md-2">
-                                    <strong>Tax</strong>
-                                </div>
-                                <div class="col-md-3">
-                                    <strong>Subtotal</strong>
-                                </div>
-                            </div>
-
-                            <div class=" cart-itembox">
-                                <div class="row">
-
-
-                                    <div class="col-md-4 pb-3">
-                                        Gold
-                                    </div>
-                                    <div class="col-md-3 pb-3">
-                                        $1800
-                                    </div>
-                                    <div class="col-md-2 pb-3">
-                                        $200
-                                    </div>
-                                    <div class="col-md-3 pb-3">
-                                        $2000
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div> --}}
-
                         <div class="col-md-6 mt-4">
-                            <strong>Amount Due</strong>
+                            <strong>Your Amount Due</strong>
                         </div>
                         <div class="col-md-6 mt-4 text-right">
                             <span class="amountdue mr-4">${{math totalPrice '+' totalTax}}</span>
                         </div>
-
                     </div>
-
-
                 </div>
 
                 {{!-- Right section --}}
                 <div class="col-md-6">
                     <h4> Invoice Information</h4>
-                    {{!-- {{log profile}} --}}
                     <div class="plan-heading p-2  invoice mb-3 p-4">
                         Company Name: {{ profile.company_name }}<br/>
                         Attn: {{profile.first_name}} {{profile.last_name}}<br />
                         Address: {{profile.address}}<br />
-                        Hawkesbury, {{profile.postal_code}}<br />
+                        {{profile.state}} {{profile.province}}, {{profile.postal_code}}<br />
                         Email: {{profile.email}}<br/>
                         Phone: {{profile.phone_no}}
                     </div>
@@ -146,7 +85,6 @@
                     <div class="plan-heading  invoice mb-3">
                         <div class="p-2">
                             <input type="checkbox" id="payment" checked> Is billing information same as Invoice Information.
-                            {{!-- <span  id="payment">click here.</span> --}}
                         </div>
                         <div class="row mt-3">
                             <form id="payment-form" class="row mt-3">
@@ -154,7 +92,7 @@
                                     <div class="form-group col-md-6 col-sm-12 " >
                                         <label class="string optional active" for="user-pw">First
                                             Name<span>*</span> </label>
-                                        <input class="form-control" id="name" placeholder="" type="text" name="first_name"
+                                        <input class="form-control" placeholder="" type="text" name="first_name"
                                             value="">
                                     </div>
                                     <div class="form-group col-md-6 col-sm-12">
@@ -175,9 +113,9 @@
                                             class="form-control" placeholder="" value="" />
                                     </div>
                                     <div class="form-group col-md-6 col-sm-12">
-                                        <label class="string optional active" for="user-pw">Designation
+                                        <label class="string optional active" for="user-pw">Job Title
                                         </label>
-                                        <input type="text" class="form-control" placeholder="" value="" name="designation" />
+                                        <input type="text" class="form-control" placeholder="" value="" name="current_position" />
                                     </div>
                                     <div class="form-group col-md-6 col-sm-12">
                                         <label class="string optional active" for="user-pw">
@@ -197,28 +135,11 @@
                                             Postal Code<span>*</span> </label>
                                         <input type="text" class="form-control" placeholder="" value=""  name="postal_code"/>
                                     </div>
-                                
                                     <div class="form-group col-md-6 col-sm-12">
                                         <label class="string optional active" for="user-pw">
                                             Country<span>*</span> </label>
                                         <input type="text" class="form-control" placeholder="" value="" name="country"/>
                                     </div>
-
-
-                                    {{!-- <div class="form-group col-md-6 col-sm-12">
-                                        <label class="string optional active" for="user-pw">Business
-                                            Website<span>*</span> </label>
-                                        <input id="address" type="text" class="form-control" placeholder="" name="address"
-                                            value="">
-                                    </div>
-                                    <div class="form-group col-md-6 col-sm-12">
-                                        <label class="string optional active" for="user-pw">Business
-                                            Name<span>*</span> </label>
-                                        <input id="postal_code" type="text" class="form-control" placeholder=""
-                                            name="postal_code" value="" />
-                                    </div> --}}
-
-
                                 </div>
                             </form>
                         </div>
@@ -240,12 +161,10 @@
                         <div class="agree_text text-right  mt-3">Clicking on pay now button you agree to our
                             <a class="special" href="/terms" target="_blank" role="link">Terms &amp; Conditons</a>
                             </div>
-
+                        <div class="alert alert-danger col-md-12 col-sm-12" id="checkout-error"></div>
                         <div class=" row mt-4">
                             <div class="col-md-6 text-left totolamt"></div>
                             <div class="col-md-6 text-right"> <button type="button" class="btn btn-danger pl-5 pr-5 pay-now">Pay Now</button></div>
-                            
-                            
                         </div>
                     </div>
                 </div>
@@ -255,3 +174,8 @@
         </div>
     </div>
 </section>
+<script>
+    $(window).on('load', function() {
+        $("#checkout-error").hide();
+    });
+</script>

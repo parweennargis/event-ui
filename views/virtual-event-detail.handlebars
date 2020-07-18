@@ -1,17 +1,16 @@
 <!-- event-details-section - start
 		================================================== -->
 
-       
 
-    <section id="event-details-section" class="event-details-section sec-ptb-100  mobile-space clearfix">
-          <div class="main-banner">
-            <div class="bg-img">
-                {{#if data.event.banner}}
-                    <img src="{{data.event.banner}}" alt="Image_not_found">
-                {{else}}
-                    <img src="/assets/images/linked-profile-2.jpg" alt="Image_not_found">
-                {{/if}}
-            </div>
+<section id="event-details-section" class="event-details-section sec-ptb-100  mobile-space clearfix">
+    <div class="main-banner">
+        <div class="bg-img">
+            {{#if data.event.banner}}
+                <img src="{{data.event.banner}}" alt="Image_not_found">
+            {{else}}
+                <img src="/assets/images/linked-profile-2.jpg" alt="Image_not_found">
+            {{/if}}
+        </div>
     </div>
     <div class="container bg-white">
         <div class="row ">
@@ -35,46 +34,51 @@
             <!-- sidebar-section - start -->
             <div class="col-lg-4 col-md-12 col-sm-12">
                 <div class="sidebar-section bg-gray">
-                      <div class="alert alert-success" id="likeToast">
-                            {{!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> --}}
-                            The event is followed successfully!
-            </div>
+                    <div class="alert alert-success" id="likeToast">
+                        {{!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> --}}
+                        The event is followed successfully!
+                    </div>
 
                     <div class="row">
                         <div class="col-md-7 col-sm-6">
-                        <div class="event-info-list">
-                            <div class="event-content">
-                                        {{!-- <small class="event-title">Event Date</small> --}}
-                                        <h2 class="event-date">{{data.event.startMonth}}  {{data.event.startDay}}<br />
-                                            {{data.event.startYear}}</h2>
-                                    </div>
+                            <div class="event-info-list">
+                                <div class="event-content">
+                                    {{!-- <small class="event-title">Event Date</small> --}}
+                                    <h2 class="event-date">{{data.event.startMonth}}  {{data.event.startDay}}<br/>
+                                        {{data.event.startYear}}</h2>
+                                </div>
+                            </div>
                         </div>
-</div>
                         <div class="col-md-5 col-sm-6 shareall" id="shareall">
-                            <a href="" class="like-event" data-event="{{data.event._id}}" data-like="{{#if data.isEventFollow}}true{{else}}false{{/if}}">
-                            {{#if data.isEventFollow}}
-                                <i class="like-icon fas fa-heart"></i>
-                            {{else}}
-                                <i class="like-icon far fa-heart " ></i>
-                            {{/if}}                                
+                            <a href="" class="like-event" data-event="{{data.event._id}}"
+                               data-like="{{#if data.isEventFollow}}true{{else}}false{{/if}}">
+                                {{#if data.isEventFollow}}
+                                    <i class="like-icon fas fa-heart"></i>
+                                {{else}}
+                                    <i class="like-icon far fa-heart "></i>
+                                {{/if}}
                             </a>
-                      
+
 
                             <a href="" class="post-share" data-toggle="dropdown">
                                 <img src="/assets/images/share.png" alt="Share">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a href="http://www.facebook.com/sharer.php?u={{data.host}}/virtual-event/{{data.event._id}}" target="_blank">
-                                    <i class="fab fa-facebook" aria-hidden="true"></i> Share on Facebook
+                                <a href="http://www.facebook.com/sharer.php?u={{data.host}}
+                                /virtual-event/{{data.event._id}}" target="_blank">
+                                <i class="fab fa-facebook" aria-hidden="true"></i> Share on Facebook
                                 </a>
-                                <a href="http://www.twitter.com/share?url={{data.host}}/virtual-event/{{data.event._id}}" target="_blank">
-                                    <i class="fab fa-twitter" aria-hidden="true"></i> Share on Twitter
+                                <a href="http://www.twitter.com/share?url={{data.host}}/virtual-event/{{data.event._id}}
+                                " target="_blank">
+                                <i class="fab fa-twitter" aria-hidden="true"></i> Share on Twitter
                                 </a>
-                                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{data.host}}/virtual-event/{{data.event._id}}" target="_blank">
-                                    <i class="fab fa-linkedin" aria-hidden="true"></i> Share on LinkedIn
+                                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{data.host}}
+                                /virtual-event/{{data.event._id}}" target="_blank">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i> Share on LinkedIn
                                 </a>
-                                <a href="mailto:?subject={{data.event.title}}&body={{data.host}}/virtual-event/{{data.event._id}}" target="_blank">
-                                    <i class="far fa-envelope" aria-hidden="true"></i> Email
+                                <a href="mailto:?subject={{data.event.title}}&body={{data.host}}
+                                /virtual-event/{{data.event._id}}" target="_blank">
+                                <i class="far fa-envelope" aria-hidden="true"></i> Email
                                 </a>
                                 <a href="#" id="elementToPrint">
                                     <i class="fa fa-download" aria-hidden="true"></i> Download
@@ -87,25 +91,26 @@
 									<i class="fas fa-bookmark"></i>
 									Featured Event
 								</span> -->
-                            <h2 class="event-title">{{data.event.title}}</h2>
-                            {{#if data.event.organizer.email}}
-                                <span>by {{data.event.organizer.email}}</span>
-                            {{/if }}
-                        </div>
-                        <div class="ticket-box">
-                            {{!-- <div class="price">$40 – $99</div> --}}
-                            <div class="purchase">
-                                   <div class="button">
-                                        <a href="#" class="button-red disp-flow-root pt-2 pb-2 buy-ticket"  data-event="{{data.event.zoom_link}}">Register Now</a>
-                                    </div>
+                        <h2 class="event-title">{{data.event.title}}</h2>
+                        {{#if data.event.organizer.email}}
+                            <span>by {{data.event.organizer.email}}</span>
+                        {{/if }}
+                    </div>
+                    <div class="ticket-box">
+                        {{!-- <div class="price">$40 – $99</div> --}}
+                        <div class="purchase">
+                            <div class="button">
+                                <a href="#" class="button-red disp-flow-root pt-2 pb-2 buy-ticket"
+                                   data-event="{{data.event.zoom_link}}">Register Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- sidebar-section - end -->
+        </div>
+        <!-- sidebar-section - end -->
 
- <div class="row">
+        <div class="row">
 
             <div class="col-lg-8 col-md-12 col-sm-12">
                 <!-- event-details - start -->
@@ -123,27 +128,28 @@
                         <!-- location-wrapper - start -->
                         <div class="mb-30">
 
-                             <div class="title-content">
-                                     <h6>Date And Time</h6>
-                                    <p>{{data.event.startMonth}} {{data.event.startDay}}, {{data.event.startYear}}, {{data.event.start_time}} - {{data.event.end_time}}</p>
-                                    
-                        <!-- Add to Calendar - start -->
-                        {{!-- <div title="Add to Calendar" class="addeventatc">
-                            Add to Calendar
-                            <span class="start">09/12/2020 09:30 AM</span>
-                            <span class="end">09/12/2020 04:30 PM</span>
-                            <span class="timezone">America/Toronto</span>
-                            <span class="title">MEGA JOB FAIR EVENT - FALL 2020- BRAMPTON, ON</span>
-                            <span class="description">MEGA JOB FAIR EVENT - FALL 2020- BRAMPTON, ON</span>
-                            <span class="location">PEARSON CONVENTION CENTER</span>
-                            <span class="organizer">Organizer</span>
-                            <span class="organizer_email">nav@thetruckingnetwork.ca</span>
-                            <span class="all_day_event">false</span>
-                            <span class="date_format">MM/DD/YYYY</span>
-                        </div> --}}
+                            <div class="title-content">
+                                <h6>Date And Time</h6>
+                                <p>{{data.event.startMonth}} {{data.event.startDay}}, {{data.event.startYear}}
+                                    , {{data.event.start_time}} {{data.event.start_time_type}} - {{data.event.end_time}} {{data.event.end_time_type}} EDT</p>
 
-                                </div>
-                            
+                                <!-- Add to Calendar - start -->
+                                {{!-- <div title="Add to Calendar" class="addeventatc">
+                                    Add to Calendar
+                                    <span class="start">09/12/2020 09:30 AM</span>
+                                    <span class="end">09/12/2020 04:30 PM</span>
+                                    <span class="timezone">America/Toronto</span>
+                                    <span class="title">MEGA JOB FAIR EVENT - FALL 2020- BRAMPTON, ON</span>
+                                    <span class="description">MEGA JOB FAIR EVENT - FALL 2020- BRAMPTON, ON</span>
+                                    <span class="location">PEARSON CONVENTION CENTER</span>
+                                    <span class="organizer">Organizer</span>
+                                    <span class="organizer_email">nav@thetruckingnetwork.ca</span>
+                                    <span class="all_day_event">false</span>
+                                    <span class="date_format">MM/DD/YYYY</span>
+                                </div> --}}
+
+                            </div>
+
                             <div class="title-content mb-30">
                                 <h6>Location</h6>
                                 <p> Online</p>
@@ -152,41 +158,40 @@
                                 <h6>Refund Policy</h6>
                                 <p> No Refunds</p>
                             </div>
+                        </div>
                     </div>
-                    </div>
-                        <!-- location-wrapper - end -->
-                    </div>
+                    <!-- location-wrapper - end -->
                 </div>
             </div>
-            <div class="col-md-12">
-                <hr>
-            </div>
-</div>
         </div>
-    </section>
-    <!-- event-details-section - end
-		================================================== -->
+        <div class="col-md-12">
+            <hr>
+        </div>
+    </div>
+    </div>
+</section>
+<!-- event-details-section - end
+    ================================================== -->
 
-         
 
+<script>
+    // print HTML as pdf
+    document.getElementById('elementToPrint').addEventListener("click", convertHTMLtoPDF);
 
-    <script>
-        // print HTML as pdf
-        document.getElementById('elementToPrint').addEventListener("click", convertHTMLtoPDF);
-        function convertHTMLtoPDF() {
-            printJS({
-                printable: 'event-details-section',
-                type: 'html',
-                documentTitle: '{{data.event.title}}',
-                 css: [
+    function convertHTMLtoPDF() {
+        printJS({
+            printable: 'event-details-section',
+            type: 'html',
+            documentTitle: '{{data.event.title}}',
+            css: [
                 'http://dev.neuproelectro.com/assets/css/custom.css',
                 'http://dev.neuproelectro.com/assets/css/style.css',
                 'http://dev.neuproelectro.com/assets/css/bootstrap.min.css'
-                ],
-                ignoreElements: [
-                    'shareall'
-                ],
-                style:'#event-details-carousel:{width: 100%}'
-            });
-        }
-    </script>
+            ],
+            ignoreElements: [
+                'shareall'
+            ],
+            style: '#event-details-carousel:{width: 100%}'
+        });
+    }
+</script>

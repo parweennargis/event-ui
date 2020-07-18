@@ -1,5 +1,5 @@
 const externalUtils = require('../utils/external');
-const { splitDate } = require('../utils/helper');
+const { splitDate, splitTime } = require('../utils/helper');
 const fs = require('fs');
 
 const redirectPage = (err, req, res) => {
@@ -38,6 +38,8 @@ module.exports = {
             // Event list api
             eventList.data.items = (eventList.data && eventList.data.items) ? splitDate(eventList.data.items) : [];
             offlineEventList.data.items = (offlineEventList.data && offlineEventList.data.items) ? splitDate(offlineEventList.data.items) : [];
+            eventList.data.items = (eventList.data && eventList.data.items) ? splitTime(eventList.data.items) : [];
+            offlineEventList.data.items = (offlineEventList.data && offlineEventList.data.items) ? splitTime(offlineEventList.data.items) : [];
             const virtualEventCategories = [];
             const [defaultVirtualEventCat] = (offlineEventCategories.data || []).filter(item => item.default);
             const virtualEventCat = (offlineEventCategories.data || []).filter(item => !item.default);
@@ -85,10 +87,8 @@ module.exports = {
             const [event, sponsors, profile] = await Promise.all(promises);
 
             if (event && event.data && event.data.start_date) {
-                const startDate = new Date(event.data.start_date).toDateString().split(' ');
-                event.data.startDay = startDate[2];
-                event.data.startMonth = startDate[1];
-                event.data.startYear = startDate[3];
+                event.data = splitDate([event.data], false)[0];
+                event.data = splitTime([event.data], false)[0];
             }
             const data = {
                 event: event.data,
@@ -107,19 +107,12 @@ module.exports = {
     getEvents: async (req, res) => {
         try {
             const { query: { page, eventCategoryId } } = req;
-            const apiResponse = await externalUtils.hitApi({ path: `/events`, qs: { page, eventCategoryId } });
-            apiResponse.data.items = apiResponse.data.items.reduce((prev, curr, index) => {
-                if (index == 3) prev.push({ ad: true });
-                const startDate = new Date(curr.start_date).toDateString().split(' ');
-                curr.startDay = startDate[2];
-                curr.startMonth = startDate[1];
-                curr.startYear = startDate[3];
-                prev.push(curr);
-                return prev;
-            }, []);
+            const eventList = await externalUtils.hitApi({ path: `/events`, qs: { page, eventCategoryId } });
+            eventList.data.items = (eventList.data && eventList.data.items) ? splitDate(eventList.data.items) : [];
+            eventList.data.items = (eventList.data && eventList.data.items) ? splitTime(eventList.data.items) : [];
 
             // console.log(apiResponse);
-            return res.status(200).json(apiResponse);
+            return res.status(200).json(eventList);
         } catch (error) {
             console.log(error);
             return res.status(400).json({ message: error.message });
@@ -488,10 +481,8 @@ module.exports = {
             const [event, sponsors, profile] = await Promise.all(promises);
 
             if (event && event.data && event.data.start_date) {
-                const startDate = new Date(event.data.start_date).toDateString().split(' ');
-                event.data.startDay = startDate[2];
-                event.data.startMonth = startDate[1];
-                event.data.startYear = startDate[3];
+                event.data = splitDate([event.data], false)[0];
+                event.data = splitTime([event.data], false)[0];
             }
             let isEventFollow = false;
             const [eventFollow] = (profile && profile.data && profile.data.event_follows) ? profile.data.event_follows.filter(id => eventId === id) : [];

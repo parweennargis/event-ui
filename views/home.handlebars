@@ -2,36 +2,36 @@
 		================================================== -->
 <section id="main-carousel2" class="main-carousel2 clearfix">
     {{#each data.eventList.items }}
-    {{#unless ad}}
-    <div class="item" style="background-image: url(assets/images/slider/slider-bg1.jpg);">
-        <div class="overlay-black">
-            <div class="container">
-                <div class="col-lg-10 divider">
+        {{#unless ad}}
+            <div class="item" style="background-image: url(assets/images/slider/slider-bg1.jpg);">
+                <div class="overlay-black">
+                    <div class="container">
+                        <div class="col-lg-10 divider">
 
-                    <!-- slider-content - start -->
-                    <div class="slider-content">
-                        <div class="row">
-                            <div class="col-md-7 text-center slider-left-content">
-                                <strong class="slider-head"><span>Mega</span> Job Fair</strong>
-                                <h2>Jobs for Trucking Professionals</h2>
+                            <!-- slider-content - start -->
+                            <div class="slider-content">
+                                <div class="row">
+                                    <div class="col-md-7 text-center slider-left-content">
+                                        <strong class="slider-head"><span>Mega</span> Job Fair</strong>
+                                        <h2>Jobs for Trucking Professionals</h2>
+                                    </div>
+                                    <div class="col-md-5 text-center ">
+                                        <span class=" date ">{{startMonth}} {{startDay}}, {{startYear}}</span>
+                                        <span class="time ">@ {{start_time}} - {{end_time}}</span>
+                                        <h3>
+                                            <strong> {{venue.name}} <br/> {{venue.city}}, {{venue.state}}</strong>
+                                        </h3>
+                                        {{!-- <h3 class="mb-3">Free Entry and Free Parking</h3> --}}
+                                        <a href="/event/{{_id}}" class="button-red">More Details</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-5 text-center ">
-                                <span class=" date ">{{startMonth}} {{startDay}}, {{startYear}}</span>
-                                <span class="time ">@ {{start_time}} - {{end_time}}</span>
-                                <h3>
-                                    <strong> {{venue.name}} <br/> {{venue.city}}, {{venue.state}}</strong>
-                                </h3>
-                                {{!-- <h3 class="mb-3">Free Entry and Free Parking</h3> --}}
-                                <a href="/event/{{_id}}" class="button-red">More Details</a>
-                            </div>
+                            <!-- slider-content - end -->
                         </div>
                     </div>
-                    <!-- slider-content - end -->
                 </div>
             </div>
-        </div>
-    </div>
-    {{/unless}}
+        {{/unless}}
     {{/each}}
 </section>
 <!-- slide-section - end
@@ -90,7 +90,6 @@
 		================================================== -->
 
 
-
 <!-- why attend - start ================================================== -->
 
 <section class="why-attend pt-5 pb-3 clearfix">
@@ -98,7 +97,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="section-title text-center">
-                    <h2>Why <strong> Attend</strong> </h2>
+                    <h2>Why <strong> Attend</strong></h2>
                 </div>
                 <div class="attend-content">
                     {{!-- <p>
@@ -109,11 +108,23 @@
                         for both companies & professionals, and can only be of beneficial in lots of different ways.
                     </p> --}}
                     <p>
-                    <strong>Open up job options</strong> <br/>TTN Mega Job fair offers you the chance to touch base with dozens of potential employers and top fleets. You can learn what types of jobs they offer and if they have any suitable opening. You may also find some less than obvious job opportunities that would fit your experience. Meeting with recruiters offers you a chance to ask questions and expand your knowledge about a potential employer. </p>
-<p>
-<strong>Getting a job</strong><br/> This is the main reason why people should attend a mega job fair. It offers you a chance to present yourself to potential employers. If you make a good impression, you may end up with an interview right on the spot. Even if they don't interview you immediately, they will take your resume and get back to you at a later time. The more contacts you make, the more opportunities you will have to land a job.</p>
-<p>
-<strong>Nothing beats a face to face meeting</strong><br/> Often, job seekers complaining the loudest about job fairs being a waste of time are the same ones making little effort to present themselves in a professional way. Recruiters make the effort to go to job fairs because they are looking to fill positions. A little preparation on your part can go a long way, since you never know whom you may meet.</p>
+                        <strong>Open up job options</strong> <br/>TTN Mega Job fair offers you the chance to touch base
+                        with dozens of potential employers and top fleets. You can learn what types of jobs they offer
+                        and if they have any suitable opening. You may also find some less than obvious job
+                        opportunities that would fit your experience. Meeting with recruiters offers you a chance to ask
+                        questions and expand your knowledge about a potential employer. </p>
+                    <p>
+                        <strong>Getting a job</strong><br/> This is the main reason why people should attend a mega job
+                        fair. It offers you a chance to present yourself to potential employers. If you make a good
+                        impression, you may end up with an interview right on the spot. Even if they don't interview you
+                        immediately, they will take your resume and get back to you at a later time. The more contacts
+                        you make, the more opportunities you will have to land a job.</p>
+                    <p>
+                        <strong>Nothing beats a face to face meeting</strong><br/> Often, job seekers complaining the
+                        loudest about job fairs being a waste of time are the same ones making little effort to present
+                        themselves in a professional way. Recruiters make the effort to go to job fairs because they are
+                        looking to fill positions. A little preparation on your part can go a long way, since you never
+                        know whom you may meet.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12">
@@ -208,7 +219,7 @@
                 <!-- section-title - start -->
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="section-title text-left">
-                        <h2 class="big-title">Virtual <strong> Events</strong> </h2>
+                        <h2 class="big-title">Virtual <strong> Events</strong></h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
@@ -219,7 +230,7 @@
                             >></a>
                     </div>
                     <div id="more-virtual-events"
-                        class="reglog-modal-wrapper width1000 register-modal mfp-hide clearfix">
+                         class="reglog-modal-wrapper width1000 register-modal mfp-hide clearfix">
                         <div class="overlay-black clearfix">
                             <!-- rightside-content - start -->
                             <div class="rightside-content text-center login-section">
@@ -227,7 +238,7 @@
                                     <div class="know-tab-menu clearfix">
                                         <ul class="nav">
                                             <li><a data-toggle="tab" href="#jobfair-text" class="active">Virtual Job
-                                                    Fair</a></li>
+                                                Fair</a></li>
                                             <li><a data-toggle="tab" href="#webinar-text">Webinar</a></li>
                                         </ul>
                                     </div>
@@ -271,13 +282,17 @@
                                                 traditional fairs known to be a hub for recurring challenges e.g.:</p>
                                             <ul>
                                                 <li>Bringing together job seekers and attractive employers under one
-                                                    physical roof.</li>
+                                                    physical roof.
+                                                </li>
                                                 <li>Low attendance volume due to the inability of guests and exhibitors
-                                                    to participate from across the country.</li>
+                                                    to participate from across the country.
+                                                </li>
                                                 <li>Inefficient talent acquisition due to manual resume
-                                                    sorting/shortlisting performed by hiring managers.</li>
+                                                    sorting/shortlisting performed by hiring managers.
+                                                </li>
                                                 <li>Difficulty in marketing and attracting qualified prospects to the
-                                                    career fair.</li>
+                                                    career fair.
+                                                </li>
                                                 <li>No measurable results and real-time insights to determine event ROI.
                                                 </li>
                                             </ul>
@@ -392,7 +407,6 @@
                             <!-- rightside-content - end -->
 
 
-
                             <a class="popup-modal-dismiss" href="#!">
                                 <i class="fas fa-times"></i>
                             </a>
@@ -407,13 +421,13 @@
                     <div class="event-tab-menu clearfix">
                         <ul class="nav">
                             {{#each data.offlineEventCategories}}
-                            <li>
-                                <a data-toggle="tab" href="#"
-                                    class="virtual-event {{#ifCond @index '===' 0}}active show {{/ifCond}}"
-                                    data-event={{_id}}>
-                                    {{name}}
-                                </a>
-                            </li>
+                                <li>
+                                    <a data-toggle="tab" href="#"
+                                       class="virtual-event {{#ifCond @index '===' 0}}active show {{/ifCond}}"
+                                       data-event={{_id}}>
+                                        {{name}}
+                                    </a>
+                                </li>
                             {{/each}}
 
                         </ul>
@@ -430,109 +444,112 @@
                 <div id="virtual-event" class="tab-pane  fade in active show">
                     <section class="virtual slider">
                         {{#each data.offlineEventList.items }}
-                        <div class="slide">
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="event-item3 clearfix">
-                                        <!-- event-image - start -->
-                                        <div class="event-image">
-                                            {{!-- <div class="post-date">
-                                            <span class="date">{{startDay}}</span>
-                                            <small class="month">{{startMonth}}</small>
-                                        </div> --}}
-                                            {{!-- <a href="#" class="post-share">
-                                           
-                                        </a> --}}
+                            <div class="slide">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="event-item3 clearfix">
+                                            <!-- event-image - start -->
+                                            <div class="event-image">
+                                                {{!-- <div class="post-date">
+                                                <span class="date">{{startDay}}</span>
+                                                <small class="month">{{startMonth}}</small>
+                                            </div> --}}
+                                                {{!-- <a href="#" class="post-share">
 
-                                            <div class="dropdown shareall">
-                                                <a href="#" class="post-share" data-toggle="dropdown">
-                                                    <img src="assets/images/share.png" alt="Share">
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="http://www.facebook.com/sharer.php?u={{../data.host}}/virtual-event/{{_id}}"
+                                            </a> --}}
+
+                                                <div class="dropdown shareall">
+                                                    <a href="#" class="post-share" data-toggle="dropdown">
+                                                        <img src="assets/images/share.png" alt="Share">
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="http://www.facebook.com/sharer.php?u={{../data.host}}
+                                                        /virtual-event/{{_id}}"
                                                         target="_blank">
                                                         <i class="fab fa-facebook" aria-hidden="true"></i> Share on
                                                         Facebook
-                                                    </a>
+                                                        </a>
 
-                                                    <a href="http://www.twitter.com/share?url={{../data.host}}/virtual-event/{{_id}}"
+                                                        <a href="http://www.twitter.com/share?url={{../data.host}}
+                                                        /virtual-event/{{_id}}"
                                                         target="_blank">
                                                         <i class="fab fa-twitter" aria-hidden="true"></i> Share on
                                                         Twitter
-                                                    </a>
+                                                        </a>
 
-                                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{../data.host}}/virtual-event/{{_id}}"
+                                                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{../data.host}}
+                                                        /virtual-event/{{_id}}"
                                                         target="_blank">
                                                         <i class="fab fa-linkedin" aria-hidden="true"></i> Share on
                                                         LinkedIn
-                                                    </a>
+                                                        </a>
 
-                                                    <a href="mailto:?subject={{title}}&body={{../data.host}}/virtual-event/{{_id}}"
+                                                        <a href="mailto:?subject={{title}}&body={{../data.host}}
+                                                        /virtual-event/{{_id}}"
                                                         target="_blank">
                                                         <i class="far fa-envelope" aria-hidden="true"></i> Email
-                                                    </a>
+                                                        </a>
 
 
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            {{#if banner}}
-                                            <a href="/virtual-event/{{_id}}" data-event="{{_id}}" target="_blank">
-                                                <img src="{{banner}}" alt="Image_not_found">
-                                            </a>
-                                            {{else}}
-                                            <img src="/assets/images/upcoming-img.jpg" alt="Image_not_found">
-                                            {{/if}}
-
-                                        </div>
-                                        <!-- event-image - end -->
-                                        <!-- event-content - start -->
-                                        <div class="event-content">
-                                            <div class="event-title mb-15">
-                                                <h3 class="title">
+                                                {{#if banner}}
                                                     <a href="/virtual-event/{{_id}}" data-event="{{_id}}"
-                                                        target="_blank">
-                                                        {{title}}
+                                                       target="_blank">
+                                                        <img src="{{banner}}" alt="Image_not_found">
                                                     </a>
-                                                </h3>
-                                                {{!-- <span class="ticket-price greycolor">{{short_description}}</span> --}}
+                                                {{else}}
+                                                    <img src="/assets/images/upcoming-img.jpg" alt="Image_not_found">
+                                                {{/if}}
+
                                             </div>
-                                            <div class="event-post-meta ul-li-block mb-15">
-                                                <ul>
-                                                    <li><a href="/virtual-event/{{_id}}" data-event="{{_id}}"
-                                                            target="_blank">
+                                            <!-- event-image - end -->
+                                            <!-- event-content - start -->
+                                            <div class="event-content">
+                                                <div class="event-title mb-15">
+                                                    <h3 class="title">
+                                                        <a href="/virtual-event/{{_id}}" data-event="{{_id}}"
+                                                           target="_blank">
+                                                            {{title}}
+                                                        </a>
+                                                    </h3>
+                                                    {{!-- <span class="ticket-price greycolor">{{short_description}}</span> --}}
+                                                </div>
+                                                <div class="event-post-meta ul-li-block mb-15">
+                                                    <ul>
+                                                        <li><a href="/virtual-event/{{_id}}" data-event="{{_id}}"
+                                                               target="_blank">
                                                             <span class="icon">
                                                                 <i class="far fa-clock"></i>
                                                             </span>
                                                             <span class="date">{{startMonth}} {{startDay}}, </small>
-                                                                {{start_time}} to {{end_time}}</span>
+                                                                {{start_time}} {{start_time_type}} to {{end_time}} {{end_time_type}} EDT</span>
                                                         </a>
-                                                    </li>
-                                                    {{!-- <li>
-                                                    <span class="icon">
-                                                            <i class="fas fa-map-marker-alt"></i>
-                                                        </span> {{venue.name}}
-                                                </li> --}}
-                                                </ul>
+                                                        </li>
+                                                        {{!-- <li>
+                                                        <span class="icon">
+                                                                <i class="fas fa-map-marker-alt"></i>
+                                                            </span> {{venue.name}}
+                                                    </li> --}}
+                                                    </ul>
+                                                </div>
+                                                {{!-- <div class="text-center">
+                                                <a href="event/{{_id}}" class="button-red">
+                                                Event Details
+                                                </a>
+                                            </div> --}}
                                             </div>
-                                            {{!-- <div class="text-center">
-                                            <a href="event/{{_id}}" class="button-red">
-                                            Event Details
-                                            </a>
-                                        </div> --}}
+                                            <!-- event-content - end -->
                                         </div>
-                                        <!-- event-content - end -->
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
                         {{/each}}
+                        {{#ifCond data.offlineEventList.items.length '===' 0}}
+                            <p>No Event(s) Found</p>
+                        {{/ifCond}}
                     </section>
                 </div>
-
-                {{#ifCond data.offlineEventList.items.length '===' 0}}
-                <p>No Event(s) Found</p>
-                {{/ifCond}}
             </div>
         </div>
     </div>
@@ -559,7 +576,7 @@
                 <!-- section-title - start -->
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="section-title text-left">
-                        <h2 class="big-title">Upcoming Onsite <strong> Events</strong> </h2>
+                        <h2 class="big-title">Upcoming Onsite <strong> Events</strong></h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
@@ -598,7 +615,6 @@
                             <!-- rightside-content - end -->
 
 
-
                             <a class="popup-modal-dismiss" href="#!">
                                 <i class="fas fa-times"></i>
                             </a>
@@ -614,13 +630,13 @@
                     <div class="event-tab-menu clearfix" id="online-event">
                         <ul class="nav">
                             {{#each data.eventCategories}}
-                            <li>
-                                <a data-toggle="tab" href="#"
-                                    class="online-event {{#ifCond @index '===' 0}}active show {{/ifCond}}"
-                                    data-event={{_id}}>
-                                    {{name}}
-                                </a>
-                            </li>
+                                <li>
+                                    <a data-toggle="tab" href="#"
+                                       class="online-event {{#ifCond @index '===' 0}}active show {{/ifCond}}"
+                                       data-event={{_id}}>
+                                        {{name}}
+                                    </a>
+                                </li>
                             {{/each}}
 
                         </ul>
@@ -637,113 +653,111 @@
             <div id="ttn-event" class="tab-pane  fade in active show">
                 <div class="row">
                     {{#each data.eventList.items }}
-                    {{#if ad}}
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="event-item2 clearfix text-center no-shadow">
-                            <img src="assets/images/ad-img.jpg" alt="Image_not_found">
-                        </div>
-                    </div>
-                    {{else}}
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="event-item2 clearfix">
-                            <!-- event-image - start -->
-                            <div class="dropdown shareall">
-                                <a href="#" class="post-share" data-toggle="dropdown">
-                                    <img src="assets/images/share.png" alt="Share">
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="http://www.facebook.com/sharer.php?u={{../data.host}}/event/{{_id}}"
-                                        target="_blank">
-                                        <i class="fab fa-facebook" aria-hidden="true"></i> Share on Facebook
-                                    </a>
-
-                                    <a href="http://www.twitter.com/share?url={{../data.host}}/event/{{_id}}"
-                                        target="_blank">
-                                        <i class="fab fa-twitter" aria-hidden="true"></i> Share on Twitter
-                                    </a>
-
-                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{../data.host}}/event/{{_id}}"
-                                        target="_blank">
-                                        <i class="fab fa-linkedin" aria-hidden="true"></i> Share on LinkedIn
-                                    </a>
-
-                                    <a href="mailto:?subject={{title}}&body={{../data.host}}/event/{{_id}}"
-                                        target="_blank">
-                                        <i class="far fa-envelope" aria-hidden="true"></i> Email
-                                    </a>
-
+                        {{#if ad}}
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="event-item2 clearfix text-center no-shadow">
+                                    <img src="assets/images/ad-img.jpg" alt="Image_not_found">
                                 </div>
                             </div>
-                            <div class="event-image">
-                                <div class="post-date">
-                                    <span class="date">{{startDay}}</span>
-                                    <small class="month">{{startMonth}}</small>
-                                </div>
-                                {{!-- <a href="#" class="post-share">
-                                           
-                                        </a> --}}
+                        {{else}}
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="event-item2 clearfix">
+                                    <!-- event-image - start -->
+                                    <div class="dropdown shareall">
+                                        <a href="#" class="post-share" data-toggle="dropdown">
+                                            <img src="assets/images/share.png" alt="Share">
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="http://www.facebook.com/sharer.php?u={{../data.host}}/event/{{_id}}
+                                            "
+                                            target="_blank">
+                                            <i class="fab fa-facebook" aria-hidden="true"></i> Share on Facebook
+                                            </a>
 
+                                            <a href="http://www.twitter.com/share?url={{../data.host}}/event/{{_id}}"
+                                            target="_blank">
+                                            <i class="fab fa-twitter" aria-hidden="true"></i> Share on Twitter
+                                            </a>
 
-                                <img src="assets/images/upcoming-img.jpg" alt="Image_not_found">
-                            </div>
+                                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{../data.host}}
+                                            /event/{{_id}}"
+                                            target="_blank">
+                                            <i class="fab fa-linkedin" aria-hidden="true"></i> Share on LinkedIn
+                                            </a>
 
-                            <!-- event-image - end -->
-                            <!-- event-content - start -->
-                            <div class="event-content">
-                                <div class="event-title mb-15">
-                                    <h3 class="title">
-                                        {{title}} - </br>
-                                        {{startMonth}} {{startYear}} - {{venue.city}},{{venue.state}}
-                                    </h3>
-                                    <span class="ticket-price greycolor">{{short_description}}</span>
-                                </div>
-                                <div class="event-post-meta ul-li-block mb-15">
-                                    <ul>
-                                        <li style="font-size: 14px;">
+                                            <a href="mailto:?subject={{title}}&body={{../data.host}}/event/{{_id}}"
+                                            target="_blank">
+                                            <i class="far fa-envelope" aria-hidden="true"></i> Email
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    <div class="event-image">
+                                        <div class="post-date">
+                                            <span class="date">{{startDay}}</span>
+                                            <small class="month">{{startMonth}}</small>
+                                        </div>
+                                        <img src="assets/images/upcoming-img.jpg" alt="Image_not_found">
+                                    </div>
+
+                                    <!-- event-image - end -->
+                                    <!-- event-content - start -->
+                                    <div class="event-content">
+                                        <div class="event-title mb-15">
+                                            <h3 class="title">
+                                                {{title}} - </br>
+                                                {{startMonth}} {{startYear}} - {{venue.city}},{{venue.state}}
+                                            </h3>
+                                            <span class="ticket-price greycolor">{{short_description}}</span>
+                                        </div>
+                                        <div class="event-post-meta ul-li-block mb-15">
+                                            <ul>
+                                                <li style="font-size: 14px;">
                                             <span class="icon">
                                                 <i class="far fa-clock"></i>
-                                            </span> {{start_time}} to {{end_time}}
-                                        </li>
-                                        <li>
+                                            </span> {{start_time}} {{start_time_type}} to {{end_time}} {{end_time_type}} EDT
+                                                </li>
+                                                <li>
                                             <span class="icon">
                                                 <i class="fas fa-map-marker-alt"></i>
                                             </span> {{venue.name}}
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="text-center">
-                                    <a href="event/{{_id}}" class="button-red" target="_blank">
-                                        Event Details
-                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="text-center">
+                                            <a href="event/{{_id}}" class="button-red" target="_blank">
+                                                Event Details
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- event-content - end -->
                                 </div>
                             </div>
-                            <!-- event-content - end -->
-                        </div>
-                    </div>
-                    {{/if}}
+                        {{/if}}
                     {{/each}}
                     {{#ifCond data.eventList.items.length '===' 0}}
-                    <p>No Event(s) Found</p>
+                        <p>No Event(s) Found</p>
                     {{/ifCond}}
                 </div>
             </div>
             <!-- conference-event - end -->
             <div class="col-lg-12 col-md-12 col-sm-12 event-pagination">
                 {{#ifCond data.eventList.noOfPages '>' 1}}
-                <div class="pagination ul-li clearfix">
-                    <ul>
-                        <li class="page-item prev-item">
-                            <a class="page-link" href="#" data-page="1">Prev</a>
-                        </li>
-                        {{#times data.eventList.noOfPages}}
-                        <li class="page-item curr-item {{#ifCond this '===' 1}}active{{/ifCond}}" data-page={{this}}><a
-                                class="page-link" href="#">{{this}}</a></li>
-                        {{/times}}
-                        <li class="page-item next-item">
-                            <a class="page-link" href="#" data-page="{{data.eventList.noOfPages}}">Next</a>
-                        </li>
-                    </ul>
-                </div>
+                    <div class="pagination ul-li clearfix">
+                        <ul>
+                            <li class="page-item prev-item">
+                                <a class="page-link" href="#" data-page="1">Prev</a>
+                            </li>
+                            {{#times data.eventList.noOfPages}}
+                                <li class="page-item curr-item {{#ifCond this '===' 1}}active{{/ifCond}}"
+                                    data-page={{this}}><a
+                                        class="page-link" href="#">{{this}}</a></li>
+                            {{/times}}
+                            <li class="page-item next-item">
+                                <a class="page-link" href="#" data-page="{{data.eventList.noOfPages}}">Next</a>
+                            </li>
+                        </ul>
+                    </div>
                 {{/ifCond}}
             </div>
         </div>

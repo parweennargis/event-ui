@@ -887,16 +887,16 @@
                                 if (item.banner) {
                                     banner = '<a href="/virtual-event/' + item._id + '" data-event="' + item._id + '" target="_blank"><img src="' + item.banner + '" alt="Image_not_found"></a>';
                                 }
-                                html += '<div class="slide"><div class="row"><div class="col-lg-12 col-md-12 col-sm-12"><div class="event-item3 clearfix"><div class="event-image">' + shareHtml(item._id, item.title) + banner + '</div><div class="event-content"><div class="event-title mb-15"><h3 class="title"><a href="/virtual-event/' + item._id + '" data-event="' + item._id + '" target="_blank">' + item.title + '</a></h3></div><div class="event-post-meta ul-li-block mb-15"><ul><li><a href="/virtual-event/' + item._id + '" data-event="' + item._id + '" target="_blank"><span class="icon"><i class="far fa-clock"></i></span><span class="date">' + item.startDay + ' ' + item.startMonth + '</small> ' + item.start_time + ' to ' + item.end_time + '</span></li></ul></div></div></div></div></div></div>';
+                                html += '<div class="slide"><div class="row"><div class="col-lg-12 col-md-12 col-sm-12"><div class="event-item3 clearfix"><div class="event-image">' + shareHtml(item._id, item.title) + banner + '</div><div class="event-content"><div class="event-title mb-15"><h3 class="title"><a href="/virtual-event/' + item._id + '" data-event="' + item._id + '" target="_blank">' + item.title + '</a></h3></div><div class="event-post-meta ul-li-block mb-15"><ul><li><a href="/virtual-event/' + item._id + '" data-event="' + item._id + '" target="_blank"><span class="icon"><i class="far fa-clock"></i></span><span class="date">' + item.startDay + ' ' + item.startMonth + '</small> ' + item.start_time + ' ' + item.start_time_type + ' to ' + item.end_time + ' ' + item.end_time_type + ' EDT</span></li></ul></div></div></div></div></div></div>';
                             }
-                        })
-                        html += '</div>';
+                        });
+                        html += '</section>';
                         $('#virtual-event').html(html);
                         data = result.data;
                         virtualEventSlider();
                         return cb(null, data);
                     } else {
-                        html += '<p>No Event(s) Found';
+                        html += '<p>No Event(s) Found</p></section>';
                         $('#virtual-event').html(html);
                         data = result.data;
                         return cb(null, data);
@@ -958,7 +958,7 @@
                             if (item.ad) {
                                 html += '<div class="col-lg-3 col-md-6 col-sm-12"><div class="event-item2 clearfix text-center no-shadow"><img src="assets/images/ad-img.jpg" alt="Image_not_found"></div></div>';
                             } else {
-                                html += '<div class="col-lg-3 col-md-6 col-sm-12"><div class="event-item2 clearfix">' + shareEventHtml(item._id, item.title) + '<div class="event-image"><div class="post-date"><span class="date">' + item.startDay + '</span><small class="month">' + item.startMonth + '</small></div><img src="assets/images/upcoming-img.jpg" alt="Image_not_found"></div><div class="event-content"><div class="event-title mb-15"><h3 class="title">' + item.title + ' - </br> ' + ' ' + item.startMonth + ' ' + item.startYear + ' - ' + item.venue.city + ',' + item.venue.state + '</h3><span class="ticket-price greycolor">' + item.short_description + '</span></div><div class="event-post-meta ul-li-block mb-15"><ul><li><span class="icon"><i class="far fa-clock"></i></span>' + item.start_time + ' to ' + item.end_time + '</li><li><span class="icon"><i class="fas fa-map-marker-alt"></i></span>' + item.venue.name + '</li></ul></div><div class="text-center"><a href="event/' + item._id + '" class="button-red" target="_blank">Event Details</a></div></div></div></div>';
+                                html += '<div class="col-lg-3 col-md-6 col-sm-12"><div class="event-item2 clearfix">' + shareEventHtml(item._id, item.title) + '<div class="event-image"><div class="post-date"><span class="date">' + item.startDay + '</span><small class="month">' + item.startMonth + '</small></div><img src="assets/images/upcoming-img.jpg" alt="Image_not_found"></div><div class="event-content"><div class="event-title mb-15"><h3 class="title">' + item.title + ' - </br> ' + ' ' + item.startMonth + ' ' + item.startYear + ' - ' + item.venue.city + ',' + item.venue.state + '</h3><span class="ticket-price greycolor">' + item.short_description + '</span></div><div class="event-post-meta ul-li-block mb-15"><ul><li><span class="icon"><i class="far fa-clock"></i></span>' + item.start_time + ' ' + item.start_time_type + ' to ' + item.end_time  + ' ' + item.end_time_type + ' EDT </li><li><span class="icon"><i class="fas fa-map-marker-alt"></i></span>' + item.venue.name + '</li></ul></div><div class="text-center"><a href="event/' + item._id + '" class="button-red" target="_blank">Event Details</a></div></div></div></div>';
                             }
                         })
                         html += '</div>';
@@ -966,7 +966,7 @@
                         data = result.data;
                         return cb(null, data);
                     } else {
-                        html += '<p>No Event(s) Found';
+                        html += '<p>No Event(s) Found</p>';
                         $('#ttn-event').html(html);
                         data = result.data;
                         return cb(null, data);
@@ -1236,14 +1236,15 @@
                 'Content-Type': 'application/json'
             },
             success: function(response) {
-                console.log(response);
+                // console.log(response);
                 if (location.href === window.location.origin + window.location.pathname) {
                     $('#absolute-eventmake-section').hide();
                 }
-                localStorage.setItem('email', response.data.email);
-                localStorage.setItem('role', response.data.role);
-                console.log(location.href);
-                console.log(window.location);
+                // localStorage.setItem('email', response.data.email);
+                // localStorage.setItem('role', response.data.role);
+                $('.admin-name').text(response.data.email);
+                // console.log(location.href);
+                // console.log(window.location);
                 return cb(true);
             },
             error: function(xhr, status, error) {
@@ -1433,6 +1434,7 @@
                 if (!plans.length) {
                     $('#' + eventId).remove();
                 }
+                cart();
             },
             error: function(xhr) {
                 console.log(xhr.status);
@@ -1705,19 +1707,15 @@
                 var html = '<div class="row">';
                 if (result && result.data) {
                     var items = result.data.items;
-                    console.log('cou ndbfhjds');
-                    console.log(items.length);
                     if (items.length) {
                         result.data.items.forEach((item) => {
                             html += '<div class="col-lg-4"><h3 class="text-center"><a href="/previous-events/' + item._id + '" style="color: #ffffff;" target="_blank"><span class="w-100">' + item.title + '</span><span  class="w-100">' + item.startMonth + ' ' + item.startDay + ' ' + item.startYear + '</span></a></h3><div id="carousel1" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item1"><a class="fancybox" target="_blank" href="/previous-events/' + item._id + '"><img class="d-block hover-shadow cursor" src="' + item.past_event_banner_image + '" style="width: 350px; height:250px"></a></div></div></div></div>'
                         })
                         html += '</div>';
-                        $('#previous-event').html(html);
                     } else {
                         html += '<p class="no-events p-5">No Event(s) Found';
-                        $('#previous-event').html(html);
                     }
-
+                    $('#previous-event').html(html);
                 }
             },
             error: function(xhr, status, error) {

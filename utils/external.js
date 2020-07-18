@@ -26,7 +26,7 @@ const hitApi = async ({url=`${config.apiUrl}`, path="", method='GET', headers={}
             console.group();
             console.log(`url: ${options.url}`);
             console.log(`statusCode: ${response.statusCode}`);
-            // console.log(`body: ${response.body}`);
+            console.log(`body: ${response.body}`);
             console.groupEnd();
             
             try {

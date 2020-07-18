@@ -1434,6 +1434,7 @@
                 if (!plans.length) {
                     $('#' + eventId).remove();
                 }
+                cart();
             },
             error: function(xhr) {
                 console.log(xhr.status);

@@ -47,6 +47,11 @@
 .truck {
     background: url(../images/truck-register.svg) center no-repeat;
     background-size: 170px 60px;
+    font-size: 15px;
+}
+
+.truck a {
+    font-size: 13px !important;
 }
 
 .slider-head span {
@@ -90,7 +95,7 @@
 
 .button-red {
     font-weight: 400;
-    padding: 8px 25px;
+    padding: 8px 15px;
     text-align: center;
     color: #ffffff;
     border-radius: 5px;
@@ -224,7 +229,7 @@
 }
 
 .site-logo-wrapper {
-    text-align: center;
+    /* text-align: center; */
 }
 
 .address {
@@ -1261,6 +1266,8 @@ a.remove {
 
 .payment-method a {
     margin: 25px;
+    cursor: default;
+    pointer-events: none;
 }
 
 .totolamt {
@@ -1281,6 +1288,10 @@ a.remove {
 
 .error h4 {
     color: #c83538;
+}
+
+#cart-error {
+    font-size: 13px;
 }
 
 
@@ -2029,7 +2040,7 @@ a.remove {
 
 .thumbnail-img {
     width: 100%;
-    height: 200px;
+    /* height: 200px; */
     border: 1px solid #ccc;
 }
 

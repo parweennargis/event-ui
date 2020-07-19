@@ -6,6 +6,8 @@ var express = require('express');
 var createError = require('http-errors');
 var cookieParser = require('cookie-parser');
 var exphbs  = require('express-handlebars');
+var responseTime = require('response-time');
+
 const adminRoutes = require('./routes/admin');
 const config = require('./config');
 
@@ -128,6 +130,7 @@ app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
+app.use(responseTime());
 
 const indexRouter = require('./routes/index')(app, router);
 

@@ -32,8 +32,8 @@ module.exports = {
             promises.push(externalUtils.hitApi({ path: "/event-categories" }));
             promises.push(externalUtils.hitApi({ path: "/offline-events", qs: { 'limit': 20 } }));
             promises.push(externalUtils.hitApi({ path: "/offline-categories" }));
-            promises.push(getSponsors());
-            const [eventList, eventCategories, offlineEventList, offlineEventCategories, sponsors] = await Promise.all(promises);
+            // promises.push(getSponsors());
+            const [eventList, eventCategories, offlineEventList, offlineEventCategories] = await Promise.all(promises);
 
             // Event list api
             eventList.data.items = (eventList.data && eventList.data.items) ? splitDate(eventList.data.items) : [];
@@ -58,7 +58,7 @@ module.exports = {
                 offlineEventList: offlineEventList.data,
                 offlineEventCategories: virtualEventCategories,
                 host: req.hostname,
-                sponsors: sponsors.data
+                // sponsors: sponsors.data
             };
 
             // console.log(data);
@@ -638,4 +638,14 @@ module.exports = {
     checkoutResponse: async (req, res) => {
         return res.render('checkout-response');
     },
+    sponsors: async (req, res) => {
+        try {
+            const sponsors = await externalUtils.hitApi({ path: "/sponsors", qs: { 'is_active': true } });
+            return res.status(200).json({ data: sponsors.data });
+        } catch (error) {
+            console.log(error);
+            return res.status(400).json({ message: error.message });
+        }
+
+    }
 };

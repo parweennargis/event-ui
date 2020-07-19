@@ -488,33 +488,33 @@
 
     // partners-carousel - start
     // --------------------------------------------------
-    $('#partners-carousel').owlCarousel({
-        nav: false,
-        loop: true,
-        autoplay: true,
-        smartSpeed: 1000,
-        autoplayTimeout: 2000,
-        autoplayHoverPause: true,
-        margin: 20,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            360: {
-                items: 1,
-            },
-            768: {
-                items: 4,
-            },
-            991: {
-                items: 5,
-            },
-            1199: {
-                items: 7,
-            }
-        }
-
-    });
+    // $('#partners-carousel').owlCarousel({
+    //     nav: false,
+    //     loop: true,
+    //     autoplay: true,
+    //     smartSpeed: 1000,
+    //     autoplayTimeout: 2000,
+    //     autoplayHoverPause: true,
+    //     margin: 20,
+    //     responsive: {
+    //         0: {
+    //             items: 1,
+    //         },
+    //         360: {
+    //             items: 1,
+    //         },
+    //         768: {
+    //             items: 4,
+    //         },
+    //         991: {
+    //             items: 5,
+    //         },
+    //         1199: {
+    //             items: 7,
+    //         }
+    //     }
+    //
+    // });
     // partners-carousel - end
     // --------------------------------------------------
 

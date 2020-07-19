@@ -1,5 +1,5 @@
 var path = require('path');
-var logger = require('morgan');
+var morgan = require('morgan');
 var multer = require('multer');
 var moment = require('moment');
 var express = require('express');
@@ -9,6 +9,7 @@ var exphbs  = require('express-handlebars');
 var responseTime = require('response-time');
 const compression = require('compression');
 const helmet = require('helmet');
+const { v4: uuidv4 } = require('uuid');
 
 const adminRoutes = require('./routes/admin');
 const config = require('./config');
@@ -111,6 +112,10 @@ const helpers = {
     }
 };
 
+morgan.token('id', function getId (req) {
+    return req.id;
+});
+
 var app = express();
 app.upload = upload;
 
@@ -127,8 +132,9 @@ var hbs = exphbs.create({
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+app.use(assignId);
+app.use(morgan(':id - :remote-addr - :date[format] :method :url :status :response-time ms :total-time ms'));
 app.use(responseTime());
-app.use(logger('dev'));
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -157,5 +163,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('404-error');
 });
+
+function assignId (req, res, next) {
+    req.id = uuidv4();
+    next();
+}
 
 module.exports = app;

@@ -8,6 +8,7 @@
     "dev": "node ./bin/www"
   },
   "dependencies": {
+    "compression": "^1.7.4",
     "consolidate": "^0.15.1",
     "cookie-parser": "^1.4.5",
     "debug": "^2.6.9",
@@ -15,6 +16,7 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.1.0",
     "handlebars-dateformat": "^1.1.1",
+    "helmet": "^3.23.3",
     "html2pdf.js": "^0.9.2",
     "http-errors": "^1.6.3",
     "jade": "~1.11.0",

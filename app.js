@@ -7,6 +7,8 @@ var createError = require('http-errors');
 var cookieParser = require('cookie-parser');
 var exphbs  = require('express-handlebars');
 var responseTime = require('response-time');
+const compression = require('compression');
+const helmet = require('helmet');
 
 const adminRoutes = require('./routes/admin');
 const config = require('./config');
@@ -125,12 +127,14 @@ var hbs = exphbs.create({
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+app.use(responseTime());
 app.use(logger('dev'));
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
-app.use(responseTime());
+app.use(compression());
+app.use(helmet());
 
 const indexRouter = require('./routes/index')(app, router);
 

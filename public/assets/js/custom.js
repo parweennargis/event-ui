@@ -1240,9 +1240,11 @@
                 if (location.href === window.location.origin + window.location.pathname) {
                     $('#absolute-eventmake-section').hide();
                 }
+                var roleType = response.data.role;
                 // localStorage.setItem('email', response.data.email);
                 // localStorage.setItem('role', response.data.role);
                 $('.admin-name').text(response.data.email);
+                $('.role-type').text(roleType === 'EXHIBITOR' ? 'You\'re Exhibitor' : 'You\'re Job Seeker');
                 // console.log(location.href);
                 // console.log(window.location);
                 return cb(true);

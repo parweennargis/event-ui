@@ -2268,6 +2268,14 @@ q {
     padding-left: 25px;
 }
 
+.sharethisevent {
+    color: #2968e7 !important;
+    padding: 10px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    margin-bottom: 30px !important;
+}
+
 @media (max-width:767px) {
     .navbar {
         flex-grow: auto;

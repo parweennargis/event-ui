@@ -169,9 +169,19 @@
                                     </div>
                                 {{/equalsTo}}
                                 {{#equalsTo data.user.role_type 'JOBSEEKER'}}
-                                    <div class="button">
-                                        <a href="#" class="button-red disp-flow-root width-215" id="interested-attend" data-event="{{data.event._id}}">I Am Interested To Attend</a>
-                                    </div>
+                                    {{#if data.isInterested}}
+                                        <div class="button">
+                                            <p style="text-align: center">You are Interested</p>
+                                        </div>
+                                    {{else}}
+                                        <div class="button" id="interested-attend" data-event="{{data.event._id}}">
+                                            <a href="#" class="button-red disp-flow-root width-215">I Am Interested To Attend</a>
+                                        </div>
+                                        <div class="button" style="display: none" id="interested">
+                                            <p style="text-align: center">You are Interested</p>
+                                        </div>
+                                        <div class="alert alert-danger col-md-12 col-sm-12" id="interested-error" style="display: none"></div>
+                                    {{/if}}
                                 {{/equalsTo}}
                             {{else}}
                                 <div class="button">

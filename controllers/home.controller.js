@@ -74,7 +74,7 @@ module.exports = {
             const { params: { eventId }, headers: { cookie } } = req;
             const promises = [
                 externalUtils.hitApi({ path: `/events/${eventId}` }),
-                getSponsors()
+                // getSponsors()
             ];
             if (cookie) {
                 const cookies = cookie.split('=');
@@ -84,7 +84,10 @@ module.exports = {
                 };
                 promises.push(externalUtils.hitApi({ path: `/profile`, headers }));
             }
-            const [event, sponsors, profile] = await Promise.all(promises);
+            const [event, profile] = await Promise.all(promises);
+
+            let isInterested = false;
+            if (profile && profile.data && profile.data.event_interested && event && event.data) isInterested = profile.data.event_interested.includes(event.data._id);
 
             if (event && event.data && event.data.start_date) {
                 event.data = splitDate([event.data], false)[0];
@@ -94,7 +97,8 @@ module.exports = {
                 event: event.data,
                 user: profile && profile.data,
                 host: req.hostname,
-                sponsors: sponsors.data
+                // sponsors: sponsors.data,
+                isInterested
             };
 
             return res.render('event-detail', { title: 'Event Detail', data });
@@ -643,6 +647,20 @@ module.exports = {
             console.log(error);
             return res.status(400).json({ message: error.message });
         }
-
+    },
+    interested: async (req, res) => {
+        try {
+            const { headers: { cookie }, body } = req;
+            const cookies = cookie.split('=');
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${cookies[1]}`
+            };
+            const apiResponse = await externalUtils.hitApi({ path: `/jobseeker-send-email`, method: 'POST', body, headers });
+            res.json({});
+        } catch (error) {
+            console.log(error);
+            return res.status(400).json({ data: error });
+        }
     }
 };

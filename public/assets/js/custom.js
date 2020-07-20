@@ -1526,25 +1526,23 @@
                 return;
             }
             // send email to jobseeker
-            var token = localStorage.getItem('token');
             $.ajax({
                 type: 'POST',
-                url: API_URL + '/jobseeker-send-email',
+                url: '/interested',
                 data: JSON.stringify({
                     event_id: eventId,
                 }),
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': token
+                    'Content-Type': 'application/json'
                 },
                 success: function (data) {
-                    alert('here');
-                    // redirect to sponsor listing page
-                    // location.href = '/admin/partners';
+                    $('#interested-attend').hide();
+                    $('#interested').show();
                 },
-                error: function (error) {
-                    alert("error");
-                    console.log(error);
+                error: function (xhr) {
+                    $("#interested-error").html(xhr.responseJSON.data.errors).fadeTo(2000, 500).slideUp(500, function () {
+                        $("#interested-error").slideUp(500);
+                    });
                 }
             })
 

@@ -133,7 +133,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(assignId);
-app.use(morgan(':id - :remote-addr - :date[format] :method :url :status :response-time ms :total-time ms'));
+app.use(morgan(':id - :remote-addr - :date[format] :method :url :status :response-time ms'));
 app.use(responseTime());
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: false }));

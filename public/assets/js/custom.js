@@ -1608,16 +1608,12 @@
             },
             data: JSON.stringify(data),
             success: function(response) {
-                console.log(response);
                 var frm = document.getElementsByName('contact-form')[0];
-                console.log(frm);
                 frm.reset(); // Reset all form data
                 location.href = '/contact-success';
-                // $('#error-message-contact').html('Thanks for contacting us, we wil get back to you shortly.');
             },
             error: function(xhr) {
-                console.log(xhr.status);
-                console.log(xhr.responseJSON);
+                $('#error-message-contact').html(xhr.responseJSON.data.errors);
             }
         });
     });

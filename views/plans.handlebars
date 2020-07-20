@@ -16,8 +16,8 @@
                                 {{data.venue.city}}, {{data.venue.state}}</h2>
                         </div>
                         <div class="col-md-3 print-events text-right">
-                            <a href=""><i class="fa fa-print" aria-hidden="true"></i> Print</a> &nbsp; &nbsp;
-                            <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i> Share</a>
+<!--                            <a href=""><i class="fa fa-print" aria-hidden="true"></i> Print</a> &nbsp; &nbsp;-->
+<!--                            <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i> Share</a>-->
                         </div>
                         <div class="col-md-9">
                             <div class="event-info-list ul-li mb-15">
@@ -38,7 +38,7 @@
                                         </span>
                                         <div class="event-content">
                                             <small class="event-title">Time</small>
-                                            <h3 class="event-date">{{data.start_time}} ~ {{data.end_time}}</h3>
+                                            <h3 class="event-date">{{data.start_time}} {{data.start_time_type}} ~ {{data.end_time}} {{data.end_time_type}} EDT</h3>
                                         </div>
                                     </li>
                                     <li class="ht-100">

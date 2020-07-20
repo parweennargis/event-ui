@@ -159,11 +159,8 @@ module.exports = {
             const apiResponse = await externalUtils.hitApi({ path: `/events/${eventId}` });
 
             if (apiResponse.data.start_date) {
-                const startDate = new Date(apiResponse.data.start_date).toDateString().split(' ');
-                apiResponse.data.startDay = startDate[2];
-                apiResponse.data.startMonth = startDate[1];
-                apiResponse.data.startYear = startDate[3];
-
+                apiResponse.data = splitDate([apiResponse.data], false)[0];
+                apiResponse.data = splitTime([apiResponse.data], false)[0];
             }
             // console.log(apiResponse);
             return res.render('plans', { title: 'Event Plan', data: apiResponse.data });
